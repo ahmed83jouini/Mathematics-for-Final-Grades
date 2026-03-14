@@ -2,83 +2,28 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الرياضيات للأقسام النهائية</title>
-    <style>
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #f4f7f6; 
-            color: #333; 
-            margin: 0; 
-            padding: 15px; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: right; /* ضمان محاذاة النص لليمين */
-        }
-
-        .container { 
-            width: 100%; 
-            max-width: 500px; 
-            background: white; 
-            padding: 25px; 
-            border-radius: 15px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-            box-sizing: border-box;
-        }
-
-        h1 { color: #1a73e8; font-size: 1.4rem; text-align: center; margin-bottom: 25px; border-bottom: 2px solid #e8f0fe; padding-bottom: 10px; }
-
-        .exercise-box { 
-            border-right: 5px solid #34a853; /* نقل الشريط لليمين ليناسب العربية */
-            border-left: none; /* إلغاء الشريط من اليسار */
-            background: #f9fff9; 
-            padding: 20px; 
-            margin: 20px 0; 
-            border-radius: 8px;
-        }
-
-        .math-text { direction: ltr; display: inline-block; font-weight: bold; color: #d93025; } /* جعل الرموز الرياضية تقرأ من اليسار لليمين داخل النص العربي */
-
-        input { 
-            padding: 12px; 
-            border: 2px solid #ddd; 
-            border-radius: 8px; 
-            width: 100%; 
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            box-sizing: border-box; 
-            text-align: center; /* جعل الرقم يظهر في المنتصف */
-        }
-
-        button { 
-            padding: 14px; 
-            background: #1a73e8; 
-            color: white; 
-            border: none; 
-            border-radius: 8px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 1.1rem;
-            width: 100%; 
-        }
-
-        #result { margin-top: 20px; font-weight: bold; text-align: center; min-height: 1.5em; }
-    </style>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
-    <h1>الرياضيات للأقسام النهائية</h1>
-    
-    <div class="exercise-box">
-        <h3>التمرين الأول: المتتاليات العددية</h3>
-        <p>لتكن المتتالية الحسابية <span class="math-text">(U<sub>n</sub>)</span> حيث حدها الأول <span class="math-text">U<sub>0</sub> = 10</span> والأساس <span class="math-text">d = 5</span>.</p>
-        <p><strong>أحسب قيمة الحد <span class="math-text">U<sub>4</sub></span> ؟</strong></p>
+    <div class="card main-card p-4">
+        <h1 class="text-primary text-center h4 mb-4 border-bottom pb-2">الرياضيات للأقسام النهائية</h1>
         
-        <input type="number" id="ans" placeholder="أدخل إجابتك هنا...">
-        <button onclick="verify()">تحقق من الإجابة</button>
-        <p id="result"></p>
+        <div id="exercise-1" class="exercise-box">
+            <h5 class="fw-bold">التمرين الأول: المتتاليات العددية</h5>
+            <p>لتكن المتتالية الحسابية <span class="math-text">(U<sub>n</sub>)</span> حيث <span class="math-text">U<sub>0</sub> = 10</span> والأساس <span class="math-text">d = 5</span>.</p>
+            <p class="fw-bold">أحسب قيمة الحد <span class="math-text">U<sub>4</sub></span> ؟</p>
+            
+            <input type="number" id="ans" class="form-control form-control-lg text-center mb-3" placeholder="أدخل إجابتك هنا...">
+            <button onclick="verify()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة</button>
+            <div id="result" class="mt-3 text-center fw-bold"></div>
+        </div>
     </div>
 </div>
 
@@ -87,27 +32,14 @@
         const a = document.getElementById('ans').value;
         const res = document.getElementById('result');
         if(a == 30) {
-            res.style.color = "#2e7d32";
-            res.innerHTML = "🎉 إجابة صحيحة! المنطق سليم:<br> 30= (5 × 4) + 10";
-        } else if (a == "") {
-            res.style.color = "#888";
-            res.innerHTML = "يرجى إدخال رقم.";
+            res.className = "mt-3 text-center fw-bold correct-answer";
+            res.innerHTML = "🎉 إجابة صحيحة! المنطق سليم.";
         } else {
-            res.style.color = "#d93025";
-            res.innerHTML = "❌ حاول مرة أخرى. تذكر القانون: <br> Uₙ = U₀ + n × d";
+            res.className = "mt-3 text-center fw-bold wrong-answer";
+            res.innerHTML = "❌ حاول مرة أخرى.";
         }
     }
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-            
