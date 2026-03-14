@@ -1,65 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>الرياضيات للأقسام النهائية</title>
     <style>
-        /* 2. ضبط الهوامش الأساسية لتشمل كل الصفحة */
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             background-color: #f4f7f6; 
             color: #333; 
-            line-height: 1.6; 
-            margin: 0; /* إلغاء هوامش المتصفح الافتراضية */
-            padding: 10px; /* هامش بسيط جداً من الحواف */
+            margin: 0; 
+            padding: 15px; 
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: right; /* ضمان محاذاة النص لليمين */
         }
 
-        /* 3. جعل الحاوية تشغل العرض بالكامل مع هوامش جانبية أنيقة */
         .container { 
-            width: 100%; /* العرض الكامل */
-            max-width: 600px; /* حد أقصى للحفاظ على التناسق على الشاشات الكبيرة */
+            width: 100%; 
+            max-width: 500px; 
             background: white; 
-            padding: 20px; 
-            border-radius: 12px; 
+            padding: 25px; 
+            border-radius: 15px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-            box-sizing: border-box; /* لضمان أن الـ padding لا يزيد العرض */
-            text-align: right 
+            box-sizing: border-box;
         }
 
-        /* تنسيق العناوين والفقرات لتكون أوضح */
-        h1 { color: #1a73e8; font-size: 1.5rem; text-align: center; margin-bottom: 20px; }
-        h3 { color: #333; font-size: 1.2rem; margin-top: 0; }
-        p { font-size: 1rem; color: #555; }
+        h1 { color: #1a73e8; font-size: 1.4rem; text-align: center; margin-bottom: 25px; border-bottom: 2px solid #e8f0fe; padding-bottom: 10px; }
 
-        /* صندوق التمرين */
         .exercise-box { 
-            border-right: 5px solid #34a853; 
+            border-right: 5px solid #34a853; /* نقل الشريط لليمين ليناسب العربية */
+            border-left: none; /* إلغاء الشريط من اليسار */
             background: #f9fff9; 
-            padding: 15px; 
-            margin: 15px 0; 
+            padding: 20px; 
+            margin: 20px 0; 
             border-radius: 8px;
-            text-align: right 
         }
 
-        /* تنسيق حقل الإدخال ليكون كبيراً وسهل اللمس */
+        .math-text { direction: ltr; display: inline-block; font-weight: bold; color: #d93025; } /* جعل الرموز الرياضية تقرأ من اليسار لليمين داخل النص العربي */
+
         input { 
             padding: 12px; 
             border: 2px solid #ddd; 
             border-radius: 8px; 
-            width: 100%; /* ملء عرض الحاوية */
+            width: 100%; 
             font-size: 1.1rem;
             margin-bottom: 15px;
             box-sizing: border-box; 
+            text-align: center; /* جعل الرقم يظهر في المنتصف */
         }
-        input:focus { border-color: #1a73e8; outline: none; }
 
-        /* تنسيق الزر ليكون عريضاً وسهل الضغط */
         button { 
-            padding: 12px; 
+            padding: 14px; 
             background: #1a73e8; 
             color: white; 
             border: none; 
@@ -67,33 +60,24 @@
             cursor: pointer; 
             font-weight: bold; 
             font-size: 1.1rem;
-            width: 100%; /* ملء عرض الحاوية */
-            transition: background 0.2s;
+            width: 100%; 
         }
-        button:hover { background: #1557b0; }
 
-        /* تنسيق النتيجة */
-        #result { 
-            margin-top: 15px; 
-            font-weight: bold; 
-            text-align: center; 
-            font-size: 1.1rem;
-            min-height: 1.6em; /* الحفاظ على المساحة حتى لو كانت فارغة */
-        }
+        #result { margin-top: 20px; font-weight: bold; text-align: center; min-height: 1.5em; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>الرياضيات للأقسام النهائية.</h1>
+    <h1>الرياضيات للأقسام النهائية</h1>
     
     <div class="exercise-box">
         <h3>التمرين الأول: المتتاليات العددية</h3>
-        <p>لتكن (U<sub>n</sub>) المتتالية العددية حيثU<sub>0</sub> = 10 و الدور d = 5.</p>
-        <p><strong>أحسب قيمة U<sub>4</sub>?</strong></p>
+        <p>لتكن المتتالية الحسابية <span class="math-text">(U<sub>n</sub>)</span> حيث حدها الأول <span class="math-text">U<sub>0</sub> = 10</span> والأساس <span class="math-text">d = 5</span>.</p>
+        <p><strong>أحسب قيمة الحد <span class="math-text">U<sub>4</sub></span> ؟</strong></p>
         
-        <input type="number" id="ans" placeholder="Enter your answer...">
-        <button onclick="verify()">Submit Answer</button>
+        <input type="number" id="ans" placeholder="أدخل إجابتك هنا...">
+        <button onclick="verify()">تحقق من الإجابة</button>
         <p id="result"></p>
     </div>
 </div>
@@ -102,25 +86,18 @@
     function verify() {
         const a = document.getElementById('ans').value;
         const res = document.getElementById('result');
-        // Formula: U4 = U0 + 4*d = 10 + (4 * 5) = 10 + 20 = 30
         if(a == 30) {
             res.style.color = "#2e7d32";
-            res.innerHTML = " : U₄ = 10 + (4 × 5) = 30.أحسنت! العبارة الجبرية هي:🎉";
+            res.innerHTML = "🎉 إجابة صحيحة! المنطق سليم: 30 = (5 × 4) + 10";
         } else if (a == "") {
             res.style.color = "#888";
-            res.innerHTML = "Please enter a number.";
+            res.innerHTML = "يرجى إدخال رقم.";
         } else {
             res.style.color = "#d93025";
-            res.innerHTML = "❌ Try again. Hint: Uₙ = U₀ + n × d";
+            res.innerHTML = "❌ حاول مرة أخرى. تذكر القانون: Uₙ = U₀ + n × d";
         }
     }
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
