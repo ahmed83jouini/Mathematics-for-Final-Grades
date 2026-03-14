@@ -1,0 +1,32 @@
+/* التنسيقات العامة للمنصة التعليمية */
+body { 
+    background-color: #f4f7f6; 
+    padding-top: 30px; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-card {
+    max-width: 550px;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.exercise-box { 
+    border-right: 5px solid #34a853; 
+    background: #f9fff9; 
+    padding: 20px; 
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.math-text { 
+    direction: ltr; 
+    display: inline-block; 
+    font-weight: bold; 
+    color: #d93025; 
+}
+
+/* تنسيق النتائج */
+.correct-answer { color: #2e7d32; }
+.wrong-answer { color: #d93025; }
