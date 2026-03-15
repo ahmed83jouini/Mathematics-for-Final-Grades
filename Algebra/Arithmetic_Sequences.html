@@ -3,30 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المتتالية الحسابية - النموذج التفاعلي</title>
+    <title>Arithmetic Sequences - Final Model</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <style>
         body { background-color: #f8f9fa; font-family: 'Segoe UI', Tahoma, sans-serif; }
         .lesson-card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 25px; border-right: 6px solid #0d6efd; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .math-block { 
-            direction: ltr; 
-            background: #f1f3f4; 
-            padding: 20px; 
-            border-radius: 8px; 
-            margin: 15px 0; 
-            text-align: center;
-            font-size: 1.2rem;
-            color: #1a73e8;
-        }
-        .translation-hint { font-size: 0.9rem; color: #6c757d; margin-top: 5px; text-align: right; font-style: italic; }
+        .math-block { direction: ltr; background: #f1f3f4; padding: 20px; border-radius: 8px; margin: 15px 0; text-align: center; color: #1a73e8; }
+        .translation-hint { font-size: 0.9rem; color: #6c757d; margin-top: 5px; text-align: right; }
         .feedback-area { display: none; margin-top: 20px; padding: 15px; border-radius: 8px; }
-        .btn-check-custom { background-color: #0d6efd; color: white; font-weight: bold; border-radius: 8px; padding: 12px; transition: 0.3s; }
-        .btn-check-custom:hover { background-color: #0b5ed7; }
     </style>
 </head>
 <body>
@@ -37,62 +25,38 @@
 
     <div class="lesson-card">
         <h4 class="text-dark border-bottom pb-2">1. التعريف (Definition)</h4>
-        <p class="mt-3">المتتالية الحسابية هي نمط عددي ننتقل فيه من حد إلى آخر بإضافة قيمة ثابتة تسمى **الأساس**.</p>
-        
-        <div class="math-block">
-            $$U_{n+1} = U_n + d$$
-        </div>
-        <div class="translation-hint">
-            حيث \( d \) هو الأساس (Common Difference).
-        </div>
+        <p class="mt-3">المتتالية الحسابية هي نمط عددي ننتقل فيه بإضافة قيمة ثابتة تسمى **الأساس**.</p>
+        <div class="math-block">$$U_{n+1} = U_n + d$$</div>
+        <div class="translation-hint">حيث \( d \) هو الأساس (Common Difference).</div>
     </div>
 
     <div class="lesson-card">
         <h4 class="text-dark border-bottom pb-2">2. عبارة الحد العام (General Term)</h4>
-        <p class="mt-3">هذه الصيغة تسمح لنا بحساب أي حد في المتتالية مباشرة دون الحاجة لحساب الحدود السابقة:</p>
-        
-        <div class="math-block">
-            $$U_n = U_p + (n - p) \times d$$
-        </div>
-        <div class="translation-hint">
-            تسمى بصيغة الحد العام (General Term Formula).
-        </div>
+        <div class="math-block">$$U_n = U_p + (n - p) \times d$$</div>
     </div>
 
     <div class="lesson-card">
         <h4 class="text-dark border-bottom pb-2">3. مجموع الحدود (Sum of Terms)</h4>
-        <p class="mt-3">لحساب مجموع عدد متتابع من الحدود نستعمل الصيغة التالية:</p>
-        
-        <div class="math-block">
-            $$S = \frac{N}{2} \times (U_{first} + U_{last})$$
-        </div>
-        <div class="translation-hint">
-            \( N \) هو عدد الحدود (Number of terms).
-        </div>
+        <div class="math-block">$$S = \frac{N}{2} \times (U_{first} + U_{last})$$</div>
     </div>
 
     <div class="lesson-card">
-        <h4 class="text-danger border-bottom pb-2">4. تطبيق مباشر (Direct Application)</h4>
+        <h4 class="text-danger border-bottom pb-2">4. تطبيق مباشر</h4>
         <div class="alert alert-secondary mt-3 text-center" style="direction: ltr;">
             Given: \( U_0 = 5 \) and \( d = 3 \)
         </div>
-        <div class="translation-hint mb-4">
-            المعطيات: الحد الأول هو 5 والأساس هو 3.
-        </div>
         
         <div class="mb-4">
-            <label class="form-label fw-bold">1. Find the value of \( U_{10} \):</label>
-            <input type="number" id="ans1" class="form-control" placeholder="أدخل النتيجة">
-            <div class="translation-hint">المطلوب: احسب قيمة الحد العاشر.</div>
+            <label class="form-label fw-bold">1. Find \( U_{10} \):</label>
+            <input type="number" id="ans1" class="form-control" placeholder="Result">
         </div>
 
         <div class="mb-4">
-            <label class="form-label fw-bold">2. Calculate the sum from \( U_0 \) to \( U_{10} \):</label>
-            <input type="number" id="ans2" class="form-control" placeholder="أدخل النتيجة">
-            <div class="translation-hint">المطلوب: احسب المجموع من الحد الأول إلى العاشر.</div>
+            <label class="form-label fw-bold">2. Sum from \( U_0 \) to \( U_{10} \):</label>
+            <input type="number" id="ans2" class="form-control" placeholder="Result">
         </div>
 
-        <button onclick="checkAnswers()" class="btn btn-check-custom w-100 shadow-sm">تحقق من الإجابات (Check)</button>
+        <button onclick="checkAnswers()" class="btn btn-primary w-100 py-2 fw-bold shadow-sm">تحقق من الإجابة (Check)</button>
 
         <div id="feedback" class="feedback-area shadow-sm"></div>
     </div>
@@ -107,24 +71,18 @@ function checkAnswers() {
     fb.style.display = "block";
     
     if (a1 == 35 && a2 == 220) {
-        fb.innerHTML = `
-            <div class="alert alert-success text-center shadow-sm">
-                <h5>🌟 أحسنت! (Excellent)</h5>
-                <p class="mb-0">لقد تمكنت من حل التطبيق بنجاح تام.</p>
-            </div>`;
+        fb.innerHTML = `<div class="alert alert-success text-center">🌟 أحسنت! إجابات صحيحة.</div>`;
     } else {
-        let help = `<div class="alert alert-warning shadow-sm"><h5>🔍 مساعدة (Hint):</h5>`;
-        
-        if (a1 != 35) {
-            help += `<p>• لحساب \( U_{10} \): استخدم القانون \( 5 + (10 \times 3) \).</p>`;
-        }
-        
-        if (a2 != 220) {
-            help += `<p>• لحساب المجموع: تذكر أن عدد الحدود هو 11. العملية هي \( \frac{11}{2} \times (5 + 35) \).</p>`;
-        }
-        
+        let help = `<div class="alert alert-warning"><h5>🔍 مساعدة (Hint):</h5>`;
+        if (a1 != 35) help += `<p>• لحساب \( U_{10} \): استخدم \( 5 + (10 \times 3) \).</p>`;
+        if (a2 != 220) help += `<p>• للمجموع: عدد الحدود هو 11. احسب \( \frac{11}{2} \times (5 + 35) \).</p>`;
         help += `</div>`;
         fb.innerHTML = help;
+    }
+
+    // هذا السطر هو الذي يزيل "الحجارة من الحذاء" ويجعل المعادلات تظهر سليمة فوراً
+    if (window.MathJax) {
+        MathJax.typesetPromise([fb]);
     }
 }
 </script>
