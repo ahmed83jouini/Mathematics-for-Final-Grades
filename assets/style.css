@@ -1,32 +1,66 @@
-/* التنسيقات العامة للمنصة التعليمية */
-body { 
-    background-color: #f4f7f6; 
-    padding-top: 30px; 
+/* دستور التنسيق الموحد - style.css */
+
+/* الإعدادات العامة للموقع */
+body {
+    background-color: #f8f9fa;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
 }
 
-.main-card {
-    max-width: 550px;
-    margin: auto;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+/* بطاقة الدرس أو التمرين */
+.lesson-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-right: 6px solid #0d6efd; /* الهوية الزرقاء */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.exercise-box { 
-    border-right: 5px solid #34a853; 
-    background: #f9fff9; 
-    padding: 20px; 
+/* تنسيق الرياضيات العالمي (يسار إلى يمين) */
+.math-block {
+    direction: ltr;
+    background: #f1f3f4;
+    padding: 20px;
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin: 15px 0;
+    text-align: center;
+    font-size: 1.25rem;
+    color: #1a73e8;
 }
 
-.math-text { 
-    direction: ltr; 
-    display: inline-block; 
-    font-weight: bold; 
-    color: #d93025; 
+/* صناديق التوجيه والمساعدة (مخفية افتراضياً) */
+.hint-box {
+    display: none;
+    margin-top: 12px;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid #ffeeba;
 }
 
-/* تنسيق النتائج */
-.correct-answer { color: #2e7d32; }
-.wrong-answer { color: #d93025; }
+/* تسميات الأسئلة */
+.question-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* أزرار التنقل السفلية */
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-next { background-color: #198754; color: white; flex: 1; font-weight: bold; padding: 12px; border-radius: 8px; text-decoration: none; text-align: center; }
+.btn-back { background-color: #6c757d; color: white; flex: 1; font-weight: bold; padding: 12px; border-radius: 8px; text-decoration: none; text-align: center; }
+
+/* تحسينات الشاشات الصغيرة (الهواتف) */
+@media (max-width: 600px) {
+    .lesson-card { padding: 15px; }
+    .nav-buttons { flex-direction: column; }
+    .math-block { font-size: 1.1rem; }
+}
