@@ -31,16 +31,30 @@ body {
 }
 
 /* تنسيق الرياضيات العالمي (يسار إلى يمين) */
-.math-block {
-    direction: ltr;
-    background: #f1f3f4;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 15px 0;
-    text-align: center;
-    font-size: 1.25rem;
-    color: #1a73e8;
+.math-block { 
+    direction: ltr; 
+    background: #f1f3f4; 
+    padding: 20px; 
+    border-radius: 8px; 
+    margin: 15px 0; 
+    text-align: center; 
+    color: #1a73e8; 
+    font-size: 1.3rem; 
+    /* الحل السحري للـ débordement */
+    overflow-x: auto; /* السماح بالتمرير الأفقي فقط عند الحاجة */
+    white-space: nowrap; /* منع انكسار المعادلة بشكل مشوه */
+    max-width: 100%; /* ضمان عدم خروج الصندوق عن حدود الأب */
 }
+
+/* تحسين مظهر شريط التمرير ليكون ناعماً */
+.math-block::-webkit-scrollbar {
+    height: 6px;
+}
+.math-block::-webkit-scrollbar-thumb {
+    background: #0d6efd;
+    border-radius: 10px;
+}
+
 
 /* صناديق التوجيه والمساعدة (مخفية افتراضياً) */
 .hint-box {
