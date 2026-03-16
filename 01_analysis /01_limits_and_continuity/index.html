@@ -33,12 +33,40 @@
         }
     </style>
     <style>
-    .math-block {
-        overflow-x: auto !important;
-        display: block !important;
-        max-width: 100% !important;
-        white-space: nowrap !important;
-    }
+        .math-block {
+            overflow-x: auto !important;
+            display: block !important;
+            max-width: 100% !important;
+            white-space: nowrap !important;
+         }
+        /* تنسيق شريط التمرير للصناديق الرياضية */
+        .math-block {
+            overflow-x: auto !important;
+            padding-bottom: 15px !important; /* مساحة إضافية للشريط لكي لا يغطي المعادلة */
+        و}
+
+        /* جعل الشريط مرئياً دائماً في متصفحات Chrome و Safari */
+        .math-block::-webkit-scrollbar {
+            height: 8px; /* سمك الشريط */
+            display: block !important;
+         }
+
+         .math-block::-webkit-scrollbar-track {
+             background: #e9ecef; /* لون خلفية المجرى */
+             border-radius: 10px;
+          }
+
+         .math-block::-webkit-scrollbar-thumb {
+             background: #0d6efd; /* لون المقبض (أزرق مثل هويتنا) */
+             border-radius: 10px;
+             border: 2px solid #e9ecef;
+          }
+
+          /* للمتصفحات الأخرى مثل Firefox */
+          .math-block {
+              scrollbar-width: auto;
+              scrollbar-color: #0d6efd #e9ecef;
+          }
     </style>
 
 
