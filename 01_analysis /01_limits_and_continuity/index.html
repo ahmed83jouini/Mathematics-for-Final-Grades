@@ -8,19 +8,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <script>
-       window.MathJax = {
-           tex: {
-               inlineMath: [['$', '$'], ['\\(', '\\)']],
-               displayMath: [['$$', '$$'], ['\\[', '\\]']],
-               processEscapes: true
-           },
-           options: {
-               skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-           }
-      };
-    </script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$']],
+      displayMath: [['$$', '$$']]
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
 
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/dist/browser/js/mathjax.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" integrity="sha512-6S73uB6U3suNRL3SpisunD3v+o66LzVz4IAnO3/OizH48f8/L8k5v9GqE4N6N3W6T7bA3Xy9U8h6K5V9GqE4N==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <style>
         .lesson-card {
