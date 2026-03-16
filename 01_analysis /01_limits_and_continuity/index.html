@@ -29,22 +29,14 @@
             margin: 15px 0; 
             text-align: center; 
             color: #1a73e8; 
-            font-size: 1.3rem; 
-        }
-    </style>
-    <style>
-        .math-block {
+            font-size: 1rem; 
             overflow-x: auto !important;
             display: block !important;
             max-width: 100% !important;
             white-space: nowrap !important;
+            scrollbar-width: auto;
+            scrollbar-color: #0d6efd #e9ecef;
          }
-        /* تنسيق شريط التمرير للصناديق الرياضية */
-        .math-block {
-            overflow-x: auto !important;
-            padding-bottom: 15px !important; /* مساحة إضافية للشريط لكي لا يغطي المعادلة */
-        و}
-
         /* جعل الشريط مرئياً دائماً في متصفحات Chrome و Safari */
         .math-block::-webkit-scrollbar {
             height: 8px; /* سمك الشريط */
@@ -60,12 +52,6 @@
              background: #0d6efd; /* لون المقبض (أزرق مثل هويتنا) */
              border-radius: 10px;
              border: 2px solid #e9ecef;
-          }
-
-          /* للمتصفحات الأخرى مثل Firefox */
-          .math-block {
-              scrollbar-width: auto;
-              scrollbar-color: #0d6efd #e9ecef;
           }
     </style>
 
