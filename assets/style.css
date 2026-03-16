@@ -9,35 +9,27 @@ body {
 }
 
 /* بطاقة الدرس أو التمرين */
-/* بطاقة الدرس أو التمرين - نسخة مرنة ومنطقية */
+/* الحل القاطع: فرض الحد من جهة اليمين دائماً */
 .lesson-card {
     background: white;
     border-radius: 12px;
     padding: 25px;
     margin-bottom: 25px;
     
-    /* الحل الجذري: نستخدم بداية السطر المنطقية بدل اليمين الجامد */
-    border-inline-start: 6px solid #0d6efd; 
-    border-right: none; /* إلغاء أي تعريف قديم لجهة اليمين */
-    border-left: none;  /* إلغاء أي تعريف قديم لجهة اليسار */
+    /* نستخدم اليمين الصريح مع !important لكسر أي قواعد أخرى */
+    border-right: 6px solid #0d6efd !important; 
+    border-left: 0 !important; 
     
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* ظل أنعم قليلاً */
-    transition: transform 0.2s ease;
-    }
-
- .lesson-card:hover {
-    transform: translateY(-2px); /* حركة بسيطة عند تمرير الفأرة تعطي إحساساً بالتفاعل */
-   }
-/*
-.lesson-card {
-    background: white;
-    border-radius: 12px;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-right: 6px solid #0d6efd; /* الهوية الزرقاء 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: right; /* ضمان محاذاة النص لليمين */
 }
-*/
+
+/* لزيادة الأمان: نؤكد على المتصفح أن أي "بداية" هي اليمين */
+[dir="rtl"] .lesson-card {
+    border-right: 6px solid #0d6efd !important;
+    border-left: 0 !important;
+}
+
 /* تنسيق الرياضيات العالمي (يسار إلى يمين) */
 .math-block {
     direction: ltr;
