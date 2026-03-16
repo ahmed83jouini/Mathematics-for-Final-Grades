@@ -86,6 +86,91 @@
             </div>
         </div>
     </div>
+    
+    <div class="lesson-card">
+    <h3 class="text-secondary border-bottom pb-2">3. النهايات الشهيرة</h3>
+    
+    <div class="mt-4">
+        <h5>أ) النهايات المثلثية (عند 0):</h5>
+        <div class="math-block">
+            $$\lim_{x \to 0} \frac{\sin x}{x} = 1 \quad , \quad \lim_{x \to 0} \frac{1 - \cos x}{x^2} = \frac{1}{2}$$
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <h5>ب) نهاية دالة مركبة:</h5>
+        <p>لحساب نهاية $g(f(x))$، نحسب أولاً نهاية الدالة "البنت" $f(x)$ ثم نعوض النتيجة في "الأم" $g$.</p>
+        <div class="math-block">
+            \text{إذا كان: } \lim_{x \to a} f(x) = L \implies \lim_{x \to a} \sqrt{f(x)} = \sqrt{L}
+        </div>
+    </div>
+</div>
+    <div class="lesson-card">
+    <h3 class="text-secondary border-bottom pb-2">3. ملخص النهايات الشهيرة والعمليات</h3>
+    
+    <div class="table-responsive mt-4">
+        <h5 class="text-primary">أ) النهايات الشهيرة (عند الصفر واللانهاية):</h5>
+        <table class="table table-bordered text-center align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>الدالة</th>
+                    <th>النهاية</th>
+                    <th>ملاحظات</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>$\frac{\sin x}{x}$</td>
+                    <td>$\lim_{x \to 0} = 1$</td>
+                    <td>أساس إزالة الحالات المثلثية</td>
+                </tr>
+                <tr>
+                    <td>$\frac{1-\cos x}{x^2}$</td>
+                    <td>$\lim_{x \to 0} = \frac{1}{2}$</td>
+                    <td>نهاية شهيرة هامة</td>
+                </tr>
+                <tr>
+                    <td>$\frac{1}{x^n}$</td>
+                    <td>$\lim_{x \to \pm\infty} = 0$</td>
+                    <td>لكل $n \in \mathbb{N}^*$</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-responsive mt-4">
+        <h5 class="text-primary">ب) عمليات الضرب والقسمة (النتائج المتفق عليها):</h5>
+        <p class="small text-muted">هذه ليست حالات عدم تعيين، بل قواعد ثابتة:</p>
+        <table class="table table-sm table-hover text-center border">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <th>العملية</th>
+                    <th>النتيجة</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>$L + (\pm\infty)$</td>
+                    <td>$\pm\infty$</td>
+                </tr>
+                <tr>
+                    <td>$(+\infty) + (+\infty)$</td>
+                    <td>$+\infty$</td>
+                </tr>
+                <tr>
+                    <td>$\frac{L}{\pm\infty}$</td>
+                    <td>$0$</td>
+                </tr>
+                <tr>
+                    <td>$\frac{L \neq 0}{0}$</td>
+                    <td>$\infty$ (حسب الإشارة)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
 </div>
 
 </body>
