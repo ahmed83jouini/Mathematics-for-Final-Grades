@@ -62,6 +62,11 @@
              border-radius: 10px;
              border: 2px solid #e9ecef;
           }
+        /* ضبط اتجاه النص لجميع عناصر الأكورديون */
+        .accordion {
+           direction: rtl;
+           text-align: right;
+         }
           /* 1. تغيير خلفية الزر إلى الأبيض وإزالة اللون الأزرق عند التركيز */
           .accordion-button {
              background-color: white !important;
@@ -69,6 +74,9 @@
              box-shadow: none !important;
              flex-direction: row-reverse; /* لجعل السهم في البداية */
              justify-content: flex-end;   /* محاذاة النص والسهم */
+             direction: rtl;
+             text-align: right;
+             unicode-bidi: isolate; /* يضمن عدم تداخل الرموز مع النص العربي */
            }
 
            /* 2. التحكم في السهم (المؤشر) ليظهر في البداية */
