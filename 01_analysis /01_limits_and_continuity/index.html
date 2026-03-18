@@ -27,7 +27,16 @@
             color: #333 !important;
             font-weight: bold; 
             text-align: right;
+            flex-direction:row !important;
+            justify-content:flex-start !important;
+            gap:10px;
+            text-align:right;
         }
+        .accordion-button::after{
+            margin-right:0 !important;
+            margin-left:10px;
+            order:-1;
+         }
         /* حاوية المعادلات المحمية من الفيضان */
         .math-wrapper {
             direction: ltr !important; 
