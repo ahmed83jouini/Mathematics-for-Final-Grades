@@ -22,28 +22,36 @@
             border-right: 8px solid #0d6efd; box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
         }
 
-        /* تنسيق موحد لكتل الرياضيات والمعادلات الطويلة */
+        /* حاوية المعادلات: تضمن عدم كسر التصميم وسهولة القراءة */
         .math-block, .math-container { 
             direction: ltr !important; background: #f1f3f4; padding: 15px; 
             border-radius: 8px; margin: 15px 0; text-align: center; 
-            overflow-x: auto; display: block;
+            overflow-x: auto; display: block; width: 100%;
         }
 
-        /* تنسيق زر الأكورديون (السهم في البداية + خلفية بيضاء) */
+        /* تنسيق زر الأكورديون الذكي: تطبيق فكرة الصناديق */
         .accordion-button {
             background-color: white !important; color: #333 !important;
-            box-shadow: none !important; flex-direction: row-reverse;
-            justify-content: space-between; unicode-bidi: isolate;
+            box-shadow: none !important; 
+            display: flex !important;
+            flex-direction: row-reverse; /* السهم في اليمين (البداية) */
+            justify-content: flex-end;   /* دفع العناصر لليمين */
+            gap: 4px; /* مسافة دقيقة بين الصناديق */
+            padding: 15px;
         }
 
-        .accordion-button::after { margin-right: 0; margin-left: 10px; }
-        
-        /* إصلاح علامات الاستفهام والأقواس في العناوين */
-        .accordion-header { direction: rtl; text-align: right; }
-        
-        /* جداول النهايات */
-        .table { font-size: 0.9rem; }
-        .table th { background-color: #0d6efd !important; color: white; }
+        .accordion-button::after { 
+            margin-right: auto; /* دفع السهم لأقصى اليسار في حال أردت، أو اتركه للتحكم اليدوي */
+            margin-left: 10px; 
+        }
+
+        /* صناديق التحكم بالاتجاه داخل العنوان */
+        .box-ar { direction: rtl; display: inline-block; }
+        .box-lat { direction: ltr; display: inline-block; unicode-bidi: isolate; }
+
+        /* تنسيق الجداول */
+        .table { font-size: 0.95rem; margin-top: 15px; }
+        .table thead { background-color: #0d6efd; color: white; }
     </style>
 </head>
 <body>
@@ -56,12 +64,12 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item1">
-                        ما هو مفهوم نهاية دالة؟
+                        <span class="box-ar">ما هو مفهوم نهاية دالة؟</span>
                     </button>
                 </h2>
                 <div id="item1" class="accordion-collapse collapse" data-bs-parent="#limitAccordion">
                     <div class="accordion-body">
-                        <p>نقول إن نهاية الدالة $f(x)$ هي $L$ عندما يؤول $x$ إلى $a$ إذا كان كلما اقتربت $x$ من $a$ اقتربت $f(x)$ من $L$.</p>
+                        <p>نقول إن نهاية الدالة $f(x)$ هي $L$ عندما يؤول $x$ إلى $a$ إذا كان كلما اقتربت قيمة $x$ من $a$، اقتربت قيمة $f(x)$ من $L$ بقدر ما نشاء.</p>
                     </div>
                 </div>
             </div>
@@ -69,12 +77,14 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item2">
-                        <span>التعريف الرياضي الدقيق (تعريف كوشي </span><span dir="ltr">$\epsilon, \delta$</span>)
+                        <span class="box-ar">التعريف الرياضي الدقيق (تعريف كوشي</span>
+                        <span class="box-lat">&nbsp;$\epsilon, \delta$</span>
+                        <span class="box-ar">)</span>
                     </button>
                 </h2>
                 <div id="item2" class="accordion-collapse collapse" data-bs-parent="#limitAccordion">
                     <div class="accordion-body">
-                        <p>نقول إن $\lim_{x \to a} f(x) = L$ إذا تحقق الشرط التالي:</p>
+                        <p>نقول إن $\lim_{x \to a} f(x) = L$ إذا وفقط إذا كان:</p>
                         <div class="math-container">
                             $$\forall \epsilon > 0, \exists \delta > 0 : 0 < |x - a| < \delta \implies |f(x) - L| < \epsilon$$
                         </div>
@@ -93,18 +103,18 @@
     </div>
 
     <div class="lesson-card">
-        <h2 class="text-primary fw-bold h4">2. قواعد النهايات الهامة</h2>
-        <h6 class="mt-3">أ) كثيرات الحدود (عند اللانهاية):</h6>
+        <h2 class="text-primary fw-bold h4">2. النهايات عند اللانهاية</h2>
+        <h6 class="mt-4 fw-bold">أ) دالة كثير حدود:</h6>
         <div class="math-block">$$\lim_{x \to \pm\infty} P(x) = \lim_{x \to \pm\infty} a_n x^n$$</div>
         
-        <h6 class="mt-3">ب) الدوال الناطقة (عند اللانهاية):</h6>
+        <h6 class="mt-4 fw-bold">ب) دالة ناطقة:</h6>
         <div class="math-block">$$\lim_{x \to \pm\infty} \frac{P(x)}{Q(x)} = \lim_{x \to \pm\infty} \frac{a x^n}{b x^m}$$</div>
     </div>
 
     <div class="lesson-card">
-        <h2 class="text-primary fw-bold h4">3. ملخص العمليات</h2>
-        <div class="table-responsive mt-3">
-            <table class="table table-bordered text-center">
+        <h2 class="text-primary fw-bold h4">3. ملخص العمليات الجبرية</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered text-center align-middle">
                 <thead>
                     <tr>
                         <th>العملية</th>
@@ -114,7 +124,7 @@
                 <tbody>
                     <tr><td>$L + (\pm\infty)$</td><td>$\pm\infty$</td></tr>
                     <tr><td>$\frac{L}{\pm\infty}$</td><td>$0$</td></tr>
-                    <tr><td>$\frac{L \neq 0}{0}$</td><td>$\infty$</td></tr>
+                    <tr><td>$\frac{L \neq 0}{0}$</td><td>$\infty$ (حسب الإشارة)</td></tr>
                 </tbody>
             </table>
         </div>
