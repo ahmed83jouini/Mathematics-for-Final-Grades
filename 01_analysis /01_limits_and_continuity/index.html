@@ -74,6 +74,9 @@
                 <div id="item1" class="accordion-collapse collapse" data-bs-parent="#limitAccordion">
                     <div class="accordion-body">
                         <p>نقول إن نهاية الدالة $f(x)$ هي $L$ عندما يؤول $x$ إلى $a$.</p>
+                        <p>نقول إن نهاية الدالة $f(x)$ هي $L$ عندما يؤول $x$ إلى $a$ إذا كان:</p>
+                        <p style="font-weight=bold;">"كلما اقتربت قيمة $x$ من العدد $a$ (دون أن تساويها بالضرورة)، اقتربت قيمة $f(x)$ من العدد $L$ بقدر ما نشاء." </p>
+                        <p>​بمعنى آخر، يمكننا جعل المسافة بين $f(x)$ و $L$ صغيرة جداً (أصغر من أي عدد نختاره)، بشرط أن نختار $x$ قريباً كفاية من $a$.</p>
                     </div>
                 </div>
             </div>
@@ -81,12 +84,13 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item2">
-                        التعريف الرياضي الدقيق للنهاية
+                        ما التعريف الرياضي الدقيق للنهاية؟
                     </button>
                 </h2>
                 <div id="item2" class="accordion-collapse collapse" data-bs-parent="#limitAccordion">
                     <div class="accordion-body">
                         <p>يُعرف هذا المصطلح رياضياً بتعريف كوشي باستخدام $\epsilon$ و $\delta$:</p>
+                        <p>نقول إن $\lim_{x \to a} f(x) = L$ إذا وفقط إذا كان:"لكل عدد حقيقي موجب $\epsilon$ (مهما كان صغيراً)، يوجد عدد حقيقي موجب $\delta$ بحيث إذا كانت المسافة بين $x$ و $a$ أقل من $\delta$، فإن المسافة بين $f(x)$ و $L$ تكون حتماً أقل من $\epsilon$." و هو ما يعبر عنه رياضيا بالعبارة التالية:</p>
                         <div class="math-wrapper">
                             $$  \forall \epsilon > 0, \exists \delta > 0 : 0 < |x - a| < \delta \implies |f(x) - L| < \epsilon   .$$
                         </div>
