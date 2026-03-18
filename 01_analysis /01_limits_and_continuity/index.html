@@ -3,91 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>النهايات والاستمرارية</title>
+    <title>نهايات الدوال - الدرس الكامل</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <script>
-         window.MathJax = {
-           tex: { inlineMath: [['$', '$']], displayMath: [['$$', '$$']] }
-        };
-    </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
+
     <style>
-        body { background-color: #f8f9fa; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        :root { --main-blue: #0d6efd; --light-bg: #f8f9fa; }
+        body { background-color: var(--light-bg); font-family: 'Segoe UI', sans-serif; }
         
+        /* البطاقة الرئيسية - أساس القافلة */
         .lesson-card { 
             background: white; border-radius: 12px; padding: 25px; margin-bottom: 25px; 
-            border-right: 8px solid #0d6efd; box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+            border-right: 8px solid var(--main-blue); box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
         }
 
-        /* حاوية المعادلات: تضمن عدم كسر التصميم وسهولة القراءة */
-        .math-block, .math-container { 
-            direction: ltr !important; background: #f1f3f4; padding: 15px; 
-            border-radius: 8px; margin: 15px 0; text-align: center; 
-            overflow-x: auto; display: block; width: 100%;
+        /* العناوين الرئيسية */
+        .section-title { color: var(--main-blue); font-weight: 800; margin-bottom: 20px; font-size: 1.5rem; }
+        .sub-title { color: #333; font-weight: 700; margin-top: 20px; font-size: 1.1rem; }
+
+        /* حاوية المعادلات - فليكس بوكس لضمان الاستقامة */
+        .math-box { 
+            direction: ltr !important; background: #eee; padding: 15px; 
+            border-radius: 8px; margin: 15px 0; text-align: center; overflow-x: auto;
         }
 
-        /* تنسيق زر الأكورديون الذكي: تطبيق فكرة الصناديق */
+        /* تنسيق الأكورديون الموحد */
         .accordion-button {
-            background-color: white !important; color: #333 !important;
-            box-shadow: none !important; 
-            display: flex !important;
-            flex-direction: row-reverse; /* السهم في اليمين (البداية) */
-            justify-content: flex-end;   /* دفع العناصر لليمين */
-            gap: 4px; /* مسافة دقيقة بين الصناديق */
-            padding: 15px;
+            background-color: white !important; color: #333 !important; box-shadow: none !important;
+            display: flex !important; flex-direction: row-reverse; justify-content: space-between;
         }
+        .accordion-button::after { margin-right: 0; margin-left: 10px; }
 
-        .accordion-button::after { 
-            margin-right: auto; /* دفع السهم لأقصى اليسار في حال أردت، أو اتركه للتحكم اليدوي */
-            margin-left: 10px; 
-        }
+        /* حل مشكلة تداخل النصوص (التي أزعجتنا) */
+        .flex-title { display: flex; gap: 5px; align-items: center; direction: rtl; }
+        .ltr-part { direction: ltr; display: inline-block; }
 
-        /* صناديق التحكم بالاتجاه داخل العنوان */
-        .box-ar { direction: rtl; display: inline-block; }
-        .box-lat { direction: ltr; display: inline-block; unicode-bidi: isolate; }
-
-        /* تنسيق الجداول */
-        .table { font-size: 0.95rem; margin-top: 15px; }
-        .table thead { background-color: #0d6efd; color: white; }
+        /* الجداول */
+        .table-custom th { background-color: var(--main-blue); color: white; text-align: center; }
     </style>
 </head>
 <body>
 
-<div class="container py-4">
+<div class="container py-5">
     
     <div class="lesson-card">
-        <div class="accordion accordion-flush" id="limitAccordion"> 
+        <h2 class="section-title">مفاهيم أساسية</h2>
+        <div class="accordion accordion-flush" id="mainAcc">
             
             <div class="accordion-item">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item1">
-                        <span class="box-ar">ما هو مفهوم نهاية دالة؟</span>
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c1">
+                        ما هو مفهوم نهاية دالة؟
                     </button>
                 </h2>
-                <div id="item1" class="accordion-collapse collapse" data-bs-parent="#limitAccordion">
-                    <div class="accordion-body">
-                        <p>نقول إن نهاية الدالة $f(x)$ هي $L$ عندما يؤول $x$ إلى $a$ إذا كان كلما اقتربت قيمة $x$ من $a$، اقتربت قيمة $f(x)$ من $L$ بقدر ما نشاء.</p>
-                    </div>
+                <div id="c1" class="accordion-collapse collapse" data-bs-parent="#mainAcc">
+                    <div class="accordion-body">تقترب قيم $f(x)$ من $L$ كلما اقتربت $x$ من $a$.</div>
                 </div>
             </div>
 
             <div class="accordion-item">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item2">
-                        <span class="box-ar">التعريف الرياضي الدقيق (تعريف كوشي</span>
-                        <span class="box-lat">&nbsp;$\epsilon, \delta$</span>
-                        <span class="box-ar">)</span>
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c2">
+                        <div class="flex-title">
+                            <span>التعريف الرياضي (تعريف كوشي</span>
+                            <span class="ltr-part">$\epsilon, \delta$</span>
+                            <span>)</span>
+                        </div>
                     </button>
                 </h2>
-                <div id="item2" class="accordion-collapse collapse" data-bs-parent="#limitAccordion">
+                <div id="c2" class="accordion-collapse collapse" data-bs-parent="#mainAcc">
                     <div class="accordion-body">
-                        <p>نقول إن $\lim_{x \to a} f(x) = L$ إذا وفقط إذا كان:</p>
-                        <div class="math-container">
-                            $$\forall \epsilon > 0, \exists \delta > 0 : 0 < |x - a| < \delta \implies |f(x) - L| < \epsilon$$
-                        </div>
+                        <div class="math-box">$$\forall \epsilon > 0, \exists \delta > 0 : 0 < |x - a| < \delta \implies |f(x) - L| < \epsilon$$</div>
                     </div>
                 </div>
             </div>
@@ -96,35 +83,31 @@
     </div>
 
     <div class="lesson-card">
-        <h2 class="text-primary fw-bold h4">1. حالات عدم التعيين</h2>
-        <div class="math-block">
-            $$\frac{0}{0} \quad , \quad \frac{\infty}{\infty} \quad , \quad 0 \times \infty \quad , \quad (+\infty) + (-\infty)$$
-        </div>
+        <h2 class="section-title">1. حالات عدم التعيين</h2>
+        <p>نصادف أربع حالات تتطلب إزالة الإبهام:</p>
+        <div class="math-box">$$\frac{0}{0} \quad , \quad \frac{\infty}{\infty} \quad , \quad 0 \times \infty \quad , \quad (+\infty) + (-\infty)$$</div>
     </div>
 
     <div class="lesson-card">
-        <h2 class="text-primary fw-bold h4">2. النهايات عند اللانهاية</h2>
-        <h6 class="mt-4 fw-bold">أ) دالة كثير حدود:</h6>
-        <div class="math-block">$$\lim_{x \to \pm\infty} P(x) = \lim_{x \to \pm\infty} a_n x^n$$</div>
+        <h2 class="section-title">2. النهايات عند اللانهاية</h2>
+        <h3 class="sub-title">أ) دالة كثير حدود:</h3>
+        <div class="math-box">$$\lim_{x \to \pm\infty} P(x) = \lim_{x \to \pm\infty} a_n x^n$$</div>
         
-        <h6 class="mt-4 fw-bold">ب) دالة ناطقة:</h6>
-        <div class="math-block">$$\lim_{x \to \pm\infty} \frac{P(x)}{Q(x)} = \lim_{x \to \pm\infty} \frac{a x^n}{b x^m}$$</div>
+        <h3 class="sub-title">ب) دالة ناطقة:</h3>
+        <div class="math-box">$$\lim_{x \to \pm\infty} \frac{P(x)}{Q(x)} = \lim_{x \to \pm\infty} \frac{a x^n}{b x^m}$$</div>
     </div>
 
     <div class="lesson-card">
-        <h2 class="text-primary fw-bold h4">3. ملخص العمليات الجبرية</h2>
+        <h2 class="section-title">3. ملخص العمليات</h2>
         <div class="table-responsive">
-            <table class="table table-bordered text-center align-middle">
+            <table class="table table-bordered table-custom">
                 <thead>
-                    <tr>
-                        <th>العملية</th>
-                        <th>النتيجة</th>
-                    </tr>
+                    <tr><th>العملية</th><th>النتيجة</th></tr>
                 </thead>
                 <tbody>
                     <tr><td>$L + (\pm\infty)$</td><td>$\pm\infty$</td></tr>
                     <tr><td>$\frac{L}{\pm\infty}$</td><td>$0$</td></tr>
-                    <tr><td>$\frac{L \neq 0}{0}$</td><td>$\infty$ (حسب الإشارة)</td></tr>
+                    <tr><td>$\frac{L \neq 0}{0}$</td><td>$\infty$</td></tr>
                 </tbody>
             </table>
         </div>
@@ -135,3 +118,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
