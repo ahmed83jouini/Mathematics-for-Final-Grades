@@ -121,8 +121,41 @@
             </table>
         </div>
     </div>
-
-</div>
+    <div class="lesson-card">
+        <div class="accordion" id="limitsAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                         $f(x) = 1 / x$
+                    </button>
+                 </h2>
+                 <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#limitsAccordion">
+                      <div class="accordion-body">
+                          <h5 class="text-primary">1. مجموعة التعريف ($D_f$):</h5>
+                          <p>الدالة معرفة على كل الأعداد الحقيقية ما عدا الصفر:</p>
+                          <div class="math-block">$$D_f = ]-\infty ; 0[ \cup ]0 ; +\infty[$$</div>
+                          <h5 class="text-primary mt-4">2. النهاية عند الصفر (بقيم كبرى وصغرى):</h5>  
+                          <div class="row">
+                               <div class="col-md-6 border-end">
+                                   <p><strong>أ) على يسار الصفر ($x < 0$):</strong></p>
+                                   <p>عندما يقترب $x$ من $0$ بقيم سالبة، يكون الكسر سالباً ويكبر جداً في القيمة المطلقة:</p>
+                                   <div class="math-block">$$\lim_{x \to 0^-} \frac{1}{x} = -\infty$$</div>
+                               </div>
+                               <div class="col-md-6">
+                                   <p><strong>ب) على يمين الصفر ($x > 0$):</strong></p>
+                                   <p>عندما يقترب $x$ من $0$ بقيم موجبة، يكون الكسر موجباً ويكبر بلا حدود:</p>
+                                   <div class="math-block">$$\lim_{x \to 0^+} \frac{1}{x} = +\infty$$</div>
+                               </div>
+                           </div>
+                           <div class="alert alert-warning mt-3">
+                               <strong>قاعدة ذهبية:</strong> عدد ثابت (غير معدوم) على "صفر" يعطي دائماً "مالانهاية". نحدد الإشارة حسب قاعدة ضرب الإشارات.
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
