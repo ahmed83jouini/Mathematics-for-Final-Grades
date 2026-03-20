@@ -81,10 +81,10 @@
     <div class="lesson-card">
         <h3 class="text-primary mb-4">1.1.الدالة $f(x)=\frac{1}{x}$.</h3>
         <p>الدالة $f(x)$ معرفة على $\mathbb{R}^*$؛ لنحسب نهايات هذه الدالة عند حدود مجال تعريفها:</p>
-        <p>1. عندما يؤول $x$ الى $-\infty$ فإن الكسر $\frac{1}{x}$ يعطينا قسمة العدد1 على $-\infty$ وكما نعلم فإن أي عدد ثابت مهما كان كبيرا مقسوم على $\pm \infty$ يعطينا الصفر إذن: $$\lim\limits_{x \to -\infty} \frac{1}{x} = 0.$$</p>
+        <p>1. عندما يؤول $x$ الى $-\infty$ فإن الكسر $\frac{1}{x}$ يعطينا قسمة العدد1 على $-\infty$ وكما نعلم فإن أي عدد ثابت مهما كان كبيرا مقسوم على $\pm \infty$ يعطينا الصفر إذن: $$\lim\limits_{x \to -\infty} \frac{1}{x} = 0^-.$$</p>
         <p>2. عندما يؤول $x$ إلى $0$ بقيم أقل، وهو ما يعبر عنه أحيانا ب: عندما يقترب $x$ من الصفر جهة اليسار، يكون لدينا عدد موجب قسمة عدد سالب قيمته المطلقة متناهية في الصغر، تقارب الصفر ويساوي $-\infty$ ومنه: $$\lim\limits_{x \stackrel{\scriptscriptstyle <}{\to} 0} \frac{1}{x} = -\infty $$</p>
         <p>3. عندما يؤول $x$ إلى الصفر بقيم أكبر، أو عندما يقترب من الصفر جهة اليمين، يكون لدينا عدد موجب قسمة عدد موجب متناهي في الصغر، والنتيجة هي $+\infty$  ومنه : $$\lim\limits_{x \stackrel{\scriptscriptstyle >}{\to} 0} \frac{1}{x} = +\infty.$$</p>
-        <p>4. عندما يؤول $x$ إلى $+\infty$ الكسر يؤول إلى $0$ ومنه: $$\lim\limits_{x \to +\infty} \frac{1}{x} = 0 $$</p>
+        <p>4. عندما يؤول $x$ إلى $+\infty$ الكسر يؤول إلى $0$ ومنه: $$\lim\limits_{x \to +\infty} \frac{1}{x} = 0^+. $$</p>
     </div>
 
     <div class="lesson-card">
@@ -101,7 +101,17 @@
         <p>2. عند $+\infty$، 1 قسمة $+\infty$ تساوي 0: $$\lim\limits_{x \to +\infty} \frac{1}{\sqrt x } = 0^+$$</p>
     </div>
 
-    
+    <div class="alert alert-warning mt-3">
+        <strong>فائدة</strong>
+        <p>في المثال الموالي سنرى حالة عدم تعيين $(\frac{0}{0})$ و $(\frac{\infty}{\infty})$</p>
+        <p>يتم التخلص من عدم التعيين بحساب نهاية الحد الأعلى درجة في البسط على الحد الأعلى درجة في المقام.</p>
+    </div>
+
+    <div class="lesson-card">
+        <h3 class="text-primary mb-4">4.1. الدالة $f(x)=\frac{2x^3+x}{x^3}$</h3>
+        <p>الدالة معرفة من أجل كل عدد حقيقي لا يعدم المقام $D_f=\mathbb{R}^*. عند أطراف مجال التعريف تؤول الدالة إلى:</p>
+        <p>1.$x \to -\infty$; عند التعويض نجد $\frac{2(-\infty)^3 -\infty)}{(-\infty)^3}$ =$\frac{-\infty-\infty}{-\infty}$ =$\frac{-\infty}{-\infty}$ وهي حالة عدم تعيين معروفة نتجاوزها بحساب نهاية الحد الأعلى درجة على الحد الأعلى درجة و نكتب $\lim\limits_{x \to -\infty} f(x)$ =$\lim\limits_{x \to -\infty} \frac{x^3+x}{x^3}$ =$\lim\limits_{x \to -\infty} \frac{x^3}{x^3}$ =1، في مجال التعريف حيث المقام غير معدوم</p>
+    </div>
     
     <div class="lesson-card"> <!--div 2-->
         <h1 class="text-primary mb-4">مفاهيم أساسية</h1>
