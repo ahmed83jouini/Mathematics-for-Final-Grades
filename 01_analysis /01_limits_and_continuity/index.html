@@ -70,13 +70,22 @@
 
 <div class="container py-4"> <!--div 1-->
     <h1 class="text-center mb-5 text-primary fw-bold">النهايات</h1>
-    <h1 class="text-primary mb-4">1.أمثلة.</h1>
+    <h2 class="text-primary mb-4">1.أمثلة.</h2>
+    
     <div class="lesson-card">
-        <h1 clastext-primary mb-4>1.1.الدالة $f(x)=\frac{1}{x}$.</h1>
+        <h3 class="text-primary mb-4">1.1.الدالة $f(x)=\frac{1}{x}$.</h3>
         <p>الدالة $f(x)$ معرفة على $\mathbb{R}^*$؛ لنحسب نهايات هذه الدالة عند حدود مجال تعريفها:</p>
         <p>1. عندما يؤول $x$ الى $-\infty$ فإن الكسر $\frac{1}{x}$ يعطينا قسمة العدد1 على $-\infty$ وكما نعلم فإن أي عدد ثابت مهما كان كبيرا مقسوم على $\pm \infty$ يعطينا الصفر إذن: $$\lim\limits_{x \to -\infty} \frac{1}{x} = 0.$$</p>
-        <p>2. عندما يؤول $x$ إلى $0$ بقيم أقل، وهو ما يعبر عنه أحيانا ب: عندما يقترب $x$ من الصفر جهة اليسار، يكون لدينا عدد موجب قسمة عدد سالب قيمته المطلقة متناهية في الصغر، تقارب الصفر ويساوي $-\infty$ ومنه: $$\lim\limits_{x \stackrel{\scriptstyle <}{\to} 0} \frac{1}{x} = -\infty $$</p>
-        <p>3. عندما يؤول $x$ الصفر بقيم أكبر، أو عندما يقترب من الفر جهة اليمين، يكون لدينا عدد موجب قسمة عدد موجب متناهي الصغر، والنتيجة هي $+\infty$  ومنه : $$\lim\limits_{x \stackrel{\scriptstyle >}{\to} 0} \frac{1}{x} = +\infty.$$</p>
+        <p>2. عندما يؤول $x$ إلى $0$ بقيم أقل، وهو ما يعبر عنه أحيانا ب: عندما يقترب $x$ من الصفر جهة اليسار، يكون لدينا عدد موجب قسمة عدد سالب قيمته المطلقة متناهية في الصغر، تقارب الصفر ويساوي $-\infty$ ومنه: $$\lim\limits_{x \stackrel{\scriptscriptstyle <}{\to} 0} \frac{1}{x} = -\infty $$</p>
+        <p>3. عندما يؤول $x$ إلى الصفر بقيم أكبر، أو عندما يقترب من الصفر جهة اليمين، يكون لدينا عدد موجب قسمة عدد موجب متناهي في الصغر، والنتيجة هي $+\infty$  ومنه : $$\lim\limits_{x \stackrel{\scriptscriptstyle >}{\to} 0} \frac{1}{x} = +\infty.$$</p>
+        <p>4. عندما يؤول $x$ إلى $+\infty$ الكسر يؤول إلى $0$ ومنه: $$\lim\limits_{x \to +\infty} frac{1}{x} = 0 $$</p>
+    </div>
+
+    <div class="lesson-card">
+        <h3 class="text-primary mb-4">1.2. الدالة $g(x)=\sqrt(x)$</h3>
+        <p>الدالة $g(x)$ معرفة على $[0; +\infty[، سنحسب نهايات هذه الدالة أيضا، عند $0$ و $+\infty$:</p>
+        <p>1.عند الصفر ولأن الدالة معرفة عنده، فالنهاية هي الصورة المباشرة ل 0 بواسطة الدالة: $$\f(0) = \sqrt(0) = 0.$$</p>
+        <p>2. عند $-\infty$، نلا أنه كلما كبر $x$ كبر جذره دون حدود وبالتالي : $$\lim\limits_{x \to +\infty} \sqrt(x) = +\infty.$$</p>
     </div>
     
     <div class="lesson-card"> <!--div 2-->
@@ -161,7 +170,7 @@
                                <div class="col-md-6">
                                    <p><strong>د) عند $+\infty$</strong></p>
                                    <p>عندما يؤول $x$ إلى $+\infty$، فإن الكسر يؤول إلى $0$ </p>
-                                   <div class="math-block">$$\lim_{x \to +\infty} \frac{1}{x} = 0$$</div>                                                      </div>
+                                   <div class="math-block">$$\lim_{x \to +\infty} \frac{1}{x} = 0$$</div>                                                      </ div
                                </div>
                                <div class="alert alert-warning mt-3">
                                    <strong>قاعدة ذهبية:</strong>
