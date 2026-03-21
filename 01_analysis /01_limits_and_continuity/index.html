@@ -104,7 +104,7 @@
     <div class="alert alert-warning mt-3">
         <strong>فائدة</strong>
         <p>في المثال الموالي سنرى حالة عدم تعيين $(\frac{0}{0})$ و $(\frac{\infty}{\infty})$</p>
-        <p>يتم التخلص من عدم التعيين بحساب نهاية الحد الأعلى درجة في البسط على الحد الأعلى درجة في المقام.</p>
+        <p>يتم التخلص من عدم التعيين، في جوار اللانهاية، بحساب نهاية الحد الأعلى درجة في البسط على الحد الأعلى درجة في المقام. أما في جوار عدد ثابت فيتم باستعمال الجداءات الشهيرة، التحليل، أو إخراج العامل المشترك.</p>
     </div>
 
     <div class="lesson-card">
@@ -115,6 +115,10 @@
         <p>وهي حالة عدم تعيين معروفة نتجاوزها بحساب نهاية الحد الأعلى درجة على الحد الأعلى درجة و نكتب </p>
         <p dir="ltr">$\lim\limits_{x \to -\infty} f(x)$ =$\lim\limits_{x \to -\infty} \frac{x^3+x}{x^3}$ =$\lim\limits_{x \to -\infty} \frac{x^3}{x^3}$ =1</p>
         <p> في مجال التعريف حيث المقام غير معدوم</p>
+        <p>2. $x \stackrel{<}{\to} 0$ لدينا:</p>
+        <p dir="ltr">$\lim\limits_{x \stackrel{\scriptscriptstyle <}{\to} 0} f(x)$ =$\lim\limits_{x \stackrel{\scriptscriptstyle <}{\to} 0} \frac{x^3+x}{x^3}$ =$\lim\limits_{x \stackrel{scriptscriptstyle <}{\to} 0} (\frac{x^3}{x^3}+\frac{x}{x^3})$ =$lim\limits_{x \stackrel{\scriptscriptstyle <}{\to} 0} \frac{x^3}{x^3}$ +$\lim\limits_{x \stackrel{scriptscriptstyle <}{\to} 0} \frac{x}{x^3}$ = $1+\lim\limits_{x \stackrel{scriptscriptstyle <}{\o} 0} \frac{1}{x^2}$ =$1+(+\infty)$ =$+\infty$</p>
+        <p>3. $x \stackrel{>}{\to} 0$ لدينا:</p>
+        <p dir="ltr">$\lim\limits_{x \stackrel{\scriptscriptstyle >}{\to} 0} f(x)$ =$\lim\limits_{x \stackrel{\scriptscriptstyle >}{\to} 0} \frac{x^3+x}{x^3}$ =$\lim\limits_{x \stackrel{scriptscriptstyle >}{\to} 0} (\frac{x^3}{x^3}+\frac{x}{x^3})$ =$lim\limits_{x \stackrel{\scriptscriptstyle >}{\to} 0} \frac{x^3}{x^3}$ +$\lim\limits_{x \stackrel{scriptscriptstyle >}{\to} 0} \frac{x}{x^3}$ = $1+\lim\limits_{x \stackrel{scriptscriptstyle >}{\o} 0} \frac{1}{x^2}$ =$1+(+\infty)$ =$+\infty$</p>
     </div>
     
     <div class="lesson-card"> <!--div 2-->
