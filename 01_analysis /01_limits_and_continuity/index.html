@@ -13,61 +13,14 @@
     
     <style>
         body { background-color: #f8f9fa; font-family: 'Segoe UI', Tahoma, sans-serif; }
-        .lesson-card { 
-            background: white; 
-            border-radius: 12px; 
-            padding: 25px; 
-            margin-bottom: 25px; 
-            border-right: 8px solid #0d6efd; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
-        }
-        h1 {
-            font-size:1.3rem;
-            color:blue;
-        }
-        h2 {
-            font-size:1.2rem;
-            color:blue;
-        }
-        h3 {
-            font-size:1.1rem;
-            color:blue !important;
-        }
-        /* العناوين الآن بسيطة ومنضبطة */
-        .accordion-button {
-            background-color: white !important; 
-            color: #0d6efd !important;
-            font-weight: bold; 
-            text-align: right;
-            flex-direction:row !important;
-            justify-content:flex-start !important;
-            gap:10px;
-            text-align:right;
-        }
-        .accordion-button:not(.collapsed) {
-            color: #0d6efd !important;
-            background-color: #f8f9fa !important; /* خلفية فاتحة عند الفتح */
-        }
-        .accordion-button::after{
-            margin-right:0 !important;
-            margin-left:10px;
-            order:-1;
-            filter: sepia(100%) hue-rotate(190deg) saturate(500%);
-         }
-        /* حاوية المعادلات المحمية من الفيضان */
-        .math-wrapper {
-            direction: ltr !important; 
-            /*background: #f1f3f4; */
-            padding: 15px; 
-            border-radius: 8px; 
-            margin: 15px 0; 
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-       .note-usb {
-           font-size:0.7rem;
-           color:gray;
-       }
+        .lesson-card {background: white; border-radius: 12px; padding: 25px; margin-bottom: 25px; border-right: 8px solid #0d6efd; box-shadow: 0 2px 5px rgba(0,0,0,0.05);}
+        h1 {font-size:1.3rem; color:blue;}
+        h2 {font-size:1.2rem; color:blue;}
+        h3 {font-size:1.1rem; color:blue !important;}
+        .accordion-button {background-color: white !important; color: #0d6efd !important; font-weight: bold; text-align: right; flex-direction:row !important;justify-content:flex-start !important; gap:10px; text-align:right;}
+        .accordion-button:not(.collapsed) {color: #0d6efd !important; background-color: #f8f9fa !important;}
+        .accordion-button::after{margin-right:0 !important; margin-left:10px; order:-1; filter: sepia(100%) hue-rotate(190deg) saturate(500%);}
+        .math-wrapper {direction: ltr !important; padding: 15px; border-radius: 8px; margin: 15px 0; overflow-x: auto; -webkit-overflow-scrolling: touch;}
     </style>
 </head>
 <body>
@@ -129,11 +82,17 @@
     
     <div class="lesson-card">
         <h3 class="text-primary mb-4">1.2.الدالة $f(x)=\frac{1}{x}$.</h3>
-        <p>الدالة $f(x)$ معرفة على $\mathbb{R}^*$؛ لنحسب نهايات هذه الدالة عند حدود مجال تعريفها:</p>
-        <p>1. عندما يؤول $x$ الى $-\infty$ فإن الكسر $\frac{1}{x}$ يعطينا قسمة العدد1 على $-\infty$ وكما نعلم فإن أي عدد ثابت مهما كان كبيرا مقسوم على $\pm \infty$ يعطينا الصفر إذن: $$\lim\limits_{x \to -\infty} \frac{1}{x} = 0^-.$$</p>
-        <p>2. عندما يؤول $x$ إلى $0$ بقيم أقل، وهو ما يعبر عنه أحيانا ب: عندما يقترب $x$ من الصفر جهة اليسار، يكون لدينا عدد موجب قسمة عدد سالب قيمته المطلقة متناهية في الصغر، تقارب الصفر ويساوي $-\infty$ ومنه: $$\lim\limits_{x \stackrel{\scriptscriptstyle <}{\to} 0} \frac{1}{x} = -\infty $$</p>
-        <p>3. عندما يؤول $x$ إلى الصفر بقيم أكبر، أو عندما يقترب من الصفر جهة اليمين، يكون لدينا عدد موجب قسمة عدد موجب متناهي في الصغر، والنتيجة هي $+\infty$  ومنه : $$\lim\limits_{x \stackrel{\scriptscriptstyle >}{\to} 0} \frac{1}{x} = +\infty.$$</p>
-        <p>4. عندما يؤول $x$ إلى $+\infty$ الكسر يؤول إلى $0$ ومنه: $$\lim\limits_{x \to +\infty} \frac{1}{x} = 0^+. $$</p>
+        <p>
+            <input type="number" id="student_s_answer-2-1-1" class="form-control" placeholder="أكتب بداية المجال هنا.">
+            
+        <div id="hint-2-1-1" class="hint-box alert alert-warning shadow-sm text-body-secondary small">
+                🔍 <b>توجيه:</b> المقام هو $x$, حاول إخراج القيمةالتي تعدم المقام من مجموعة التعريف.
+        </div>
+        <p id="answer-2-1-1">1.الدالة $f(x)$ معرفة على $\mathbb{R}^*$؛ لنحسب نهايات هذه الدالة عند حدود مجال تعريفها:</p>
+        <p>2. عندما يؤول $x$ الى $-\infty$ فإن الكسر $\frac{1}{x}$ يعطينا قسمة العدد1 على $-\infty$ وكما نعلم فإن أي عدد ثابت مهما كان كبيرا مقسوم على $\pm \infty$ يعطينا الصفر إذن: $$\lim\limits_{x \to -\infty} \frac{1}{x} = 0^-.$$</p>
+        <p>3. عندما يؤول $x$ إلى $0$ بقيم أقل، وهو ما يعبر عنه أحيانا ب: عندما يقترب $x$ من الصفر جهة اليسار، يكون لدينا عدد موجب قسمة عدد سالب قيمته المطلقة متناهية في الصغر، تقارب الصفر ويساوي $-\infty$ ومنه: $$\lim\limits_{x \stackrel{\scriptscriptstyle <}{\to} 0} \frac{1}{x} = -\infty $$</p>
+        <p>4. عندما يؤول $x$ إلى الصفر بقيم أكبر، أو عندما يقترب من الصفر جهة اليمين، يكون لدينا عدد موجب قسمة عدد موجب متناهي في الصغر، والنتيجة هي $+\infty$  ومنه : $$\lim\limits_{x \stackrel{\scriptscriptstyle >}{\to} 0} \frac{1}{x} = +\infty.$$</p>
+        <p>5. عندما يؤول $x$ إلى $+\infty$ الكسر يؤول إلى $0$ ومنه: $$\lim\limits_{x \to +\infty} \frac{1}{x} = 0^+. $$</p>
     </div>
 
     <div class="lesson-card">
