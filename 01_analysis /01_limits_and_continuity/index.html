@@ -358,6 +358,41 @@ function verify_2_1_1() {
     // Étape B : On affiche
     display_validation(results, correctAnswers, 'hint-2-1-1');
 }
+    
+
+/**
+ * Vérifie une réponse de type numérique (Input)
+ */
+function verify_2_1_2() {
+    const inputElement = document.getElementById('st-ans-2-1-2');
+    const hintBox = document.getElementById('hint-2-1-2');
+    const userAnswer = inputElement.value;
+    
+    // La réponse attendue est 0
+    const correctAnswer = 0;
+
+    // 1. Vérification si le champ est vide
+    if (userAnswer === "") {
+        alert("يرجى كتابة النتيجة أولاً !");
+        return;
+    }
+
+    // 2. Logique de validation
+    // On convertit la saisie en nombre pour la comparaison
+    if (parseFloat(userAnswer) === correctAnswer) {
+        hintBox.className = "hint-box alert alert-success shadow-sm";
+        hintBox.innerHTML = "<b>إجابة صحيحة !</b> فعلاً، كلما كبر المقام (في القيمة المطلقة)، اقترب الكسر من الصفر: $\\lim_{x \\to -\\infty} \\frac{1}{x} = 0$.";
+    } else {
+        hintBox.className = "hint-box alert alert-danger shadow-sm";
+        hintBox.innerHTML = "<b>إجابة خاطئة.</b> تذكر القاعدة: $\\frac{L}{\\infty} = 0$ حيث $L$ عدد حقيقي.";
+    }
+
+    // 3. Mise à jour du rendu MathJax
+    if (window.MathJax) {
+        MathJax.typesetPromise([hintBox]);
+    }
+}
+
 
 </script>
 </body>
