@@ -84,6 +84,7 @@
     <div class="lesson-card">
         <h3 class="text-primary mb-4">1.2.الدالة $f(x)=\frac{1}{x}$.</h3>
         <p>1. تعيين $D_f$ مجموعة تعريف الدالة $f(x)$:</p>
+        <p>من بين الخيارت التالية التي تحدد مجموعة تعريف $f(x)$ حدد كل الإجابات الصحيحة كل الإجبات الصحيحة:</p>
         <div class="choices" dir="ltr">
             <input type="checkbox" id="st-ans-2-1-1-a" name="st_ans-2-1-1">
             <label for="st-ans-2-1-1-a">$]-\infty;0[ \cup [0;+\infty[$</label><br>
@@ -308,16 +309,16 @@
     
     // Logique de validation : toutes les bonnes, aucune mauvaise
     if (checkedCount === 0) {
-        alert("Choisissez au moins une réponse !");
+        alert("إختر على الأقل إجابة واحدة!");
         return;
     }
 
     if (score === correctAnswers.length && errors === 0) {
         hintBox.className = "hint-box alert alert-success shadow-sm";
-        hintBox.innerHTML = "<b>Bravo !</b> Vous avez saisi l'équivalence entre la notation $\\mathbb{R}^*$ et l'union d'intervalles ouverts.";
+        hintBox.innerHTML = "<b>ممتاز !</b> لقد فهمت التكافل بين الكتابة $\\mathbb{R}^*$ و اتحاد المجالات المفتوحة.";
     } else {
         hintBox.className = "hint-box alert alert-danger shadow-sm";
-        hintBox.innerHTML = "<b>Essaye encore :</b> Attention aux crochets et aux valeurs exclues (0 ne doit pas être inclus).";
+        hintBox.innerHTML = "<b>حاول مرة أخرى</b> إنتبه إلى إتجاه المعترض([]) مفتوح ومغلق (يجب إقصاء الصفر(.";
     }
 
     // Relance le rendu MathJax pour le nouveau texte
