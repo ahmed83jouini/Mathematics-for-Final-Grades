@@ -283,8 +283,46 @@
             
             <button onclick="verify_2_4_2()" class="btn btn-primary btn-lg w-100">تحقق</button>
         </div>
-        
     </div>
+    <div class="lesson-card">
+        <h3 class="text-primary mb-4">5.2. الدالة جيب: $f(x) = \sin(x)$</h3>
+        
+        <div class="alert alert-info" role="region">
+            <strong>قاعدة هامة:</strong> الدالة $\sin(x)$ دالة دورية (Périodique)، قيمها تتذبذب باستمرار بين $-1$ و $1$. هذا السلوك التكراري يجعلها <b>لا تقترب من قيمة محددة</b> كلما كبر $x$ أو صغر بشكل غير محدود.
+        </div>
+
+        <p>1. أحسب $\lim\limits_{x \to -\infty} \sin(x)$:</p>
+        <div class="choices" dir="ltr">
+            <input type="radio" id="st-ans-2-5-1-a" name="st-ans-2-5-1">
+            <label for="st-ans-2-5-1-a">$\lim\limits_{x \to -\infty} \sin(x) = -1$</label><br><br>
+            <input type="radio" id="st-ans-2-5-1-b" name="st-ans-2-5-1">            
+            <label for="st-ans-2-5-1-b">$\lim\limits_{x \to -\infty} \sin(x) = 1$</label><br><br>
+            <input type="radio" id="st-ans-2-5-1-c" name="st-ans-2-5-1">
+            <label for="st-ans-2-5-1-c">النهاية غير موجودة (N'existe pas)</label><br><br>
+            
+            <div id="hint-2-5-1" class="hint-box alert alert-warning shadow-sm text-body-secondary small" dir="rtl">
+                🔍 <b>توجيه:</b> تخيل المنحنى البياني للدالة؛ هل يستقر عند قيمة معينة في جهة اليسار؟
+            </div>
+            <button onclick="verify_2_5_1()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة</button>
+        </div>
+        <br><br>
+
+        <p>2. أحسب $\lim\limits_{x \to +\infty} \sin(x)$:</p>
+        <div class="choices" dir="ltr">
+            <input type="radio" id="st-ans-2-5-2-a" name="st-ans-2-5-2">
+            <label for="st-ans-2-5-2-a">$\lim\limits_{x \to +\infty} \sin(x) = 0$</label><br><br>
+            <input type="radio" id="st-ans-2-5-2-b" name="st-ans-2-5-2">            
+            <label for="st-ans-2-5-2-b">النهاية غير موجودة (N'existe pas)</label><br><br>
+            <input type="radio" id="st-ans-2-5-2-c" name="st-ans-2-5-2">
+            <label for="st-ans-2-5-2-c">$\lim\limits_{x \to +\infty} \sin(x) = +\infty$</label><br><br>
+
+            <div id="hint-2-5-2" class="hint-box alert alert-warning shadow-sm text-body-secondary small" dir="rtl">
+                🔍 <b>توجيه:</b> الدالة تستمر في الصعود والنزول بين $-1$ و $1$ إلى ما لا نهاية.
+            </div>
+            <button onclick="verify_2_5_2()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة</button>
+        </div>
+    </div>
+
 
     <div class="alert alert-info mt-3" role="alert">
         <strong>فائدة</strong>
