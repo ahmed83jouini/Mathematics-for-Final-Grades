@@ -244,17 +244,16 @@
     <br>
 
     <p>3. أحسب $\lim\limits_{x \to +\infty} \frac{1}{\sqrt{x}}$</p>
-    <div class="choices" dir="ltr">
-        <input type="radio" id="st-ans-2-3-3-a" name="st-ans-2-3-3">
-        <label for="st-ans-2-3-3-a">$\lim\limits_{x \to +\infty} \frac{1}{\sqrt{x}} = 0$</label><br><br>
-        <input type="radio" id="st-ans-2-3-3-b" name="st-ans-2-3-3">            
-        <label for="st-ans-2-3-3-b">$\lim\limits_{x \to +\infty} \frac{1}{\sqrt{x}} = +\infty$</label><br><br>
-
-        <div id="hint-2-3-3" class="hint-box alert alert-warning shadow-sm text-body-secondary small" dir="rtl">
-            🔍 <b>توجيه:</b> عدد ثابت مقسوم على قيمة تزداد بلا حدود ($+\infty$).
-        </div>
-        <button onclick="verify_2_3_3()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة</button>
+    <div class="math-input-container" dir="ltr">
+        $\lim\limits_{x \to +\infty} \frac{1}{\sqrt{x}} = $ 
+        <input type="number" id="st-ans-2-3-3" name="st-ans-2-3-3" size="3" placeholder="؟">
     </div>
+    
+    <div id="hint-2-3-3" class="hint-box alert alert-warning shadow-sm text-body-secondary small mt-3" dir="rtl">
+        🔍 <b>توجيه:</b> تذكر قاعدة قسمة عدد ثابت على لانهاية ($\frac{L}{\infty}$).
+    </div>
+    <button onclick="verify_2_3_3()" class="btn btn-primary btn-lg w-100 mt-2">تحقق من الإجابة</button>
+
 </div>
 
 
@@ -326,93 +325,6 @@
         </div>
     </div>
                                 
-    <div class="lesson-card"> <!--div 6-->
-        <h2 class="text-primary fw-bold h4">3. نهايات بعض الدوال المرجعية</h2>
-        <div class="accordion" id="limitsAccordion"> 
-        <!--div 7-->
-            <div class="accordion-item"> <!--div 8-->
-                <h2 class="text-primary fw-bold h4">1.3 .الدالة:</h2>
-                <div class="text-primary fw-bold h4">$$f(x)=\frac{1}{x}$$</div>
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                         مجال تعريفها و نهاياتها.
-                    </button>
-                 </h2>
-                 <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#limitsAccordion">
-                 <!--div 9-->
-                      <div class="accordion-body"> 
-                      <!--div 10-->
-                          <h5 class="text-primary">1. مجموعة التعريف ($D_f$):</h5>
-                          <p>الدالة معرفة على كل الأعداد الحقيقية ما عدا الصفر:</p>
-                          <div class="math-block">$$D_f = ]-\infty ; 0[ \cup ]0 ; +\infty[$$</div>
-                          <h5 class="text-primary mt-4">2. النهايات عند أطراف مجال التعريف:</h5>  
-                          <div class="row"> <!--div 11-->
-                               <div class="col-md-6 border-end">
-                                   <p><strong>أ) عند  ($-\infty$):</strong></p>
-                                   <p>عندما يؤول $x$ اإلى $-\infty$ فإن الكسر يؤول إلى $0$:</p>
-                                   <div class="math-block">$$\lim_{x \to $-\infty$} \frac{1}{x} = 0 $$</div>
-                               </div>
-                               <div class="col-md-6 border-end">
-                                   <p><strong>ب) على يسار الصفر ($x < 0$):</strong></p>
-                                   <p>عندما يقترب $x$ من $0$ بقيم سالبة، يكون الكسر سالباً ويكبر جداً في القيمة المطلقة:</p>
-                                   <div class="math-block">$$\lim_{x \to 0^-} \frac{1}{x} = -\infty$$</div>
-                               </div>
-                               <div class="col-md-6">
-                                   <p><strong>ج) على يمين الصفر ($x > 0$):</strong></p>
-                                   <p>عندما يقترب $x$ من $0$ بقيم موجبة، يكون الكسر موجباً ويكبر بلا حدود:</p>
-                                   <div class="math-block">$$\lim_{x \to 0^+} \frac{1}{x} = +\infty$$</div>
-                               </div>
-                               <div class="col-md-6">
-                                   <p><strong>د) عند $+\infty$</strong></p>
-                                   <p>عندما يؤول $x$ إلى $+\infty$، فإن الكسر يؤول إلى $0$ </p>
-                                   <div class="math-block">$$\lim_{x \to +\infty} \frac{1}{x} = 0$$</div>                                                      </ div
-                               </div>
-                               <div class="alert alert-warning mt-3">
-                                   <strong>قاعدة ذهبية:</strong>
-                                   <p>كل عدد ثابت (غير معدوم) مقسوم على "صفر" يعطي دائماً "مالانهاية". نحدد الإشارة حسب قاعدة ضرب الإشارات</p>
-                                   <p>أي عدد غير معدوم مقسوم على $\pm \infty$ يساوي $0$</p>
-                               </div>
-                            </div> <!--div 11-->
-                    </div> <!--div 10-->
-                </div> <!--div 9-->
-            <!--</div> <!--div 8-->
-            <br><br>
-            <div class="accordion-item"> 
-            <!--div 12-->
-                <h2 class="text-primary fw-bold h4">2.3.الدالة</h2>
-                <div class="text-primary fw-bold h4">$$f(x)=\sqrt(x)$$ </div>
-                <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                          مجال تعريفها ونهاياتها
-                    </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#limitsAccordion">
-                <!--div 13-->
-                     <div class="accordion-body">
-                     <!--div 14-->
-                          <h5 class="text-primary">1. مجموعة التعريف ($D_f$):</h5>
-                          <p>بما أن ما تحت الجذر يجب أن يكون موجباً أو معدوماً:</p>
-                          <div class="math-block">$$D_f = [0 ; +\infty[$$</div>
-                          <h5 class="text-primary mt-4">2. النهايات عند أطراف مجال التعريف</h5>
-                          <div class="row">
-                          <!--div 15-->
-                              <div class="col-md-6 border-end">
-                                  <p><strong>أ) عند الصفر ؛</strong></p>
-                                  <p>الدالة معرفة عند الصفر، لذا النهاية تساوي الصورة مباشرة:</p>
-                                  <div class="math-block">$$\lim_{x \to 0^+} \sqrt{x} = 0$$</div>
-                                  <p class="small text-muted">*ملاحظة: لا توجد نهاية عند الصفر سالب لأن الدالة غير معرفة هناك.</p>
-                              </div>
-                              <div>
-                                  <p><strong>ب) النهاية عند الزائد لانهاية ($+\infty$)</strong></p>
-                                  <p>كلما كبُر $x$، كبُر جذره بلا حدود:</p>
-                                  <div class="math-block">$$\lim_{x \to +\infty} \sqrt{x} = +\infty$$</div>
-                              </div>
-                           </div> <!--div 15-->
-                        </div> <!--div 14-->
-                    </div> <!--div 13-->
-                </div> <!--div 12-->
-        </div> <!--div 7-->
-    </div> <!--div 6-->
 </div> <!--div 1-->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
