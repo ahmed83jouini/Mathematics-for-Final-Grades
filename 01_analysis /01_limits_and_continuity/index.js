@@ -297,6 +297,39 @@ function verify_2_5_2() {
     );
 }
 
+// التحقق من نهاية cos(x) عند ناقص لانهاية
+function verify_2_6_1() {
+    const correct = ['st-ans-2-6-1-c'];
+    const all = ['st-ans-2-6-1-a', 'st-ans-2-6-1-b', 'st-ans-2-6-1-c'];
+    
+    const res = calculate_results(all, correct);
+    
+    display_universal_validation(
+        res, 
+        correct.length, 
+        'hint-2-6-1',
+        "رائع! لقد أدركت القاعدة: كل دالة تذبذبية دورية لا تملك نهاية عند اللانهاية.",
+        "فكر مجدداً، هل يستقر منحنى جيب التمام عند قيمة محددة؟"
+    );
+}
+
+// التحقق من نهاية cos(x) عند زائد لانهاية
+function verify_2_6_2() {
+    const correct = ['st-ans-2-6-2-a'];
+    const all = ['st-ans-2-6-2-a', 'st-ans-2-6-2-b', 'st-ans-2-6-2-c'];
+    
+    const res = calculate_results(all, correct);
+    
+    display_universal_validation(
+        res, 
+        correct.length, 
+        'hint-2-6-2',
+        "إجابة صحيحة! تماماً مثل الجيب، جيب التمام يفتقد للنهاية عند $+\\infty$.",
+        "تذكر السلوك الدوري للدالة؛ هل يتغير عند اللانهاية؟"
+    );
+}
+
+
 
 
 
