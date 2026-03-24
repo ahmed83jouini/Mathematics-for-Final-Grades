@@ -265,6 +265,39 @@ function verify_2_4_2() {
     display_universal_validation(res, 1, 'hint-2-4-2', "صحيح! القوة الفردية تحافظ على الإشارة السالبة.", "خطأ! تذكر أن $(-1)^3 = -1$.");
 }
 
+// التحقق من نهاية sin(x) عند ناقص لانهاية
+function verify_2_5_1() {
+    const correct = ['st-ans-2-5-1-c']; // النهاية غير موجودة
+    const all = ['st-ans-2-5-1-a', 'st-ans-2-5-1-b', 'st-ans-2-5-1-c'];
+    
+    const res = calculate_results(all, correct);
+    
+    display_universal_validation(
+        res, 
+        correct.length, 
+        'hint-2-5-1',
+        "أحسنت! بسبب دورية الدالة وتذبذبها، لا يمكننا القول أنها تقترب من عدد وحيد عند $-\\infty$.",
+        "حاول مجدداً؛ هل للدالة سلوك مستقر عند اللانهاية؟"
+    );
+}
+
+// التحقق من نهاية sin(x) عند زائد لانهاية
+function verify_2_5_2() {
+    const correct = ['st-ans-2-5-2-b']; // النهاية غير موجودة
+    const all = ['st-ans-2-5-2-a', 'st-ans-2-5-2-b', 'st-ans-2-5-2-c'];
+    
+    const res = calculate_results(all, correct);
+    
+    display_universal_validation(
+        res, 
+        correct.length, 
+        'hint-2-5-2',
+        "إجابة دقيقة! نقول رياضياً أن النهاية غير موجودة لأن قيم الدالة لا تستقر.",
+        "تذكر طبيعة منحنى الجيب؛ هل يتوقف عن التذبذب؟"
+    );
+}
+
+
 
 
 
