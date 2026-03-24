@@ -323,6 +323,46 @@
         </div>
     </div>
 
+    <div class="lesson-card">
+        <h3 class="text-primary mb-4">6.2. دالة جيب التمام: $f(x) = \cos(x)$</h3>
+        
+        <div class="alert alert-info" role="region">
+            <strong>ملاحظة هامة:</strong> تماماً مثل دالة الجيب، فإن دالة جيب التمام $\cos(x)$ هي دالة دورية محصورة بين $-1$ و $1$. منحناها البياني يتكرر بانتظام، مما يعني أنها لا "تستقر" عند قيمة معينة في النهايات البعيدة.
+        </div>
+
+        <p>1. أحسب $\lim\limits_{x \to -\infty} \cos(x)$:</p>
+        <div class="choices" dir="ltr">
+            <input type="radio" id="st-ans-2-6-1-a" name="st-ans-2-6-1">
+            <label for="st-ans-2-6-1-a">$\lim\limits_{x \to -\infty} \cos(x) = 0$</label><br><br>
+            <input type="radio" id="st-ans-2-6-1-b" name="st-ans-2-6-1">            
+            <label for="st-ans-2-6-1-b">$\lim\limits_{x \to -\infty} \cos(x) = 1$</label><br><br>
+            <input type="radio" id="st-ans-2-6-1-c" name="st-ans-2-6-1">
+            <label for="st-ans-2-6-1-c">النهاية غير موجودة (N'existe pas)</label><br><br>
+            
+            <div id="hint-2-6-1" class="hint-box alert alert-warning shadow-sm text-body-secondary small" dir="rtl">
+                🔍 <b>توجيه:</b> هل تختلف طبيعة تذبذب $\cos(x)$ عن $\sin(x)$ عند الأطراف البعيدة؟
+            </div>
+            <button onclick="verify_2_6_1()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة</button>
+        </div>
+        <br><br>
+
+        <p>2. أحسب $\lim\limits_{x \to +\infty} \cos(x)$:</p>
+        <div class="choices" dir="ltr">
+            <input type="radio" id="st-ans-2-6-2-a" name="st-ans-2-6-2">
+            <label for="st-ans-2-6-2-a">النهاية غير موجودة (N'existe pas)</label><br><br>
+            <input type="radio" id="st-ans-2-6-2-b" name="st-ans-2-6-2">            
+            <label for="st-ans-2-6-2-b">$\lim\limits_{x \to +\infty} \cos(x) = -1$</label><br><br>
+            <input type="radio" id="st-ans-2-6-2-c" name="st-ans-2-6-2">
+            <label for="st-ans-2-6-2-c">$\lim\limits_{x \to +\infty} \cos(x) = +\infty$</label><br><br>
+
+            <div id="hint-2-6-2" class="hint-box alert alert-warning shadow-sm text-body-secondary small" dir="rtl">
+                🔍 <b>توجيه:</b> تذكر أن المنحنى يظل يتأرجح صعوداً ونزولاً بلا توقف.
+            </div>
+            <button onclick="verify_2_6_2()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة</button>
+        </div>
+    </div>
+
+
 
     <div class="alert alert-info mt-3" role="alert">
         <strong>فائدة</strong>
