@@ -114,26 +114,38 @@ function verify_2_1_2() {
 /*_________________________________*/
 
 function verify_2_1_3() {
-    checkNumericExercise(
-        'st-ans-2-1-3', 
-        0, 
+    const correct = ['st-ans-2-1-3-c'];
+    const all = ['st-ans-2-1-3-a', 'st-ans-2-1-3-b', 'st-ans-2-1-3-c', 'st-ans-2-1-3-d'];
+    
+    const res = calculate_results(all, correct);
+    
+    display_universal_validation(
+        res, 
+        correct.length, 
         'hint-2-1-3',
-        "فعلاً، كلما صغر المقام (في القيمة المطلقة)، اقترب الكسر من اللا نهاية، أما بخصوص الإشارة، فعدد موجب على صفر سالب، يعطينا سالب لا نهاية: $\\lim\\limits_{x \\stackrel{\\scriptscriptstyle <}{\\to} 0} \\frac{1}{x} = -\\infty$.",
-        "تذكر القاعدة: $\\frac{L}{0} = \\infty $."
-    );  
+        " تفكير سليم، كلما صغر المقام، زادت قيمة الكسر بلا حدود، البسط والمقام من إشارتين مختلفتين، وبالتالي فإن $\\lim\\limits_{x {\\stackrel{\\scriptscriptstyle <}{\\to} 0} \\frac{1}{x} = -\\infty$",
+         "انتبه إلى المساواة $\\frac{L}{0^-}=-\\infty$. بشرط $L>0$"
+    );
 }
+
 
 /*_________________________________*/
 
 function verify_2_1_4() {
-    checkNumericExercise(
-        'st-ans-2-1-4', 
-        0, 
+    const correct = ['st-ans-2-1-4-a'];
+    const all = ['st-ans-2-1-4-a', 'st-ans-2-1-4-b', 'st-ans-2-1-4-c', 'st-ans-2-1-4-d'];
+    
+    const res = calculate_results(all, correct);
+    
+    display_universal_validation(
+        res, 
+        correct.length, 
         'hint-2-1-4',
-        " فعلاً، كلما صغر المقام (في القيمة المطلقة)، اقترب الكسر من اللا نهاية، أما بخصوص الإشارة، فعدد موجب على صفر موجب، يعطينا زائد لا نهاية $\\lim\\limits_{x \\stackrel{\\scriptscriptstyle >}{\\to} 0} \\frac{1}{x} = +\\infty$.",
-        "تذكر القاعدة: $\\frac{L}{0} = \\infty $."
-    );  
+        " تفكير سليم، كلما صغر المقام، زادت قيمة الكسر بلا حدود، البسط والمقام من نفس الإشارة، وبالتالي فإن $\\lim\\limits_{x {\\stackrel{\\scriptscriptstyle >}{\\to} 0} \\frac{1}{x} = +\\infty$",
+         "انتبه إلى المساواة $\\frac{L}{0^+}=+\\infty$. حيث أن $L>0$"
+    );
 }
+
 
 /*________________________________________*/
 
