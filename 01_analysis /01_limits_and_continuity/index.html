@@ -102,10 +102,25 @@
             🔍 <b>توجيه:</b> تذكر كم يساوي عدد ثابت قسمة لا نهاية.
         </div>
         <button onclick="verify_2_1_2()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة </button>
+
+        <p>3.أحسب $\lim\limits_{x \stackrel{\scriptscriptstyle <}{\to} 0} \frac{1}{x}$</p>
+        <p></p>من بين الخيارت التالية، حدد الإجابة الصحيحة:</p>
+        <div class="choices" dir="ltr">
+            <input type="checkbox" id="st-ans-2-1-3-a" name="st_ans-2-1-3">
+            <label for="st-ans-2-1-3-a"> $\lim\limits_{x \stackrel{\scriptscriptstyle <}{\to} 0} \frac{1}{x} = 0^+$</label><br><br>
+            <input type="checkbox" id="st-ans-2-1-3-b" name="st-ans-2-1-3">            
+            <label for="st-ans-2-1-3-b">$\lim\limits_{x \stackrel{\scriptscriptstyle <}{\to} 0} \frac{1}{x}=+\infty$ </label><br><br>
+            <input type="checkbox" id="st-ans-2-1-3-c" name="st-ans-2-1-3">
+            <label for="st-ans-2-1-3-c">$\lim\limits_{x \stackrel{\scriptscriptstyle <}{\to} 0} \frac{1}{x} = -\infty $ </label><br><br>
+            <input type="checkbox" id="st-ans-2-1-3-d" name="st_ans-2-1-3">
+            <label for="st-ans-2-1-3-d">$\lim\limits_{x \stackrel{\scriptscriptstyle <}{\to} 0} \frac{1}{x} = 0^-$ </label><br><br>
+            
+            <div id="hint-2-1-3" class="hint-box alert alert-warning shadow-sm text-body-secondary small" dir="rtl">
+                🔍 <b>توجيه:</b> المقام هو $x$, تذكر أن $\frac{L}{0} = \infty$ بحيث $L≠0}$
+            </div>
+            <button onclick="verify_2_1_3()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة</button><br><br>
+        </div> 
         
-        <p id="answer-2-1-2"> عندما يؤول $x$ الى $-\infty$ فإن الكسر $\frac{1}{x}$ يعطينا قسمة العدد1 على $-\infty$ وكما نعلم فإن أي عدد ثابت مهما كان كبيرا مقسوم على $\pm \infty$ يعطينا الصفر إذن: $$\lim\limits_{x \to -\infty} \frac{1}{x} = 0^-.$$</p>
-        
-        <p>3. عندما يؤول $x$ إلى $0$ بقيم أقل، وهو ما يعبر عنه أحيانا ب: عندما يقترب $x$ من الصفر جهة اليسار، يكون لدينا عدد موجب قسمة عدد سالب قيمته المطلقة متناهية ف الصغر، تقارب الصفر ويساوي $-\infty$ ومنه: $$\lim\limits_{x \stackrel{\scriptscriptstyle <}{\to} 0} \frac{1}{x} = -\infty $$</p>
         <p>4. عندما يؤول $x$ إلى الصفر بقيم أكبر، أو عندما يقترب من الصفر جهة اليمين، يكون لدينا عدد موجب قسمة عدد موجب متناهي في الصغر، والنتيجة هي $+\infty$  ومنه : $$\lim\limits_{x \stackrel{\scriptscriptstyle >}{\to} 0} \frac{1}{x} = +\infty.$$</p>
         <p>5. عندما يؤول $x$ إلى $+\infty$ الكسر يؤول إلى $0$ ومنه: $$\lim\limits_{x \to +\infty} \frac{1}{x} = 0^+. $$</p>
     </div>
