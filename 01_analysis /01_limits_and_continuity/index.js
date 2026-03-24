@@ -71,7 +71,7 @@ function checkNumericExercise(inputId, correctAnswer, hintBoxId, successMsg, err
 
     if (parseFloat(userAnswer) === correctAnswer) {
         hintBox.className = "hint-box alert alert-success shadow-sm";
-        hintBox.innerHTML = `<b>جابة صحيحة، ممتاز!</b> ${successMsg}`;
+        hintBox.innerHTML = `<b>إجابة صحيحة، ممتاز!</b> ${successMsg}`;
     } else {
         hintBox.className = "hint-box alert alert-danger shadow-sm";
         hintBox.innerHTML = `<b>إجابة خاطئة.</b> ${errorMsg}`;
@@ -106,7 +106,7 @@ function verify_2_1_2() {
         'st-ans-2-1-2', 
         0, 
         'hint-2-1-2',
-        " فعلاً، كلما كبر المقام (في القيمة المطلقة)، اقترب الكسر من الصفر، أما بخصوص الإشارة، فعدد موجب على سالب لا نهاية، يعطينا عدد مقارب جدا للصفر، لكنه سالب: $\\lim\\limits_{x \\to -\\infty} \\frac{1}{x} = 0_-$.",
+        " فعلاً، كلما كبر المقام (في القيمة المطلقة)، اقترب الكسر من الصفر، أما بخصوص الإشارة، فعدد موجب على سالب لا نهاية، يعطينا عدد مقارب جدا للصفر، لكنه سالب: $\\lim\\limits_{x \\to -\\infty} \\frac{1}{x} = 0^-$.",
         "تذكر القاعدة: $\\frac{L}{\\infty} = 0$."
     );  
 }
@@ -142,7 +142,7 @@ function verify_2_1_5() {
         'st-ans-2-1-5', 
         0, 
         'hint-2-1-5',
-        " فعلاً، كلما كبر المقام (في القيمة المطلقة)، اقترب الكسر من الصفر، أما بخصوص الإشارة، فعدد موجب على موجب لا نهاية، يعطينا عدد مقارب جدا للصفر، لكنه موجب: $\\lim\\limits_{x \\to +\\infty} \\frac{1}{x} = 0_+$.",
+        " فعلاً، كلما كبر المقام (في القيمة المطلقة)، اقترب الكسر من الصفر، أما بخصوص الإشارة، فعدد موجب على موجب لا نهاية، يعطينا عدد مقارب جدا للصفر، لكنه موجب: $\\lim\\limits_{x \\to +\\infty} \\frac{1}{x} = 0^+$.",
         "تذكر القاعدة: $\\frac{L}{\\infty} = 0$."
     );  
 }
