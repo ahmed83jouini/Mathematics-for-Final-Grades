@@ -150,6 +150,30 @@
 
     <div class="lesson-card">
         <h3 class="text-primary mb-4">2.2. الدالة $f(x)=\sqrt x $</h3>
+
+        <p>1. تعيين $D_f$ مجموعة تعريف الدالة $f(x)$:</p>
+        
+        <p>من بين الخيارت التالية التي تحدد مجموعة التعريف $D_f$ حدد كل الإجابات الصحيحة:</p>
+        <div class="choices" dir="ltr">
+            <input type="checkbox" id="st-ans-2-2-1-a" name="st_ans-2-2-1">
+            <label for="st-ans-2-2-1-a">$D_f = ]-\infty;0[ \cup [0;+\infty[$</label><br><br>
+            <input type="checkbox" id="st-ans-2-1-1-b" name="st-ans-2-1-1">            
+            <label for="st-ans-2-1-1-b">$D_f = ]-\infty;0] \cup ]0; +\infty[$</label><br><br>
+            <input type="checkbox" id="st-ans-2-1-1-c" name="st-ans-2-1-1">
+            <label for="st-ans-2-1-1-c">$D_f = \mathbb{R}^*$</label><br><br>
+            <input type="checkbox" id="st-ans-2-1-1-d" name="st_ans-2-1-1">
+            <label for="st-ans-2-1-1-d">$D_f = [-\infty;0[ \cup ]0;+\infty[$</label><br><br>
+            <input type="checkbox" id="st-ans-2-1-1-e" name="st-ans-2-1-1">            
+            <label for="st-ans-2-1-1-e">$D_f = ]-\infty;0[ \cup ]0; +\infty[$</label><br><br>
+            <input type="checkbox" id="st-ans-2-1-1-f" name="st-ans-2-1-1">
+            <label for="st-ans-2-1-1-f">$D_f = \mathbb{R}$</label><br><br>
+            <div id="hint-2-1-1" class="hint-box alert alert-warning shadow-sm text-body-secondary small" dir="rtl">
+                🔍 <b>توجيه:</b> المقام هو $x$, حاول إخراج القيمةالتي تعدم المقام من مجموعة التعريف.
+            </div>
+            <button onclick="verify_2_1_1()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة</button><br><br>
+        </div> 
+        
+        <p>فيما يلي ستقوم بحساب نهايات هذه الدالة عند أطراف مجال تعريفها:</p>
         <p>الدالة $f(x)$ معرفة على$[0; +\infty[$ سنحسب نهايات هذه الدالة أيضا، عند $0$ و $+\infty$:</p>
         <p>1.عند الصفر ولأن الدالة معرفة عنده، فالنهاية هي الصورة المباشرة ل 0 بواسطة الدالة: $$\lim\limits_{x \to 0} \sqrt x = f(0) = \sqrt 0 = 0.$$</p>
         <p>2. عند $-\infty$، نلاحظ أنه كلما كبر $x$ كبر جذره دون حدود وبالتالي : $$\lim\limits_{x \to +\infty} \sqrt x = +\infty.$$</p>
