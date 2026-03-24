@@ -252,22 +252,25 @@
          <div id="hint-2-3-3" class="hint-box alert alert-warning shadow-sm text-body-secondary small mt-3" dir="rtl">
             🔍 <b>توجيه:</b> تذكر قاعدة قسمة عدد ثابت على لانهاية ($\frac{L}{\infty}$).
          </div>
-         <button onclick="verify_2_3_3()" class="btn btn-primary btn-lg w-100 mt-2">تحقق من الإجابة</button>
+         <button onclick="verify_2_3_3()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة</button>
 
     </div>
 
     <div class="lesson-card">
         <h3 class="text-primary mb-4">4.2. الدالة $f(x)=x^n$ ($n \in \mathbb{N}^*$)</h3>
-    
+        <p>في هذا المثال سنرى تأثير الأس على النهاية، كونه فرديا أم زوجها.
         <p>1. أحسب $\lim\limits_{x \to -\infty} x^n$ عندما يكون **$n$ عدداً زوجياً** (مثل $x^2$):</p>
         <div class="choices" dir="ltr">
             <input type="radio" id="st-ans-2-4-1-a" name="st-ans-2-4-1">
-            <label for="st-ans-2-4-1-a">$-\infty$</label><br>
+            <label for="st-ans-2-4-1-a">$\lim\limits_{x \to -\infty} x^n = -\infty$</label><br>
             <input type="radio" id="st-ans-2-4-1-b" name="st-ans-2-4-1">
-            <label for="st-ans-2-4-1-b">$+\infty$</label><br>
-            <button onclick="verify_2_4_1()" class="btn btn-primary btn-sm w-100 mt-2">تحقق</button>
+            <label for="st-ans-2-4-1-b">$\lim\limits_{x \to -\infty} x^n = +\infty$</label><br>
+
+            <div id="hint-2-4-1" class="hint-box alert alert-warning text-body-secondary small" dir="rtl"><b>إتنبيه:</b> لاحظ زوجية $n$.</div>
+            
+            <button onclick="verify_2_4_1()" class="btn btn-primary btn-lg w-100">تحقق</button>
         </div>
-        <div id="hint-2-4-1" class="hint-box alert alert-warning small mt-2" dir="rtl"></div>
+        
 
         <p class="mt-4">2. أحسب $\lim\limits_{x \to -\infty} x^n$ عندما يكون **$n$ عدداً فردياً** (مثل $x^3$):</p>
         <div class="choices" dir="ltr">
@@ -275,12 +278,13 @@
             <label for="st-ans-2-4-2-a">$-\infty$</label><br>
             <input type="radio" id="st-ans-2-4-2-b" name="st-ans-2-4-2">
             <label for="st-ans-2-4-2-b">$+\infty$</label><br>
-            <button onclick="verify_2_4_2()" class="btn btn-primary btn-sm w-100 mt-2">تحقق</button>
+
+            <div id="hint-2-4-2" class="hint-box alert alert-warning text-body-secondary small" dir="rtl"><b>تنبيه:</b> لاحظ أن $n$ فردي.</div>
+            
+            <button onclick="verify_2_4_2()" class="btn btn-primary btn-lg w-100">تحقق</button>
         </div>
-        <div id="hint-2-4-2" class="hint-box alert alert-warning small mt-2" dir="rtl"></div>
-     </div>
-
-
+        
+    </div>
 
     <div class="alert alert-info mt-3" role="alert">
         <strong>فائدة</strong>
