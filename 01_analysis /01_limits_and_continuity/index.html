@@ -168,14 +168,46 @@
             
             <div id="hint-2-2-1" class="hint-box alert alert-warning shadow-sm text-body-secondary small" dir="rtl">
                 🔍 <b>توجيه:</b> ما داخل الجذر، يجب أن يكون موجبا أو معدوم...
-            </div>
+            </div><br>
             <button onclick="verify_2_2_1()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة</button><br><br>
-        </div> 
+        </div><br><br>
         
         <p>فيما يلي ستقوم بحساب نهايات هذه الدالة عند أطراف مجال تعريفها:</p>
         <p>الدالة $f(x)$ معرفة على$[0; +\infty[$ سنحسب نهايات هذه الدالة أيضا، عند $0$ و $+\infty$:</p>
-        <p>1.عند الصفر ولأن الدالة معرفة عنده، فالنهاية هي الصورة المباشرة ل 0 بواسطة الدالة: $$\lim\limits_{x \to 0} \sqrt x = f(0) = \sqrt 0 = 0.$$</p>
-        <p>2. عند $-\infty$، نلاحظ أنه كلما كبر $x$ كبر جذره دون حدود وبالتالي : $$\lim\limits_{x \to +\infty} \sqrt x = +\infty.$$</p>
+
+        <p>2. أحسب $\lim\limits_{x \to 0^+} \sqrt{x}$</p>
+        <p>بما أن الدالة معرفة عند $0$، فإنه يمكننا التعويض مباشرة:</p>
+        
+        <div class="choices" dir="ltr">
+            <input type="radio" id="st-ans-2-2-2-a" name="st-ans-2-2-2">
+            <label for="st-ans-2-2-2-a">$\lim\limits_{x \to 0^+} \sqrt{x} = +\infty$</label><br><br>
+            <input type="radio" id="st-ans-2-2-2-b" name="st-ans-2-2-2">            
+            <label for="st-ans-2-2-2-b">$\lim\limits_{x \to 0^+} \sqrt{x} = 0$</label><br><br>
+            <input type="radio" id="st-ans-2-2-2-c" name="st-ans-2-2-2">
+            <label for="st-ans-2-2-2-c">النهاية غير موجودة</label><br><br>
+            
+            <div id="hint-2-2-2" class="hint-box alert alert-warning shadow-sm text-body-secondary small" dir="rtl">
+                🔍 <b>توجيه:</b> تذكر أن نهاية الدالة عند نقطة معرفة عندها تساوي صورتها بالدالة.
+            </div>
+            <button onclick="verify_2_2_2()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة</button>
+        </div>
+        <br>
+
+        <p>3. أحسب $\lim\limits_{x \to +\infty} \sqrt{x}$</p>
+        <p>من بين الخيارات التالية، حدد الإجابة الصحيحة:</p>
+        <div class="choices" dir="ltr">
+            <input type="radio" id="st-ans-2-2-3-a" name="st-ans-2-2-3">
+            <label for="st-ans-2-2-3-a">$\lim\limits_{x \to +\infty} \sqrt{x} = 0$</label><br><br>
+            <input type="radio" id="st-ans-2-2-3-b" name="st-ans-2-2-3">            
+            <label for="st-ans-2-2-3-b">$\lim\limits_{x \to +\infty} \sqrt{x} = +\infty$</label><br><br>
+            <input type="radio" id="st-ans-2-2-3-c" name="st-ans-2-2-3">
+            <label for="st-ans-2-2-3-c">$\lim\limits_{x \to +\infty} \sqrt{x} = 1$</label><br><br>
+
+            <div id="hint-2-2-3" class="hint-box alert alert-warning shadow-sm text-body-secondary small" dir="rtl">
+                🔍 <b>توجيه:</b> تخيل سلوك الدالة بيانيا؛ كلما زادت قيمة $x$ تحت الجذر، ماذا يحدث للنتيجة؟
+            </div>
+            <button onclick="verify_2_2_3()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة</button>
+        </div><br><br>
     </div>
 
     <div class="lesson-card">
