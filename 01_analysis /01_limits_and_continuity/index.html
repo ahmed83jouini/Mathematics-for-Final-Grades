@@ -362,6 +362,37 @@
         </div>
     </div>
 
+    <div class="lesson-card">
+        <h3 class="text-primary mb-4">7.2. نهايات مركبة شهيرة: $\frac{\sin(x)}{x}$ و $\frac{\cos(x)}{x}$</h3>
+        
+        <div class="alert alert-info" role="region">
+            <strong>قاعدة الحصر (Théorème des Gendarmes):</strong> لحساب نهاية هذه الدوال عند اللانهاية، نستخدم الحصر: 
+            بما أن $-1 \le \sin(x) \le 1$، فإننا نجد $\frac{-1}{x} \le \frac{\sin(x)}{x} \le \frac{1}{x}$ (من أجل $x > 0$).
+        </div>
+
+        <p>1. أحسب $\lim\limits_{x \to +\infty} \frac{\sin(x)}{x}$:</p>
+        <div class="math-input-container" dir="ltr">
+             $\lim\limits_{x \to +\infty} \frac{\sin(x)}{x} = $ 
+             <input type="number" id="st-ans-2-7-1" name="st-ans-2-7-1" size="3" placeholder="؟">
+        </div>
+        <div id="hint-2-7-1" class="hint-box alert alert-warning shadow-sm text-body-secondary small mt-3" dir="rtl">
+            🔍 <b>توجيه:</b> عند اللانهاية، تذكر أن $\lim \frac{1}{x} = 0$.
+        </div>
+        <button onclick="verify_2_7_1()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة</button>
+        <br><br>
+
+        <p>2. أحسب $\lim\limits_{x \to -\infty} \frac{\cos(x)}{x}$:</p>
+        <div class="math-input-container" dir="ltr">
+             $\lim\limits_{x \to -\infty} \frac{\cos(x)}{x} = $ 
+             <input type="number" id="st-ans-2-7-2" name="st-ans-2-7-2" size="3" placeholder="؟">
+        </div>
+        <div id="hint-2-7-2" class="hint-box alert alert-warning shadow-sm text-body-secondary small mt-3" dir="rtl">
+            🔍 <b>توجيه:</b> نفس منطق الحصر يطبق هنا؛ قيمة محصورة مقسومة على قيمة تؤول للانهاية.
+        </div>
+        <button onclick="verify_2_7_2()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة</button>
+    </div>
+
+
 
 
     <div class="alert alert-info mt-3" role="alert">
