@@ -28,7 +28,7 @@ function display_universal_validation(stats, totalExpected, hintBoxId, successMs
     if (!hintBox) return;
 
     if (stats.checkedCount === 0) {
-        alert("أجب على السؤال، باختيار المربعات الصغيرة على يسار الخيارت المقترحة!");
+        alert("أجب على السؤال، باختيار المربعات أو الدوائر الصغيرة على يسار الخيارت المقترحة!");
         return;
     }
 
@@ -123,7 +123,7 @@ function verify_2_1_3() {
         res, 
         correct.length, 
         'hint-2-1-3',
-        " تفكير سليم، كلما صغر المقام، زادت قيمة الكسر بلا حدود، البسط والمقام من إشارتين مختلفتين، وبالتالي فإن $\\lim\\limits_{x {\\stackrel{\\scriptscriptstyle <}{\\to} 0} \\frac{1}{x} = -\\infty$",
+        " تفكير سليم، كلما صغر المقام، زادت قيمة الكسر بلا حدود، البسط والمقام من إشارتين مختلفتين، وبالتالي فإن $\\lim\\limits_{x \\stackrel{\\scriptscriptstyle <}{\\to} 0} \\frac{1}{x} = -\\infty $",
          "انتبه إلى المساواة $\\frac{L}{0^-}=-\\infty$. بشرط $L>0$"
     );
 }
@@ -141,7 +141,7 @@ function verify_2_1_4() {
         res, 
         correct.length, 
         'hint-2-1-4',
-        " تفكير سليم، كلما صغر المقام، زادت قيمة الكسر بلا حدود، البسط والمقام من نفس الإشارة، وبالتالي فإن $\\lim\\limits_{x {\\stackrel{\\scriptscriptstyle >}{\\to} 0} \\frac{1}{x} = +\\infty$",
+        " تفكير سليم، كلما صغر المقام، زادت قيمة الكسر بلا حدود، البسط والمقام من نفس الإشارة، وبالتالي فإن $\\lim\\limits_{x \\stackrel{\\scriptscriptstyle >}{\\to} 0} \\frac{1}{x} = +\\infty$",
          "انتبه إلى المساواة $\\frac{L}{0^+}=+\\infty$. حيث أن $L>0$"
     );
 }
@@ -220,7 +220,7 @@ function verify_2_3_1() {
         res, 
         correct.length, 
         'hint-2-3-1',
-        "ممتاز! لقد انتبهت أن الصفر يجب أن يُستثنى لأن الدالة في المقام.",
+        "ممتاز! لقد انتبهت أن الصفر يجب أن يُستثنى لأنه يعدم المقام.",
         "انتبه! هل يمكن للـ x أن يساوي الصفر في هذه الدالة؟"
     );
 }
