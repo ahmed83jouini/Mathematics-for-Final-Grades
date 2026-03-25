@@ -295,7 +295,7 @@ function verify_2_4_2() {
 function verify_2_4_3() {
     const correct = ['st-ans-2-4-3-c'];
     const res = calculate_results(
-        ['st-ans-2-4-3-a', 'st-ans-2-4-3-b', 'st-ans-2-3-3-c'], 
+        ['st-ans-2-4-3-a', 'st-ans-2-4-3-b', 'st-ans-2-4-3-c'], 
         correct
     );
     display_universal_validation(
