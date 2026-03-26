@@ -1,4 +1,21 @@
 
+// On récupère tous les liens qui pointent vers une ancre (#) dans le menu
+const menuLinks = document.querySelectorAll('#sidebarMenu .offcanvas-body a[href^="#"]');
+const myOffcanvas = document.getElementById('sidebarMenu');
+    
+// On crée l'instance Bootstrap pour pouvoir la contrôler
+const bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas);
+
+menuLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+        // 1. On laisse le navigateur naviguer vers l'ID
+        // 2. On force la fermeture du volet
+        bsOffcanvas.hide();
+    });
+});
+
+
+
 function calculate_results(allAnswers, correctAnswers) {
     let stats = { score: 0, errors: 0, checkedCount: 0 };
     allAnswers.forEach(id => {
