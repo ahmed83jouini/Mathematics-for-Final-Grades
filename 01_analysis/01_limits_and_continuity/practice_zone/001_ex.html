@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>النهايات والاستمرارية</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="01_style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+
+    <script>
+         window.MathJax = { tex: { inlineMath: [['$', '$']], displayMath: [['$$', '$$']] } };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+   
+</head>
+<body>
+<div class="container py-4"> <!--div 1-->
+    <h1 class="text-center mb-5 text-primary fw-bold">تطبيقات</h1>
+    <h2 id="operations-on-limits" class="text-primary mb-4">بإذن الله،  في طريقها إليكم...</h2>
+
+
+        
+    <!--sidebar-->
+    <button class="btn btn-light shadow position-fixed end-0 top-50 translate-middle-y rounded-start-pill border" 
+        type="button" 
+        data-bs-toggle="offcanvas" 
+        data-bs-target="#sidebarMenu" 
+        style="z-index: 1050; padding: 12px 18px;">
+    
+        <i class="bi bi-list-ul text-primary fs-4"></i>
+    </button>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="sidebarMenuLabel">الفهرس</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-group list-group-flush p-0" dir="rtl">
+                <li class="list-group-item bg-light fw-bold">على هذه الصفحة</li>
+                
+                <li class="list-group-item"><a href="#operations-on-limits" class="text-decoration-none text-dark d-block p-2">عمليات على النهايات</a></li>
+                <li class="list-group-item"><a href="#exemples" class="text-decoration-none text-dark d-block p-2">أمثلة</a></li>
+                <li class="list-group-item"><a href="#basic-concepts" class="text-decoration-none text-dark d-block p-2">مفاهيم أساسية</a></li>
+                <li class="list-group-item"><a href="#summary-of-indeterminate-forms" class="text-decoration-none text-dark d-block p-2">ملخص حالات عدم التعيين</a></li>
+        
+                <li class="list-group-item bg-light fw-bold mt-3">خارج هذه الصفحة</li>
+                
+                <li class="list-group-item"><a href="../../index.html" class="text-decoration-none text-dark d-block">الرئيسية</a></li>
+                <li class="list-group-item"><a href="02_continuity.html" class="text-decoration-none text-dark d-block">الإستمرارية</a></li>
+                <li class="list-group-item"><a href="practice_zone/001_ex.html" class="text-decoration-none text-dark d-block">تطبيقات</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="p-3">
+        <a href="../../index.html" class="btn btn-primary btn-lg w-100 mb-2">الرئيسية</a>
+        <a href="02_continuity.html" class="btn btn-primary btn-lg w-100 mb-2">الاستمرارية</a>
+        <a href="practice_zone/001_ex.html" class="btn btn-primary btn-lg w-100">تطبيقات</a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="01_limits.js"></script>
+
+</body>
+
+
+
+
+
+
+                    
+
+
+                              
+</html>
+    
