@@ -1,7 +1,7 @@
 
 function checkOrCreateStudent() {
     let data = localStorage.getItem('student_profile');
-
+    
     if (data) {
         // --- حالة التلميذ العائد ---
         let profile = JSON.parse(data);
@@ -47,26 +47,76 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
-function checkOrCreateStudent() {
-    let data = localStorage.getItem('student_profile');
-
-    if (data) {
+function updateParentScores(fullID, delta) {
+    // نفكك المعرف باستخدام الشرطة "-"
+    let parts = fullID.split('-'); 
+    
+    // نتحرك من الأسفل إلى الأعلى (حذف جزء في كل مرة)
+    // مثال: math-anal-limits-exem-ex-2-1-1 -> math-anal-limits-exem-ex-2-1
+    while (parts.length > 1) {
+        parts.pop(); // حذف الجزء الأخير
+        let parentID = parts.join('-');
+        
+        let data = localStorage.getItem('student_profile');
         let profile = JSON.parse(data);
-        profile.isNew = false;
-        // تحديث تاريخ آخر زيارة
-        profile.info.lastVisit = new Date().toLocaleString('ar-DZ');
+        
+        if (!profile.records[parentID]) {
+            profile.records[parentID] = { avg: 0, count: 0 };
+        }
+        
+        // تحديث المجموع التراكمي للأب بناءً على الفارق (Delta)
+        // ملاحظة: الأباء (الفصول والمجالات) نحدث مجموع نقاطهم مباشرة
+        profile.records[parentID].avg += delta; 
+        
         localStorage.setItem('student_profile', JSON.stringify(profile));
-        return profile;
-    } else {
-        let newProfile = {
-            isNew: true,
-            info: {
-                creationDate: new Date().toLocaleString('ar-DZ'),
-                lastVisit: new Date().toLocaleString('ar-DZ')
-            },
-            records: {} 
-        };
-        localStorage.setItem('student_profile', JSON.stringify(newProfile));
-        return newProfile;
+        
+        // تحديث الشاشة للأب إذا كان له عنصر ID
+        let parentElement = document.getElementById(parentID);
+        if (parentElement) {
+            parentElement.innerHTML = `درجة الإتقان: ${Math.round(profile.records[parentID].avg)}`;
+        }
     }
 }
+
+
+
+function recordResult(exerciseID, newScore) {
+    let data = localStorage.getItem('student_profile');
+    let profile = JSON.parse(data);
+    let delta = 0;
+
+    if (!profile.records[exerciseID]) {
+        profile.records[exerciseID] = { avg: newScore, count: 1 };
+        delta = newScore; // الفارق هو القيمة كاملة لأنها أول مرة
+    } else {
+        let record = profile.records[exerciseID];
+        let oldAvg = record.avg;
+        
+        // حساب المعدل الجديد
+        record.count++;
+        record.avg = ((oldAvg * (record.count - 1)) + newScore) / record.count;
+        
+        // الفارق الذي سيؤثر على المجموع الكلي هو (المعدل الجديد - المعدل القديم)
+        delta = record.avg - oldAvg;
+    }
+
+    localStorage.setItem('student_profile', JSON.stringify(profile));
+    
+    // --- هنا المحرك الرئيسي للتحديث التصاعدي ---
+    updateParentScores(exerciseID, delta);
+
+    return profile.records[exerciseID];
+}
+
+
+
+
+
+
+
+
+
+
+    
+    
+
