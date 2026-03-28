@@ -148,20 +148,22 @@ function updateUI(id, currentScore) {
     let valLabel = document.getElementById(id + "-val");
     
     if (bar && valLabel) {
+        // تحديد القاسم (Denominator)
+        // إذا كان سؤالاً فالمجموع 12، وإلا نبحث في خريطة الأوزان المحسوبة تلقائياً
         let isQuestion = id.split('-').length > 5;
-        // الوزن: 12 للسؤال، أو القيمة المحسوبة للأب من autoWeights
         let totalPossible = isQuestion ? 12 : (autoWeights[id] || 12); 
 
         let percentage = Math.min((currentScore / totalPossible) * 100, 100);
 
+        // تحريك الشريط وتحديث النص
         bar.style.width = percentage + "%";
         valLabel.innerHTML = `${Math.round(currentScore)} / ${totalPossible}`;
         
-        // تغيير الألوان حسب النسبة
+        // الألوان حسب النسبة المئوية الحقيقية
         bar.className = "progress-bar progress-bar-striped ";
-        if (percentage < 50) bar.classList.add("bg-danger");
-        else if (percentage < 85) bar.classList.add("bg-warning");
-        else bar.classList.add("bg-success");
+        if (percentage < 40) bar.classList.add("bg-danger");      // ضعيف
+        else if (percentage < 80) bar.classList.add("bg-warning"); // متوسط
+        else bar.classList.add("bg-success");                     // ممتاز
     }
 }
 
