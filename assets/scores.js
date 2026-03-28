@@ -36,6 +36,10 @@ window.addEventListener('DOMContentLoaded', () => {
     // فحص التلميذ
     let student = checkOrCreateStudent();
 
+    
+    // 2. (الخطوة الجديدة) جرد الأسئلة وحساب الأوزان القصوى
+    autoWeights = calculateTotalScores();
+
     // تحديث الواجهة للمعاينة على اللوحي
     if (student.isNew) {
         statusDiv.className = "alert alert-success text-center small";
@@ -123,38 +127,6 @@ function updateScores(exerciseID, score){
     
 }
 
-/*
-function hydrateScores() {
-    // 1. جلب البيانات من المخزن
-    let data = localStorage.getItem('student_profile');
-    if (!data) return; // إذا كان تلميذاً جديداً تماماً، لا يوجد ما نملأه
-
-    let profile = JSON.parse(data);
-    let records = profile.records;
-
-    // 2. المرور على كل سجل موجود في محفظة التلميذ
-    for (let id in records) {
-        // البحث عن العنصر الذي يحمل هذا المعرف في صفحة الـ HTML الحالية
-        let element = document.getElementById(id);
-        
-        if (element) {
-            let record = records[id];
-            
-            // 3. التمييز بين "السؤال" و "العناوين الكبرى" في العرض
-            if (id.split('-').length > 5) { 
-                // حالة السؤال (مثل 2-1-1): نعرض المعدل وعدد المحاولات
-                element.innerHTML = `المعدل: ${record.avg} | المحاولات: ${record.count}`;
-            } else {
-                // حالة العناوين (قسم، فصل، مادة): نعرض "درجة الإتقان" فقط
-                element.innerHTML = `درجة الإتقان: ${Math.round(record.avg)}`;
-            }
-            
-            // إضافة لمسة جمالية: تغيير لون النص إذا كان المعدل ممتازاً
-            if (record.avg >= 10) element.style.color = "green";
-        }
-    }
-}*/
-
 function hydrateScores() {
     let data = JSON.parse(localStorage.getItem('student_profile'));
     if (!data || !data.records) return;
@@ -167,17 +139,65 @@ function hydrateScores() {
 }
 
 // دالة التحديث البصري الموحدة (المحرك البصري)
-function updateUI(id, avgScore) {
+
+// متغير عام لتخزين الأوزان المحسوبة تلقائياً
+let autoWeights = {};
+
+function updateUI(id, currentScore) {
     let bar = document.getElementById(id + "-bar");
     let valLabel = document.getElementById(id + "-val");
+    
     if (bar && valLabel) {
-        let percent = (avgScore / 12) * 100;
-        bar.style.width = percent + "%";
-        valLabel.innerHTML = `${avgScore.toFixed(1)} / 12`;
-        // تغيير اللون
-        bar.className = "progress-bar progress-bar-striped " + (percent < 50 ? "bg-danger" : "bg-success");
+        let isQuestion = id.split('-').length > 5;
+        // الوزن: 12 للسؤال، أو القيمة المحسوبة للأب من autoWeights
+        let totalPossible = isQuestion ? 12 : (autoWeights[id] || 12); 
+
+        let percentage = Math.min((currentScore / totalPossible) * 100, 100);
+
+        bar.style.width = percentage + "%";
+        valLabel.innerHTML = `${Math.round(currentScore)} / ${totalPossible}`;
+        
+        // تغيير الألوان حسب النسبة
+        bar.className = "progress-bar progress-bar-striped ";
+        if (percentage < 50) bar.classList.add("bg-danger");
+        else if (percentage < 85) bar.classList.add("bg-warning");
+        else bar.classList.add("bg-success");
     }
 }
+
+
+
+function calculateTotalScores() {
+    let totals = {};
+    // نبحث عن كل الأسئلة (التي تحتوي معرفاتها على 6 أجزاء أو أكثر)
+    // مثال: math-anal-limits-exem-ex-2-1-1
+    const allElements = document.querySelectorAll('[id$="-val"]');
+    
+    allElements.forEach(el => {
+        let id = el.id.replace('-val', '');
+        let parts = id.split('-');
+        
+        // إذا كان هذا "سؤالاً" (الورقة الأخيرة في الشجرة)
+        if (parts.length > 5) {
+            let parentID = parts.slice(0, -1).join('-'); // الأب المباشر (التمرين)
+            let grandParentID = parts.slice(0, -2).join('-'); // الجد (القسم)
+            
+            // إضافة 12 نقطة لكل مستوى أعلى
+            totals[parentID] = (totals[parentID] || 0) + 12;
+            totals[grandParentID] = (totals[grandParentID] || 0) + 12;
+            
+            // استمر في التصعيد حتى تصل للمادة
+            let currentParts = parts.slice(0, -2);
+            while (currentParts.length > 1) {
+                currentParts.pop();
+                let upperID = currentParts.join('-');
+                totals[upperID] = (totals[upperID] || 0) + 12;
+            }
+        }
+    });
+    return totals;
+}
+
 
 
 
