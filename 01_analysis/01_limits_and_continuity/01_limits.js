@@ -24,7 +24,7 @@ function verify_2_1_1() {
 /*________________________________________*/
 
 function verify_2_1_2() {
-    checkNumericExercise(
+    let score = checkNumericExercise(
         'st-ans-2-1-2', 
         0, 
         'hint-2-1-2',
@@ -32,7 +32,6 @@ function verify_2_1_2() {
         "تذكر القاعدة: $\\frac{L}{\\infty} = 0$."
     );  
 
-    let score = 10 * res.score;
     let exerciseID = "math-anal-limits-exem-ex-2-1-2";
     updateScores(exerciseID, score);
 }
@@ -83,14 +82,14 @@ function verify_2_1_4() {
 /*________________________________________*/
 
 function verify_2_1_5() {
-    checkNumericExercise(
+    let score = checkNumericExercise(
         'st-ans-2-1-5', 
         0, 
         'hint-2-1-5',
         " فعلاً، كلما كبر المقام (في القيمة المطلقة)، اقترب الكسر من الصفر، أما بخصوص الإشارة، فعدد موجب على موجب لا نهاية، يعطينا عدد مقارب جدا للصفر، لكنه موجب: $\\lim\\limits_{x \\to +\\infty} \\frac{1}{x} = 0^+$.",
         "تذكر القاعدة: $\\frac{L}{\\infty} = 0$."
     );  
-    let score = 10;
+    
     let exerciseID = "math-anal-limits-exem-ex-2-1-5";
     updateScores(exerciseID, score);
 }
@@ -199,14 +198,14 @@ function verify_2_3_2() {
 /*______________________________*/
 
 function verify_2_3_3() {
-    checkNumericExercise(
+    let score = checkNumericExercise(
         'st-ans-2-3-3', 
         0, 
         'hint-2-3-3',
         "أحسنت! بما أن $\\lim\\limits_{x \\to +\\infty} \\sqrt{x} = +\\infty$، فإن مقلوب اللانهاية يؤول حتماً إلى الصفر الموجب ($0^+$).",
         "تذكر القاعدة الذهبية: عدد ثابت على لانهاية يعطينا دائماً..."
     );  
-    let score = 10 * res.score;
+    
     let exerciseID = "math-anal-limits-exem-ex-2-3-3";
     updateScores(exerciseID, score);
 }
@@ -359,28 +358,28 @@ function verify_2_6_2() {
 /*______________________________*/
 
 function verify_2_7_1() {
-    checkNumericExercise(
+    let score = checkNumericExercise(
         'st-ans-2-7-1', 
         0, 
         'hint-2-7-1',
         "أحسنت! بالرغم من أن $\\sin(x)$ لا يملك نهاية، إلا أن قسمته على $x$ (الذي يؤول للانهاية) تجعل الكسر يؤول للصفر.",
         "تذكر: حصر الدالة بين $-1/x$ و $1/x$ يؤدي إلى..."
     );  
-    let score = 10 * res.score;
+    
     let exerciseID = "math-anal-limits-exem-ex-2-7-1";
     updateScores(exerciseID, score);
 }
 
 /*______________________________*/
 function verify_2_7_2() {
-    checkNumericExercise(
+    let score = checkNumericExercise(
         'st-ans-2-7-2', 
         0, 
         'hint-2-7-2',
         "إجابة دقيقة! ينطبق على جيب التمام ما ينطبق على الجيب عند اللانهاية.",
         "فكر في القاعدة: عدد ثابت (أو محصور) على لانهاية يعطي..."
     );  
-    let score = 10 * res.score;
+    
     let exerciseID = "math-anal-limits-exem-ex-2-7-2";
     updateScores(exerciseID, score);
 }
