@@ -146,57 +146,38 @@ let autoWeights = {};
 function updateUI(id, currentScore) {
     let bar = document.getElementById(id + "-bar");
     let valLabel = document.getElementById(id + "-val");
+    if (!bar || !valLabel) return;
+
+    // القاعدة: إذا وجدنا وزناً في القاموس نستخدمه، وإلا فهو سؤال قيمته 12
+    let total = autoWeights[id] || 12;
+    let percent = Math.min((currentScore / total) * 100, 100);
+
+    bar.style.width = percent + "%";
+    valLabel.innerHTML = `${Math.round(currentScore)} / ${total}`;
     
-    if (bar && valLabel) {
-        // تحديد القاسم (Denominator)
-        // إذا كان سؤالاً فالمجموع 12، وإلا نبحث في خريطة الأوزان المحسوبة تلقائياً
-        let isQuestion = id.split('-').length > 5;
-        let totalPossible = isQuestion ? 12 : (autoWeights[id] || 12); 
-
-        let percentage = Math.min((currentScore / totalPossible) * 100, 100);
-
-        // تحريك الشريط وتحديث النص
-        bar.style.width = percentage + "%";
-        valLabel.innerHTML = `${Math.round(currentScore)} / ${totalPossible}`;
-        
-        // الألوان حسب النسبة المئوية الحقيقية
-        bar.className = "progress-bar progress-bar-striped ";
-        if (percentage < 40) bar.classList.add("bg-danger");      // ضعيف
-        else if (percentage < 80) bar.classList.add("bg-warning"); // متوسط
-        else bar.classList.add("bg-success");                     // ممتاز
-    }
+    // تغيير اللون حسب النسبة الحقيقية
+    bar.className = "progress-bar progress-bar-striped " + (percent < 50 ? "bg-danger" : "bg-success");
 }
-
 
 
 function calculateTotalScores() {
     let totals = {};
-    // نبحث عن كل الأسئلة (التي تحتوي معرفاتها على 6 أجزاء أو أكثر)
-    // مثال: math-anal-limits-exem-ex-2-1-1
-    const allElements = document.querySelectorAll('[id$="-val"]');
-    
-    allElements.forEach(el => {
+    // جرد كل العناصر التي تنتهي بـ "-val"
+    document.querySelectorAll('[id$="-val"]').forEach(el => {
         let id = el.id.replace('-val', '');
         let parts = id.split('-');
-        
-        // إذا كان هذا "سؤالاً" (الورقة الأخيرة في الشجرة)
+        // إذا كان سؤالاً (أطول من 5 أجزاء)
         if (parts.length > 5) {
-            // إضافة 12 نقطة لكل مستوى أعلى في الشجرة (التسلق)
-            let currentParts = parts.slice(0, -1);
-            while (currentParts.length > 1) {
-                let upperID = currentParts.join('-');
-                totals[upperID] = (totals[upperID] || 0) + 12; // إضافة وزن السؤال للأب
-                currentParts.pop(); // حذف الجزء الأخير للتسلق للأعلى
+            let tempParts = [...parts];
+            while (tempParts.length > 1) {
+                tempParts.pop();
+                let parentID = tempParts.join('-');
+                totals[parentID] = (totals[parentID] || 0) + 12;
             }
         }
     });
     return totals;
 }
-
-        
-
-
-
 
 
 
