@@ -179,24 +179,20 @@ function calculateTotalScores() {
         
         // إذا كان هذا "سؤالاً" (الورقة الأخيرة في الشجرة)
         if (parts.length > 5) {
-            let parentID = parts.slice(0, -1).join('-'); // الأب المباشر (التمرين)
-            let grandParentID = parts.slice(0, -2).join('-'); // الجد (القسم)
-            
-            // إضافة 12 نقطة لكل مستوى أعلى
-            totals[parentID] = (totals[parentID] || 0) + 12;
-            totals[grandParentID] = (totals[grandParentID] || 0) + 12;
-            
-            // استمر في التصعيد حتى تصل للمادة
-            let currentParts = parts.slice(0, -2);
+            // إضافة 12 نقطة لكل مستوى أعلى في الشجرة (التسلق)
+            let currentParts = parts.slice(0, -1);
             while (currentParts.length > 1) {
-                currentParts.pop();
                 let upperID = currentParts.join('-');
-                totals[upperID] = (totals[upperID] || 0) + 12;
+                totals[upperID] = (totals[upperID] || 0) + 12; // إضافة وزن السؤال للأب
+                currentParts.pop(); // حذف الجزء الأخير للتسلق للأعلى
             }
         }
     });
     return totals;
 }
+
+        
+
 
 
 
