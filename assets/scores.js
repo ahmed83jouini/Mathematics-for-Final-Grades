@@ -166,7 +166,8 @@ function updateUI(id, currentScore) {
     let percent = Math.min((currentScore / total) * 100, 100);
 
     bar.style.width = percent + "%";
-    valLabel.innerHTML = `${Math.round(currentScore)} / ${total}`;
+
+    valLabel.innerHTML = `<span dir="ltr">${Math.round(currentScore)} / ${total}</span>`;
     
     // تغيير اللون حسب النسبة الحقيقية
     bar.className = "progress-bar progress-bar-striped " + (percent < 50 ? "bg-danger" : "bg-success");
