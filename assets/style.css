@@ -1,38 +1,30 @@
 
-[data-bs-theme="dark"] .table-custom-header {
-    background-color: #1a3c40 !important; /* أخضر داكن هادئ بدلاً من الفسفوري */
-    color: #00ffcc; /* نص فاتح مريح */
+/* وضع "البساطة الفاعلة" الليلي - أضفه في نهاية style.css */
+[data-bs-theme="dark"] {
+    --bs-body-bg: #0f171d !important;
+    --bs-body-color: #e0e0e0 !important;
 }
 
-/* لجعل الجداول قابلة للقراءة في الظلام */
-[data-bs-theme="dark"] .card {
-    background-color: #1e2529; /* خلفية البطاقة أفتح قليلاً من خلفية الصفحة */
-    border: 1px solid #343a40;
+[data-bs-theme="dark"] body { background-color: var(--bs-body-bg); color: var(--bs-body-color); }
+
+/* ترويض الألوان الصارخة (العناوين والجداول والـ Cyan) */
+[data-bs-theme="dark"] h1, [data-bs-theme="dark"] h2, [data-bs-theme="dark"] h3 { color: #6ea8fe !important; }
+
+[data-bs-theme="dark"] .card, [data-bs-theme="dark"] .table, 
+[data-bs-theme="dark"] [style*="background-color"] {
+    background-color: #1a242b !important;
+    color: #e0e0e0 !important;
+    border-color: #2d373e !important;
 }
 
-
-/* دستور التنسيق الموحد - style.css */
-html {scroll-behavior: smooth;}
-/* الإعدادات العامة للموقع */
-body {
-    background-color: #f8f9fa;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
+/* معالجة اللون الفيروزي اليدوي */
+[data-bs-theme="dark"] .bg-info, [data-bs-theme="dark"] [style*="background-color: cyan"] {
+    background-color: #0d3d3d !important;
+    color: #00ffcc !important;
 }
 
-h1 {
-    font-size:1.3rem; 
-    color:blue;
-}
-h2 {
-    font-size:1.2rem; 
-    color:blue;
-}
-h3 {
-    font-size:1.1rem; 
-    color:blue !important;
-}
+/* ضمان ظهور الأرقام بالترتيب الصحيح 0/324 */
+[data-bs-theme="dark"] [id$="-val"] { direction: ltr; display: inline-block; }
 
 /* بطاقة الدرس أو التمرين */
 /* الحل القاطع: فرض الحد من جهة اليمين دائماً */
