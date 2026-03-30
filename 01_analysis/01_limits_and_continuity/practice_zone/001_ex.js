@@ -50,3 +50,28 @@ document.addEventListener("DOMContentLoaded", function() {
   // ننتظر قليلاً لضمان تحميل المكتبة بالكامل
   setTimeout(drawLimitsGraph, 100);
 });
+
+
+// كود ذكي يتكيف مع الوضع القاتم
+function drawLimitsGraph() {
+  // تحديد الألوان بناءً على وضع الصفحة الحالي
+  const isDark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+  const axisColor = isDark ? '#aaaaaa' : '#444444'; // لون المحاور
+  const gridColor = isDark ? '#333333' : '#eeeeee'; // لون الشبكة
+
+  functionPlot({
+    target: "#graph-limits",
+    // ... بقية الإعدادات السابقة ...
+    xAxis: { domain: [-1, 1], color: axisColor },
+    yAxis: { domain: [0, 1], color: axisColor },
+    grid: true,
+    data: [{
+      fn: "(sqrt(x + 1) - 1) / x",
+      color: isDark ? "#66b2ff" : "#0d6efd", // أزرق فاتح في الليل
+      // ... بقية الإعدادات ...
+    }],
+    // ... annotations ...
+  });
+}
+
+
