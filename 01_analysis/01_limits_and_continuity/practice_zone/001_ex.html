@@ -18,10 +18,53 @@
 <body>
 <div class="container py-4">
     <h1 class="text-center mb-5 text-primary fw-bold">تطبيقات</h1>
-    <h2 id="operations-on-limits" class="text-primary mb-4">بإذن الله، في طريقها إليكم...</h2>
+    
+    <div class="lesson-card">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h3 class="text-primary h5">التطبيق 01: التخمين والحساب الدقيق</h3>
+            <span class="badge bg-info" id="ex1-score-text">0%</span>
+        </div>
+        <div class="progress mb-4" style="height: 10px;">
+            <div id="ex1-progress-bar" class="progress-bar bg-success" style="width: 0%"></div>
+        </div>
 
+        <div id="part1" class="mb-4">
+            <p class="fw-bold text-secondary">1. وضع تخمين (بصري):</p>
+            <p>نعتبر الدالة $f$ المعرفة بـ: $f(x) = \frac{\sqrt{x+1}-1}{x}$. لاحظ أنها غير معرفة عند $0$.</p>
+        
+            <div class="alert alert-light border">
+                <p class="small mb-2">من خلال صور الشاشة (Zoom) حول النقطة $0$، نلاحظ أن المنحنى يمر من القيمة $0.5$.</p>
+                <p class="fw-bold">السؤال: خمن قيمة $\lim_{x \to 0} f(x)$ من خلال الرسم؟</p>
+                <div class="choices" dir="ltr">
+                    <input type="radio" name="ex1_q1" id="q1a" value="1"> <label for="q1a">$0.5$</label> <br>
+                    <input type="radio" name="ex1_q1" id="q1b" value="0"> <label for="q1b">$1$</label> <br>
+                    <input type="radio" name="ex1_q1" id="q1c" value="0"> <label for="q1c">$0$</label>
+                </div>
+            </div>
+        </div>
 
+        <hr>
 
+        <div id="part2" class="mb-4">
+            <p class="fw-bold text-secondary">2. الإثبات الرياضي (العدد المشتق):</p>
+            <p>نضع $g(x) = \sqrt{x+1}$. نلاحظ أن $g(0) = 1$.</p>
+            <p>النسبة $\frac{\sqrt{x+1}-1}{x}$ هي في الحقيقة معدل التغير: $\frac{g(x)-g(0)}{x-0}$.</p>
+        
+            <div class="alert alert-light border">
+                <p class="fw-bold small">السؤال: ما هو العدد المشتق $g'(0)$ للدالة $g$ عند $0$؟</p>
+                <p class="text-muted small italic">(تلميح: مشتقة $\sqrt{u}$ هي $\frac{u'}{2\sqrt{u}}$)</p>
+                <div class="choices" dir="ltr">
+                    <input type="radio" name="ex1_q2" id="q2a" value="0"> <label for="q2a">$g'(0) = 1$</label> <br>
+                    <input type="radio" name="ex1_q2" id="q2b" value="1"> <label for="q2b">$g'(0) = \frac{1}{2}$</label> <br>
+                    <input type="radio" name="ex1_q2" id="q2c" value="0"> <label for="q2c">$g'(0) = 2$</label>
+                </div>
+            </div>
+        </div>
+
+         <button class="btn btn-primary w-100 py-3 fw-bold shadow-sm" onclick="validateExercise('ex1', 2)">
+            تحقق من الإجابات <i class="bi bi-check2-circle"></i>
+         </button>
+    </div>
 
     
 
