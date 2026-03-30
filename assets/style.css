@@ -1,3 +1,24 @@
+/* تنسيق المعادلات الرياضية للوضع الليلي */
+[data-bs-theme="dark"] .MathJax {
+    color: #ffffff !important;
+}
+
+/* تنسيق عام للقائمة الجانبية لضمان التباين */
+.offcanvas {
+    transition: background-color 0.3s ease;
+}
+
+/* زر القائمة الجانبية المخصص */
+.btn-sidebar {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-primary);
+    border: 1px solid var(--bs-border-color);
+}
+
+/* إزالة الألوان الثابتة من الروابط داخل القائمة */
+.offcanvas .list-group-item a {
+    color: inherit; /* يأخذ لون النص المعتمد في النظام */
+}
 
 
 .lesson-card {
