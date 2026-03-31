@@ -28,17 +28,17 @@
     <div class="lesson-card">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h3 class="text-primary h5">التطبيق 01: التخمين والحساب الدقيق</h3>
-            <span class="badge bg-info" id="ex1-score-text">0%</span>
+            <span class="badge bg-info" id="math-anal-limits-pra-ex001-val">0%</span>
         </div>
         <div class="progress mb-4" style="height: 10px;">
-            <div id="ex1-progress-bar" class="progress-bar bg-success" style="width: 0%"></div>
+            <div id="math-anal-limits-pra-ex001-bar" class="progress-bar bg-success" style="width: 0%"></div>
         </div>
 
         <div id="part1" class="mb-4">
             <p class="fw-bold text-secondary">1. وضع تخمين (بصري):</p>
             <p>نعتبر الدالة $f$ المعرفة بـ: $f(x) = \frac{\sqrt{x+1}-1}{x}$. لاحظ أنها غير معرفة عند $0$.</p>
 
-            <div id="graph-limits" class="border rounded bg-white shadow-sm mb-3 text-center math-wrapper">
+            <div id="graph-limits" class="border rounded bg-white shadow-sm mb-3 text-center math-block">
             </div>
             <p class="text-body-secondary small text-center mb-4"><strong>تفاعل:</strong> استخدم عجلة الفأرة للـ Zoom، أو اسحب لتحريك الرسم.</p>
 
@@ -47,9 +47,9 @@
                 <p class="small mb-2">من خلال صور الشاشة (Zoom) حول النقطة $0$، نلاحظ أن المنحنى يمر من القيمة $0.5$.</p>
                 <p class="fw-bold">السؤال: خمن قيمة $\lim_{x \to 0} f(x)$ من خلال الرسم؟</p>
                 <div class="choices" dir="ltr">
-                    <input type="radio" name="ex1_q1" id="q1a" value="1"> <label for="q1a">$0.5$</label> <br>
-                    <input type="radio" name="ex1_q1" id="q1b" value="0"> <label for="q1b">$1$</label> <br>
-                    <input type="radio" name="ex1_q1" id="q1c" value="0"> <label for="q1c">$0$</label>
+                    <input type="radio" name="math-anal-limits-pra-ex001-a" id="math-anal-limits-pra-ex001-a" value="1"> <label for="q1a">$0.5$</label> <br>
+                    <input type="radio" name="math-anal-limits-pra-ex001-b" id="math-anal-limits-pra-ex001-b" value="0"> <label for="q1b">$1$</label> <br>
+                    <input type="radio" name="math-anal-limits-pra-ex001-c" id="math-anal-limits-pra-ex001-c" value="0"> <label for="q1c">$0$</label>
                 </div>
             </div>
         </div>
@@ -65,20 +65,19 @@
                 <p class="fw-bold small">السؤال: ما هو العدد المشتق $g'(0)$ للدالة $g$ عند $0$؟</p>
                 <p class="text-muted small italic">(تلميح: مشتقة $\sqrt{u}$ هي $\frac{u'}{2\sqrt{u}}$)</p>
                 <div class="choices" dir="ltr">
-                    <input type="radio" name="ex1_q2" id="q2a" value="0"> <label for="q2a">$g'(0) = 1$</label> <br>
-                    <input type="radio" name="ex1_q2" id="q2b" value="1"> <label for="q2b">$g'(0) = \frac{1}{2}$</label> <br>
-                    <input type="radio" name="ex1_q2" id="q2c" value="0"> <label for="q2c">$g'(0) = 2$</label>
+                    <input type="radio" name="math-anal-limits-app-ex001-d" id="math-anal-limits-app-ex001-d" value="0"> <label for="q2a">$g'(0) = 1$</label> <br>
+                    <input type="radio" name="math-anal-limits-app-ex001-e" id="math-anal-limits-app-ex001-e" value="1"> <label for="q2b">$g'(0) = \frac{1}{2}$</label> <br>
+                    <input type="radio" name="math-anal-limits-app-ex001-f" id="math-anal-limits-app-ex001-f" value="0"> <label for="q2c">$g'(0) = 2$</label>
                 </div>
             </div>
         </div>
 
-         <button class="btn btn-primary w-100 py-3 fw-bold shadow-sm" onclick="validateExercise('ex1', 2)">
+         <button class="btn btn-btn-outline-primary w-100 py-3 fw-bold shadow-sm" onclick="verify('ex1', 2)">
             تحقق من الإجابات <i class="bi bi-check2-circle"></i>
          </button>
     </div>
 
     
-
     
                 
     <!--sidebar-->
