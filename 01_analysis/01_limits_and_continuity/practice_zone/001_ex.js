@@ -11,7 +11,7 @@ function showLog(msg, isError = false) {
 
 
 
-function drawLimitsGraph() {
+
 function drawLimitsGraph() {
     try {
         const container = document.getElementById('graph-limits');
