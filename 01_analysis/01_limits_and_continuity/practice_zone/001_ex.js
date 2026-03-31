@@ -62,7 +62,7 @@ function drawLimitsGraph() {
 }
 
 
-function validateExercise1(exerciseId, totalQuestions) {
+function getAllandCorrectAnswers(exerciseId, totalQuestions) {
     let score = 0;
     
     // حساب الإجابات الصحيحة بناءً على الراديو بوتون
@@ -111,6 +111,21 @@ document.addEventListener("DOMContentLoaded", function() {
     observer.observe(document.documentElement, { attributes: true });
 });
 
+function verify(inputName) {
+    
+    const res = getExerciseResults(inputName);
+    
+    display_universal_validation(
+        res, 
+        'hint-2-1-1',
+        "لقد فهمت التكافؤ بين الكتابة $\\mathbb{R}^*$ و اتحاد المجالات.",
+        "انتبه إلى اتجاه المعقوفتين وإقصاء الصفر."
+    );
+    
+    if (res.errorCount === 0) {let score = res.correctCount * 6;}
+    updateScores(inputName, score);
+    
+}
 
 
 
