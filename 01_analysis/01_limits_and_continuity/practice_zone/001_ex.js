@@ -116,13 +116,14 @@ function drawLimitsGraph() {
                     fnType: 'points',
                     graphType: 'scatter',
                     color: colors.helper,
-                    attr: { r: 5, fill: colors.bg, stroke: colors.helper, "stroke-width": 2 }
+                    attr: { r: 3, fill: colors.bg, stroke: colors.helper, "stroke-width": 2 }
                 }
             ],
             annotations: [
                 { y: 0.5, color: colors.helper, text: 'y = 0.5' },
                 { x: 0, color: colors.helper, text: 'x = 0' },
-                { y: 0, color: colors.helper, text: 'y = 0' }،            ]
+                { y: 0, color: colors.helper, text: 'y = 0' }، 
+            ]
         });
 
         // --- التعديل اليدوي الإجباري بعد الرسم لضمان الظهور ---
