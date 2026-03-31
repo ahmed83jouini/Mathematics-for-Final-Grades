@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function() {
     observer.observe(document.documentElement, { attributes: true });
 });
 
-function verify(inputName) {
+function verify(exerciseID) {
     
     const res = getExerciseResults(exerciseID);
     let score=0;
