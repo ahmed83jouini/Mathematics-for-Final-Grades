@@ -121,8 +121,8 @@ function drawLimitsGraph() {
             ],
             annotations: [
                 { y: 0.5, color: colors.helper, text: 'y = 0.5' },
-                { x: 0, color: colors.helper }
-            ]
+                { x: 0, color: colors.helper, text: 'x = 0' },
+                { y: 0, color: colors.helper, text: 'y = 0' }،            ]
         });
 
         // --- التعديل اليدوي الإجباري بعد الرسم لضمان الظهور ---
