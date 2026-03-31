@@ -54,7 +54,7 @@ function drawLimitsGraph() {
                 y: 0.5,
                 color: 'rgba(220, 53, 69, 0.3)',
                 dash: [5, 5]
-            }
+            },
             {
                 x: 0,
                 color: 'rgba(220, 53, 69, 0.3)',
