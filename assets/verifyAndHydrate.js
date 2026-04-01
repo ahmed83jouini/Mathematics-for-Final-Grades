@@ -8,15 +8,17 @@ function verify(exerciseID) {
 
     // 2. تقييم الإجابات (صواب/خطأ) بناءً على القيم المدخلة
     const evaluation = evaluateAnswers(userInputs, exerciseID);
-
+alert("انتهت evaluateAnswers بنجاح ");
     // 3. تحديث قاعدة البيانات المحلية (LocalStorage) بالنتائج الجديدة
     const updatedRecord = syncWithLocalStorage(exerciseID, evaluation.score);
-
+alert("انتهت سينسلوكال ستورايدج بنجاح");
     // 4. تقديم التغذية الراجعة البصرية (تلوين، تلميحات، شريط التقدم)
     renderVisualFeedback(exerciseID, evaluation, updatedRecord.avg);
-
+alert("نجحت visaulfeedback");
     // 5. إدارة حالة الأزرار والعناصر (قفل المدخلات، تفعيل "أعد المحاولة")
     finalizeExerciseState(exerciseID);
+    alert("خرجنا من finalizeExerciseState ");
+    
 }
 
 /**
