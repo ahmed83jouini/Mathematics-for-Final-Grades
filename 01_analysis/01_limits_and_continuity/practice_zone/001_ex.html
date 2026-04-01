@@ -67,15 +67,27 @@
         
             <div class="alert alert-light border shadow-sm p-3">
                 <p class="small mb-2 text-muted"><i class="fas fa-search-plus me-1"></i>  من خلال صور الشاشة (Zoom) حول النقطة $0$، نلاحظ أن المنحنى يمر من القيمة $0.5$.</p>
-                <p class="fw-bold"> <i class="fas fa-search-plus me-1"></i> السؤال: خمن قيمة $\lim\limits_{x \to 0} f(x)$ من خلال الرسم؟</p>
+                <p class="fw-bold">السؤال: خمن قيمة $\lim\limits_{x \to 0} f(x)$ من خلال الرسم؟</p>
                 <div class="choices" dir="ltr">
-                    <input type="radio" name="math-anal-limits-pra-ex001-1" id="math-anal-limits-pra-ex001-a" value="1" class="math-anal-limits-pra-ex001"> 
-                    <label for="math-anal-limits-pra-ex001-a">$0.5$</label> <br><br>
-                    <input type="radio" name="math-anal-limits-pra-ex001-1" id="math-anal-limits-pra-ex001-b" value="0" class="math-anal-limits-pra-ex001">
-                    <label for="math-anal-limits-pra-ex001-b">$1$</label> <br><br>
-                    <input type="radio" name="math-anal-limits-pra-ex001-1" id="math-anal-limits-pra-ex001-c" value="0" class="math-anal-limits-pra-ex001">
-                    <label for="math-anal-limits-pra-ex001-c">$0$</label><br>
+                    <div class="form-check mb-2">
+                        <input type="radio" name="anal-limits-pra-ex001-p1" id="anal-limits-pra-ex001-a" value="1" class="form-check-input anal-limits-pra-ex001 correct-node"> 
+                        <label class="form-check-label" for="anal-limits-pra-ex001-a">$0.5$</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input type="radio" name="anal-limits-pra-ex001-p1" id="anal-limits-pra-ex001-b" value="0" class="form-check-input anal-limits-pra-ex001">
+                        <label class="form-check-label" for="anal-limits-pra-ex001-b">$1$</label>
+                    </div>
+                    <div class="form-check mb2">
+                        <input type="radio" name="anal-limits-pra-ex001-p1" id="anal-limits-pra-ex001-c" value="0" class="form-check-input anal-limits-pra-ex001">
+                        <label class="form-check-label" for="anal-limits-pra-ex001-c">$0$</label>
+                    </div)
                 </div>
+                 <div id="anal-limits-pra-ex001-p1-hintSuccess" class="alert alert-success d-none mt-2 py-2">
+                      ✅ <b>رائع!</b> القراءة البيانية دقيقة جداً.
+                 </div>
+                 <div id="anal-limits-pra-ex001-p1-hintError" class="alert alert-danger d-none mt-2 py-2">
+                      ❌ <b>راجع الرسم:</b> لاحظ تقارب التراتيب عند الصفر.
+                 </div>
             </div>
         </div>
 
@@ -86,25 +98,51 @@
             <p>نضع $g(x) = \sqrt{x+1}$. نلاحظ أن $g(0) = 1$.</p>
             <p>النسبة $\frac{\sqrt{x+1}-1}{x}$ هي في الحقيقة معدل التغير: $\frac{g(x)-g(0)}{x-0}$.</p>
         
-            <div class="alert alert-light border">
+            <div class="alert alert-light border shadow-sm p-3">
                 <p class="fw-bold small">السؤال: ما هو العدد المشتق $g'(0)$ للدالة $g$ عند $0$؟</p>
                 <p class="text-muted small italic">(تلميح: مشتقة $\sqrt{u}$ هي $\frac{u'}{2\sqrt{u}}$)</p>
                 <div class="choices" dir="ltr">
-                    <input type="radio" name="math-anal-limits-pra-ex001-2" id="math-anal-limits-pra-ex001-d" value="0" class="math-anal-limits-pra-ex001">
-                    <label for="math-anal-limits-pra-ex001-d">$g'(0) = 1$</label> <br><br>
-                    <input type="radio" name="math-anal-limits-pra-ex001-2" id="math-anal-limits-pra-ex001-e" value="1" class="math-anal-limits-pra-ex001">
-                    <label for="math-anal-limits-pra-ex001-e">$g'(0) = \frac{1}{2}$</label> <br><br>
-                    <input type="radio" name="math-anal-limits-pra-ex001-2" id="math-anal-limits-pra-ex001-f" value="0" class="math-anal-limits-pra-ex001">
-                    <label for="math-anal-limits-pra-ex001-f">$g'(0) = 2$</label><br>
+                    <div class="form-check mb-2">
+                        <input type="radio" name="anal-limits-pra-ex001-p2" id="anal-limits-pra-ex001-d" value="0" class="form-check-input anal-limits-pra-ex001"> 
+                        <label class="form-check-label" for="anal-limits-pra-ex001-d">$g'(0)$</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input type="radio" name="anal-limits-pra-ex001-p2" id="anal-limits-pra-ex001-e" value="1" class="form-check-input anal-limits-pra-ex001 correct-node">
+                        <label class="form-check-label" for="anal-limits-pra-ex001-e">$g'(0) = \frac{1}{2}$</label>
+                    </div>
+                    <div class="form-check mb2">
+                        <input type="radio" name="anal-limits-pra-ex001-p2" id="anal-limits-pra-ex001-f" value="0" class="form-check-input anal-limits-pra-ex001">
+                        <label class="form-check-label" for="anal-limits-pra-ex001-f">$0$</label>
+                    </div)
                 </div>
+                 <div id="anal-limits-pra-ex001-p1-hintSuccess" class="alert alert-success d-none mt-2 py-2">
+                      ✅ <b>رائع!</b> القراءة البيانية دقيقة جداً.
+                 </div>
+                 <div id="anal-limits-pra-ex001-p1-hintError" class="alert alert-danger d-none mt-2 py-2">
+                      ❌ <b>راجع الرسم:</b> لاحظ تقارب التراتيب عند الصفر.
+                 </div>
             </div>
         </div>
+        
+        <div class="d-flex gap-2 mt-4">
+            <button id="anal-limits-pra-ex001-btnVerify" 
+                     class="btn btn-primary flex-grow-1 py-2 fw-bold shadow-sm" 
+                     onclick="verify('anal-limits-pra-ex001')">
+                     تحقق <i class="bi bi-check2-circle ms-1"></i>
+            </button>
 
-        <div id="hint-ex" class="mt-3">المطلوب التركيز</div>
+            <button id="anal-limits-pra-ex001-btnRetry" 
+                class="btn btn-outline-secondary flex-grow-1 py-2 fw-bold shadow-sm" 
+                onclick="resetPart('anal-limits-pra-ex001')" 
+                disabled>
+                أعد المحاولة <i class="bi bi-arrow-counterclockwise ms-1"></i>
+            </button>
 
-         <button class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm" onclick="verify('math-anal-limits-pra-ex001')">
-            تحقق من الإجابات <i class="bi bi-check2-circle"></i>
-         </button>
+            <button class="btn btn-outline-primary py-2 fw-bold shadow-sm" 
+                onclick="nextExercise('anal-limits-pra-ex002')">
+                التالي <i class="bi bi-chevron-left ms-1"></i>
+            </button>
+        </div>
     </div>
 
     
