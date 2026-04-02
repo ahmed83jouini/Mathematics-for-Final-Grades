@@ -3,10 +3,9 @@
  * لا يوجد هنا كود معالجة، فقط استدعاءات لوظائف متخصصة.
  */
 function verify(exerciseID) {
-    alert('دخلنا verify ');
     // 2. تقييم الإجابات (صواب/خطأ) بناءً على القيم المدخلة
     const evaluation = evaluateAnswers(exerciseID);
-    alert('خرجنا من evaluateAnswers ');
+
     if (evaluation && evaluation.noAnswer === true) {
         alert("أجب أولا من فضلك...");
         return; // التوقف هنا وعدم إكمال الهيدرة (Hydration) أو التلوين
@@ -251,31 +250,7 @@ function finalizeExerciseState(exerciseID) {
         };*/
     }
 }
-/*
-function finalizeExerciseState(exerciseID) {
-    // أ. قفل كافة المدخلات (Inputs) لمنع التلاعب بعد التصحيح
-    const inputs = document.querySelectorAll(`.${exerciseID}`);
-    inputs.forEach(input => {
-        input.disabled = true;
-    });
 
-    // ب. إدارة الأزرار (Control Buttons)
-    const btnVerify = document.getElementById(`${exerciseID}-btnVerify`);
-    const btnRetry = document.getElementById(`${exerciseID}-btnRetry`);
-
-    if (btnVerify) {
-        // تعطيل زر التحقق وإضافة لمسة بصرية (شفافية بسيطة)
-        btnVerify.disabled = true;
-        btnVerify.classList.add('opacity-50');
-    }
-
-    if (btnRetry) {
-        // تفعيل زر "أعد المحاولة" (Désinhiber)
-        btnRetry.disabled = false;
-        btnRetry.classList.remove('d-none'); // نضمن ظهوره إذا كان مخفياً
-    }
-}
-*/
 /**
  * دالة إعادة المحاولة: تصفير التمرين برمجياً وبصرياً
  */
