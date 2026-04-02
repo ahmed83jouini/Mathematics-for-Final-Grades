@@ -272,7 +272,7 @@ function finalizeExerciseState(exerciseID) {
     if (btnRetry) {
         btnRetry.disabled = false; // تفعيل الزر برمجياً
         btnRetry.classList.remove('d-none', 'disabled'); // إزالة كلاسات التعطيل
-        btnRetry.classList.add('btn-primary', 'shadow-sm'); // تلوينه ليكون جذاباً
+        btnRetry.classList.add('shadow-sm'); // تلوينه ليكون جذاباً
         
         // إضافة مستمع حدث (Event Listener) للزر إذا لم يكن موجوداً
         // ليقوم بتحديث الصفحة أو تصفير التمرين عند الضغط عليه
@@ -371,13 +371,13 @@ function hydrateExercise(exerciseID) {
 
         if (record && record.isLocked) {
             // 1. تقييم سريع لتحديد الألوان بناءً على الاختيارات الحالية
-            const evaluation = evaluateAnswers(exerciseID);
+           // const evaluation = evaluateAnswers(exerciseID);
             
             // 2. تلوين الواجهة وتحديث شريط التقدم
-            renderVisualFeedback(exerciseID, evaluation, record.avg);
+            //renderVisualFeedback(exerciseID, evaluation, record.avg);
             
             // 3. قفل الأزرار وتحرير زر "أعد المحاولة"
-            finalizeExerciseState(exerciseID);
+            //finalizeExerciseState(exerciseID);
         }
     } catch (e) {
         alert("خطأ في استرجاع البيانات: ", e);
@@ -391,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ضع هنا الـ ID الخاص بالتمرين (يمكنك تكرار السطر لتمارين أخرى)
     const currentEx = "anal-limits-pra-ex001"; 
     
-    hydrateExercise(currentEx);
+   // hydrateExercise(currentEx);
 });
 
 
