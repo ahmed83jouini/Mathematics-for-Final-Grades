@@ -85,7 +85,7 @@ function evaluateAnswers(/*userInputs,*/ exerciseID) {
         debugInfo += `[${index}] Type: ${el.type} | Name: ${el.name} | Value: ${el.value}\n`;
     });
 
-    alert("المحطة 2: عثرت على " + debugInfo + " عنصر:\n" + debugInfo);
+    alert("المحطة 2: عثرت على \n" + debugInfo );
     
     allElements.forEach(el => {
         if (!partsMap[el.name]) partsMap[el.name] = [];
