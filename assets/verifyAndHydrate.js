@@ -351,7 +351,7 @@ function finalizeExerciseState(exerciseID) {
         btnRetry.classList.remove('d-none'); // نضمن ظهوره إذا كان مخفياً
     }
 }
-
+*/
 /**
  * دالة إعادة المحاولة: تصفير التمرين برمجياً وبصرياً
  */
@@ -403,7 +403,7 @@ function resetPart(exerciseID) {
 }
 
 
-*/
+
 /**
  * وظيفة الاسترجاع (Hydration): تعيد الحياة للتمرين من الذاكرة
  */
