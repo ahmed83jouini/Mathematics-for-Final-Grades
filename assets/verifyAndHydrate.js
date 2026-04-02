@@ -95,20 +95,19 @@ function evaluateAnswers(/*userInputs,*/ exerciseID) {
 
     
     // --- كود فحص هيكل الـ partsMap المحول ---
-let partsReport = "بنية المجموعات (partsMap):\n";
+    let partsReport = "بنية المجموعات (partsMap):\n";
 
-for (const partName in partsMap) {
-    const group = partsMap[partName];
-    partsReport += `\n📦 العقدة [${partName}] تحتوي على (${group.length}) عناصر:\n`;
+    for (const partName in partsMap) {
+        const group = partsMap[partName];
+        partsReport += `\n📦 العقدة [${partName}] تحتوي على (${group.length}) عناصر:\n`;
     
-    group.forEach((el, i) => {
-        partsReport += `   ${i+1}. النوع: ${el.type} | القيمة: ${el.value} | الإجابة: ${el.getAttribute('data-answer')}\n`;
-    });
-}
+        group.forEach((el, i) => {
+            partsReport += `   ${i+1}. النوع: ${el.type} | القيمة: ${el.value} | الإجابة: ${el.getAttribute('data-answer')}\n`;
+        });
+    }
 
-alert(partsReport);
-// ---------------------------------------
---
+    alert(partsReport);
+    // ---------------------------------------
 
     const totalParts = Object.keys(partsMap).length;
     let correctPartsCount = 0;
