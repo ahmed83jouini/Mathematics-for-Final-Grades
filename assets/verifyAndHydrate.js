@@ -94,19 +94,21 @@ function evaluateAnswers(/*userInputs,*/ exerciseID) {
     });
 
     
-    // --- كود الفحص (Debug) ---
-    let report = `عدد العناصر المكتشفة: ${allElements.length}\n`;
-    allElements.forEach((el, index) => {
-        report += `${index}- [النوع: ${el.type}] [الاسم: ${el.name}] [القيمة: ${el.value}] [الهدف: ${el.getAttribute('data-answer')}]\n`;
-    });
-    alert(report);
-    // -----------------------
+    // --- كود فحص هيكل الـ partsMap المحول ---
+let partsReport = "بنية المجموعات (partsMap):\n";
 
-    allElements.forEach(el => {
-        if (!partsMap[el.name]) partsMap[el.name] = [];
-        partsMap[el.name].push(el);
+for (const partName in partsMap) {
+    const group = partsMap[partName];
+    partsReport += `\n📦 العقدة [${partName}] تحتوي على (${group.length}) عناصر:\n`;
+    
+    group.forEach((el, i) => {
+        partsReport += `   ${i+1}. النوع: ${el.type} | القيمة: ${el.value} | الإجابة: ${el.getAttribute('data-answer')}\n`;
     });
+}
 
+alert(partsReport);
+// ---------------------------------------
+--
 
     const totalParts = Object.keys(partsMap).length;
     let correctPartsCount = 0;
