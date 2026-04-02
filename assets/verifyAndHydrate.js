@@ -82,7 +82,7 @@ function evaluateAnswers(/*userInputs,*/ exerciseID) {
 
     let debugInfo = "";
     allElements.forEach((el, index) => {
-        debugInfo += `[${index}] Type: ${el.type} | Name: ${el.name} | Value: ${el.value}\n`;
+        debugInfo += `[${index}] Type: ${el.type} | Id: ${el.id} | Value: ${el.value}\n`;
     });
 
     alert("المحطة 2: عثرت على \n" + debugInfo );
