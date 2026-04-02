@@ -147,14 +147,13 @@ function evaluateAnswers(/*userInputs,*/ exerciseID) {
 
     const attemptScore = totalParts > 0 ? (correctPartsCount / totalParts) * 100 : 0;
 
-    // --- كود فحص هيكل الـ details المحول ---
-    let partsReport = "score : ";
-    partsReport += `${attemptScore}\n`;
+    // --- كود فحص هيكل الـ details (للمصفوفات) ---
+    let partsReport = "score : " + attemptScore + "\n";
     partsReport += "تفاصيل التصحيح (details):\n";
 
-    for (const part in details) {
-        partsReport += `\n📦 القسم[${part.name}]  صحيح (${part.isCorrect})  نوعه :${part.type}\n`;
-    
+    // استخدم for...of للمصفوفات للوصول للكائن مباشرة
+    for (const part of details) {
+        partsReport += `\n📦 القسم [${part.name}] | صحيح: (${part.isCorrect}) | نوعه: ${part.type}\n`;
     }
 
     alert(partsReport);
