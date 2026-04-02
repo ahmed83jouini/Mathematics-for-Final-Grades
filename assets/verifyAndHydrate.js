@@ -352,6 +352,57 @@ function finalizeExerciseState(exerciseID) {
     }
 }
 
+/**
+ * دالة إعادة المحاولة: تصفير التمرين برمجياً وبصرياً
+ */
+function resetPart(exerciseID) {
+    // 1. جلب كافة العناصر والمدخلات
+    const allElements = document.querySelectorAll(`.${exerciseID}`);
+    const btnVerify = document.getElementById(`${exerciseID}-btnVerify`);
+    const btnRetry = document.getElementById(`${exerciseID}-btnRetry`);
+
+    // 2. تصفير المدخلات وإعادة تفعيلها
+    allElements.forEach(el => {
+        el.disabled = false; // فك القفل
+        if (el.type === 'number') {
+            el.value = ''; // مسح الرقم
+            el.classList.remove('is-valid', 'is-invalid'); // مسح ألوان الحدود
+        } else if (el.type === 'radio' || el.type === 'checkbox') {
+            el.checked = false; // إلغاء الاختيار
+            // إعادة لون النص الأصلي (Label)
+            const label = document.querySelector(`label[for="${el.id}"]`);
+            if (label) {
+                label.style.color = ''; 
+                label.classList.remove('fw-bold');
+            }
+        }
+    });
+
+    // 3. إخفاء التلميحات (Hints)
+    const hints = document.querySelectorAll(`[id^="${exerciseID}"][id$="HintSuccess"], [id^="${exerciseID}"][id$="HintError"]`);
+    hints.forEach(h => h.classList.add('d-none'));
+
+    // 4. إدارة الأزرار
+    if (btnVerify) {
+        btnVerify.disabled = false;
+        btnVerify.classList.remove('opacity-50');
+        btnVerify.innerHTML = `تحقق <i class="bi bi-check-circle ms-1"></i>`;
+    }
+    if (btnRetry) {
+        btnRetry.disabled = true; // يعود للتعطيل حتى يتم الحل مجدداً
+    }
+
+    // 5. تحديث الذاكرة (فتح القفل برمجياً)
+    let profile = JSON.parse(localStorage.getItem('userProfile'));
+    if (profile && profile.records[exerciseID]) {
+        profile.records[exerciseID].isLocked = false;
+        localStorage.setItem('userProfile', JSON.stringify(profile));
+    }
+
+    alert("تمت إعادة تهيئة التمرين، يمكنك المحاولة الآن.");
+}
+
+
 */
 /**
  * وظيفة الاسترجاع (Hydration): تعيد الحياة للتمرين من الذاكرة
