@@ -80,17 +80,33 @@ function evaluateAnswers(/*userInputs,*/ exerciseID) {
     const partsMap = {};
     const allElements = document.querySelectorAll(`.${exerciseID}`);
 
-    let debugInfo = "";
+    /*let debugInfo = "";
     allElements.forEach((el, index) => {
         debugInfo += `[${index}] Type: ${el.type} | Id: ${el.id} | Value: ${el.value}\n`;
     });
 
     alert("المحطة 2: عثرت على \n" + debugInfo );
+    */
     
     allElements.forEach(el => {
         if (!partsMap[el.name]) partsMap[el.name] = [];
         partsMap[el.name].push(el);
     });
+
+    
+    // --- كود الفحص (Debug) ---
+    let report = `عدد العناصر المكتشفة: ${allElements.length}\n`;
+    allElements.forEach((el, index) => {
+        report += `${index}- [النوع: ${el.type}] [الاسم: ${el.name}] [القيمة: ${el.value}] [الهدف: ${el.getAttribute('data-answer')}]\n`;
+    });
+    alert(report);
+    // -----------------------
+
+    allElements.forEach(el => {
+        if (!partsMap[el.name]) partsMap[el.name] = [];
+        partsMap[el.name].push(el);
+    });
+
 
     const totalParts = Object.keys(partsMap).length;
     let correctPartsCount = 0;
