@@ -75,7 +75,7 @@ function collectInputs(exerciseID) {
  * 2. تقييم الإجابات (Evaluation - All or Nothing)
  * تقيم كل جزء (p1, p2...) ككتلة واحدة صائبة أو خاطئة
  */
-function evaluateAnswers(userInputs, exerciseID) {
+function evaluateAnswers(/*userInputs,*/ exerciseID) {
     // 1. تجميع العناصر حسب "الجزء" (p1, p2...)
     const partsMap = {};
     const allElements = document.querySelectorAll(`.${exerciseID}`);
@@ -85,7 +85,7 @@ function evaluateAnswers(userInputs, exerciseID) {
         debugInfo += `[${index}] Type: ${el.type} | Name: ${el.name} | Value: ${el.value}\n`;
     });
 
-    alert("المحطة 2: عثرت على " + allElements.length + " عنصر:\n" + debugInfo);
+    alert("المحطة 2: عثرت على " + debugInfo + " عنصر:\n" + debugInfo);
     
     allElements.forEach(el => {
         if (!partsMap[el.name]) partsMap[el.name] = [];
