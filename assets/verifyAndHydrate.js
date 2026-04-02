@@ -5,11 +5,6 @@
 function verify(exerciseID) {
     
     alert("المحطة 1: تم استدعاء الدالة للمعّرف: " + exerciseID);
-    /*
-
-    // 1. تجميع البيانات المدخلة من واجهة المستخدم
-    const userInputs = collectInputs(exerciseID);
-    */
     
     // 2. تقييم الإجابات (صواب/خطأ) بناءً على القيم المدخلة
     const evaluation = evaluateAnswers(/*userInputs,*/ exerciseID);
@@ -26,51 +21,7 @@ function verify(exerciseID) {
     
 }
 
-/**
- * 1. تجميع المدخلات (Data Collection)
- * تجلب العناصر بناءً على النوع (Number, Checkbox, Radio)
- */
-/*
-function collectInputs(exerciseID) {
-    const elements = document.querySelectorAll(`.${exerciseID}`);
-    const inputsData = [];
 
-    elements.forEach(el => {
-        let entry = {
-            name: el.name,      // المعرف الفريد للجزء (مثل p1, p2)
-            type: el.type,      // نوع المدخل
-            element: el         // المرجع المباشر للعنصر في الـ DOM
-        };
-
-        switch (el.type) {
-            case 'number':
-                // نأخذ القيمة الرقمية، ونتعامل مع الفراغ كقيمة null
-                entry.value = el.value !== "" ? parseFloat(el.value) : null;
-                inputsData.push(entry);
-                break;
-
-            case 'radio':
-                // في الراديو، نهتم فقط بالعنصر الذي اختاره التلميذ
-                if (el.checked) {
-                    entry.value = el.value; // القيمة (1 أو 0)
-                    inputsData.push(entry);
-                }
-                break;
-
-            case 'checkbox':
-                // المربعات قد تحتوي على عدة إجابات لنفس الجزء
-                // لذا نخزن حالة الاختيار (true/false) والقيمة
-                if (el.checked) {
-                    entry.value = el.value;
-                    inputsData.push(entry);
-                }
-                break;
-        }
-    });
-
-    return inputsData;
-}
-*/
 /**
  * 2. تقييم الإجابات (Evaluation - All or Nothing)
  * تقيم كل جزء (p1, p2...) ككتلة واحدة صائبة أو خاطئة
@@ -79,35 +30,11 @@ function evaluateAnswers(/*userInputs,*/ exerciseID) {
     // 1. تجميع العناصر حسب "الجزء" (p1, p2...)
     const partsMap = {};
     const allElements = document.querySelectorAll(`.${exerciseID}`);
-
-    /*let debugInfo = "";
-    allElements.forEach((el, index) => {
-        debugInfo += `[${index}] Type: ${el.type} | Id: ${el.id} | Value: ${el.value}\n`;
-    });
-
-    alert("المحطة 2: عثرت على \n" + debugInfo );
-    */
     
     allElements.forEach(el => {
         if (!partsMap[el.name]) partsMap[el.name] = [];
         partsMap[el.name].push(el);
     });
-
-    
-    // --- كود فحص هيكل الـ partsMap المحول ---
-    let partsReport = "بنية المجموعات (partsMap):\n";
-
-    for (const partName in partsMap) {
-        const group = partsMap[partName];
-        partsReport += `\n📦 العقدة [${partName}] تحتوي على (${group.length}) عناصر:\n`;
-    
-        group.forEach((el, i) => {
-            partsReport += `   ${i+1}. النوع: ${el.type} | القيمة: ${el.value} | الإجابة: ${el.getAttribute('data-answer')}\n`;
-        });
-    }
-
-    alert(partsReport);
-    // ---------------------------------------
 
     const totalParts = Object.keys(partsMap).length;
     let correctPartsCount = 0;
@@ -146,7 +73,7 @@ function evaluateAnswers(/*userInputs,*/ exerciseID) {
     }
 
     const attemptScore = totalParts > 0 ? (correctPartsCount / totalParts) * 100 : 0;
-
+/*
     // --- كود فحص هيكل الـ details (للمصفوفات) ---
     let partsReport = "score : " + attemptScore + "\n";
     partsReport += "تفاصيل التصحيح (details):\n";
@@ -158,7 +85,7 @@ function evaluateAnswers(/*userInputs,*/ exerciseID) {
 
     alert(partsReport);
     // ---------------------------------------
-
+*/
     return {
         score: attemptScore,
         details: details
