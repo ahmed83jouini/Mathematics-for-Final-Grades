@@ -7,7 +7,7 @@ function verify(exerciseID) {
     alert("المحطة 1: تم استدعاء الدالة للمعّرف: " + exerciseID);
     
     // 2. تقييم الإجابات (صواب/خطأ) بناءً على القيم المدخلة
-    const evaluation = evaluateAnswers(/*userInputs,*/ exerciseID);
+    const evaluation = evaluateAnswers(exerciseID);
     
     // 3. تحديث قاعدة البيانات المحلية (LocalStorage) بالنتائج الجديدة
     const updatedRecord = syncWithLocalStorage(exerciseID, evaluation.score);
@@ -26,7 +26,7 @@ function verify(exerciseID) {
  * 2. تقييم الإجابات (Evaluation - All or Nothing)
  * تقيم كل جزء (p1, p2...) ككتلة واحدة صائبة أو خاطئة
  */
-function evaluateAnswers(/*userInputs,*/ exerciseID) {
+function evaluateAnswers(exerciseID) {
     // 1. تجميع العناصر حسب "الجزء" (p1, p2...)
     const partsMap = {};
     const allElements = document.querySelectorAll(`.${exerciseID}`);
@@ -73,7 +73,8 @@ function evaluateAnswers(/*userInputs,*/ exerciseID) {
     }
 
     const attemptScore = totalParts > 0 ? (correctPartsCount / totalParts) * 100 : 0;
-/*
+    alert("وصلنا إلى المكان");
+    /*  
     // --- كود فحص هيكل الـ details (للمصفوفات) ---
     let partsReport = "score : " + attemptScore + "\n";
     partsReport += "تفاصيل التصحيح (details):\n";
