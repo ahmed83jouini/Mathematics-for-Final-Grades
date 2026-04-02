@@ -3,9 +3,10 @@
  * لا يوجد هنا كود معالجة، فقط استدعاءات لوظائف متخصصة.
  */
 function verify(exerciseID) {
-    
+    alert('دخلنا verify ');
     // 2. تقييم الإجابات (صواب/خطأ) بناءً على القيم المدخلة
     const evaluation = evaluateAnswers(exerciseID);
+    alert('خرجنا من evaluateAnswers ');
     if (evaluation.noAnswer){
         alert("أجب أولا");
         return;
