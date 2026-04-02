@@ -74,10 +74,10 @@ function evaluateAnswers(exerciseID) {
 
     const attemptScore = totalParts > 0 ? (correctPartsCount / totalParts) * 100 : 0;
     alert("وصلنا إلى المكان");
-    /*  
+    
     // --- كود فحص هيكل الـ details (للمصفوفات) ---
     let partsReport = "score : " + attemptScore + "\n";
-    partsReport += "تفاصيل التصحيح (details):\n";
+    partsReport += `تفاصيل التصحيح (details):\n`;
 
     // استخدم for...of للمصفوفات للوصول للكائن مباشرة
     for (const part of details) {
@@ -86,7 +86,7 @@ function evaluateAnswers(exerciseID) {
 
     alert(partsReport);
     // ---------------------------------------
-*/
+
     return {
         score: attemptScore,
         details: details
