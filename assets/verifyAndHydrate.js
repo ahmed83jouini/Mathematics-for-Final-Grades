@@ -6,7 +6,10 @@ function verify(exerciseID) {
     
     // 2. تقييم الإجابات (صواب/خطأ) بناءً على القيم المدخلة
     const evaluation = evaluateAnswers(exerciseID);
-    
+    if (evaluation.noAnswer){
+        alert("أجب أولا");
+        return;
+    }
     // 3. تحديث قاعدة البيانات المحلية (LocalStorage) بالنتائج الجديدة
     const updatedRecord = syncWithLocalStorage(exerciseID, evaluation.score);
     
@@ -42,11 +45,13 @@ function evaluateAnswers(exerciseID) {
     for (const partName in partsMap) {
         const elements = partsMap[partName];
         let partIsCorrect = true;
+        let hadAnswered = false;
 
         for (const el of elements) {
             if (el.type === 'radio' || el.type === 'checkbox') {
                 // القاعدة: (مختار وصحيح) أو (غير مختار وخاطئ) -> هذا هو الصواب
                 const shouldBeSelected = el.value === "1";
+                if (el.checked) hadAnswered = true;
                 if (el.checked !== shouldBeSelected) {
                     partIsCorrect = false;
                     break; 
@@ -54,6 +59,7 @@ function evaluateAnswers(exerciseID) {
             } else if (el.type === 'number') {
                 const correctAnswer = parseFloat(el.getAttribute('data-answer'));
                 const userVal = parseFloat(el.value);
+                if (el.value !== '') hadAnswered = true;
                 if (isNaN(userVal) || Math.abs(userVal - correctAnswer) >= 0.01) {
                     partIsCorrect = false;
                     break;
@@ -69,9 +75,13 @@ function evaluateAnswers(exerciseID) {
             type: elements[0].type // نوع الجزء بناءً على أول عنصر فيه
         });
     }
-
-    const attemptScore = totalParts > 0 ? (correctPartsCount / totalParts) * 100 : 0;
     
+    if(!hadAnswered) return {
+        noAnswer: hadAnswered;
+    };
+    
+    const attemptScore = totalParts > 0 ? (correctPartsCount / totalParts) * 100 : 0;
+    /*
     // --- كود فحص هيكل الـ details (للمصفوفات) ---
     let partsReport = "score : " + attemptScore + "\n";
     partsReport += `تفاصيل التصحيح (details):\n`;
@@ -83,7 +93,7 @@ function evaluateAnswers(exerciseID) {
 
     alert(partsReport);
     // ---------------------------------------
-
+     */
     return {
         score: attemptScore,
         details: details
@@ -135,48 +145,6 @@ function syncWithLocalStorage(exerciseID, attemptScore) {
  * 4. التغذية الراجعة البصرية (Rendering)
  * إظهار التلميحات، تلوين الأجزاء، وتحديث شريط التقدم
  */
-
-/*function renderVisualFeedback(exerciseID, evaluation, averageScore) {
-    // 1. تحديث شريط التقدم (بأمان)
-    const progressBar = document.getElementById(`${exerciseID}-bar`);
-    const progressVal = document.getElementById(`${exerciseID}-val`);
-
-    if (progressBar) progressBar.style.width = averageScore + "%";
-    if (progressVal) progressVal.innerText = Math.round(averageScore) + "%";
-
-    // 2. تلوين الأجزاء وإظهار التلميحات
-    if (evaluation && evaluation.details) {
-        evaluation.details.forEach(part => {
-            // جلب عناصر التلميحات
-            const successHint = document.getElementById(`${exerciseID}-${part.name}-hintSuccess`);
-            const errorHint = document.getElementById(`${exerciseID}-${part.name}-hintError`);
-
-            if (part.isCorrect) {
-                if (successHint) successHint.classList.remove('d-none');
-                if (errorHint) errorHint.classList.add('d-none');
-            } else {
-                if (errorHint) errorHint.classList.remove('d-none');
-                if (successHint) successHint.classList.add('d-none');
-            }
-
-            // تلوين العناصر نفسها (Inputs & Labels)
-            const inputs = document.querySelectorAll(`[name="${exerciseID}-${part.name}"]`);
-            inputs.forEach(el => {
-                if (el.type === 'number') {
-                    el.classList.add(part.isCorrect ? 'is-valid' : 'is-invalid');
-                } else {
-                    // تلوين النص (Label) المرتبط بالراديو أو التشيك بوكس
-                    const label = document.querySelector(`label[for="${el.id}"]`);
-                    if (label) {
-                        label.style.color = part.isCorrect ? '#198754' : '#dc3545'; // ألوان Bootstrap
-                        label.classList.add('fw-bold');
-                    }
-                }
-            });
-        });
-    }
-}*/
-
 function renderVisualFeedback(exerciseID, evaluation, averageScore) {
     // 1. تحديث شريط التقدم (بأمان)
     const progressBar = document.getElementById(`${exerciseID}-bar`);
