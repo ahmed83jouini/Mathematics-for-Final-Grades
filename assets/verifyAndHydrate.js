@@ -312,6 +312,7 @@ function finalizeExerciseState(exerciseID) {
  * دالة إعادة المحاولة: تصفير التمرين برمجياً وبصرياً
  */
 function resetPart(exerciseID) {
+    try {
     alert("in resetPart ");
     // 1. جلب كافة العناصر والمدخلات
     const allElements = document.querySelectorAll(`.${exerciseID}`);
@@ -354,6 +355,9 @@ function resetPart(exerciseID) {
     if (profile && profile.records[exerciseID]) {
         profile.records[exerciseID].isLocked = false;
         localStorage.setItem('userProfile', JSON.stringify(profile));
+    }
+    } catch(e){
+        alert(e);
     }
 
     alert("تمت إعادة تهيئة التمرين، يمكنك المحاولة الآن.");
