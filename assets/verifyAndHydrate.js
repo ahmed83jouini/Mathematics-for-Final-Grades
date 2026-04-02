@@ -3,11 +3,16 @@
  * لا يوجد هنا كود معالجة، فقط استدعاءات لوظائف متخصصة.
  */
 function verify(exerciseID) {
+    
+    alert("المحطة 1: تم استدعاء الدالة للمعّرف: " + exerciseID);
+    /*
+
     // 1. تجميع البيانات المدخلة من واجهة المستخدم
     const userInputs = collectInputs(exerciseID);
-
+    */
+    
     // 2. تقييم الإجابات (صواب/خطأ) بناءً على القيم المدخلة
-    const evaluation = evaluateAnswers(userInputs, exerciseID);
+    const evaluation = evaluateAnswers(/*userInputs,*/ exerciseID);
     
     // 3. تحديث قاعدة البيانات المحلية (LocalStorage) بالنتائج الجديدة
     const updatedRecord = syncWithLocalStorage(exerciseID, evaluation.score);
@@ -25,6 +30,7 @@ function verify(exerciseID) {
  * 1. تجميع المدخلات (Data Collection)
  * تجلب العناصر بناءً على النوع (Number, Checkbox, Radio)
  */
+/*
 function collectInputs(exerciseID) {
     const elements = document.querySelectorAll(`.${exerciseID}`);
     const inputsData = [];
@@ -64,7 +70,7 @@ function collectInputs(exerciseID) {
 
     return inputsData;
 }
-
+*/
 /**
  * 2. تقييم الإجابات (Evaluation - All or Nothing)
  * تقيم كل جزء (p1, p2...) ككتلة واحدة صائبة أو خاطئة
@@ -73,6 +79,13 @@ function evaluateAnswers(userInputs, exerciseID) {
     // 1. تجميع العناصر حسب "الجزء" (p1, p2...)
     const partsMap = {};
     const allElements = document.querySelectorAll(`.${exerciseID}`);
+
+    let debugInfo = "";
+    allElements.forEach((el, index) => {
+        debugInfo += `[${index}] Type: ${el.type} | Name: ${el.name} | Value: ${el.value}\n`;
+    });
+
+    alert("المحطة 2: عثرت على " + allElements.length + " عنصر:\n" + debugInfo);
     
     allElements.forEach(el => {
         if (!partsMap[el.name]) partsMap[el.name] = [];
