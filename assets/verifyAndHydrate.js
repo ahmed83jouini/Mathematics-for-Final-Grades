@@ -73,7 +73,6 @@ function evaluateAnswers(exerciseID) {
     }
 
     const attemptScore = totalParts > 0 ? (correctPartsCount / totalParts) * 100 : 0;
-    alert("وصلنا إلى المكان");
     
     // --- كود فحص هيكل الـ details (للمصفوفات) ---
     let partsReport = "score : " + attemptScore + "\n";
