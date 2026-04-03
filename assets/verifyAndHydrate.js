@@ -278,7 +278,7 @@ function resetExercise(exerciseID){
     });
 
     // 3. إخفاء التلميحات (Hints)
-    const hints = document.querySelectorAll('.hint');
+    const hints = document.querySelectorAll(`."hint"`);
     hints.forEach(h => h.classList.add('d-none'));
 
     alert(`${hints.length} hints trouvé`);
