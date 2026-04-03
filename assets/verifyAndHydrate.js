@@ -216,9 +216,6 @@ function highlightPart(exerciseID, partName, status) {
  * 5. إدارة الحالة النهائية (Finalization)
  * قفل المدخلات وتبديل حالة الأزرار (Inhiber/Désinhiber)
  */
-/**
- * 5. إدارة الحالة النهائية (النسخة الصافية)
- */
 function finalizeExerciseState(exerciseID) {
     // أ. قفل كافة المدخلات في التمرين
     const inputs = document.querySelectorAll(`.${exerciseID}`);
@@ -231,24 +228,11 @@ function finalizeExerciseState(exerciseID) {
     const btnRetry = document.getElementById(`${exerciseID}-btnRetry`);
 
     // ج. تعطيل زر "تحقق" وتغيير مظهره
-    if (btnVerify) {
-        btnVerify.classList.add('d-none');
-       // btnVerify.classList.add('opacity-50');
-        //btnVerify.innerHTML = `تم التحقق <i class="bi bi-check-all"></i>`;
-    }
+    if (btnVerify) btnVerify.classList.add('d-none');
 
     // د. تحرير زر "أعد المحاولة" (Inhiber -> Activer)
-    if (btnRetry) {
-       // btnRetry.disabled = false; // تفعيل الزر برمجياً
-        btnRetry.classList.remove('d-none'); // إزالة كلاسات التعطيل
-       // btnRetry.classList.add('shadow-sm'); // تلوينه ليكون جذاباً
-        
-        // إضافة مستمع حدث (Event Listener) للزر إذا لم يكن موجوداً
-        // ليقوم بتحديث الصفحة أو تصفير التمرين عند الضغط عليه
-        /*btnRetry.onclick = function() {
-            location.reload(); // أبسط طريقة لإعادة المحاولة حالياً هي تحديث الصفحة
-        };*/
-    }
+    if (btnRetry) btnRetry.classList.remove('d-none'); 
+       
 }
 
 /**
