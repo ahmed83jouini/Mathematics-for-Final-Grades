@@ -309,11 +309,11 @@ function applyVisuals(exID, evaluation) {
     // إذا لم تكن هناك إجابة، لا نفعل شيئاً (أو نمسح الألوان القديمة)
     if (evaluation.noAnswer) return;
     // 1. تحديث شريط التقدم (بأمان)
-    const progressBar = document.getElementById(`${exerciseID}-bar`);
-    const progressVal = document.getElementById(`${exerciseID}-val`);
+    const progressBar = document.getElementById(`${exID}-bar`);
+    const progressVal = document.getElementById(`${exID}-val`);
     alert("بروقرس بار ويدث قبل التغيير: " + progressBar.style.width);
     if (progressBar) progressBar.style.width = averageScore + "%";
-    if (progressVal) progressVal.innerText = Math.round(averageScore) + "%";
+    if (progressVal) progressVal.innerText = Math.round(10.5) + "%";
     alert("بروقرس بار ويدث بعد التغيير: " + progressBar.style.width);
 
     const allElements = document.querySelectorAll(`.${exID}`);
