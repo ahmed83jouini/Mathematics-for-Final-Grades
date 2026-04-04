@@ -347,11 +347,11 @@ document.addEventListener('DOMContentLoaded', () => {
 /**
  * دالة إعادة المحاولة: تصفير التمرين برمجياً وبصرياً
  */
-function resetExercise(exerciseID){
+function resetExercise(exID){
     // 1. جلب كافة العناصر والمدخلات
-    const allElements = document.querySelectorAll(`.${exerciseID}`);
-    const btnVerify = document.getElementById(`${exerciseID}-btnVerify`);
-    const btnRetry = document.getElementById(`${exerciseID}-btnRetry`);
+    const allElements = document.querySelectorAll(`.${exID}`);
+    const btnVerify = document.getElementById(`${exID}-btnVerify`);
+    const btnRetry = document.getElementById(`${exID}-btnRetry`);
 
     // 2. تصفير المدخلات وإعادة تفعيلها
     allElements.forEach(el => {
@@ -386,8 +386,8 @@ function resetExercise(exerciseID){
 
     // 5. تحديث الذاكرة (فتح القفل برمجياً)
     let profile = JSON.parse(localStorage.getItem('userProfile'));
-    if (profile && profile.records[exerciseID]) {
-        profile.records[exerciseID].isLocked = false;
+    if (profile && profile.r[exID]) {
+        profile.r[exID].isLocked = false;
         localStorage.setItem('userProfile', JSON.stringify(profile));
     }
 
