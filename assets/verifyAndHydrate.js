@@ -9,9 +9,10 @@
  * 2. عند التحميل (تلوين فقط)
  */
 function verify(exID, isInitialLoad = false) {
+    alert('دخول فيرفاي');
     // 1. حساب النتيجة بناءً على ما هو موجود في الحقول حالياً
     const evaluation = evaluateAnswers(exID);
-
+    alert(
     // 2. تطبيق الألوان والرسائل (الجزء البصري)
     applyVisuals(exID, evaluation);
 
@@ -277,7 +278,7 @@ function evaluateAnswers(exerciseID) {
     };
     
     const attemptScore = totalParts > 0 ? (correctPartsCount / totalParts) * 100 : 0;
-    /*
+    
     // --- كود فحص هيكل الـ details (للمصفوفات) ---
     let partsReport = "score : " + attemptScore + "\n";
     partsReport += `تفاصيل التصحيح (details):\n`;
@@ -289,7 +290,7 @@ function evaluateAnswers(exerciseID) {
 
     alert(partsReport);
     // ---------------------------------------
-     */
+     
     return {
         score: attemptScore,
         details: details,
