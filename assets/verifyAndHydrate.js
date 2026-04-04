@@ -20,7 +20,7 @@ function verify(exID, isInitialLoad = false) {
         // نمرر نسخة التمرين (مثلاً 1)
         updateExerciseRecord(exID, currentValues, evaluation.score, 1);
     }
-    finalizeExerciseState(exerciseID);
+    finalizeExerciseState(exID);
 }
 
 
