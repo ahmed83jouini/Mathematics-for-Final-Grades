@@ -312,7 +312,7 @@ function applyVisuals(exID, evaluation) {
     const progressBar = document.getElementById(`${exID}-bar`);
     const progressVal = document.getElementById(`${exID}-val`);
     alert("بروقرس بار ويدث قبل التغيير: " + progressBar.style.width);
-    if (progressBar) progressBar.style.width = averageScore + "%";
+    if (progressBar) progressBar.style.width = evaluation.score+ "%";
     if (progressVal) progressVal.innerText = Math.round(evaluation.score) + "%";
     alert("بروقرس بار ويدث بعد التغيير: " + progressBar.style.width);
 
