@@ -79,7 +79,7 @@ function evaluateAnswers(exerciseID) {
     if(!isAnythingAnswered) return {
         noAnswer: true
     };
-    
+    /*
     const attemptScore = totalParts > 0 ? (correctPartsCount / totalParts) * 100 : 0;
     
     // --- كود فحص هيكل الـ details (للمصفوفات) ---
@@ -93,7 +93,7 @@ function evaluateAnswers(exerciseID) {
 
     alert(partsReport);
     // ---------------------------------------
-     
+     */
     return {
         score: attemptScore,
         details: details,
@@ -264,8 +264,7 @@ function resetExercise(exerciseID){
     // 3. إخفاء التلميحات (Hints)
     const hints = document.querySelectorAll('.hint');
     hints.forEach(h => h.classList.add('d-none'));
-
-    alert(`${hints.length} hints trouvés`);
+    
     // 4. إدارة الأزرار
     if (btnVerify) {
         //btnVerify.disabled = false;
