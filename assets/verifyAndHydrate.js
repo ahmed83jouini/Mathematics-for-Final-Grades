@@ -37,7 +37,6 @@ function scanAndHydrate() {
         const trueExID = marker.getAttribute('data-ex-id');
 
         if (trueExID) {
-            console.log(`[السلحفاة]: وجدت تمريناً بصمة هويته: ${trueExID}`);
             
             // 1. إنعاش المدخلات (القيم)
             hydrateExercise(trueExID);
@@ -52,7 +51,7 @@ function scanAndHydrate() {
     });
 }
 
-//_______________________________<______
+//_____________________________________
 
 
 /**
@@ -100,7 +99,7 @@ function getOrCreateProfile(storageKey = 'userProfile') {
     if (!profile) {
         // البنية الأولية الهرمية (المستوى العام -> المحاور -> السجلات)
         const initialProfile = {
-            s: { t: 0, c: {} }, // s: stats, t: total, c: categories
+            s: { t: 0, c: {} }, // s: stats, t: total, c: course
             r: {}               // r: records (التمارين)
         };
         localStorage.setItem(storageKey, JSON.stringify(initialProfile));
@@ -285,7 +284,7 @@ function evaluateAnswers(exerciseID) {
 
     // استخدم for...of للمصفوفات للوصول للكائن مباشرة
     for (const part of details) {
-        partsReport += `\n📦 القسم [${part.name}] | صحيح: (${part.isCorrect}) | نوعه: ${part.type}\n`;
+        partsReport += `القسم [${part.name}] | صحيح: (${part.isCorrect}) | نوعه: ${part.type}\n`;
     }
 
     alert(partsReport);
