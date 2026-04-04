@@ -4,15 +4,14 @@
         --bs-body-color: #e0e0e0;
 }
 
-/* هذا التنسيق يضمن توافق الخلفية مع الثيم المختار فوراً */
-.progress {
-    background-color: var(--bs-tertiary-bg) !important;
+
+[data-bs-theme="dark"] {
+    --bs-body-bg: #000000;       /* خلفية سوداء تماماً */
+    --bs-body-color: #ffffff;    /* نص أبيض ناصع */
+    --bs-emphasis-color: #ffffff; /* تلوين العناصر المهمة بالأبيض */
+    --bs-secondary-bg: #1a1a1a;  /* رمادي غامق جداً للبطاقات أو القوائم */
 }
 
-/* لضمان نعومة الانتقال ومنع القفزات البصرية */
-.progress, .progress-bar {
-    transition: background-color 0.3s ease;
-}
 
 /* تنسيق عام للقائمة الجانبية لضمان التباين */
 .offcanvas {
