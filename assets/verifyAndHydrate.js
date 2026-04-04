@@ -308,6 +308,13 @@ function evaluateAnswers(exerciseID) {
 function applyVisuals(exID, evaluation) {
     // إذا لم تكن هناك إجابة، لا نفعل شيئاً (أو نمسح الألوان القديمة)
     if (evaluation.noAnswer) return;
+    // 1. تحديث شريط التقدم (بأمان)
+    const progressBar = document.getElementById(`${exerciseID}-bar`);
+    const progressVal = document.getElementById(`${exerciseID}-val`);
+    alert("بروقرس بار ويدث قبل التغيير: " + progressBar.style.width);
+    if (progressBar) progressBar.style.width = averageScore + "%";
+    if (progressVal) progressVal.innerText = Math.round(averageScore) + "%";
+    alert("بروقرس بار ويدث بعد التغيير: " + progressBar.style.width);
 
     const allElements = document.querySelectorAll(`.${exID}`);
     
@@ -327,18 +334,8 @@ function applyVisuals(exID, evaluation) {
                 el.classList.add('is-invalid');
             }
             
-            // قفل العناصر (Disabled) لكي لا يتم التعديل بعد التحقق
-            // ملاحظة: يمكنك تفعيل هذا السطر إذا أردت منع التلميذ من تغيير رأيه
-            // el.disabled = true; 
         });
     });
-
-    // ثالثاً: إظهار النتيجة النهائية (اختياري) في عنصر مخصص
-    const scoreDisplay = document.getElementById(`score-${exID}`);
-    if (scoreDisplay) {
-        scoreDisplay.textContent = `النتيجة: ${evaluation.score.toFixed(1)}%`;
-        scoreDisplay.className = `badge ${evaluation.score === 100 ? 'bg-success' : 'bg-warning text-dark'}`;
-    }
 }
 
 //_______________________________
