@@ -453,10 +453,8 @@ function resetExercise(exID){
         } else if (el.type === 'radio' || el.type === 'checkbox') {
             el.checked = false; // إلغاء الاختيار
             // إعادة لون النص الأصلي (Label)
-            const label = document.querySelector(`label[for="${el.id}"]`);
-            if (label) {
-                label.classList.remove('is-valid', 'is-invalid');
-            }
+            el.classList.remove('is-valid', 'is-invalid');
+            
         }
     });
 
