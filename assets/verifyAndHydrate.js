@@ -367,7 +367,7 @@ function evaluateAnswers(exerciseID) {
         partsReport += `القسم [${part.name}] | صحيح: (${part.isCorrect}) | نوعه: ${part.type}\n`;
     }
 
-    alert(partsReport);
+    console.log(partsReport);
     // ---------------------------------------
      
     return {
