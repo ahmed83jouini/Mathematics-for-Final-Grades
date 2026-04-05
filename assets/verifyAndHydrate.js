@@ -4,7 +4,7 @@
  * 1. عند النقر (حفظ + تلوين)
  * 2. عند التحميل (تلوين فقط)
  */
-function verify(exID, isInitialLoad = false) {
+function verify(exID, isInitialLoad = false, version = 1) {
     
     const allElements = document.querySelectorAll(`.${exID}`);
     
@@ -28,7 +28,7 @@ function verify(exID, isInitialLoad = false) {
     if (!isInitialLoad) {
         const currentValues = getExerciseValues(exID, allElements);
         // نمرر نسخة التمرين (مثلاً 1)
-        updateExerciseRecord(exID, currentValues, evaluation.score, 1);
+        updateExerciseRecord(exID, currentValues, evaluation.score, version);
     }
     finalizeExerciseState(exID, allElements);
 }
