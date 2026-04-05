@@ -5,12 +5,22 @@
  * 2. عند التحميل (تلوين فقط)
  */
 function verify(exID, isInitialLoad = false) {
+    
+    const allElements = document.querySelectorAll(`.${exerciseID}`);
+    
+    // 1. فحص فوري: هل لمس المستخدم أي شيء في التمرين؟
+    const isAnythingAnswered = Array.from(allElements).some(el => {
+        if (el.type === 'radio' || el.type === 'checkbox') return el.checked;
+        if (el.type === 'number') return el.value.trim() !== '';
+        return false;
+    });
+    if (!isAnythingAnswered) {
+        alert("أجب أولا من فضلك...");
+        return;
+    }
     // 1. حساب النتيجة بناءً على ما هو موجود في الحقول حالياً
     const evaluation = evaluateAnswers(exID);
-    if (evaluation && evaluation.noAnswer === true) {
-        alert("أجب أولا من فضلك...");
-        return; // التوقف هنا وعدم إكمال الهيدرة (Hydration) أو التلوين
-    }
+
     // 2. تطبيق الألوان والرسائل (الجزء البصري)
     applyVisuals(exID, evaluation);
 
@@ -316,7 +326,6 @@ function evaluateAnswers(exerciseID) {
     const totalParts = Object.keys(partsMap).length;
     let correctPartsCount = 0;
     const details = [];
-    let isAnythingAnswered = false;
 
     // 2. تقييم كل جزء على حدة
     for (const partName in partsMap) {
@@ -327,7 +336,7 @@ function evaluateAnswers(exerciseID) {
             if (el.type === 'radio' || el.type === 'checkbox') {
                 // القاعدة: (مختار وصحيح) أو (غير مختار وخاطئ) -> هذا هو الصواب
                 const shouldBeSelected = el.value === "1";
-                if (el.checked) isAnythingAnswered = true;
+                
                 if (el.checked !== shouldBeSelected) {
                     partIsCorrect = false;
                     break; 
@@ -335,7 +344,7 @@ function evaluateAnswers(exerciseID) {
             } else if (el.type === 'number') {
                 const correctAnswer = parseFloat(el.getAttribute('data-answer'));
                 const userVal = parseFloat(el.value);
-                if (el.value.trim() !== '') isAnythingAnswered = true;
+                
                 if (isNaN(userVal) || Math.abs(userVal - correctAnswer) >= 0.01) {
                     partIsCorrect = false;
                     break;
@@ -351,10 +360,6 @@ function evaluateAnswers(exerciseID) {
             type: elements[0].type // نوع الجزء بناءً على أول عنصر فيه
         });
     }
-    
-    if(!isAnythingAnswered) return {
-        noAnswer: true
-    };
     
     const attemptScore = totalParts > 0 ? (correctPartsCount / totalParts) * 100 : 0;
     
