@@ -6,7 +6,7 @@
  */
 function verify(exID, isInitialLoad = false) {
     
-    const allElements = document.querySelectorAll(`.${exerciseID}`);
+    const allElements = document.querySelectorAll(`.${exID}`);
     
     // 1. فحص فوري: هل لمس المستخدم أي شيء في التمرين؟
     const isAnythingAnswered = Array.from(allElements).some(el => {
@@ -313,10 +313,10 @@ function getExerciseValues(exID) {
  * 2. تقييم الإجابات (Evaluation - All or Nothing)
  * تقيم كل جزء (p1, p2...) ككتلة واحدة صائبة أو خاطئة
  */
-function evaluateAnswers(exerciseID) {
+function evaluateAnswers(exID) {
     // 1. تجميع العناصر حسب "الجزء" (p1, p2...)
     const partsMap = {};
-    const allElements = document.querySelectorAll(`.${exerciseID}`);
+    const allElements = document.querySelectorAll(`.${exID}`);
     
     allElements.forEach(el => {
         if (!partsMap[el.name]) partsMap[el.name] = [];
