@@ -402,6 +402,11 @@ function finalizeExerciseState(exerciseID) {
         input.disabled = true;
     });
 
+    // 3. إظهار التلميحات (Hints)
+    const hints = document.querySelectorAll('.hint');
+    hints.forEach(h => h.classList.remove('d-none'));
+    
+
     // ب. الوصول للأزرار باستخدام المعرفات (IDs)
     const btnVerify = document.getElementById(`${exerciseID}-btnVerify`);
     const btnRetry = document.getElementById(`${exerciseID}-btnRetry`);
