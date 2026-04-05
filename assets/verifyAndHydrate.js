@@ -325,8 +325,17 @@ function applyVisuals(exID, evaluation) {
         
         partElements.forEach(el => {
             if (part.isCorrect) {
+                // إظهار تلميح الصح  الخاص بالقسم(Hints)
+                const hint = document.getElementById(`${exID}-hintSuccess`);
+                hint .forEach(h => h.classList.remove('d-none'));
+    
                 el.classList.add('is-valid');
+                
             } else {
+                // إظهار تلميح الخطأ الخاص بالقسم(Hints)
+                const hint = document.getElementById(`${exID}-hintError`);
+                hints.forEach(h => h.classList.remove('d-none'));
+    
                 el.classList.add('is-invalid');
             }
             
@@ -339,6 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // السلحفاة تمسح الصفحة وتنعش التمارين القديمة آلياً
     scanAndHydrate();
 });
+
 //__________________<_________<
 /**
  * دالة إعادة المحاولة: تصفير التمرين برمجياً وبصرياً
@@ -367,7 +377,10 @@ function resetExercise(exID){
     });
 
     // 3. إخفاء التلميحات (Hints)
-    const hints = document.querySelectorAll('.hint');
+    const hints = document.getElementById(`${exID}-hintSuccess`);
+    hints.forEach(h => h.classList.add('d-none'));
+
+    const hints = document.getElementById(`${exID}-hintError`);
     hints.forEach(h => h.classList.add('d-none'));
     
     // 4. إدارة الأزرار
@@ -395,26 +408,22 @@ function resetExercise(exID){
  * 5. إدارة الحالة النهائية (Finalization)
  * قفل المدخلات وتبديل حالة الأزرار (Inhiber/Désinhiber)
  */
-function finalizeExerciseState(exerciseID) {
+function finalizeExerciseState(exID) {
     // أ. قفل كافة المدخلات في التمرين
-    const inputs = document.querySelectorAll(`.${exerciseID}`);
+    const inputs = document.querySelectorAll(`.${exID}`);
     inputs.forEach(input => {
         input.disabled = true;
     });
 
-    // 3. إظهار التلميحات (Hints)
-    const hints = document.querySelectorAll('.hint');
-    hints.forEach(h => h.classList.remove('d-none'));
-    
 
     // ب. الوصول للأزرار باستخدام المعرفات (IDs)
-    const btnVerify = document.getElementById(`${exerciseID}-btnVerify`);
-    const btnRetry = document.getElementById(`${exerciseID}-btnRetry`);
+    const btnVerify = document.getElementById(`${exID}-btnVerify`);
+    const btnRetry = document.getElementById(`${exID}-btnRetry`);
 
     // ج. تعطيل زر "تحقق" وتغيير مظهره
     if (btnVerify) btnVerify.classList.add('d-none');
 
-    // د. تحرير زر "أعد المحاولة" (Inhiber -> Activer)
+    // د. تحرير زر "أعد المحاولة"
     if (btnRetry) btnRetry.classList.remove('d-none'); 
        
 }
