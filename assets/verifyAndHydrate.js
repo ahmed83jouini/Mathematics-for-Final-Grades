@@ -109,14 +109,14 @@ function getOrCreateProfile(storageKey = 'userProfile') {
     return JSON.parse(profile);
 }
 //____________________________
-
-
 /**
  * جلب أو إنشاء ملفك تقييم المادة، ومحاورها
  */
 function getOrCreateProgressResume(storageKey = 'progressResume') {
     let progressResume = localStorage.getItem(storageKey);
-    const totalScoreDefinition = {
+
+    if (!progressResume) {
+        const totalScoreDefinition = {
             ['maths'/*mathematics*/, 10], ['analy'/*analysis*/, 0], ['limit'/*limits*/, 0], ['conti'/*continuity*/, 0], ['deriv'/*derivatives*/, 0], ['logFu'/*logarithmic function*/, 0], ['expFu'/*exponential function*/, 0], ['groCo'/*growth comparesion*/, 0], ['priFu'/*primitive functions*/, 0], ['intCa'/*integral calculus*/, 0],
             ['algeb'/*algebra*/, 0], ['seque'/*sequences*/, 0], ['diviZ'/*division in Z*/, 0], ['congZ'/*congruence in Z*/, 0], ['primN'/*primary numbers*/, 0], ['compN'/*complexe numbers*/, 0],
             ['proSt'/*probabilities and statistics*/, 0], ['conPr'/*conditionalprobabilities*/, 0], ['proDi'/*probability distribution*/, 0],
@@ -124,33 +124,18 @@ function getOrCreateProgressResume(storageKey = 'progressResume') {
             ['soGeo'/*solid geometry*/, 0], ['liPlS'/*lines and planes in the space*/, 0], ['plSeS'/*planar sections of surfaces*/, 0],
             ['bacSo'/*BAC solutions*/, 0], ['expSc'/*experimental sciences*/, 0], ['mathe'/*mathematics*/, 0], ['tecMat'/*technical mathematics*/, 0],
         }
-    if (!progressResume) {
-        
                       
         // البنية نحفظ لكل للمادة،مجموع كل النقاط الممكن الحصول عليها بإنجاز الأمثلة أو التمارين. نعتمد التصحيح من عشرة لكل تمرين.
-        const initialProgressresume= {
-            maths:{
-                maxScore: 10, // maxScore هو ببساطة عدد التمرينات المقترحة في الموقع ككل مضروب في 10
-                score:0      // مجموع النقاط المحصل عليها في المادة ككل
-            },
-            limits:{
-                maxScore: 10, //  هو ببساطة عدد التمرينات المقترحة حول النهايات مضروب في 10
-                score:0.      //مجموع النقاط المحصل عليها في محور النهايات
-            },
-            deriv:{
-                maxScore: 10, // maxScore هو ببساطة عدد التمرينات المقترحة حول الإشتقاقية مضروب في 10
-                score:0.      // مجموع النقاط المحصل عليها في محور الإشتقاقية.
-            },
-            limits:{
-                maxScore: 10, //  هو ببساطة عدد التمرينات المقترحة حول النهايات مضروب في 10
-                score:0}; //مجموع النقاط المحصل عليها محور النهايات
-            };
-            
-        localStorage.setItem(storageKey, JSON.stringify(initialProfile));
-        return initialProfile;
+        const initialProgressResume= {};
+        totalScoreDefinition.forEach(el => {
+            if (!initialProgressResume[el[0]]) initialProgressResume[el[0]] = [el[1], 0]; 
+        });
+    
+        localStorage.setItem(storageKey, JSON.stringify(initialProgressResume));
+        return initialProgressResume;
     }
 
-    return JSON.parse(profile);
+    return JSON.parse(initialProgressResume);
 }
 
 //____________________________________________
