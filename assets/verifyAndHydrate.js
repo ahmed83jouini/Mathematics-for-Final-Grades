@@ -110,33 +110,84 @@ function getOrCreateProfile(storageKey = 'userProfile') {
 }
 //____________________________
 /**
- * جلب أو إنشاء ملفك تقييم المادة، ومحاورها
+ * دالة جلب أو إنشاء سجل التقدم العام (LMS Scoreboard)
+ * تقوم بإنشاء جدول بيانات يحتوي على: [النقاط القصوى الممكنة، النقاط الحالية المكتسبة]
+ * @param {string} storageKey - المفتاح المستخدم في LocalStorage
+ * @returns {Object} - كائن يحتوي على مصفوفات التقدم لكل محور
  */
 function getOrCreateProgressResume(storageKey = 'progressResume') {
-    let progressResume = localStorage.getItem(storageKey);
+    // محاولة جلب البيانات المخزنة مسبقاً
+    let storedData = localStorage.getItem(storageKey);
 
-    if (!progressResume) {
-        const totalScoreDefinition = {
-            ['maths'/*mathematics*/, 10], ['analy'/*analysis*/, 0], ['limit'/*limits*/, 0], ['conti'/*continuity*/, 0], ['deriv'/*derivatives*/, 0], ['logFu'/*logarithmic function*/, 0], ['expFu'/*exponential function*/, 0], ['groCo'/*growth comparesion*/, 0], ['priFu'/*primitive functions*/, 0], ['intCa'/*integral calculus*/, 0],
-            ['algeb'/*algebra*/, 0], ['seque'/*sequences*/, 0], ['diviZ'/*division in Z*/, 0], ['congZ'/*congruence in Z*/, 0], ['primN'/*primary numbers*/, 0], ['compN'/*complexe numbers*/, 0],
-            ['proSt'/*probabilities and statistics*/, 0], ['conPr'/*conditionalprobabilities*/, 0], ['proDi'/*probability distribution*/, 0],
-            ['plGeo'/*plane geometry*/, 0], ['dirSi'/*direct similitude in the plane*/, 0], ['scaPr'/*scalar product*/, 0],
-            ['soGeo'/*solid geometry*/, 0], ['liPlS'/*lines and planes in the space*/, 0], ['plSeS'/*planar sections of surfaces*/, 0],
-            ['bacSo'/*BAC solutions*/, 0], ['expSc'/*experimental sciences*/, 0], ['mathe'/*mathematics*/, 0], ['tecMat'/*technical mathematics*/, 0],
-        }
+    // إذا كانت هذه المرة الأولى (لا توجد بيانات)، نقوم بالتعريف الابتدائي
+    if (!storedData) {
+        /**
+         * مصفوفة التعريف (Definitions):
+         * [المفتاح المختصر، سقف النقاط الابتدائي الممكن الحصول عليه]
+         * ملاحظة: الاختصارات مكونة من 5 أحرف لتسهيل التعرف عليها وتوفير المساحة
+         */
+        const totalScoreDefinition = [
+            // --- المادة ككل ---
+            ['maths', 10],      // المجموع العام للرياضيات (Mathematics Global)
+            
+            // --- فرع التحليل (Analysis) ---
+            ['analy', 0],       // التحليل الرياضي (Analysis General)
+            ['limit', 0],       // النهايات (Limits)
+            ['conti', 0],       // الاستمرارية (Continuity)
+            ['deriv', 0],       // الاشتقاق (Derivatives)
+            ['logFu', 0],       // الدالة اللوغاريتمية (Logarithmic Function)
+            ['expFu', 0],       // الدالة الأسية (Exponential Function)
+            ['groCo', 0],       // التزايد المقارن (Growth Comparison)
+            ['priFu', 0],       // الدوال الأصلية (Primitive Functions)
+            ['intCa', 0],       // حساب التكامل (Integral Calculus)
+
+            // --- فرع الجبر (Algebra) ---
+            ['algeb', 0],       // الجبر (Algebra General)
+            ['seque', 0],       // المتتاليات (Sequences)
+            ['diviZ', 0],       // القسمة في Z (Division in Z)
+            ['congZ', 0],       // الموافقات (Congruence in Z)
+            ['primN', 0],       // الأعداد الأولية (Primary Numbers)
+            ['compN', 0],       // الأعداد المركبة (Complex Numbers)
+
+            // --- فرع الاحتمالات والإحصاء ---
+            ['proSt', 0],       // الاحتمالات والإحصاء (Probabilities and Statistics)
+            ['conPr', 0],       // الاحتمالات الشرطية (Conditional Probabilities)
+            ['proDi', 0],       // التوزيع الاحتمالي (Probability Distribution)
+
+            // --- فرع الهندسة المستوية ---
+            ['plGeo', 0],       // الهندسة المستوية (Plane Geometry)
+            ['dirSi', 0],       // التشابه المباشر (Direct Similitude)
+            ['scaPr', 0],       // الجداء السلمي (Scalar Product)
+
+            // --- فرع الهندسة الفضائية ---
+            ['soGeo', 0],       // الهندسة الفضائية (Solid Geometry)
+            ['liPlS', 0],       // المستقيمات والمستويات (Lines and Planes in Space)
+            ['plSeS', 0],       // المقاطع المستوية للسطوح (Planar Sections)
+
+            // --- حلول البكالوريا (BAC Solutions) ---
+            ['bacSo', 0],       // حلول البكالوريا العامة
+            ['expSc', 0],       // شعبة علوم تجريبية (Experimental Sciences)
+            ['mathe', 0],       // شعبة رياضيات (Mathematics Branch)
+            ['tecMat', 0]       // شعبة تقني رياضي (Technical Mathematics)
+        ];
                       
-        // البنية نحفظ لكل للمادة،مجموع كل النقاط الممكن الحصول عليها بإنجاز الأمثلة أو التمارين. نعتمد التصحيح من عشرة لكل تمرين.
-        const initialProgressResume= {};
+        const initialProgressResume = {};
+        
+        // بناء الكائن النهائي من مصفوفة التعريف
         totalScoreDefinition.forEach(el => {
-            if (!initialProgressResume[el[0]]) initialProgressResume[el[0]] = [el[1], 0]; 
+            // الهيكل: { 'اختصار': [الحد الأقصى للنقاط، النقاط المحققة حالياً] }
+            initialProgressResume[el[0]] = [el[1], 0]; 
         });
     
+        // حفظ النسخة الابتدائية في ذاكرة المتصفح
         localStorage.setItem(storageKey, JSON.stringify(initialProgressResume));
         return initialProgressResume;
     }
 
-    return JSON.parse(initialProgressResume);
+    // إذا كانت البيانات موجودة، نقوم بتحويلها من نص (JSON) إلى كائن (Object) وإرجاعها
+    return JSON.parse(storedData);
 }
+
 
 //____________________________________________
 
