@@ -22,15 +22,15 @@ function verify(exID, isInitialLoad = false) {
     const evaluation = evaluateAnswers(exID, allElements);
 
     // 2. تطبيق الألوان والرسائل (الجزء البصري)
-    applyVisuals(exID, evaluation);
+    applyVisuals(exID, evaluation, allElements);
 
     // 3. الحفظ في الذاكرة يحدث فقط إذا لم يكن "تحميل أولي"
     if (!isInitialLoad) {
-        const currentValues = getExerciseValues(exID);
+        const currentValues = getExerciseValues(exID, allElements);
         // نمرر نسخة التمرين (مثلاً 1)
         updateExerciseRecord(exID, currentValues, evaluation.score, 1);
     }
-    finalizeExerciseState(exID);
+    finalizeExerciseState(exID, allElements);
 }
 
 
@@ -269,8 +269,8 @@ function hydrateExercise(exID) {
  * @param {string} exID - معرف التمرين
  * @returns {string} - السلسلة الناتجة (مثل "1-0-1,2,6.5")
  */
-function getExerciseValues(exID) {
-    const allElements = document.querySelectorAll(`.${exID}`);
+function getExerciseValues(exID, allElements) {
+    
     const partsMap = {};
     const finalValues = [];
 
@@ -385,7 +385,7 @@ function evaluateAnswers(exID,  allElements) {
  * 3. تطبيق التأثيرات البصرية (Visuals)
  * تلوين الحقول وقفلها بناءً على نتائج التقييم
  */
-function applyVisuals(exID, evaluation) {
+function applyVisuals(exID, evaluation, allElements) {
     // إذا لم تكن هناك إجابة، لا نفعل شيئاً (أو نمسح الألوان القديمة)
     if (evaluation.noAnswer) return;
     // 1. تحديث شريط التقدم (بأمان)
@@ -395,8 +395,6 @@ function applyVisuals(exID, evaluation) {
     if (progressBar) progressBar.style.width = evaluation.score+ "%";
     if (progressVal) progressVal.innerText = Math.round(evaluation.score) + "%";
     console.log("بروقرس بار ويدث بعد التغيير: " + progressBar.style.width);
-
-    const allElements = document.querySelectorAll(`.${exID}`);
     
     // أولاً: تنظيف أي كلاسات ألوان سابقة لضمان التحديث الصحيح
     allElements.forEach(el => {
@@ -486,9 +484,8 @@ function resetExercise(exID){
  * 5. إدارة الحالة النهائية (Finalization)
  * قفل المدخلات وتبديل حالة الأزرار (Inhiber/Désinhiber)
  */
-function finalizeExerciseState(exID) {
+function finalizeExerciseState(exID, inputs) {
     // أ. قفل كافة المدخلات في التمرين
-    const inputs = document.querySelectorAll(`.${exID}`);
     inputs.forEach(input => {
         input.disabled = true;
     });
