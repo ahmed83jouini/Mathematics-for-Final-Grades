@@ -387,10 +387,10 @@ function applyVisuals(exID, evaluation) {
     // 1. تحديث شريط التقدم (بأمان)
     const progressBar = document.getElementById(`${exID}-bar`);
     const progressVal = document.getElementById(`${exID}-val`);
-    alert("بروقرس بار ويدث قبل التغيير: " + progressBar.style.width);
+    console.log("بروقرس بار ويدث قبل التغيير: " + progressBar.style.width);
     if (progressBar) progressBar.style.width = evaluation.score+ "%";
     if (progressVal) progressVal.innerText = Math.round(evaluation.score) + "%";
-    alert("بروقرس بار ويدث بعد التغيير: " + progressBar.style.width);
+    console.log("بروقرس بار ويدث بعد التغيير: " + progressBar.style.width);
 
     const allElements = document.querySelectorAll(`.${exID}`);
     
@@ -406,14 +406,14 @@ function applyVisuals(exID, evaluation) {
         partElements.forEach(el => {
             if (part.isCorrect) {
                 // إظهار تلميح الصح  الخاص بالقسم(Hints)
-                const hint = document.getElementById(`${exID}-hintSuccess`);
+                const hint = document.getElementById(`${part.name}-hintSuccess`);
                 if (hint) hint.classList.remove('d-none');
     
                 el.classList.add('is-valid');
                 
             } else {
                 // إظهار تلميح الخطأ الخاص بالقسم(Hints)
-                const hint = document.getElementById(`${exID}-hintError`);
+                const hint = document.getElementById(`${part.name}-hintError`);
                 if (hint) hint.classList.remove('d-none');
     
                 el.classList.add('is-invalid');
@@ -457,11 +457,8 @@ function resetExercise(exID){
     });
 
     // 3. إخفاء التلميحات (Hints)
-    let hint = document.getElementById(`${exID}-hintSuccess`);
-    if (hint) hint.classList.add('d-none');
-
-    hint = document.getElementById(`${exID}-hintError`);
-    if (hint) hint.classList.add('d-none');
+    let hints = document.querySelectorAll(`${exID}-hint`);
+    if (hints) hints.foreach(hint => {hint.classList.add('d-none')});
     
     // 4. إدارة الأزرار
     if (btnVerify) {
