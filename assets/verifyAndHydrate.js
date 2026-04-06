@@ -463,14 +463,11 @@ function resetExercise(exID){
     // 2. تصفير المدخلات وإعادة تفعيلها
     allElements.forEach(el => {
         el.disabled = false; // فك القفل
+        el.classList.remove('is-valid', 'is-invalid'); // مسح ألوان الحدود
         if (el.type === 'number') {
             el.value = ''; // مسح الرقم
-            el.classList.remove('is-valid', 'is-invalid'); // مسح ألوان الحدود
         } else if (el.type === 'radio' || el.type === 'checkbox') {
             el.checked = false; // إلغاء الاختيار
-            // إعادة لون النص الأصلي (Label)
-            el.classList.remove('is-valid', 'is-invalid');
-            
         }
     });
 
@@ -485,14 +482,7 @@ function resetExercise(exID){
        // btnVerify.innerHTML = `تحقق <i class="bi bi-check-circle ms-1"></i>`;
     }
     if (btnRetry) {
-        btnRetry.classList.add('d-none'); // يعود للتعطيل حتى يتم الحل مجدداً
-    }
-
-    // 5. تحديث الذاكرة (فتح القفل برمجياً)
-    let profile = JSON.parse(localStorage.getItem('userProfile'));
-    if (profile && profile.r[exID]) {
-        profile.r[exID].isLocked = false;
-        localStorage.setItem('userProfile', JSON.stringify(profile));
+        btnRetry.classList.add('d-none'); // يعود للتعطيل حتى يتم الحل مج
     }
 
 }
