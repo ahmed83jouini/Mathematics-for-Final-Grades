@@ -279,6 +279,7 @@ function getExerciseValues(exID, allElements) {
         if (!partsMap[el.name]) partsMap[el.name] = [];
         partsMap[el.name].push(el);
     });
+      
 
     // 2. المرور على كل سؤال وجمع قيمته
     Object.keys(partsMap).forEach(partName => {
