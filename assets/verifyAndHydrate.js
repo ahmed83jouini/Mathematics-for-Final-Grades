@@ -1,3 +1,12 @@
+/*الترتيب المتفق عليه: 
+[0: score, 
+ 1: date, 
+ 2: values, 
+ 3: count, 
+ 4: version]
+ لاحظ: 
+ evaluation.avgScore هو المعدل التراكمي الذي حسبناه في الدالة السابقة
+*/
 //___________________________________________________
 /**
  * الدالة المركزية للتحقق، تعمل في حالتين: 
@@ -28,7 +37,8 @@ function verify(exID, isInitialLoad = false, version = 1) {
     if (!isInitialLoad) {
         const currentValues = getExerciseValues(exID, allElements);
         // نمرر نسخة التمرين (مثلاً 1)
-        updateExerciseRecord(exID, currentValues, evaluation.score, version);
+        updateExerciseRecord(exID, currentValues, evaluation, version);
+        
     }
     finalizeExerciseState(exID, allElements);
 }
@@ -75,22 +85,14 @@ function updateExerciseRecord(exID, valuesStr, score, version) {
     // 1. جلب الملف الحالي
     let profile = getOrCreateProfile();
     
-    // 2. التحقق من وجود سجل سابق لهذا التمرين لجلب عدد المحاولات
-    let prevRecord = profile.r[exID] || { n: 0 };
-    let attemptCount = prevRecord.n + 1;
-
-    // 3. الحصول على التاريخ الحالي بصيغة YYMMDD
-    const now = new Date();
-    const dateStr = now.toISOString().slice(2, 10).replace(/-/g, '');
-
-    // 4. تحديث سجل التمرين (المحاولة الأخيرة)
-    profile.r[exID] = {
-        v: valuesStr,
-        s: score,
-        d: parseInt(dateStr), // تخزينه كرقم يوفر مساحة أكبر من النص
-        n: attemptCount,
-        ver: version
-    };
+    // 2. تحديث أو إنشاء متابعة التمرين
+    profile.ex[exID] = [
+        evaluation.avgScore, // المعدل التراكمي (0-100)
+        Date.now(),           // التاريخ الطويل (بالميلي ثانية)
+        valuesStr,            // السلسلة النصية للقيم (مثلاً: 1-0,2,null)
+        evaluation.attempts,  // عدد المحاولات الكلي
+        version               // رقم نسخة التمرين
+    ];
 
     // 5. حفظ التغييرات في المتصفح
     localStorage.setItem('userProfile', JSON.stringify(profile));
@@ -517,7 +519,44 @@ function finalizeExerciseState(exID, inputs) {
     if (btnRetry) btnRetry.classList.remove('d-none'); 
        
 }
+//________________________________<<<
+/**
+ * تحديث شجرة التقدم مع تجاهل الوسوم التقنية (pra, exem)
+ */
+function updateParentsScore(exID, deltaPercent) {
+    let profile = getOrCreateProfile();
+    const path = exID.split('-'); // ["maths", "analy", "limit", "pra", "ex001"]
+    
+    // الكلمات التي يجب تجاهلها لأنها ليست عقداً في الشجرة
+    const tagsToIgnore = ['pra', 'exem', 'test'];
 
+    // 1. استخراج الآباء الفعليين فقط (الذين يوجدون في totalScoreDefinition)
+    const validParents = path.filter(key => 
+        profile.pr[key] && !tagsToIgnore.includes(key)
+    );
+
+    // 2. تحديد وزن التمرين بناءً على نوعه (الموجود في المعرف)
+    let exerciseWeight = 5; // القيمة الافتراضية
+    if (exID.includes('-pra-')) exerciseWeight = 10;  // التمرين التطبيقي أثقل
+    if (exID.includes('-exem-')) exerciseWeight = 2; // المثال المحلول أخف
+
+    const pointsDelta = exerciseWeight * (deltaPercent / 100);
+
+    // 3. التحديث المتسلسل للآباء الحقيقيين
+    validParents.forEach(key => {
+        let [maxPoints, currentPoints] = profile.pr[key];
+        
+        currentPoints += pointsDelta;
+
+        // حماية السقف والقاع
+        if (currentPoints > maxPoints) currentPoints = maxPoints;
+        if (currentPoints < 0) currentPoints = 0;
+
+        profile.pr[key][1] = parseFloat(currentPoints.toFixed(2));
+    });
+
+    localStorage.setItem('userProfile', JSON.stringify(profile));
+}
 
 
 
