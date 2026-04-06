@@ -104,7 +104,7 @@ function updateExerciseRecord(exID, valuesStr, evaluation, version) {
     // 5. حفظ التغييرات في المتصفح
     localStorage.setItem('userProfile', JSON.stringify(profile));
     
-    console.log(`تم حفظ التمرين ${exID} بنجاح. المحاولة رقم: ${attemptCount}`);
+    console.log(`تم حفظ التمرين ${exID} بنجاح. المحاولة رقم: ${evaluation.attempts}`);
 }
 //____________________________
 
