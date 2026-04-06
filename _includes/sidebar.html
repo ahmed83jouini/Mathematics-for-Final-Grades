@@ -1,3 +1,29 @@
+<div class="offcanvas-body">
+    <ul class="list-group list-group-flush p-0" dir="rtl">
+        <li class="list-group-item"><a href="{{ site.baseurl }}/index.html" class="fw-bold">الرئيسية</a></li>
+        
+        {% if page.local_links %}
+            <li class="list-group-item fw-bold text-primary border-bottom mt-3">محتويات هذا الدرس</li>
+            <ul class="list-group list-group-flush pe-4">
+                {% for link in page.local_links %}
+                    <li class="list-group-item">
+                        <a href="{{ link.url }}" class="text-decoration-none d-block p-2">{{ link.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <li class="list-group-item fw-bold mt-3 border-top">تصفح باقي المحاور</li>
+        {% include global_nav_links.html %}
+    </ul>
+</div>
+
+
+
+
+
+
+
 <button class="btn btn-sidebar shadow position-fixed end-0 top-50 translate-middle-y rounded-start-pill border" 
     type="button" 
     data-bs-toggle="offcanvas" 
