@@ -536,6 +536,7 @@ function updateParentsScore(exID, deltaPercent) {
 
     // 4. حفظ اللوحة المحدثة
     localStorage.setItem('progressResume', JSON.stringify(resume));
+    console.log("تم تحديث شجرة الآباء بنجاح");
 }
 
 
