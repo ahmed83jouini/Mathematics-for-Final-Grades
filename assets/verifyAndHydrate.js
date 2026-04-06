@@ -362,7 +362,7 @@ function evaluateAnswers(exID,  allElements) {
 
     
     // 2. نتيجة المحاولة الحالية (Current Attempt)
-    const attemptScore = (correctPartsCount === totalParts) ? 10 : 0;
+    const attemptScore = (correctPartsCount === totalParts) ? 100 : 0;
 
     // 3. جلب السجل القديم لحساب "المتوسط التراكمي"
     const profile = getOrCreateProfile();
