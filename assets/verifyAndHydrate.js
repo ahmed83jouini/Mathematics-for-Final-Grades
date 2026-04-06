@@ -88,7 +88,7 @@ function scanAndHydrate() {
  * @param {number} score - العلامة المحصل عليها
  * @param {number} version - نسخة التمرين الحالية
  */
-function updateExerciseRecord(exID, valuesStr, score, version) {
+function updateExerciseRecord(exID, valuesStr, evaluation, version) {
     // 1. جلب الملف الحالي
     let profile = getOrCreateProfile();
     
