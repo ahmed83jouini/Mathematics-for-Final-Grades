@@ -386,8 +386,6 @@ function evaluateAnswers(exID,  allElements) {
  * تلوين الحقول وقفلها بناءً على نتائج التقييم
  */
 function applyVisuals(exID, evaluation, allElements) {
-    // إذا لم تكن هناك إجابة، لا نفعل شيئاً (أو نمسح الألوان القديمة)
-    if (evaluation.noAnswer) return;
     // 1. تحديث شريط التقدم (بأمان)
     const progressBar = document.getElementById(`${exID}-bar`);
     const progressVal = document.getElementById(`${exID}-val`);
