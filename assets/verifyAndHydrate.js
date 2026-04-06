@@ -44,7 +44,7 @@ function verify(exID, isInitialLoad = false, version = 1) {
     finalizeExerciseState(exID, allElements);
 }
 
-
+//____<________________________________
 
 /**
  * مسح الصفحة بحثاً عن كل "علامات التمارين" وتفعيلها
