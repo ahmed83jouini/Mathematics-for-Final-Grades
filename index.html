@@ -13,71 +13,42 @@ title: "منصة التميز في الرياضيات - الرئيسية"
         <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm border-primary">
                 <div class="card-header bg-primary text-white fw-bold">محور التحليل</div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="{{ '/01_analysis/01_limits_and_continuity/01_limits.html' | relative_url }}" class="text-decoration-none">النهايات</a></li>
-                    <li class="list-group-item"><a href="{{ '/01_analysis/01_limits_and_continuity/02_continuity.html' | relative_url }}" class="text-decoration-none">الإستمرارية</a></li>
-                    <li class="list-group-item"><a href="{{ '/01_analysis/01_limits_and_continuity/practice_zone/001_ex.html' | relative_url }}" class="text-decoration-none">تطبيقات على النهايات و الإستمرارية</a></li>
-                    <li class="list-group-item"><a href="{{ '/01_analysis/02_differentiation/Index.html' | relative_url }}" class="text-decoration-none">الإشتقاقية</a></li>
-                    <li class="list-group-item"><a href="{{ '/01_analysis/03_log_and_exp_functions/01_logarithmic_functions.html' | relative_url }}" class="text-decoration-none">الدوال اللوغاريتمية</a></li>
-                    <li class="list-group-item"><a href="{{ '/01_analysis/03_log_and_exp_functions/02_exponential_functions.html' | relative_url }}" class="text-decoration-none">الدوال الأسية</a></li>
-                    <li class="list-group-item"><a href="{{ '/01_analysis/04_growth_comparison/index.html' | relative_url }}" class="text-decoration-none">التزايد المقارن</a></li>
-                    <li class="list-group-item"><a href="{{ '/01_analysis/05_primitive_functions/index.html' | relative_url }}" class="text-decoration-none">الدوال الأصلية</a></li>
-                    <li class="list-group-item"><a href="{{ '/01_analysis/06_integral_calculus/index.html' | relative_url }}" class="text-decoration-none">الحساب التكاملي</a></li>
-                </ul>
+                {% include nav/nav_analysis.html %}
             </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm border-success">
                 <div class="card-header bg-success text-white fw-bold">محور الجبر</div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="{{ '/02_algebra/01_sequences/01_arithemetic_sequences.html' | relative_url }}" class="text-decoration-none">المتتاليات العددية</a></li>
-                    <li class="list-group-item"><a href="{{ '/02_algebra/02_divisibility_in_z/index.html' | relative_url }}" class="text-decoration-none">القسمة في $\mathbb{Z}$</a></li>
-                    <li class="list-group-item"><a href="{{ '/02_algebra/03_congruences_in_z/index.html' | relative_url }}" class="text-decoration-none">الموافقات في $\mathbb{Z}$</a></li>
-                    <li class="list-group-item"><a href="{{ '/02_algebra/04_prime_numbers/index.html' | relative_url }}" class="text-decoration-none">الأعداد الأولية</a></li>
-                    <li class="list-group-item"><a href="{{ '/02_algebra/05_complex_numbers/index.html' | relative_url }}" class="text-decoration-none">الأعداد المركبة</a></li>
-                </ul>
+                {% include nav/nav_algebra.html %}
             </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm border-warning">
                 <div class="card-header bg-warning text-dark fw-bold">الاحتمالات و الإحصاء</div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="{{ '/03_pobabilities_and_statistics/01_conditional_probability/index.html' | relative_url }}" class="text-decoration-none">الإحتمالات الشرطية</a></li>
-                    <li class="list-group-item"><a href="{{ '/03_pobabilities_and_statistics/02_probability_distribution/index.html' | relative_url }}" class="text-decoration-none">قانون الإحتمال</a></li>
-                </ul>
+                {% include nav/nav_probaStat.html %}
             </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm border-warning">
                 <div class="card-header bg-primary text-dark fw-bold">الهندسة المستوية</div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="{{ '/04_plane_geometry/01_direct_similitudes/index.html' | relative_url }}" class="text-decoration-none">التشابه المباشر في المستوي</a></li>
-                    <li class="list-group-item"><a href="{{ '/05_solid_geometry/02_scalar_product/index.html' | relative_url }}" class="text-decoration-none">الجداء السلمي</a></li>
-                </ul>
+                {% include nav/nav_planeGeo.htmt %}
             </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm border-warning">
                 <div class="card-header bg-success text-dark fw-bold">الهندسة في الفضاء</div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="{{ '/05_solid_geometry/01_lines_and_planes_in_space/index.html' | relative_url }}" class="text-decoration-none">المستقيمات والمستويات في الفضاء</a></li>
-                    <li class="list-group-item"><a href="{{ '/05_solid_geometry/02_planar_sections_of_surfaces/index.html' | relative_url }}" class="text-decoration-none">المقاطع المستوية للسطوح</a></li>
-                </ul>
+                {% include nav/nav_solidGeo.html %}
             </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm border-warning">
                 <div class="card-header bg-warning text-dark fw-bold">حلول بكالوريا سابقة</div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="{{ '/06_BAC_Solutions/exp_sciences/index.html' | relative_url }}" class="text-decoration-none">شعبة العلوم التجريبية</a></li>
-                    <li class="list-group-item"><a href="{{ '/06_BAC_Solutions/maths_branch/index.html' | relative_url }}" class="text-decoration-none">شعبة الرياضيات</a></li>
-                    <li class="list-group-item"><a href="{{ '/06_BAC_Solutions/technical_maths/index.html' | relative_url }}" class="text-decoration-none">شعبة الرياضيات التقنية</a></li>
-                </ul>
+                {% include nav/nav_BACSol.html %}
             </div>
         </div>
         
