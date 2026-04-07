@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
-    
+    <style>
+        /* إخفاء محتوى الصفحة حتى يكتمل التحميل */
+        body { visibility: hidden; }
+        /* إظهار البريلاودر فقط */
+        #loader-wrapper { visibility: visible; }
+    </style>
+
     {% include head_links.html %}
 </head>
 <body>
