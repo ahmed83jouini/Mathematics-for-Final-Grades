@@ -1,0 +1,62 @@
+---
+layout: default
+---
+<div class="container py-3">
+    <div class="text-center mb-5">
+        <h1 class="text-primary fw-bold">{{ page.title }}</h1>
+        <div class="exercise-marker d-none" data-ex-id="{{ page.exID }}"></div>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge bg-info" id="{{ page.exID }}-val">0%</span>
+        </div>
+        <div class="progress" style="height: 10px;">
+            <div id="{{ page.exID }}-bar" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+        </div>
+    </div>
+
+    {% for part in page.sections %}
+    <div id="{{ part.pID }}" class="container py-4 border-bottom">
+        {% if part.title %}<p class="fw-bold">{{ part.title }}</p>{% endif %}
+        
+        {% for text in part.paragraphs %}
+            <p>{{ text }}</p>
+        {% endfor %}
+
+        {% if part.graph_id %}
+            <div id="{{ part.graph_id }}" class="border rounded bg-white shadow-sm mb-3 py-3 text-center math-block"></div>
+            {% if part.graph_note %}<p class="text-body-secondary small text-center mb-4">{{ part.graph_note }}</p>{% endif %}
+        {% endif %}
+
+        <div class="choices" dir="ltr">
+            {% for choice in part.choices %}
+            <div class="form-check mb-2">
+                <input type="radio" 
+                       name="{{ page.exID }}-{{ part.pID }}" 
+                       class="form-check-input {{ page.exID }} {% if choice.correct %}correct-node{% endif %}" 
+                       value="{% if choice.correct %}1{% else %}0{% endif %}" 
+                       data-answer="{% if choice.correct %}1{% else %}0{% endif %}">
+                <label class="form-check-label">{{ choice.label }}</label>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div id="{{ page.exID }}-{{ part.pID }}-hintSuccess" class="{{ page.exID }}-hint alert alert-success d-none mt-2">
+            <i class="bi bi-check-circle-fill"></i> {{ part.success_msg }}
+        </div>
+        <div id="{{ page.exID }}-{{ part.pID }}-hintError" class="{{ page.exID }}-hint alert alert-danger d-none mt-2">
+            <i class="bi bi-x-circle-fill"></i> {{ part.error_msg }}
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="d-flex gap-2 mt-4">
+        <button id="{{ page.exID }}-btnRetry" class="btn btn-outline-primary fw-bold flex-grow-1 d-none" onclick="resetExercise('{{ page.exID }}')">
+            أعد المحاولة <i class="bi bi-arrow-counterclockwise"></i>
+        </button>
+        <button id="{{ page.exID }}-btnVerify" class="btn btn-outline-primary fw-bold flex-grow-1" onclick="verify('{{ page.exID }}')">
+            تحقق <i class="bi bi-check2-circle"></i>
+        </button>
+        <button id="{{ page.exID }}-btnNext" class="btn btn-outline-primary fw-bold flex-grow-1" onclick="nextExercise()">
+            التالي <i class="bi bi-chevron-left"></i>
+        </button>
+    </div>
+</div>
