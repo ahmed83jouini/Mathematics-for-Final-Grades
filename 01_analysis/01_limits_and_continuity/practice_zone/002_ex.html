@@ -1,0 +1,33 @@
+---
+layout: exercise
+title: "التطبيق 01: التخمين والحساب الدقيق"
+exID: "maths-analy-limit-pra-ex002"
+exPosition: ""
+sections:
+  - pID: "p1"
+    title: "1. وضع تخمين (بصري):"
+    paragraphs:
+      - "نعتبر الدالة $f$ المعرفة بـ: $f(x) = \\frac{\\sqrt{x+1}-1}{x}$."
+      - "خمن قيمة النهاية من خلال الرسم؟"
+    graph_id: "graph-limits"
+    graph_note: "تفاعل: استخدم عجلة الفأرة للـ Zoom"
+    choices:
+      - label: "$\\lim = 0.5$"
+        correct: true
+      - label: "$\\lim = 1$"
+        correct: false
+    success_msg: "رائع! قراءتك للتمثيل البياني سليمة."
+    error_msg: "راجع الرسم: لاحظ تقارب التراتيب عند الصفر."
+
+  - pID: "p2"
+    title: "2. الإثبات الرياضي (العدد المشتق):"
+    paragraphs:
+      - "ما هو العدد المشتق $g'(0)$ للدالة $g(x) = \\sqrt{x+1}$؟"
+    choices:
+      - label: "$g'(0) = 1/2$"
+        correct: true
+      - label: "$g'(0) = 0$"
+        correct: false
+    success_msg: "ممتاز! النهاية هي فعلاً العدد المشتق."
+    error_msg: "تذكر مشتقة الدالة الجذرية."
+---
