@@ -5,28 +5,33 @@
 </div>
 
 <script>
-    // عندما ينتهي المتصفح من تحميل "كل شيء" (بما في ذلك الصور والمكتبات)
     window.addEventListener('load', function() {
-        // ننتظر أولاً انتهاء تحميل الصفحة (الصور والملفات)
-        MathJax.typesetPromise().then(() => {
-            // الستارة لا تُرفع إلا بعد أن ينتهي MathJax من تحويل كل المعادلات
-            const loader = document.getElementById('loader-wrapper');
+        const loader = document.getElementById('loader-wrapper');
         
-            loader.style.transition = 'opacity 0.6s ease'; // تلاشي ناعم جداً
+        // الدالة التي ترفع الستارة
+        const liftCurtain = () => {
+            loader.style.transition = 'opacity 0.6s ease';
             loader.style.opacity = '0';
-
             setTimeout(() => {
                 loader.style.display = 'none';
                 document.body.style.visibility = 'visible';
-                // هنا ستظهر الصفحة وهي "صخرة" لا تهتز، لأن المعادلات قُضِيَ أمرها خلف الستارة
             }, 600);
-        }).catch((err) => {
-            // في حال حدوث خطأ، ارفع الستارة على أي حال لكي لا يعلق المستخدم
-            document.getElementById('loader-wrapper').style.display = 'none';
-            document.body.style.visibility = 'visible';
-        });
-    });
+        };
 
+        // الفحص الذكي: هل MathJax موجود؟
+        if (window.MathJax && typeof MathJax.typesetPromise === 'function') {
+            // إذا كان موجوداً، ننتظر انتهاء المعادلات
+            MathJax.typesetPromise()
+                .then(liftCurtain)
+                .catch((err) => {
+                    console.warn("MathJax Error:", err);
+                    liftCurtain(); // نرفع الستارة حتى لو فشل التنسيق
+                });
+        } else {
+            // إذا لم يكن موجوداً (مثل صفحة الفهرس)، نرفع الستارة فوراً
+            liftCurtain();
+        }
+    });
 </script>
 
 
