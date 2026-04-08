@@ -538,6 +538,56 @@ function updateParentsScore(exID, deltaPercent) {
     localStorage.setItem('progressResume', JSON.stringify(resume));
     console.log("تم تحديث شجرة الآباء بنجاح");
 }
+//________________________________
+/**
+*الحصول على رقم التمرين من معرفه
+*لتفادي التكرار في nextExercise و prevExercise
+*/
+function getExNumber(exID){
+    // 1. استخراج الجزء الرقمي من الـ ID (مثلاً 001 من maths-analy-limit-pra-ex001)
+    // نفترض أن الرقم دائماً في آخر 3 خانات قبل أي ملحقات
+    let parts = exID.split('-');
+    let lastPart = parts[parts.length - 1]; // سيأخذ ex001
+    return lastPart.replace('ex', ''); // سيتبقى 001
+}
+//________________________________
+/**
+*الإنتقال إلى التمرينوالموالي
+*/
+function nextExercise(currentExID) {
+    // 2. تحويل النص إلى رقم وزيادته
+    let nextNumber = parseInt(getExNumber(currentExID), 10) + 1;
+    
+    // 3. إعادة صياغة الرقم ليكون بثلاث خانات (مثلاً 2 تصبح 002)
+    let nextNumberStr = nextNumber.toString().padStart(3, '0');
+    
+    // 4. تركيب اسم الملف الجديد
+    // ملاحظة: بما أنك تستخدم Jekyll، الروابط غالباً تكون بدون .html أو تعتمد هيكل المجلدات
+    let nextFileName = nextNumberStr + "_ex.html";
+    
+    // 5. الانتقال
+    window.location.href = nextFileName;
+}
+
+//____^______________<______________
+/**
+*الرجوع إلى التمرين السلبق
+*/
+function prevExercise(currentExID) {
+    
+    let currentNumber = parseInt(getExNumber(currentExID), 10);
+
+    // شرط الأمان: إذا كنا في التمرين الأول، لا نفعل شيئاً أو نعود لصفحة الفهرس
+    if (currentNumber <= 1)  return;
+
+    let prevNumber = currentNumber - 1;
+    let prevNumberStr = prevNumber.toString().padStart(3, '0');
+    
+    // تركيب اسم الملف السابق
+    let prevFileName = prevNumberStr + "_ex.html";
+    
+    window.location.href = prevFileName;
+}
 
 
 
