@@ -28,14 +28,19 @@ layout: default
 
         <div class="choices">
             {% for choice in part.choices %}
-            <div class="form-check my-3" dir="{{part.dir}}">
+            <div class="form-check my-3">
                 <input type="radio" 
-                       id="{{ page.exID }}-{{ part.pID }}-choice{{ forloop.index }}"
-                       name="{{ page.exID }}-{{ part.pID }}" 
-                       class="form-check-input {{ page.exID }} {% if choice.correct %}correct-node{% endif %}" 
-                       value="{% if choice.correct %}1{% else %}0{% endif %}" 
-                       data-answer="{% if choice.correct %}1{% else %}0{% endif %}">
-                <label for="{{ page.exID }}-{{ part.pID }}-choice{{ forloop.index }}" class="form-check-label">{{ choice.label }}</label>
+                    id="{{ page.exID }}-{{ part.pID }}-choice{{ forloop.index }}"
+                    name="{{ page.exID }}-{{ part.pID }}" 
+                    class="form-check-input {{ page.exID }} {% if choice.correct %}correct-node{% endif %}" 
+                    value="{% if choice.correct %}1{% else %}0{% endif %}" 
+                    data-answer="{% if choice.correct %}1{% else %}0{% endif %}"
+                    dir="{{part.dir}}">
+                <label for="{{ page.exID }}-{{ part.pID }}-choice{{ forloop.index }}" 
+                    class="form-check-label"
+                    dir="{{part.dir}}">
+                    {{ choice.label }}
+                </label>
             </div>
             {% endfor %}
         </div>
