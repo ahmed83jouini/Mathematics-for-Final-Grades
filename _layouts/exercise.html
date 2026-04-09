@@ -28,7 +28,7 @@ layout: default
 
         <div class="choices" dir="ltr">
             {% for choice in part.choices %}
-            <div class="form-check mb-2 mt-2">
+            <div class="form-check mb-3 mt-3">
                 <input type="radio" 
                        id="{{ page.exID }}-{{ part.pID }}-choice{{ forloop.index }}"
                        name="{{ page.exID }}-{{ part.pID }}" 
@@ -40,10 +40,10 @@ layout: default
             {% endfor %}
         </div>
 
-        <div id="{{ page.exID }}-{{ part.pID }}-hintSuccess" class="{{ page.exID }}-hint alert alert-success d-none mt-2">
+        <div id="{{ page.exID }}-{{ part.pID }}-hintSuccess" class="{{ page.exID }}-hint alert alert-success d-none mt-3">
             <i class="bi bi-check-circle-fill"></i> {{ part.success_msg }}
         </div>
-        <div id="{{ page.exID }}-{{ part.pID }}-hintError" class="{{ page.exID }}-hint alert alert-danger d-none mt-2">
+        <div id="{{ page.exID }}-{{ part.pID }}-hintError" class="{{ page.exID }}-hint alert alert-danger d-none mt-3">
             <i class="bi bi-x-circle-fill"></i> {{ part.error_msg }}
         </div>
     </div>
