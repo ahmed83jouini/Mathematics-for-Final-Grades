@@ -26,9 +26,9 @@ layout: default
             {% if part.graph_note %}<p class="text-body-secondary small text-center mb-4">{{ part.graph_note }}</p>{% endif %}
         {% endif %}
 
-        <div class="choices" dir="ltr>
+        <div class="choices" dir="ltr">
             {% for choice in part.choices %}
-            <div class="form-check my-3 {% if part.dir == rtl %}d-flex flex-row-reverse justify-content-end align-items-center{% endif %}">
+            <div class="form-check my-3 {% if part.dir == 'rtl' %}d-flex flex-row-reverse justify-content-end align-items-center{% endif %}">
                 <input type="radio" 
                     id="{{ page.exID }}-{{ part.pID }}-choice{{ forloop.index }}"
                     name="{{ page.exID }}-{{ part.pID }}" 
