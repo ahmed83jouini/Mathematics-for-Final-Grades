@@ -1,8 +1,5 @@
 ---
 layout: default
-title: "منصة التميز في الرياضيات - النهايات"
-mathJax: true
-graph: true
 ---
 <div class="d-flex justify-content-between align-items-center mb-2">
     <h1 class="text-primary fw-bold">{{ page.title }}</h1>
@@ -13,21 +10,34 @@ graph: true
         <div id="{{ page.exID }}-bar" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
 </div>
 
-<h1 id="operations-on-limits" class="text-primary mb-4">1. عمليات على النهايات.</h1>
-    
-<p>$f$ و $g$ دالتان، $a$ عدد حقيقي:</p>
-    
-<h1 class="text-primary mb-4">1.1. نهاية مجموع دالتين.</h1>
-    
-<div class="table-responsive math-wrapper">
-    <table class="table table-bordered text-center" dir="ltr" style="font-size:0.8rem;">
-        <tbody>
-            <tr><td>$\lim\limits_{x \to a} f(x)$</td><td>$l \in \mathbb{R}$</td><td>$l \in \mathbb{R}$</td><td>$l \in \mathbb{R}$</td><td>$+\infty$</td><td>$+\infty$</td><td>$-\infty$</td></tr>
-            <tr><td>$\lim\limits_{x \to a} g(x)$</td><td>$l' \in \mathbb{R}$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td><td>$-\infty$</td><td>$-\infty$</td></tr>
-            <tr><td>$\lim\limits_{x \to a} (f(x)+g(x))$</td><td>$l+l'$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td><td>ع.ت.</td><td>$-\infty$</td></tr>
-        </tbody>
-    </table>
-</div>
+{% for el in page.elements %}
+    {% if el == "h3" %}
+        <h3 {% if el.id %}id="{{ el.id }}"{% endif %} 
+            class="text-primary mb-4"> 
+            {% if el.text %}{{ el.text }}{% endif %}</h3>
+    {% endif %}
+
+    {% if el == "parag" %}
+        <p>{{ el }}</p>
+    {% endif %}
+
+    {% if el == "tableLines" %}
+        <div class="table-responsive math-wrapper">
+            <table class="table table-bordered text-center" dir="ltr" style="font-size:0.8rem;">
+                <tbody>
+                    {% for line in el %}
+                    <tr>
+                        {% for cel in line }
+                        <td>"{{ cel }}"</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %} 
+
+        
     
 <p class="text-body-secondary small"><strong>تنبيه:</strong> إذا كانت الشاشة صغيرة إسحب يمين أو يسار لترى الجدول كاملا.</p>
 
