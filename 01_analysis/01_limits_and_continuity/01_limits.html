@@ -11,6 +11,7 @@ layout: default
 </div>
 
 {% for el in page.elements %}
+
     {% if el == "h3" %}
         <h3 {% if el.id %}id="{{ el.id }}"{% endif %} 
             class="text-primary mb-4"> 
@@ -23,7 +24,8 @@ layout: default
 
     {% if el == "tableLines" %}
         <div class="table-responsive math-wrapper">
-            <table class="table table-bordered text-center" dir="ltr" style="font-size:0.8rem;">
+            <table class="table table-bordered text-center" 
+                   dir="ltr" style="font-size:0.8rem;">
                 <tbody>
                     {% for line in el %}
                     <tr>
@@ -37,37 +39,15 @@ layout: default
         </div>
     {% endif %} 
 
-        
-    
-<p class="text-body-secondary small"><strong>تنبيه:</strong> إذا كانت الشاشة صغيرة إسحب يمين أو يسار لترى الجدول كاملا.</p>
+    {% if el == "note" %}
+        <p class="text-body-secondary small">
+            <strong>تنبيه:</strong>{{ el }}</p>
+    {% endif %}
 
-<h1 class="text-primary mb-4">2.1. نهاية جداء دالتين.</h1>
     
-<div class="table-responsive math-wrapper">
-    <table class="table table-bordered text-center" dir="ltr" style="font-size:0.8rem;">
-        <tbody>
-            <tr><td>$\lim\limits_{x \to a} f(x)$</td><td>$l \in \mathbb{R}$</td><td>$l>0$</td><td>$l>0$</td><td>$l<0$</td><td>$l<0$</td><td>$+\infty$</td><td>$+\infty$</td><td>$-\infty$</td><td>$0$</td><td>$0$</td></tr>
-            <tr><td>$\lim\limits_{x \to a} g(x)$</td><td>$l' \in \mathbb{R^*}$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td><td>$-\infty$</td><td>$-\infty$</td><td>$+\infty$</td><td>$-\infty$</td></tr>
-            <tr><td>$\lim\limits_{x \to a} (f(x) \times g(x))$</td><td>$l \times l'$</td><td>$+\infty$</td><td>$-\infty$</td><td>$-\infty$</td><td>$+\infty$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td><td>ع.ت</td><td>ع.ت</td></tr>
-        </tbody>
-    </table>
-</div>
+   
     
-<p class="text-body-secondary small"><strong>تنبيه:</strong> إذا كانت الشاشة صغيرة إسحب يمين أو يسار لترى الجدول كاملا.</p>
 
-<h1 class="text-primary mb-4">3.1. نهاية قسمة دالتين.</h1>
-    
-<div class="table-responsive math-wrapper">
-    <table class="table table-bordered text-center" dir="ltr" style="font-size:0.8rem;">
-        <tbody>
-            <tr><td>$\lim\limits_{x \to a} f(x)$</td><td>$l \in \mathbb{R}$</td><td>$l \in \mathbb{R}$</td><td>$l \in \mathbb{R}$</td><td>$0$</td><td>$+\infty$</td><td>$+\infty$</td><td>$+\infty$</td><td>$+\infty$</td><td>$-\infty$</td><td>$-\infty$</td><td>$-\infty$</td><td>$-\infty$</td></tr>
-            <tr><td>$\lim\limits_{x \to a} g(x)$</td><td>$l' \in \mathbb{R^*}$</td><td>$+\infty$</td><td>$-\infty$</td><td>$0$</td><td>$l>0$</td><td>$l<0$</td><td>$+\infty$</td><td>$-\infty$</td><td>$l>0$</td><td>$l<0$</td><td>$+\infty$</td><td>$-\infty$</td></tr>
-            <tr><td>$\lim\limits_{x \to a} (\frac{f(x)}{g(x))})$</td><td>$\frac{l}{l'}$</td><td>$0$</td><td>$0$</td><td>ع.ت</td><td>$+\infty$</td><td>$-\infty$</td><td>ع.ت</td><td>ع.ت</td><td>$-\infty$</td><td>$+\infty$</td><td>ع.ت</td><td>ع.ت</td></tr>
-        </tbody>
-    </table>
-</div>
-    
-<p class="text-body-secondary small"><strong>تنبيه:</strong> إذا كانت الشاشة صغيرة إسحب يمين أو يسار لترى الجدول كاملا.</p>
     
 <h1 id="exemples"class="text-primary mb-4">2.أمثلة.</h1>
     
