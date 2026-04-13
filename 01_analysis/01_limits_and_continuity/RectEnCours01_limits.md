@@ -130,4 +130,19 @@ elements:
   - N.B.:
       - rtl: "في المثال الموالي سنرى الحالات:"
       - center: "$\\frac{l}{-\\infty}=0^-$; $\\frac{l}{0^-}=-\\infty$; $\\frac{l}{0+}=+\\infty$; $\\frac{l}{+\\infty}=0^+$"
+  - exemple: "1.2.الدالة $f(x)=\frac{1}{x}$."
+      - exemID: "maths-analy-limit-exem001"
+  
+
+
+
+
+
+
+
+
+
+
+
+
 ---
