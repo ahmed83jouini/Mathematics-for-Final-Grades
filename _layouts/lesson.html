@@ -12,30 +12,35 @@ layout: default
 
 {% for el in page.elements %}
 
-    {% if el == "h3" %}
-        <h3 {% if el.id %}id="{{ el.id }}"{% endif %} 
-            class="text-primary mb-4"> 
-            {% if el.text %}{{ el.text }}{% endif %}</h3>
+    {% if el.h3 %}
+        <h3 {% if el.id %}id="{{ el.id }}"{% endif %} class="text-primary mb-4">
+            {% if el.h3.text %}
+                {{ el.h3.text }}
+            {% else %}
+                {{ el.h3 }}
+            {% endif %}
+        </h3>
     {% endif %}
 
-    {% if el == "parags" %}
-        {% for parag in el %}
-            {% if parag == "ltr" %}
-                <p dir="ltr">{{ el.ltr }}</p>
-            {% else if parag == "center" %}
-                <p class="text-center" dir="ltr">{{ el.center }}</p>
+
+    {% if el.parags %}
+        {% for parag in el.parags %}
+            {% if parag.ltr %}
+                <p dir="ltr">{{ parag.ltr }}</p>
+            {% elseif parag.center %}
+                <p class="text-center" dir="ltr">{{ parag.center }}</p>
             {% else %}
-                <p>{{ el.rtl }}</p>
+                <p>{{ parag.rtl }}</p>
             {% endif %}
         {% endfor %}
     {% endif %}
 
-    {% if el == "tableLines" %}
+    {% if el.tableLines %}
         <div class="table-responsive math-wrapper">
             <table class="table table-bordered text-center" 
                    dir="ltr" style="font-size:0.8rem;">
                 <tbody>
-                    {% for line in el %}
+                    {% for line in el.tableLines %}
                     <tr>
                         {% for cel in line }
                         <td>"{{ cel }}"</td>
@@ -47,188 +52,41 @@ layout: default
         </div>
     {% endif %} 
 
-    {% if el == "notes" %}
-        <div class="text-body-secondary small">
+    {% if el.notes %}
+        <div class="text-body-secondary small border-start ps-3 my-3">
             <p><strong>تنبيه:</strong></p>
-            {% for note in el %}
-                {% if note == "ltr" %}
-                    <p dir="ltr">{{ el.ltr }}</p>
-                {% else if nb == "center" %}
-                    <p class="text-center" dir="ltr">{{ el.center }}</p>
+            {% for note in el.notes %}
+                {% if note.ltr %}
+                    <p dir="ltr">{{ note.ltr }}</p>
+                {% elseif note.center %}
+                    <p class="text-center" dir="ltr">{{ note.center }}</p>
                 {% else %}
-                    <p>{{ el.rtl }}</p>
+                    <p>{{ note.rtl }}</p>
                 {% endif %}
             {% endfor %}
         </div>
     {% endif %}
 
-    {% if el == "N.B." %}
-        <div class="alert alert-info mt-3" role="alert">
-            <strong>فائدة</strong>
-            {% for nb in el %}
-                {% if nb == "ltr" %}
-                    <p dir="ltr">{{ el.ltr }}</p>
-                {% else if nb == "center" %}
-                    <p class="text-center" dir="ltr">{{ el.center }}</p>
-                {% else %}
-                    <p>{{ el.rtl }}</p>
-                {% endif %}
-            {% endfor %}
+    {% if el.N.B. %}
+    <div class="alert alert-warning border-0 shadow-sm mt-3" role="alert">
+        <div class="d-flex align-items-center mb-2">
+            <i class="bi bi-lightbulb-fill me-2 text-warning fs-4"></i>
+            <strong class="text-dark">فائدة (Nota Bene):</strong>
         </div>
+        {% for item in el.N.B. %}
+             {% if item.ltr %}
+                <p dir="ltr" class="mb-1">{{ item.ltr }}</p>
+            {% elsif item.center %}
+                <p class="text-center dir-ltr mb-1">{{ item.center }}</p>
+            {% else %}
+                <p class="mb-1">{{ item.rtl }}</p>
+            {% endif %}
+        {% endfor %}
+    </div>
     {% endif %}
+
 {% endfor %}
-<!--
-<h1 class="text-primary mb-4">1.2.الدالة $f(x)=\frac{1}{x}$.</h1>
-    
-<div class="mb-3">
-    <div class="d-flex justify-content-between small mb-1">
-        <span>درجة الإتقان</span>
-        <span id="math-anal-limits-exem-ex-2-1-val" class="fw-bold text-primary">0 / 12</span>
-    </div>
-    <div class="progress" style="height: 10px;">
-        <div id="math-anal-limits-exem-ex-2-1-bar" class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%; transition: width 1s;"></div>
-    </div>
-</div>
-        
-<p>1. تعيين $D_f$ مجموعة تعريف الدالة $f(x)$:</p>
-        
-<div class="mb-3">
-    <div class="d-flex justify-content-between small mb-1">
-        <span>درجة الإتقان</span>
-        <span id="math-anal-limits-exem-ex-2-1-1-val" class="fw-bold text-primary">0 / 12</span>
-    </div>
-    <div class="progress" style="height: 10px;">
-        <div id="math-anal-limits-exem-ex-2-1-1-bar" class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%; transition: width 1s;"></div>
-    </div>
-</div>
-        
-<p>من بين الخيارت التالية التي تحدد مجموعة التعريف $D_f$ حدد كل الإجابات الصحيحة:</p>
 
-<div class="choices" dir="ltr">
-    <input type="checkbox" id="st-ans-2-1-1-a" name="st_ans-2-1-1">
-    <label for="st-ans-2-1-1-a">$D_f = ]-\infty;0[ \cup [0;+\infty[$</label><br><br>
-    <input type="checkbox" id="st-ans-2-1-1-b" name="st-ans-2-1-1">            
-    <label for="st-ans-2-1-1-b">$D_f = ]-\infty;0] \cup ]0; +\infty[$</label><br><br>
-    <input type="checkbox" id="st-ans-2-1-1-c" name="st-ans-2-1-1">
-    <label for="st-ans-2-1-1-c">$D_f = \mathbb{R}^*$</label><br><br>
-    <input type="checkbox" id="st-ans-2-1-1-d" name="st_ans-2-1-1">
-    <label for="st-ans-2-1-1-d">$D_f = [-\infty;0[ \cup ]0;+\infty[$</label><br><br>
-    <input type="checkbox" id="st-ans-2-1-1-e" name="st-ans-2-1-1">            
-    <label for="st-ans-2-1-1-e">$D_f = ]-\infty;0[ \cup ]0; +\infty[$</label><br><br>
-    <input type="checkbox" id="st-ans-2-1-1-f" name="st-ans-2-1-1">
-    <label for="st-ans-2-1-1-f">$D_f = \mathbb{R}$</label><br><br>
-    <div id="hint-2-1-1" class="hint-box alert alert-warning shadow-sm text-body-secondary small" dir="rtl">
-        🔍 <b>توجيه:</b> المقام هو $x$, حاول إخراج القيمةالتي تعدم المقام من مجموعة التعريف.
-    </div>
-    <button onclick="verify_2_1_1()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة</button><br><br>
-</div> 
-        
-<p>فيما يلي ستقوم بحساب نهايات هذه الدالة عند أطراف مجال تعريفها:</p>
-        
-<p>2.أحسب $\lim\limits_{x \to -\infty} \frac{1}{x}$</p>
-        
-<div class="mb-3">
-    <div class="d-flex justify-content-between small mb-1">
-        <span>درجة الإتقان</span>
-        <span id="math-anal-limits-exem-ex-2-1-2-val" class="fw-bold text-primary">0 / 12</span>
-    </div>
-    <div class="progress" style="height: 10px;">
-        <div id="math-anal-limits-exem-ex-2-1-2-bar" class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%; transition: width 1s;"></div>
-    </div>
-</div>
-        
-<div class="math-input-container" dir="ltr">
-    <span>$\lim\limits_{x \to -\infty} \frac{1}{x} = $ </span>
-    <input type="number" id="st-ans-2-1-2" name="st-ans-2-1-2" style="width:19ch" placeholder="اكتب الإجابة هنا...">
-</div>
-        
-<div id="hint-2-1-2" class="hint-box alert alert-warning shadow-sm text-body-secondary small">
-    🔍 <b>توجيه:</b> تذكر كم يساوي عدد ثابت قسمة لا نهاية.
-</div>
-<button onclick="verify_2_1_2()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة </button><br><br>
-
-<p>3.أحسب $\lim\limits_{x \stackrel{\scriptscriptstyle <}{\to} 0} \frac{1}{x}$</p>
-        
-<div class="mb-3">
-    <div class="d-flex justify-content-between small mb-1">
-        <span>درجة الإتقان</span>
-        <span id="math-anal-limits-exem-ex-2-1-3-val" class="fw-bold text-primary">0 / 12</span>
-    </div>
-    <div class="progress" style="height: 10px;">
-        <div id="math-anal-limits-exem-ex-2-1-3-bar" class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%; transition: width 1s;"></div>
-    </div>
-</div>
-        
-<p>من بين الخيارت التالية، حدد الإجابة الصحيحة:</p>
-<div class="choices" dir="ltr">
-    <input type="checkbox" id="st-ans-2-1-3-a" name="st_ans-2-1-3">
-    <label for="st-ans-2-1-3-a"> $\lim\limits_{x \stackrel{\scriptscriptstyle <}{\to} 0} \frac{1}{x} = 0^+$</label><br><br>
-    <input type="checkbox" id="st-ans-2-1-3-b" name="st-ans-2-1-3">            
-    <label for="st-ans-2-1-3-b">$\lim\limits_{x \stackrel{\scriptscriptstyle <}{\to} 0} \frac{1}{x}=+\infty$ </label><br><br>
-    <input type="checkbox" id="st-ans-2-1-3-c" name="st-ans-2-1-3">
-    <label for="st-ans-2-1-3-c">$\lim\limits_{x \stackrel{\scriptscriptstyle <}{\to} 0} \frac{1}{x} = -\infty $ </label><br><br>
-    <input type="checkbox" id="st-ans-2-1-3-d" name="st_ans-2-1-3">
-    <label for="st-ans-2-1-3-d">$\lim\limits_{x \stackrel{\scriptscriptstyle <}{\to} 0} \frac{1}{x} = 0^-$ </label><br><br>
-            
-    <div id="hint-2-1-3" class="hint-box alert alert-warning shadow-sm text-body-secondary small" dir="rtl">
-        🔍 <b>توجيه:</b> المقام هو $x$, تذكر أن $\frac{L}{0} = \infty$ بحيث $L≠0$
-    </div><br>
-    <button onclick="verify_2_1_3()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة</button><br><br>
-</div> <br><br>
-
-<p>4.أحسب $\lim\limits_{x \stackrel{\scriptscriptstyle >}{\to} 0} \frac{1}{x}$</p>
-        
-<div class="mb-3">
-    <div class="d-flex justify-content-between small mb-1">
-        <span>درجة الإتقان</span>
-        <span id="math-anal-limits-exem-ex-2-1-4-val" class="fw-bold text-primary">0 / 12</span>
-    </div>
-    <div class="progress" style="height: 10px;">
-        <div id="math-anal-limits-exem-ex-2-1-4-bar" class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%; transition: width 1s;"></div>
-    </div>
-</div>
-        
-<p>من بين الخيارت التالية، حدد الإجابة الصحيحة:</p>
-
-<div class="choices" dir="ltr">
-    <input type="checkbox" id="st-ans-2-1-4-a" name="st_ans-2-1-4">
-    <label for="st-ans-2-1-4-a"> $\lim\limits_{x \stackrel{\scriptscriptstyle >}{\to} 0} \frac{1}{x} = +\infty $</label><br><br>
-    <input type="checkbox" id="st-ans-2-1-4-b" name="st-ans-2-1-4">            
-    <label for="st-ans-2-1-4-b">$\lim\limits_{x \stackrel{\scriptscriptstyle >}{\to} 0} \frac{1}{x}=-\infty$ </label><br><br>
-    <input type="checkbox" id="st-ans-2-1-4-c" name="st-ans-2-1-4">
-    <label for="st-ans-2-1-4-c">$\lim\limits_{x \stackrel{\scriptscriptstyle >}{\to} 0} \frac{1}{x} = 0^+ $ </label><br><br>
-    <input type="checkbox" id="st-ans-2-1-4-d" name="st_ans-2-1-4">
-    <label for="st-ans-2-1-4-d">$\lim\limits_{x \stackrel{\scriptscriptstyle <}{\to} 0} \frac{1}{x} = 0^-$ </label><br><br>
-            
-    <div id="hint-2-1-4" class="hint-box alert alert-warning shadow-sm text-body-secondary small" dir="rtl">
-        🔍 <b>توجيه:</b> المقام هو $x$, تذكر أن $\frac{L}{0} = \infty$ بحيث $L≠0$
-    </div><br>
-    <button onclick="verify_2_1_4()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة</button><br><br>
-</div> <br><br>
-        
-<p>5.أحسب $\lim\limits_{x \to +\infty} \frac{1}{x}$</p>
-        
-<div class="mb-3">
-    <div class="d-flex justify-content-between small mb-1">
-        <span>درجة الإتقان</span>
-        <span id="math-anal-limits-exem-ex-2-1-5-val" class="fw-bold text-primary">0 / 12</span>
-    </div>
-    <div class="progress" style="height: 10px;">
-        <div id="math-anal-limits-exem-ex-2-1-5-bar" class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%; transition: width 1s;"></div>
-    </div>
-</div>
-        
-<div class="math-input-container" dir="ltr">
-    <span>$\lim\limits_{x \to +\infty} \frac{1}{x} = $ </span>
-    <input type="number" id="st-ans-2-1-5" name="st-ans-2-1-5" style="width:19ch" placeholder="اكتب الإجابة هنا...">
-</div>
-    
-<div id="hint-2-1-5" class="hint-box alert alert-warning shadow-sm text-body-secondary small">
-    🔍 <b>توجيه:</b> تذكر كم يساوي عدد ثابت قسمة لا نهاية.
-</div><br>
-<button onclick="verify_2_1_5()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة </button>
-        <br><br>
-    
 <h1 class="text-primary mb-4">2.2. الدالة $f(x)=\sqrt x $</h1>
         
 <div class="mb-3">
@@ -287,50 +145,7 @@ layout: default
         </div>
         </div>
         
-        <p>بما أن الدالة معرفة عند $0$، فإنه يمكننا التعويض مباشرة:</p>
-        
-        <div class="choices" dir="ltr">
-            <input type="radio" id="st-ans-2-2-2-a" name="st-ans-2-2-2">
-            <label for="st-ans-2-2-2-a">$\lim\limits_{x \to 0^+} \sqrt{x} = +\infty$</label><br><br>
-            <input type="radio" id="st-ans-2-2-2-b" name="st-ans-2-2-2">            
-            <label for="st-ans-2-2-2-b">$\lim\limits_{x \to 0^+} \sqrt{x} = 0$</label><br><br>
-            <input type="radio" id="st-ans-2-2-2-c" name="st-ans-2-2-2">
-            <label for="st-ans-2-2-2-c">النهاية غير موجودة</label><br><br>
-            
-            <div id="hint-2-2-2" class="hint-box alert alert-warning shadow-sm text-body-secondary small" dir="rtl">
-                🔍 <b>توجيه:</b> تذكر أن نهاية الدالة عند نقطة معرفة عندها تساوي صورتها بالدالة.
-            </div>
-            <button onclick="verify_2_2_2()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة</button>
-        </div>
-        <br>
 
-        <p>3. أحسب $\lim\limits_{x \to +\infty} \sqrt{x}$</p>
-        <p id="math-anal-limits-exem-ex-2-2-3" class="score" dir="ltr">الدرجة:</p>
-        <div class="mb-3">
-        <div class="d-flex justify-content-between small mb-1">
-             <span>درجة الإتقان</span>
-             <span id="math-anal-limits-exem-ex-2-2-3-val" class="fw-bold text-primary">0 / 12</span>
-        </div>
-        <div class="progress" style="height: 10px;">
-            <div id="math-anal-limits-exem-ex-2-2-3-bar" class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%; transition: width 1s;"></div>
-        </div>
-        </div>
-        
-        <p>من بين الخيارات التالية، حدد الإجابة الصحيحة:</p>
-        <div class="choices" dir="ltr">
-            <input type="radio" id="st-ans-2-2-3-a" name="st-ans-2-2-3">
-            <label for="st-ans-2-2-3-a">$\lim\limits_{x \to +\infty} \sqrt{x} = 0$</label><br><br>
-            <input type="radio" id="st-ans-2-2-3-b" name="st-ans-2-2-3">            
-            <label for="st-ans-2-2-3-b">$\lim\limits_{x \to +\infty} \sqrt{x} = +\infty$</label><br><br>
-            <input type="radio" id="st-ans-2-2-3-c" name="st-ans-2-2-3">
-            <label for="st-ans-2-2-3-c">$\lim\limits_{x \to +\infty} \sqrt{x} = 1$</label><br><br>
-
-            <div id="hint-2-2-3" class="hint-box alert alert-warning shadow-sm text-body-secondary small" dir="rtl">
-                🔍 <b>توجيه:</b> تخيل سلوك الدالة بيانيا؛ كلما زادت قيمة $x$ تحت الجذر، ماذا يحدث للنتيجة؟
-            </div>
-            <button onclick="verify_2_2_3()" class="btn btn-primary btn-lg w-100">تحقق من الإجابة</button>
-        </div><br><br>
-    </div>
 
     <div class="lesson-card">
         <h3 class="text-primary mb-4">3.2. الدالة $f(x)=\frac{1}{\sqrt{x}}$</h3>
