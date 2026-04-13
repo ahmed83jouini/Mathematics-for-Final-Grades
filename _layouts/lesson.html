@@ -21,11 +21,11 @@ layout: default
     {% if el == "parags" %}
         {% for parag in el %}
             {% if parag == "ltr" %}
-            <p dir="ltr">{{ el.ltr }}</p>
+                <p dir="ltr">{{ el.ltr }}</p>
             {% else if parag == "center" %}
-            <p class="text-center" dir="ltr">{{ el.center }}
+                <p class="text-center" dir="ltr">{{ el.center }}</p>
             {% else %}
-            <p>{{ el.rtl }}</p>
+                <p>{{ el.rtl }}</p>
             {% endif %}
         {% endfor %}
     {% endif %}
@@ -52,11 +52,11 @@ layout: default
             <p><strong>تنبيه:</strong></p>
             {% for note in el %}
                 {% if note == "ltr" %}
-                <p dir="ltr">{{ el.ltr }}</p>
+                    <p dir="ltr">{{ el.ltr }}</p>
                 {% else if nb == "center" %}
-                <p class="text-center" dir="ltr">{{ el.center }}
+                    <p class="text-center" dir="ltr">{{ el.center }}</p>
                 {% else %}
-                <p>{{ el.rtl }}</p>
+                    <p>{{ el.rtl }}</p>
                 {% endif %}
             {% endfor %}
         </div>
@@ -67,11 +67,11 @@ layout: default
             <strong>فائدة</strong>
             {% for nb in el %}
                 {% if nb == "ltr" %}
-                <p dir="ltr">{{ el }}</p>
+                    <p dir="ltr">{{ el.ltr }}</p>
                 {% else if nb == "center" %}
-                <p class="text-center" dir="ltr">{{ el }}
+                    <p class="text-center" dir="ltr">{{ el.center }}</p>
                 {% else %}
-                <p>{{ el }}</p>
+                    <p>{{ el.rtl }}</p>
                 {% endif %}
             {% endfor %}
         </div>
