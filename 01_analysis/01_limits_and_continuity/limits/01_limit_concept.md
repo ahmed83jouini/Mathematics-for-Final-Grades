@@ -4,7 +4,7 @@ title: "النهايات: مفهوم الاقتراب والفرق بينها و
 permalink: /limit_concept/
 mathJax: true
 graph: true
-lessonID: "limit-concept"
+lessonID: "limit"
 elements:
   - h3: "1. لماذا نحتاج النهايات؟ (مفهوم الاقتراب)"
     id: "why-limits"
