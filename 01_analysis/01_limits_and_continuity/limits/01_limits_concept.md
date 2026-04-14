@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: "النهايات: مفهوم الاقتراب والفرق بينها وبين الصورة"
-permalink: /limits_concept/
+permalink: /limit_concept/
 mathJax: true
 graph: true
 lessonID: "limit-concept"
