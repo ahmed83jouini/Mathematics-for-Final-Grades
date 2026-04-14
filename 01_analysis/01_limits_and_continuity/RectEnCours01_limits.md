@@ -140,7 +140,7 @@ elements:
       - title: "3.2. الدالة $f(x)=\\frac{1}{\\sqrt{x}}$"
       - exemID: "maths-analy-limit-exem003"
   - exemple:
-      - title: "4.2. الدالة $f(x)=x^n$ ($n \in \\mathbb{N}^*$)"
+      - title: "4.2. الدالة $f(x)=x^n$ ($n \\in \\mathbb{N}^*$)"
       - exemID: "maths-analy-limit-exem004"
   - exemple:
       - title: "5.2. الدالة جيب: $f(x) = \\sin(x)$"
