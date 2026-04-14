@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: "النهايات: مفهوم الاقتراب والفرق بينها وبين الصورة"
-permalink: /01_analysis/01_limits_and_continuity/01_concept_of_limit/
+permalink: /limits_concept/
 mathJax: true
 graph: true
 lessonID: "limit-concept"
@@ -58,5 +58,14 @@ elements:
       
   - navigation:
       next_title: "المبحث الثالث: قراءة النهاية بيانياً"
-      next_url: "/01_analysis/01_limits_and_continuity/02_graphical_limits/"
+      next_url: "/limits_by_graph/"
+
+
+
+
+
+
+
+
+    
 ---
