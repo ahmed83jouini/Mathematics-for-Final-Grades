@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: "منصة التميز في الرياضيات - النهايات"
-permalink: "/limits/"
+permalink: /limits/
 mathJax: true
 graph: true
 lessonID: "limit"
