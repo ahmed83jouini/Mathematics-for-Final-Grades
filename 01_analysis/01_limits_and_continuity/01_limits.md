@@ -131,19 +131,18 @@ elements:
   - N.B.:
       - rtl: "في المثال الموالي سنرى الحالات:"
       - center: "$\\frac{l}{-\\infty}=0^-$; $\\frac{l}{0^-}=-\\infty$; $\\frac{l}{0+}=+\\infty$; $\\frac{l}{+\\infty}=0^+$"
-  - exemple:
-      - title: "1.2.الدالة $f(x)=\\frac{1}{x}$."
-      - exemID: "maths-analy-limit-exem001"
-  - exemple:
-      - title: "2.2. الدالة $f(x)=\\sqrt{x} $"
-      - exemID: "maths-analy-limit-exem002"
-  - exemple:
-      - title: "3.2. الدالة $f(x)=\\frac{1}{\\sqrt{x}}$"
-      - exemID: "maths-analy-limit-exem003"
-  - exemple:
-      - title: "4.2. الدالة $f(x)=x^n$ ($n \\in \\mathbb{N}^*$)"
-      - exemID: "maths-analy-limit-exem004"
-  - exemple:
-      - title: "5.2. الدالة جيب: $f(x) = \\sin(x)$"
-      - exemID: "maths-analy-limit-exem005"
+  - exemples:
+      - 1:
+          - title: "1.2.الدالة $f(x)=\\frac{1}{x}$."
+          - exemID: "maths-analy-limit-exem001"
+      - 2:
+          - title: "2.2. الدالة $f(x)=\\sqrt{x} $"
+          - exemID: "maths-analy-limit-exem002"
+      - 3:
+          - title: "3.2. الدالة $f(x)=\\frac{1}{\\sqrt{x}}$"
+          - exemID: "maths-analy-limit-exem003"
+  
+
+
+
   ---
