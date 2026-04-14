@@ -86,5 +86,25 @@ layout: default
 
 {% endfor %}
 
+<hr class="mt-5">
+<div class="navigation-links d-flex justify-content-between align-items-center py-4">
+    <div class="previous-link">
+        {% if page.previous_url %}
+        <a href="{{ page.previous_url | relative_url }}" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-right ml-2"></i> السابق: {{ page.previous_title }}
+        </a>
+        {% endif %}
+    </div>
+
+    <div class="next-link">
+        {% if page.next_url %}
+        <a href="{{ page.next_url | relative_url }}" class="btn btn-primary">
+            التالي: {{ page.next_title }} <i class="fas fa-arrow-left mr-2"></i>
+        </a>
+        {% endif %}
+    </div>
+</div>
+
+
 
                  
