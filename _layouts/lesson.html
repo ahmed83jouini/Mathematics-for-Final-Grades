@@ -90,7 +90,7 @@ layout: default
 <div class="navigation-links d-flex justify-content-between align-items-center py-4">
     <div class="previous-link">
         {% if page.previous_url %}
-        <a href="{{ page.previous_url | relative_url }}" class="btn btn-outline-secondary">
+        <a href="{{ page.previous_url | relative_url }}" class="btn btn-outline-primary">
             <i class="fas fa-arrow-right ml-2"></i> السابق: {{ page.previous_title }}
         </a>
         {% endif %}
@@ -98,7 +98,7 @@ layout: default
 
     <div class="next-link">
         {% if page.next_url %}
-        <a href="{{ page.next_url | relative_url }}" class="btn btn-primary">
+        <a href="{{ page.next_url | relative_url }}" class="btn btn-outline-primary">
             التالي: {{ page.next_title }} <i class="fas fa-arrow-left mr-2"></i>
         </a>
         {% endif %}
