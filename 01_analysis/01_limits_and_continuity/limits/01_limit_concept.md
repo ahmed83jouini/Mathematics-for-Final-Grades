@@ -5,6 +5,11 @@ permalink: /limit_concept/
 mathJax: true
 graph: true
 lessonID: "limit"
+
+next_title: "المبحث الثالث: قراءة النهاية بيانياً"
+next_url: "/limits_by_graph/"
+
+
 elements:
   - h3: "1. لماذا نحتاج النهايات؟ (مفهوم الاقتراب)"
     id: "why-limits"
