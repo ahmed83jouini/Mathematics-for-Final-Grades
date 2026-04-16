@@ -18,10 +18,19 @@ layout: default
     {% for text in part.paragraphs %}
         <p>{{ text }}</p>
     {% endfor %}
-
+<!--
     {% if part.graph_id %}
         <div id="{{ part.graph_id }}" class="border rounded bg-white shadow-sm mb-3 py-3 text-center math-block"></div>
         {% if part.graph_note %}<p class="text-body-secondary small text-center mb-4">{{ part.graph_note }}</p>{% endif %}
+    {% endif %}
+-->
+    {% if el.graph %}
+        <div 
+            id="{{ el.graph.id }}" 
+            class="{{ el.graph.class }}" 
+            data-graph-config='{{ el.graph | jsonify }}'
+            style="width: 100%; min-height: 400px; margin: 20px 0;">
+        </div>
     {% endif %}
 
     <div class="choices" dir="{{ part.dir | default: 'ltr' }}">
