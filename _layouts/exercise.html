@@ -24,11 +24,11 @@ layout: default
         {% if part.graph_note %}<p class="text-body-secondary small text-center mb-4">{{ part.graph_note }}</p>{% endif %}
     {% endif %}
 -->
-    {% if el.graph %}
+    {% if part.graph %}
         <div 
-            id="{{ el.graph.id }}" 
-            class="{{ el.graph.class }}" 
-            data-graph-config='{{ el.graph | jsonify }}'
+            id="{{ part.graph.id }}" 
+            class="{{ part.graph.class }}" 
+            data-graph-config='{{ part.graph | jsonify }}'
             style="width: 100%; min-height: 400px; margin: 20px 0;">
         </div>
     {% endif %}
