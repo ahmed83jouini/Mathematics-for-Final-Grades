@@ -16,6 +16,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 bg: isDark ? '#1a1a1a' : '#ffffff'
             };
 
+            const scatterData = config.points ? config.points.map(p => ({
+                points: [[p.x, p.y]],
+                fnType: 'points',
+                graphType: 'scatter',
+                attr: {
+                    r: 6,                     // القطر
+                    fill: colors.bg,          // مفرغة (تأخذ لون الخلفية)
+                    stroke: p.color || 'red', // لون الإطار من اليامل
+                    "stroke-width": 2
+                }
+            })) : [];
+
             functionPlot({
                 target: "#" + container.id,
                 width: container.offsetWidth || 400,
@@ -36,7 +48,8 @@ document.addEventListener("DOMContentLoaded", function() {
                         fnType: 'points',
                         graphType: 'scatter',
                         color: colors.helper
-                    }
+                    },
+                    scatterData
                 ],
                 annotations: config.annotations || []
             });
@@ -45,3 +58,14 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+
+
+
+
+
+
+
+
+
+
