@@ -57,10 +57,10 @@ layout: default
         {% endfor %}
     </div>
 
-    <div id="{{ page.exID }}-{{ part.pID }}-hintSuccess" class="{{ page.exID }}-hint alert alert-success d-none mt-3">
+    <div id="{{ page.exID }}-{{ part.pID }}-hintSuccess" class="{{ page.exID }}-hint alert alert-success d-none mt-5">
         <i class="bi bi-check-circle-fill"></i> {{ part.success_msg }}
     </div>
-    <div id="{{ page.exID }}-{{ part.pID }}-hintError" class="{{ page.exID }}-hint alert alert-danger d-none mt-3">
+    <div id="{{ page.exID }}-{{ part.pID }}-hintError" class="{{ page.exID }}-hint alert alert-danger d-none mt-5">
         <i class="bi bi-x-circle-fill"></i> {{ part.error_msg }}
     </div>
 </div>
