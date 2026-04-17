@@ -43,12 +43,13 @@ document.addEventListener("DOMContentLoaded", function() {
                         sampler: 'builtIn',
                         graphType: 'polyline'
                     },
+                    /*
                     {
                         points: config.points ? config.points.map(p => [p.x, p.y]) : [],
                         fnType: 'points',
                         graphType: 'scatter',
                         color: colors.helper
-                    },
+                    },*/
                     scatterData
                 ],
                 annotations: config.annotations || []
