@@ -50,7 +50,10 @@ document.addEventListener("DOMContentLoaded", function() {
                         graphType: 'scatter',
                         color: colors.helper
                     },*/
-                    scatterData
+                    console.log("البيانات الممررة للرسم:", config);
+                    console.log("نقاط التشتت المحضرة:", scatterData);
+
+                    ...scatterData
                 ],
                 annotations: config.annotations || []
             });
