@@ -27,10 +27,6 @@ layout: default
         {% endfor %}
     {% endif %}
     
-    {% if part.note %}
-        <p class="small text-muted">{{ part.note }}</p>
-    {% endif %}
-    
     {% if part.graph %}
         <div 
             id="{{ part.graph.id }}" 
@@ -38,6 +34,10 @@ layout: default
             data-graph-config='{{ part.graph | jsonify }}'
             style="width: 100%; min-height: 400px; margin: 20px 0;">
         </div>
+    {% endif %}
+    
+    {% if part.note %}
+        <p class="small text-muted">{{ part.note }}</p>
     {% endif %}
 
     <div class="choices" dir="{{ part.dir | default: 'ltr' }}">
