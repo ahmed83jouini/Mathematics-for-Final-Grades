@@ -15,15 +15,18 @@ layout: default
 <div id="{{ part.pID }}" class="container py-4 border-bottom">
     {% if part.title %}<p class="fw-bold">{{ part.title }}</p>{% endif %}
         
-    {% for text in part.paragraphs %}
-        <p>{{ text }}</p>
-    {% endfor %}
-<!--
-    {% if part.graph_id %}
-        <div id="{{ part.graph_id }}" class="border rounded bg-white shadow-sm mb-3 py-3 text-center math-block"></div>
-        {% if part.graph_note %}<p class="text-body-secondary small text-center mb-4">{{ part.graph_note }}</p>{% endif %}
+    {% if part.paragraphs %}
+        {% for parag in part.paragraphs %}
+            {% if parag.ltr %}
+                <p dir="ltr">{{ parag.ltr }}</p>
+            {% elsif parag.center %}
+                <p class="text-center" dir="ltr">{{ parag.center }}</p>
+            {% else %}
+                <p>{{ parag.rtl }}</p>
+            {% endif %}
+        {% endfor %}
     {% endif %}
--->
+
     {% if part.graph %}
         <div 
             id="{{ part.graph.id }}" 
