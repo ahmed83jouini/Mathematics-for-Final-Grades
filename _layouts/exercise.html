@@ -57,12 +57,36 @@ layout: default
         {% endfor %}
     </div>
 
-    <div id="{{ page.exID }}-{{ part.pID }}-hintSuccess" class="{{ page.exID }}-hint alert alert-success d-none mt-5">
-        <i class="bi bi-check-circle-fill"></i> {{ part.success_msg }}
-    </div>
-    <div id="{{ page.exID }}-{{ part.pID }}-hintError" class="{{ page.exID }}-hint alert alert-danger d-none mt-5">
-        <i class="bi bi-x-circle-fill"></i> {{ part.error_msg }}
-    </div>
+    {% if part.success_msg %}
+        <div id="{{ page.exID }}-{{ part.pID }}-hintSuccess" class="{{ page.exID }}-hint alert alert-success d-none mt-5">
+            <i class="bi bi-check-circle-fill"></i>
+            {% for parag in part.success_msg %}
+                {% if parag.ltr %}
+                    <p dir="ltr">{{ parag.ltr }}</p>
+                {% elsif parag.center %}
+                    <p class="text-center" dir="ltr">{{ parag.center }}</p>
+                {% else %}
+                    <p>{{ parag.rtl }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+    {% if part.error_msg %}
+        <div id="{{ page.exID }}-{{ part.pID }}-hintError" class="{{ page.exID }}-hint alert alert-danger d-none mt-5">
+            <i class="bi bi-x-circle-fill"></i>
+            {% for parag in part.error_msg %}
+                {% if parag.ltr %}
+                    <p dir="ltr">{{ parag.ltr }}</p>
+                {% elsif parag.center %}
+                    <p class="text-center" dir="ltr">{{ parag.center }}</p>
+                {% else %}
+                    <p>{{ parag.rtl }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+    
 </div>
 {% endfor %}
 
