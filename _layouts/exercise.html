@@ -60,24 +60,30 @@ layout: default
       </div>
       {% endif %}
 
-      {%if content.numbers %}
-      <div class="choices ms-6" dir="{{ part.dir | default: 'ltr' }}">
+      {% if content.numbers %}
+      <div class="numbers-input ms-4" dir="{{ part.dir | default: 'ltr' }}">
         {% for number in content.numbers %}
-        <div class="form-check my-3 mt-4">
-            <input type="number" 
-                id="{{ page.exID }}-{{ part.pID }}-number{{ forloop.index }}"
-                name="{{ page.exID }}-{{ part.pID }}" 
-                class="form-check-input {{ page.exID }}" 
-                data-answer="{{ number.correct }}"
-                data-error="{{ number.delta }}">
-            <label for="{{ page.exID }}-{{ part.pID }}-number{{ forloop.index }}" 
-                class="form-check-label">
-                {{ number.label }}
-            </label>
+        <div class="row align-items-center my-3">
+            <div class="col-auto">
+                <label for="{{ page.exID }}-{{ part.pID }}-number{{ forloop.index }}" class="col-form-label">
+                    {{ number.label }}
+                </label>
+            </div>
+            
+            <div class="col-sm-3">
+                <input type="number" 
+                    id="{{ page.exID }}-{{ part.pID }}-number{{ forloop.index }}"
+                    class="form-control {{ page.exID }} number-answer-input" 
+                    step="any"
+                    data-answer="{{ number.correct }}"
+                    data-delta="{{ number.delta | default: 0 }}"
+                    placeholder="النتيجة...">
+            </div>
         </div>
         {% endfor %}
       </div>
-      {% endif %}    
+      {% endif %}
+
     
       {% if content.success_msg %}
         <div id="{{ page.exID }}-{{ part.pID }}-hintSuccess" class="{{ page.exID }}-hint alert alert-success d-none mt-5">
