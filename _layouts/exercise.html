@@ -63,26 +63,26 @@ layout: default
       {% if content.numbers %}
       <div class="numbers-input ms-4" dir="{{ part.dir | default: 'ltr' }}">
         {% for number in content.numbers %}
-        <div class="row align-items-center my-3">
-            <div class="col-auto">
-                <label for="{{ page.exID }}-{{ part.pID }}-number{{ forloop.index }}" class="col-form-label">
-                    {{ number.label }}
-                </label>
-            </div>
-            
-            <div class="col-sm-3">
-                <input type="number" 
+            <div class="d-flex align-items-center flex-wrap my-3">
+                <div class="me-2 text-nowrap">
+                    <label for="{{ page.exID }}-{{ part.pID }}-number{{ forloop.index }}" class="mb-0">
+                        {{ number.label }}
+                    </label>
+                </div>
+    
+                <div style="width: 100px;"> <input type="number" 
                     id="{{ page.exID }}-{{ part.pID }}-number{{ forloop.index }}"
-                    class="form-control {{ page.exID }} number-answer-input" 
+                    class="form-control form-control-sm {{ page.exID }} number-answer-input" 
                     step="any"
                     data-answer="{{ number.correct }}"
                     data-delta="{{ number.delta | default: 0 }}"
-                    placeholder="النتيجة...">
+                    placeholder="..الإجابة">
+                </div>
             </div>
-        </div>
         {% endfor %}
       </div>
       {% endif %}
+
 
     
       {% if content.success_msg %}
