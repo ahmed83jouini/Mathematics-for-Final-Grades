@@ -59,6 +59,25 @@ layout: default
         {% endfor %}
       </div>
       {% endif %}
+
+      {%if content.numbers %}
+      <div class="choices ms-6" dir="{{ part.dir | default: 'ltr' }}">
+        {% for number in content.numbers %}
+        <div class="form-check my-3 mt-4">
+            <input type="number" 
+                id="{{ page.exID }}-{{ part.pID }}-number{{ forloop.index }}"
+                name="{{ page.exID }}-{{ part.pID }}" 
+                class="form-check-input {{ page.exID }}" 
+                data-answer="{{ number.correct }}"
+                data-error="{{ number.delta }}">
+            <label for="{{ page.exID }}-{{ part.pID }}-number{{ forloop.index }}" 
+                class="form-check-label">
+                {{ number.label }}
+            </label>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}    
     
       {% if content.success_msg %}
         <div id="{{ page.exID }}-{{ part.pID }}-hintSuccess" class="{{ page.exID }}-hint alert alert-success d-none mt-5">
