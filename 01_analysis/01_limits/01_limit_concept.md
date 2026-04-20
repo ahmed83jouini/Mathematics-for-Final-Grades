@@ -27,6 +27,7 @@ elements:
       - rtl: "لاحظ أن الدالة غير معرفة عند $1$ (مقام معدوم). لنحاول استكشاف ما يحدث بجوار العدد $1$:"
 
   - tableLines:
+    lines:
       - - "$\\to 1$"
         - "0.999"
         - "0.99"
@@ -39,6 +40,7 @@ elements:
         - "$f(x)$ النتيجة"
   
   - tableLines:
+    lines:
       - - "$\\to 1$"
         - "1.001"
         - "1.01"
@@ -59,7 +61,7 @@ elements:
   - parags:
       - rtl: "هنا نكسر أول خلط يقع فيه الكثيرون:"
 
-  - table_:
+  - tableLines:
     dir: rtl
     lines:
       - - "النهاية $\\lim\\limits_{x \\to a} f(x)$"
