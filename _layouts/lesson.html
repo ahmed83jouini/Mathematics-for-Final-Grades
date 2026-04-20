@@ -43,12 +43,12 @@ layout: default
         {% endfor %}
     {% endif %}
 
-    {% if el.tableLines %}
+    {% if el.table %}
         <div class="table-responsive math-wrapper">
             <table class="table table-bordered text-center" 
-                   dir="ltr" style="font-size:0.8rem;">
+                   dir="{{ el.dir }}" || ltr" style="font-size:0.8rem;">
                 <tbody>
-                    {% for line in el.tableLines %}
+                    {% for line in el.table.lines %}
                     <tr>
                         {% for cel in line %}
                         <td>{{ cel }}</td>
