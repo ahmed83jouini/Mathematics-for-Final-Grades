@@ -47,7 +47,8 @@ layout: default
         <div class="table-responsive math-wrapper">
             <table class="table table-bordered text-center" 
                    style="font-size:0.8rem;"
-                   dir="{{ el.tableLines.dir }} | default = 'ltr'">                <tbody>
+                   dir="{{ el.tableLines.dir }}">                
+                <tbody>
                     {% for line in el.tableLines.lines %}
                     <tr>
                         {% for cel in line %}
