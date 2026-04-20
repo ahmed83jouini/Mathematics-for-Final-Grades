@@ -72,6 +72,7 @@ layout: default
     
                 <div style="width: 100px;"> <input type="number" 
                     id="{{ page.exID }}-{{ part.pID }}-number{{ forloop.index }}"
+                    name="{{ page.exID }}-{{ part.pID }}" 
                     class="form-control form-control-sm {{ page.exID }} number-answer-input" 
                     step="any"
                     data-answer="{{ number.correct }}"
