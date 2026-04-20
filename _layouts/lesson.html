@@ -44,6 +44,7 @@ layout: default
     {% endif %}
 
     {% if el.table %}
+          console.log('il y a un tableau')
         <div class="table-responsive math-wrapper">
             <table class="table table-bordered text-center" 
                    dir="{{ el.dir }} | default: 'ltr'" style="font-size:0.8rem;">
