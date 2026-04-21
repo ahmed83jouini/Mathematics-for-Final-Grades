@@ -83,7 +83,7 @@ elements:
       - rtl: "نكتب رياضياً:"
       - center:  "$\\lim\\limits_{x \\to 1} f(x) = 2$"
       - rtl: "وتقرأ:"
-      - rtl:  "<p class="text-center ms-5 text-primary">'نهاية الدالة $f$ عندما يؤول $x$ إلى $1$ هي $2$ '.</p>"
+      - rtl:  "<p class='text-center ms-5 text-primary'>'نهاية الدالة $f$ عندما يؤول $x$ إلى $1$ هي $2$ '.</p>"
 
   - h3: "5. تطبيقات"
     id: "applications"
