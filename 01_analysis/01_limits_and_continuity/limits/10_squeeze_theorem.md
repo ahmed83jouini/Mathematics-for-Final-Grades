@@ -1,12 +1,11 @@
 ---
 layout: lesson
-title: "المبحث الحادي عشر: مبرهنة الحصر (مبرهنة الدرك)"
+title: "مبرهنة الحصر (مبرهنة الدرك)"
 permalink: /squeeze_theorem/
 mathJax: true
 graph: true
 lessonID: "squeeze-thm"
 
-# روابط التنقل
 previous_title: "النهايات المثلثية"
 previous_url: /trig_limits/
 next_title: "المستقيمات المقاربة"
