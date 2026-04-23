@@ -73,7 +73,7 @@ elements:
         - - td: "نقص المقام"
           - td: "المقام يحتاج إلى $3$ ليطابق ما داخل الجيب."
         - - td: "الموازنة"
-        - td: "$\\lim_{x \\to 0} 3 \\times \\frac{\\sin(3x)}{3x}$"
+          - td: "$\\lim\\limits_{x \\to 0} 3 \\times \\frac{\\sin(3x)}{3x}$"
         - - td: "التطبيق"
           - td: "$3 \\times 1 = 3$"
 
