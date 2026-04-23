@@ -83,7 +83,7 @@ layout: default
     <div class="alert alert-warning border-0 shadow-sm mt-3" role="alert">
         <div class="d-flex align-items-center mb-2">
             <i class="bi bi-lightbulb-fill me-2 text-warning fs-4"></i>
-            <strong class="text-primary">{{ el.NB.title }}:</strong>
+            <strong class="text-primary">{% if el.NB.title %}{{ el.NB.title }}{% else %}تنبيه هام:{% endif %}</strong>
         </div>
         {% for item in el.NB.NBs %}
              {% if item.ltr %}
