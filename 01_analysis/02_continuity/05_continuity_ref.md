@@ -54,7 +54,7 @@ elements:
       - rtl: "<strong>2. الدالة:</strong>"
       - center: "$g(x) = \\frac{1}{x-1}$"
       - rtl: "مستمرة على كل مجال من المجالين: $]-\\infty, 1[$ و $]1, +\\infty[$ لأنها دالة ناطقة."
-      - rtl: "لكنها غير مستمرة على: $\\mathbb{R} \\minset {1}$"
+      - rtl: "لكنها غير مستمرة على: $\\mathbb{R} \\setminus {1}$"
 
   - NB:
       type: danger
