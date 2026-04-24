@@ -1,12 +1,11 @@
 ---
 layout: lesson
-title: "المبحث العاشر: الاستمرارية وصورة مجال"
+title: "الاستمرارية وصورة مجال"
 permalink: /cont_image/
 mathJax: true
 graph: true
 lessonID: "cont-img"
 
-# روابط التنقل
 previous_title: "تطبيقات الحصر"
 previous_url: /mvt_apps/
 next_title: "التمثيل البياني والدالة العكسية"
@@ -26,18 +25,20 @@ elements:
       - rtl: "الرتابة هي التي تحدد ترتيب أطراف المجال الناتج. إليك كيف تتغير الصور حسب اتجاه التغير:"
 
   - tableLines:
-      - - "المجال $I$"
-        - "إذا كانت $f$ متزايدة تماماً"
-        - "إذا كانت $f$ متناقصة تماماً"
-      - - "$[a, b]$"
-        - "$[f(a), f(b)]$"
-        - "$[f(b), f(a)]$"
-      - - "$]a, b[$"
-        - "$]\\lim_{x \to a} f(x), \\lim_{x \to b} f(x)[$"
-        - "$]\\lim_{x \to b} f(x), \\lim_{x \to a} f(x)[$"
-      - - "$[a, +\infty[$"
-        - "$[f(a), \\lim_{x \to +\infty} f(x)[$"
-        - "$]\\lim_{x \to +\infty} f(x), f(a)]$"
+      dir: rtl
+      lines:
+        - - th: "المجال $I$"
+          - th: "إذا كانت $f$ متزايدة تماماً"
+          - th: "إذا كانت $f$ متناقصة تماماً"
+        - - td: "$[a, b]$"
+          - td: "$[f(a), f(b)]$"
+          - td: "$[f(b), f(a)]$"
+        - - td: "$]a, b[$"
+          - td: "$]\\lim\\limits_{x \\to a} f(x), \\lim\\limits_{x \\to b} f(x)[$"
+          - td: "$]\\lim\\limits_{x \\to b} f(x), \\lim\\limits_{x \\to a} f(x)[$"
+        - - td: "$[a, +\\infty[$"
+          - td: "$[f(a), \\lim\\limits_{x \\to +\\infty} f(x)[$"
+          - td: "$]\\lim\\limits_{x \\to +\\infty} f(x), f(a)]$"
 
   - h3: "3. لماذا نغير الترتيب عند التناقص؟"
     id: "why-reverse"
@@ -49,18 +50,22 @@ elements:
     id: "img-example"
 
   - parags:
-      - rtl: "لتكن $f$ دالة مستمرة ومتناقصة تماماً على $]1, +\infty[$ حيث $\\lim_{x \to 1} f(x) = 5$ و $\\lim_{x \to +\infty} f(x) = -\infty$."
+      - rtl: "لتكن $f$ دالة مستمرة ومتناقصة تماماً على $]1, +\\infty[$ حيث $\\lim\\limits_{x \\to 1} f(x) = 5$ و $\\lim\\limits_{x \\to +\\infty} f(x) = -\\infty$."
 
   - tableLines:
-      - - "العملية"
-        - "النتيجة"
-      - - "تحديد صورة المجال"
-        - "$f(]1, +\infty[) = ]\\lim_{x \to +\infty} f(x), \\lim_{x \to 1} f(x)[$"
-      - - "التعويض بالقيم"
-        - "$f(]1, +\infty[) = ]-\\infty, 5[$"
+      dir: rtl
+      lines:
+        - - th: "العملية"
+          - th: "النتيجة"
+        - - th: "تحديد صورة المجال"
+          - td: "$f(]1, +\\infty[) = ]\\lim\\limits_{x \\to +\\infty} f(x), \\lim\\limits_{x \to 1} f(x)[$"
+        - - th: "التعويض بالقيم"
+          - td: "$f(]1, +\\infty[) = ]-\\infty, 5[$"
 
-  - notes:
-      - rtl: "**تنبيه تقني:** إذا كانت الدالة غير رتيبة (تتزايد ثم تتناقص)، فإن صورة المجال هي $[m, M]$ حيث $m$ هي القيمة الدنيا المطلقة و $M$ هي القيمة القصوى المطلقة للدالة على ذلك المجال."
+  - NB:
+      title: "تنبيه تقني:"
+      NBs:
+        - rtl: "إذا كانت الدالة غير رتيبة (تتزايد ثم تتناقص)، فإن صورة المجال هي $[m, M]$ حيث $m$ هي القيمة الدنيا المطلقة و $M$ هي القيمة القصوى المطلقة للدالة على ذلك المجال."
 
   - h3: "5. تطبيقات بيانية"
     id: "img-app-list"
