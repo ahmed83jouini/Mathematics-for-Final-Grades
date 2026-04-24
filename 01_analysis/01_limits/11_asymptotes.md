@@ -9,7 +9,7 @@ lessonID: "asymp-limits"
 previous_title: "مبرهنة الحصر"
 previous_url: /squeeze_theorem/
 next_title: "الفهرس العام للنهايات"
-next_url: /limits/
+next_url: /limits_hub/
 
 elements:
   - h3: "1. ما هو المستقيم المقارب؟"
