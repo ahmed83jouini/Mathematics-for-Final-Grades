@@ -19,26 +19,26 @@ sections:
     desc: "فهم 'لماذا' ندرس النهايات وما هي القواعد التي تحكم سلوك الدالة بجوار نقطة."
     lessons:
       - title: "المبحث 1: مدخل إلى النهايات"
-        url: "/limits_intro/"
+        url: "/limit_concept/"
         icon: "feather"
-      - title: "المبحث 2: تعريف النهاية عند عدد"
-        url: "/limit_at_point/"
+      - title: "المبحث 2: القراءة البيانية لنهاية.
+        url: "/limits_by_graph/"
         icon: "target"
-      - title: "المبحث 3: النهاية من اليمين ومن اليسار"
-        url: "/limit_left_right/"
+      - title: "المبحث 3: معالجة بعض الدوال المرجعية"
+        url: "/reference_limits/"
         icon: "split"
 
   - title: "المرحلة الثانية: أدوات الحساب الجبري"
     desc: "القواعد الأساسية للتعامل مع الدوال المرجعية والعمليات الجبرية."
     lessons:
-      - title: "المبحث 4: نهايات الدوال المرجعية"
-        url: "/ref_limits/"
+      - title: "المبحث 4: نهايات بعض الدوال المرجعية"
+        url: "/reference_limits/"
         icon: "book"
       - title: "المبحث 5: العمليات على النهايات"
-        url: "/limit_operations/"
+        url: "/ops_limits/"
         icon: "plus-circle"
       - title: "المبحث 6: نهاية كثير حدود ودالة ناطقة عند المالانهاية"
-        url: "/poly_rational_inf/"
+        url: "/polynomial_limits/"
         icon: "fast-forward"
 
   - title: "المرحلة الثالثة: تفكيك العقد (حالات عدم التعيين)"
@@ -50,7 +50,7 @@ sections:
       - title: "المبحث 8: حالة (0/0) - تقنية المرافق"
         url: "/indet_0_0_sqrt/"
         icon: "shield"
-      - title: "المبحث 9: حالة (inf - inf) و (inf/inf)"
+      - title: "المبحث 9: حالة ($+\\infty-\\infty$ و $\\frac{\\infty}{\\infty}$)
         url: "/indet_inf_inf/"
         icon: "zap"
 
