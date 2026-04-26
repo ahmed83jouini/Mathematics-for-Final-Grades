@@ -5,12 +5,12 @@
 }
 
 
-[data-bs-theme="dark"] {
+/*[data-bs-theme="dark"] {
     --bs-body-bg: #000000;       /* خلفية سوداء تماماً */
-    --bs-body-color: #ffffff;    /* نص أبيض ناصع */
-    --bs-emphasis-color: #ffffff; /* تلوين العناصر المهمة بالأبيض */
-    --bs-secondary-bg: #1a1a1a;  /* رمادي غامق جداً للبطاقات أو القوائم */
-}
+   /* --bs-body-color: #ffffff;    /* نص أبيض ناصع */
+   /* --bs-emphasis-color: #ffffff; /* تلوين العناصر المهمة بالأبيض */
+  /*  --bs-secondary-bg: #1a1a1a;  /* رمادي غامق جداً للبطاقات أو القوائم */
+/*}*/
 
 
 /* تنسيق عام للقائمة الجانبية لضمان التباين */
