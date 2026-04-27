@@ -22,24 +22,24 @@ elements:
     id: "derivatives-table"
 
   - tableLines:
-      dir: ltr
+      dir: rtl
       lines:
         - - th: "الدالة $f(x)$"
           - th: "المشتقة $f'(x)$"
           - th: "مجال الاشتقاق"
-        - - td: "$k$ (ثابت)"
+        - - th: "$k$ (ثابت)"
           - td: "$0$"
           - td: "$\\mathbb{R}$"
-        - - td: "$ax + b$"
+        - - th: "$ax + b$"
           - td: "$a$"
           - td: "$\\mathbb{R}$"
-        - - td: "$x^n$ ($n \\geq 1$)"
+        - - th: "$x^n$ ($n \\geq 1$)"
           - td: "$n x^{n-1}$"
           - td: "$\\mathbb{R}$"
-        - - td: "$\\frac{1}{x}$"
+        - - th: "$\\frac{1}{x}$"
           - td: "$-\\frac{1}{x^2}$"
           - td: "$\\mathbb{R}^*$"
-        - - td: "$\\sqrt{x}$"
+        - - th: "$\\sqrt{x}$"
           - td: "$\\frac{1}{2\\sqrt{x}}$"
           - td: "$]0; +\\infty[$"
 
