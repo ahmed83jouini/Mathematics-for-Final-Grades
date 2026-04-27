@@ -8,8 +8,8 @@ lessonID: "tangent-geometry"
 
 previous_title: "الاشتقاقية: نسبة التغير والعدد المشتق"
 previous_url: "/diff_concept/"
-next_title: "قواعد الاشتقاق الأساسية"
-next_url: "/basic_derivatives/"
+next_title: "الاشتقاقية: الاشتقاق على اليمين وعلى اليسار"
+next_url: "/diff_at_point/"
 
 elements:
   - h3: "1. المفهوم الهندسي للعدد المشتق"
