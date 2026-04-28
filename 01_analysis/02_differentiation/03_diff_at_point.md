@@ -1,6 +1,7 @@
 ---
 layout: lesson
-title: "الاشتقاقية: الاشتقاق على اليمين وعلى اليسار"
+title: "الاشتقاقية"
+subtitle: "الاشتقاق على اليمين وعلى اليسار"
 permalink: /diff_at_point/
 mathJax: true
 graph: true
