@@ -1,6 +1,7 @@
 ---
 layout: lesson
-title: "التفسير الهندسي (المستقيمات المقاربة)"
+title: "النهايات: التفسير الهندسي"
+subtitle: "(المستقيمات المقاربة)"
 permalink: /asymptotes/
 mathJax: true
 graph: true
@@ -8,8 +9,8 @@ lessonID: "asymp-limits"
 
 previous_title: "مبرهنة الحصر"
 previous_url: /squeeze_theorem/
-next_title: "مفهوم الإستمرارية"
-next_url: /continuity_concept/
+next_title: "الإستمرارية: خارطة الطريق"
+next_url: /continuity_hub/
 
 elements:
   - h3: "1. ما هو المستقيم المقارب؟"
