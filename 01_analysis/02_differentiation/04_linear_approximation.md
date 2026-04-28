@@ -1,6 +1,7 @@
 ---
 layout: lesson
-title: "الاشتقاقية: التقريب التآلفي المحلي"
+title: "الاشتقاقية"
+subtitle: "التقريب التآلفي المحلي"
 permalink: /linear_approximation/
 mathJax: true
 graph: true
