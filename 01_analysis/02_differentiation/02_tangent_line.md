@@ -1,6 +1,7 @@
 ---
 layout: lesson
-title: "الاشتقاقية: التفسير الهندسي ومعادلة المماس"
+title: "الاشتقاقية"
+subtitle: "التفسير الهندسي ومعادلة المماس"
 permalink: /tangent_line/
 mathJax: true
 graph: true
