@@ -2,13 +2,13 @@
 layout: default
 ---
 <div class="d-flex justify-content-between align-items-center mb-2">
-    <div class="text-center flex-grow-6">
+    <div class="text-center flex-grow-1">
         <h2 class="text-primary fw-bold">{{ page.title }}</h2>
         {% if page.subtitle %}
         <h2 class="text-primary fw-bold">{{ page.subtitle }}</h2>
         {% endif %}
     </div>
-    <span class="badge bg-info flex-grow-1" id="{{ page.lessonID }}-val">0%</span>
+    <span class="badge bg-info" id="{{ page.lessonID }}-val">0%</span>
 </div>
 <div class="progress" style="height: 10px;">
         <div id="{{ page.lessonID }}-bar" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
