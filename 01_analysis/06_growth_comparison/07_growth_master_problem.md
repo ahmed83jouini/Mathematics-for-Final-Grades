@@ -10,8 +10,8 @@ lessonID: "growth-final"
 previous_title: "المبحث 6: القوى النونية والحالات المركبة"
 previous_url: "/advanced_power_growth/"
 
-next_title: "العودة لمحور التحليل"
-next_url: "/analysis_hub/"
+next_title: "محور الدوال الأصلية"
+next_url: "/primitive_functions_hub/"
 
 elements:
   - h3: "1. نص المسألة الشاملة"
