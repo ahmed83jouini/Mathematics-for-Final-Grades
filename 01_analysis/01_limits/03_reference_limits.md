@@ -1,6 +1,7 @@
 ---
 layout: lesson
-title: "النهايات: الدوال المرجعية"
+title: "النهايات:"
+subtitle: "الدوال المرجعية"
 permalink: /reference_limits/
 mathJax: true
 graph: true
