@@ -8,7 +8,7 @@ lessonID: "cont-inv"
 
 previous_title: "الاستمرارية وصورة مجال"
 previous_url: /cont_image/
-next_title: "فهرس درس الاستمرارية"
+next_title: "فهرس درس الإشتقاقية"
 next_url: /differentiation_hub/
 
 elements:
