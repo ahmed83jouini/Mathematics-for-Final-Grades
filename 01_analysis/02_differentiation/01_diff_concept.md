@@ -1,6 +1,7 @@
 ---
 layout: lesson
-title: "الاشتقاقية: نسبة التغير والعدد المشتق"
+title: "الاشتقاقية"
+subtirle: "نسبة التغير والعدد المشتق"
 permalink: /diff_concept/
 mathJax: true
 graph: true
