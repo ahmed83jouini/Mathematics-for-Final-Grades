@@ -1,6 +1,7 @@
 ---
 layout: lesson
-title: "حصر الحل (طريقة التنصيف)"
+title: "نظرية القيم المتوسطة"
+subtitle: "حصر الحل (طريقة التنصيف)"
 permalink: /mvt_apps/
 mathJax: true
 graph: true
