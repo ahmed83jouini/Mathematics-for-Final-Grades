@@ -1,6 +1,6 @@
 ---
 layout: lesson
-title: "المبحث 6: النمذجة والتوظيف الميداني"
+title: "النمذجة والتوظيف الميداني"
 subtitle: "من الواقع إلى المعادلة: فن صياغة القوانين"
 permalink: /diff_apps/
 mathJax: true
