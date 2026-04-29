@@ -1,6 +1,6 @@
 ---
 layout: lesson
-title: "حالة عدم التعيين (0/0)"
+title: "حالة عدم التعيين: $frac{0}{0}$"
 subtitle: "تقنية الضرب في المرافق"
 permalink: /indet_0_0_sqrt/
 mathJax: true
@@ -9,7 +9,7 @@ lessonID: "indet-sqrt"
 
 previous_title: "تقنية الاختزال"
 previous_url: /indet_0_over_0/
-next_title: "حالة (inf - inf) و (inf/inf)"
+next_title: "حالات $\\infty - \\infty$ و $\\frac{ \\infty }{ \\infty }"
 next_url: /indet_inf_inf/
 
 elements:
