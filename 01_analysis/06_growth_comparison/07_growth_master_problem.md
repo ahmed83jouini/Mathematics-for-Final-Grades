@@ -11,7 +11,7 @@ previous_title: "المبحث 6: القوى النونية والحالات ال
 previous_url: "/advanced_power_growth/"
 
 next_title: "محور الدوال الأصلية"
-next_url: "/primitive_functions_hub/"
+next_url: "/primitives_hub/"
 
 elements:
   - h3: "1. نص المسألة الشاملة"
