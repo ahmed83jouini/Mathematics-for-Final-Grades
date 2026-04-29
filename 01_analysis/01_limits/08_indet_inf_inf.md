@@ -1,6 +1,6 @@
 ---
 layout: lesson
-title: "حالات (لانهاية ناقص لانهاية) و (لانهاية على لا نهاية)"
+title: "حالتا $\\infty-\\infty$ و $\\frac{\\infty}{\\infty}"
 subtitle: "فن استخراج العامل المشترك"
 permalink: /indet_inf_inf/
 mathJax: true
