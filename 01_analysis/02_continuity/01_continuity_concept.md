@@ -7,8 +7,8 @@ mathJax: true
 graph: true
 lessonID: "cont-01"
 
-previous_title: "المستقيمات المقاربة"
-previous_url: /asymptotes/
+previous_title: "الإستمرارية: خارطة الطريق"
+previous_url: /continuity_hub/
 next_title: "الاستمرارية عند نقطة"
 next_url: /continuity_at_point/
 
