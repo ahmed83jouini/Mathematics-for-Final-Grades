@@ -10,8 +10,8 @@ lessonID: "int-10"
 previous_title: "المبحث 9: حساب حجوم الأجسام الدورانية"
 previous_url: "/volume_calculation/"
 
-next_title: "العودة لمحور الحساب التكاملي"
-next_url: "/integral_calculus_hub/"
+next_title: "محور المعادلات التفاضلية"
+next_url: "/diff_equations_hub/"
 
 elements:
   - h3: "1. مفهوم التراكم الفيزيائي"
