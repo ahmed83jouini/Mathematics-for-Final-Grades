@@ -9,7 +9,7 @@ lessonID: "poly-limits"
 
 previous_title: "العمليات على النهايات"
 previous_url: /ops_limits/
-next_title: "حالات عدم التعيين (0/0)"
+next_title: "حالات عدم التعيين $\\frac{0}{0}$"
 next_url: /indet_0_over_0/
 
 elements:
