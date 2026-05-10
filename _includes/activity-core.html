@@ -38,11 +38,11 @@ layout: default
       {% endif %}
     
       {% if cont.note %}
-        <p class="small text-muted">{{ part.note }}</p>
+        <p class="small text-muted">{{ cont.note }}</p>
       {% endif %}
 
       {%if cont.choices %}
-      <div class="choices ms-6" dir="{{ part.dir | default: 'ltr' }}">
+      <div class="choices ms-6" dir="{{ cont.dir | default: 'ltr' }}">
         {% for choice in cont.choices %}
         <div class="form-check my-3 mt-4">
             <input type="radio" 
