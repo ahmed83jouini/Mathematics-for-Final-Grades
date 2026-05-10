@@ -4,6 +4,7 @@ title: "طرق توليد المتتالية"
 subtitle: "الفرق بين الصراحة والتراجع"
 permalink: /seq_generation/
 mathJax: true
+graph: true
 lessonID: "seq-02"
 
 # روابط الاتصال
