@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 fnType: 'points',
                 graphType: 'scatter',
                 attr: {
-                    r: p.r || 6,
+                    r: p.r || 2,
                     fill: colors.bg,
                     stroke: p.color || 'red',
                     "stroke-width": 2
