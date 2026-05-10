@@ -1,1 +1,151 @@
-{% include activity-core.html exerciseData=page %}
+---
+layout: default
+---
+<div class="d-flex justify-content-between align-items-center mb-2">
+    <h1 class="text-primary fw-bold">{{ page.title }}</h1>
+    <div class="exercise-marker d-none" data-ex-id="{{ page.exID }}"></div>
+    <span class="badge bg-info" id="{{ page.exID }}-val">0%</span>
+</div>
+<div class="progress" style="height: 10px;">
+        <div id="{{ page.exID }}-bar" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+</div>
+
+
+{% for part in page.sections %}
+<div id="{{ part.pID }}" class="container py-4 border-bottom">
+    {% if part.title %}<p class="fw-bold">{{ part.title }}</p>{% endif %}
+
+    {% for cont in part.contents %}
+      {% if cont.paragraphs %}
+        {% for parag in cont.paragraphs %}
+            {% if parag.ltr %}
+                <p dir="ltr">{{ parag.ltr }}</p>
+            {% elsif parag.center %}
+                <p class="text-center" dir="ltr">{{ parag.center }}</p>
+            {% else %}
+                <p>{{ parag.rtl }}</p>
+            {% endif %}
+        {% endfor %}
+      {% endif %}
+    
+      {% if cont.graph %}
+        <div 
+            id="{{ cont.graph.id }}" 
+            class="{{ cont.graph.class }}" 
+            data-graph-config='{{ cont.graph | jsonify }}'
+            style="width: 100%; min-height: 400px; margin: 20px 0;">
+        </div>
+      {% endif %}
+    
+      {% if cont.note %}
+        <p class="small text-muted">{{ cont.note }}</p>
+      {% endif %}
+
+      {%if cont.choices %}
+      <div class="choices ms-6" dir="{{ cont.dir | default: 'ltr' }}">
+        {% for choice in cont.choices %}
+        <div class="form-check my-3 mt-4">
+            <input type="radio" 
+                id="{{ page.exID }}-{{ part.pID }}-choice{{ forloop.index }}"
+                name="{{ page.exID }}-{{ part.pID }}" 
+                class="form-check-input {{ page.exID }} {% if choice.correct %}correct-node{% endif %}" 
+                value="{% if choice.correct %}1{% else %}0{% endif %}" 
+                data-answer="{% if choice.correct %}1{% else %}0{% endif %}">
+            <label for="{{ page.exID }}-{{ part.pID }}-choice{{ forloop.index }}" 
+                class="form-check-label">
+                {{ choice.label }}
+            </label>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if cont.numbers %}
+      <div class="numbers-input ms-4" dir="{{ cont.dir | default: 'ltr' }}">
+        {% for number in cont.numbers %}
+            <div class="d-flex align-items-center flex-wrap my-3">
+                <div class="me-2 text-nowrap">
+                    <label for="{{ page.exID }}-{{ part.pID }}-number{{ forloop.index }}" class="mb-0">
+                        {{ number.label }}
+                    </label>
+                </div>
+    
+                <div style="width: 100px;"> <input type="number" 
+                    id="{{ page.exID }}-{{ part.pID }}-number{{ forloop.index }}"
+                    name="{{ page.exID }}-{{ part.pID }}" 
+                    class="form-control form-control-sm {{ page.exID }} number-answer-input" 
+                    step="any"
+                    data-answer="{{ number.correct }}"
+                    data-delta="{{ number.delta | default: 0 }}"
+                    placeholder="..الإجابة">
+                </div>
+            </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+
+    
+      {% if cont.success_msg %}
+        <div id="{{ page.exID }}-{{ part.pID }}-hintSuccess" class="{{ page.exID }}-hint alert alert-success d-none mt-5">
+            <i class="bi bi-check-circle-fill"></i>
+            {% for parag in cont.success_msg %}
+                {% if parag.ltr %}
+                    <p dir="ltr">{{ parag.ltr }}</p>
+                {% elsif parag.center %}
+                    <p class="text-center" dir="ltr">{{ parag.center }}</p>
+                {% else %}
+                    <p>{{ parag.rtl }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+      {% endif %}
+    
+      {% if cont.error_msg %}
+        <div id="{{ page.exID }}-{{ part.pID }}-hintError" class="{{ page.exID }}-hint alert alert-danger d-none mt-5">
+            <i class="bi bi-x-circle-fill"></i>
+            {% for parag in cont.error_msg %}
+                {% if parag.ltr %}
+                    <p dir="ltr">{{ parag.ltr }}</p>
+                {% elsif parag.center %}
+                    <p class="text-center" dir="ltr">{{ parag.center }}</p>
+                {% else %}
+                    <p>{{ parag.rtl }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+      {% endif %}
+    {% endfor %}
+</div>
+{% endfor %}
+
+<div class="d-flex gap-2 mt-4">
+    {% unless page.exPosition == "first" %}
+    <button id="{{ page.exID }}-btnPrev" 
+        class="btn btn-outline-primary fw-bold flex-grow-1 shadow-sm" 
+        onclick="prevExercise('{{ page.exID }}')">
+        <i class="bi bi-chevron-right me-1"></i> السابق
+    </button>
+    {% endunless %}
+        
+    <button id="{{ page.exID }}-btnRetry" 
+        class="btn btn-outline-primary fw-bold flex-grow-1 d-none" 
+        onclick="resetExercise('{{ page.exID }}')">
+        أعد المحاولة <i class="bi bi-arrow-counterclockwise"></i>
+    </button>
+        
+    <button id="{{ page.exID }}-btnVerify" 
+        class="btn btn-outline-primary fw-bold flex-grow-1" 
+        onclick="verify('{{ page.exID }}')">
+        تحقق <i class="bi bi-check2-circle"></i>
+    </button>
+
+    {% unless page.exPosition == "last" %}
+    <button id="{{ page.exID }}-btnNext" 
+        class="btn btn-outline-primary fw-bold flex-grow-1" 
+        onclick="nextExercise('{{ page.exID }}')">
+        التالي <i class="bi bi-chevron-left"></i>
+    </button>
+    {% endunless %}
+</div>
+
