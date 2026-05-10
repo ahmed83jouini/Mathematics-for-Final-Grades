@@ -2,16 +2,16 @@
 layout: default
 ---
 <div class="d-flex justify-content-between align-items-center mb-2">
-    <h1 class="text-primary fw-bold">{{ content.title }}</h1>
-    <div class="exercise-marker d-none" data-ex-id="{{ content.exID }}"></div>
-    <span class="badge bg-info" id="{{ content.exID }}-val">0%</span>
+    <h1 class="text-primary fw-bold">{{ exerciseData.title }}</h1>
+    <div class="exercise-marker d-none" data-ex-id="{{ exerciseData.exID }}"></div>
+    <span class="badge bg-info" id="{{ exerciseData.exID }}-val">0%</span>
 </div>
 <div class="progress" style="height: 10px;">
-        <div id="{{ content.exID }}-bar" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+        <div id="{{ exerciseData.exID }}-bar" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
 </div>
 
 
-{% for part in content.sections %}
+{% for part in exerciseData.sections %}
 <div id="{{ part.pID }}" class="container py-4 border-bottom">
     {% if part.title %}<p class="fw-bold">{{ part.title }}</p>{% endif %}
 
@@ -46,12 +46,12 @@ layout: default
         {% for choice in cont.choices %}
         <div class="form-check my-3 mt-4">
             <input type="radio" 
-                id="{{ content.exID }}-{{ part.pID }}-choice{{ forloop.index }}"
-                name="{{ content.exID }}-{{ part.pID }}" 
-                class="form-check-input {{ content.exID }} {% if choice.correct %}correct-node{% endif %}" 
+                id="{{ exerciseData.exID }}-{{ part.pID }}-choice{{ forloop.index }}"
+                name="{{ exerciseData.exID }}-{{ part.pID }}" 
+                class="form-check-input {{ exerciseData.exID }} {% if choice.correct %}correct-node{% endif %}" 
                 value="{% if choice.correct %}1{% else %}0{% endif %}" 
                 data-answer="{% if choice.correct %}1{% else %}0{% endif %}">
-            <label for="{{ content.exID }}-{{ part.pID }}-choice{{ forloop.index }}" 
+            <label for="{{ exerciseData.exID }}-{{ part.pID }}-choice{{ forloop.index }}" 
                 class="form-check-label">
                 {{ choice.label }}
             </label>
@@ -61,19 +61,19 @@ layout: default
       {% endif %}
 
       {% if cont.numbers %}
-      <div class="numbers-input ms-4" dir="{{ part.dir | default: 'ltr' }}">
+      <div class="numbers-input ms-4" dir="{{ cont.dir | default: 'ltr' }}">
         {% for number in cont.numbers %}
             <div class="d-flex align-items-center flex-wrap my-3">
                 <div class="me-2 text-nowrap">
-                    <label for="{{ content.exID }}-{{ part.pID }}-number{{ forloop.index }}" class="mb-0">
+                    <label for="{{ exerciseData.exID }}-{{ part.pID }}-number{{ forloop.index }}" class="mb-0">
                         {{ number.label }}
                     </label>
                 </div>
     
                 <div style="width: 100px;"> <input type="number" 
-                    id="{{ content.exID }}-{{ part.pID }}-number{{ forloop.index }}"
-                    name="{{ content.exID }}-{{ part.pID }}" 
-                    class="form-control form-control-sm {{ content.exID }} number-answer-input" 
+                    id="{{ exerciseData.exID }}-{{ part.pID }}-number{{ forloop.index }}"
+                    name="{{ exerciseData.exID }}-{{ part.pID }}" 
+                    class="form-control form-control-sm {{ exerciseData.exID }} number-answer-input" 
                     step="any"
                     data-answer="{{ number.correct }}"
                     data-delta="{{ number.delta | default: 0 }}"
@@ -87,7 +87,7 @@ layout: default
 
     
       {% if cont.success_msg %}
-        <div id="{{ content.exID }}-{{ part.pID }}-hintSuccess" class="{{ content.exID }}-hint alert alert-success d-none mt-5">
+        <div id="{{ exerciseData.exID }}-{{ part.pID }}-hintSuccess" class="{{ exerciseData.exID }}-hint alert alert-success d-none mt-5">
             <i class="bi bi-check-circle-fill"></i>
             {% for parag in cont.success_msg %}
                 {% if parag.ltr %}
@@ -102,7 +102,7 @@ layout: default
       {% endif %}
     
       {% if cont.error_msg %}
-        <div id="{{ content.exID }}-{{ part.pID }}-hintError" class="{{ content.exID }}-hint alert alert-danger d-none mt-5">
+        <div id="{{ exerciseData.exID }}-{{ part.pID }}-hintError" class="{{ exerciseData.exID }}-hint alert alert-danger d-none mt-5">
             <i class="bi bi-x-circle-fill"></i>
             {% for parag in cont.error_msg %}
                 {% if parag.ltr %}
@@ -121,29 +121,29 @@ layout: default
 
 <div class="d-flex gap-2 mt-4">
     {% unless page.exPosition == "first" %}
-    <button id="{{ content.exID }}-btnPrev" 
+    <button id="{{ exerciseData.exID }}-btnPrev" 
         class="btn btn-outline-primary fw-bold flex-grow-1 shadow-sm" 
-        onclick="prevExercise('{{ content.exID }}')">
+        onclick="prevExercise('{{ exerciseData.exID }}')">
         <i class="bi bi-chevron-right me-1"></i> السابق
     </button>
     {% endunless %}
         
-    <button id="{{ content.exID }}-btnRetry" 
+    <button id="{{ exerciseData.exID }}-btnRetry" 
         class="btn btn-outline-primary fw-bold flex-grow-1 d-none" 
-        onclick="resetExercise('{{ content.exID }}')">
+        onclick="resetExercise('{{ exerciseData.exID }}')">
         أعد المحاولة <i class="bi bi-arrow-counterclockwise"></i>
     </button>
         
-    <button id="{{ content.exID }}-btnVerify" 
+    <button id="{{ exerciseData.exID }}-btnVerify" 
         class="btn btn-outline-primary fw-bold flex-grow-1" 
-        onclick="verify('{{ content.exID }}')">
+        onclick="verify('{{ exerciseData.exID }}')">
         تحقق <i class="bi bi-check2-circle"></i>
     </button>
 
     {% unless page.exPosition == "last" %}
-    <button id="{{ content.exID }}-btnNext" 
+    <button id="{{ exerciseData.exID }}-btnNext" 
         class="btn btn-outline-primary fw-bold flex-grow-1" 
-        onclick="nextExercise('{{ content.exID }}')">
+        onclick="nextExercise('{{ exerciseData.exID }}')">
         التالي <i class="bi bi-chevron-left"></i>
     </button>
     {% endunless %}
