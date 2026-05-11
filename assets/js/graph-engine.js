@@ -29,6 +29,17 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             })) : [];
 
+            // تحضير جميع التسميات (الخاصة بالدوال والخاصة بالرسم العام)
+            const allAnnotations = (config.functions || [])
+                      .filter(f => f.label)
+                      .map(f => ({
+                            x: f.labelX || 0,
+                            y: f.labelY || 0,
+                            text: f.label,
+                            color: f.color
+                        })).concat(config.annotations || []);
+
+
 
             console.log("البيانات الممررة للرسم:", config);
             console.log("نقاط التشتت المحضرة:", scatterData);
@@ -42,24 +53,19 @@ document.addEventListener("DOMContentLoaded", function() {
                 xAxis: { domain: config.xDomain || [-10, 10] },
                 yAxis: { domain: config.yDomain || [-10, 10] },
                 data: [
-                    {
-                        fn: config.fn,
-                        color: colors.line,
-                        strokeWidth: 3,
+                    // أولاً: رسم الدوال
+                    ...(config.functions || []).map(f => ({
+                        fn: f.fn,
+                        color: f.color || colors.line,
+                        strokeWidth: f.strokeWidth || 3,
                         sampler: 'builtIn',
                         graphType: 'polyline'
-                    },
-                    /*
-                    {
-                        points: config.points ? config.points.map(p => [p.x, p.y]) : [],
-                        fnType: 'points',
-                        graphType: 'scatter',
-                        color: colors.helper
-                    },*/
-                    
+                    })),
+                    // ثانياً: رسم النقاط (u0, u1, u2...)
                     ...scatterData
                 ].filter(Boolean),
-                annotations: config.annotations || []
+                // ثالثاً: وضع التسميات المدمجة (لا تكرار هنا)
+                annotations: allAnnotations
             });
         } catch (e) {
             console.error("خطأ في رسم البيان: " + container.id, e);
