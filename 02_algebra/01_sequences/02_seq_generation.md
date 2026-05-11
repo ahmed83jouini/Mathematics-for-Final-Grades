@@ -75,7 +75,7 @@ elements:
           x: 0
           line: "v"
         - fn: "x"
-          color: "#ddd"
+          color: "red"
 
   - tableLines:
       dir: rtl
