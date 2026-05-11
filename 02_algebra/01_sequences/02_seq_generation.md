@@ -65,17 +65,17 @@ elements:
   - graph:
       id: "recursive-visual"
       class: "graph-container"
-      data-graph-config: >
-        {
-          "fn": "sqrt(x + 2)",
-          "xDomain": [-1, 5],
-          "yDomain": [-1, 5],
-          "annotations": [
-            {"x": 0, "label": "u0"},
-            {"y": 0, "x": 0, "line": "v"},
-            {"fn": "x", "color": "#888"}
-          ]
-        }
+      fn: "sqrt(x + 2)"
+      xDomain: [-1, 5],
+      yDomain: [-1, 5]
+      annotations:
+        - x: 0
+          label: "u0"
+        - y: 0
+          x: 0
+          line: "v"
+        - fn: "x"
+          color: "#888"
 
   - tableLines:
       dir: rtl
