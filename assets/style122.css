@@ -1,7 +1,7 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --bs-body-bg: #121212;
-        --bs-body-color: black /*#e0e0e0;*/
+        --bs-body-color: #e0e0e0;
 }
 
 
