@@ -34,11 +34,6 @@ elements:
           label: "C_f"
           labelX: 5
           labelY: 3.7
-        - fn: "x"               # المنصف الأول (بطل الرسم)
-          color: "#dc3545"      # أحمر لتمييزه كمرجع
-          label: "y = x"
-          labelX: 4.5
-          labelY: 4.5
       # النقاط التي تمثل حدود المتتالية
       points:
         - x: 0
