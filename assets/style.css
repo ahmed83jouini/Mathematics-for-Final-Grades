@@ -231,6 +231,7 @@ table tbody tr:hover {
 /* تأكيد إضافي لكل العناصر التي قد تحمل حالة التركيز */
 :focus {
     outline: none !important;
+    background-color: #1e1e1e !important;
 }
 
 
