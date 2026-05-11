@@ -28,12 +28,12 @@ elements:
       xDomain: [-1, 6]
       yDomain: [-1, 5]
       # تحويل الدوال إلى القائمة الجديدة لضمان الرسم المزدوج
-      functions:
-        - fn: "0.5*x + 1"       # المنحنى Cf (الدالة المرفقة)
-          color: "#0d6efd"      # أزرق
-          label: "C_f"
-          labelX: 5
-          labelY: 3.7
+      #functions:
+        #- fn: "0.5*x + 1"       # المنحنى Cf (الدالة المرفقة)
+          #color: "#0d6efd"      # أزرق
+          #label: "C_f"
+          #labelX: 5
+          #labelY: 3.7
       # النقاط التي تمثل حدود المتتالية
       points:
         - x: 0
