@@ -100,44 +100,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
-                            y: f.labelY || 0,
-                            text: f.label,
-                            color: f.color
-                        })).concat(config.annotations || []);
-
-
-
-            console.log("البيانات الممررة للرسم:", config);
-            console.log("نقاط التشتت المحضرة:", scatterData);
-
-
-            functionPlot({
-                target: "#" + container.id,
-                width: container.offsetWidth || 400,
-                height: 400,
-                grid: true,
-                xAxis: { domain: config.xDomain || [-10, 10] },
-                yAxis: { domain: config.yDomain || [-10, 10] },
-                data: [
-                    // أولاً: رسم الدوال
-                    ...(config.functions || []).map(f => ({
-                        fn: f.fn,
-                        color: f.color || colors.line,
-                        strokeWidth: f.strokeWidth || 3,
-                        sampler: 'builtIn',
-                        graphType: 'polyline'
-                    })),
-                    // ثانياً: رسم النقاط (u0, u1, u2...)
-                    ...scatterData
-                ].filter(Boolean),
-                // ثالثاً: وضع التسميات المدمجة (لا تكرار هنا)
-                annotations: allAnnotations
-            });
-        } catch (e) {
-            console.error("خطأ في رسم البيان: " + container.id, e);
-        }
-    });
-});
 
 
 
