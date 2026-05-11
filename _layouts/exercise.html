@@ -119,33 +119,37 @@ layout: default
 </div>
 {% endfor %}
 
+
 <div class="d-flex gap-2 mt-4">
-    {% unless page.exPosition == "first" %}
-    <button id="{{ page.exID }}-btnPrev" 
+    {% if page.previous_url %}
+    <button id="{{ exerciseData.exID }}-btnPrev" 
         class="btn btn-outline-primary fw-bold flex-grow-1 shadow-sm" 
-        onclick="prevExercise('{{ page.exID }}')">
+        onclick="window.location.href='{{ site.baseurl }}{{ page.previous_url }}'">
         <i class="bi bi-chevron-right me-1"></i> السابق
     </button>
-    {% endunless %}
+    {% endif %}
         
-    <button id="{{ page.exID }}-btnRetry" 
+    <button id="{{ exerciseData.exID }}-btnRetry" 
         class="btn btn-outline-primary fw-bold flex-grow-1 d-none" 
-        onclick="resetExercise('{{ page.exID }}')">
+        onclick="resetExercise('{{ exerciseData.exID }}')">
         أعد المحاولة <i class="bi bi-arrow-counterclockwise"></i>
     </button>
         
-    <button id="{{ page.exID }}-btnVerify" 
+    <button id="{{ exerciseData.exID }}-btnVerify" 
         class="btn btn-outline-primary fw-bold flex-grow-1" 
-        onclick="verify('{{ page.exID }}')">
+        onclick="verify('{{ exerciseData.exID }}')">
         تحقق <i class="bi bi-check2-circle"></i>
     </button>
 
-    {% unless page.exPosition == "last" %}
-    <button id="{{ page.exID }}-btnNext" 
+    {% if page.next_url %}
+    <button id="{{ exerciseData.exID }}-btnNext" 
         class="btn btn-outline-primary fw-bold flex-grow-1" 
-        onclick="nextExercise('{{ page.exID }}')">
+        onclick="window.location.href='{{ site.baseurl }}{{ page.next_url }}'">
         التالي <i class="bi bi-chevron-left"></i>
     </button>
-    {% endunless %}
+    {% endif %}
 </div>
+
+
+
 
