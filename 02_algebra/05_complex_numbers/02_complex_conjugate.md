@@ -26,13 +26,13 @@ elements:
   - h3: "3. خاصية الجداء الأساسية (التربيع)"
   - parags:
       - rtl: "أهم خاصية للمرافق هي أن جداء العدد في مرافقه يعطي دائماً عدداً حقيقياً موجباً:"
-      - center: "$z \\times \bar{z} = a^2 + b^2$"
+      - center: "$z \\times \\bar{z} = a^2 + b^2$"
       - rtl: "نستخدم هذه الخاصية للتخلص من $i$ في المقام (تنطيق المقام)."
 
   - h3: "4. المقلوب (The Inverse)"
   - parags:
       - rtl: "لحساب مقلوب عدد مركب $\\frac{1}{z}$، نضرب البسط والمقام في المرافق $\\bar{z}$:"
-      - center: "$\\frac{1}{z} = \\frac{\bar{z}}{z \\bar{z}} = \\frac{a - bi}{a^2 + b^2}$"
+      - center: "$\\frac{1}{z} = \\frac{\\bar{z}}{z \\bar{z}} = \\frac{a - bi}{a^2 + b^2}$"
 
   - graph:
       id: "conjugate-reflection"
