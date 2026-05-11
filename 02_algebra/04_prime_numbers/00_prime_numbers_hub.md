@@ -2,7 +2,7 @@
 layout: hub
 title: "خارطة طريق الأعداد الأولية"
 subtitle: "اللبنات الأساسية في بناء الأعداد"
-permalink: /primes_hub/
+permalink: /prime_numbers_hub/
 mathJax: true
 description: "رحلة لاكتشاف الأعداد التي لا تقبل الانكسار، ومبدأ التفكيك الفريد، وقوة المبرهنات الأساسية في الحساب."
 
