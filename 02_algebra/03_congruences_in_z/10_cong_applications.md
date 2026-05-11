@@ -7,7 +7,7 @@ mathJax: true
 lessonID: "cong-10"
 
 previous_url: "/divisibility_proof/"
-next_url: "/complex_numbers_hub/" 
+next_url: "/prime_numbers_hub/" 
 
 elements:
   - h3: "1. أنظمة العد والقياس"
