@@ -26,6 +26,7 @@ elements:
       id: "seq_generation-graph-1"
       class: "graph-container"
       fn: "0.5*x + 1"
+      secondaryfn: "x"
       xDomain: [-1, 10]
       yDomain: [-1, 7]
       points:
@@ -74,13 +75,14 @@ elements:
       id: "recursive-staircase-clear"
       class: "graph-container"
       fn: "0.5*x + 1"        # f(x) = 0.5x + 1
+      secondaryfn: "x"
       xDomain: [-0.5, 4]
       yDomain: [-0.5, 4]
       annotations:
-        - fn: "x"
-          color: "#ddd"         # لون فاتح للمنصف ليكون خلفية
-          label: "y=x (المستقيم المنصف)"
-          x: 3.5          # 2. تحديد الحدود على محور الفواصل بوضوح (الأهم في طلبك)
+        - label: "y=x (المستقيم المنصف)"
+          x: 4
+          y: 4
+          color: "#FF000000"
         - x: 0
           label: "u0"           # u0 = 0
           color: "blue"
