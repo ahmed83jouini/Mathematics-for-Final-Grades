@@ -2,7 +2,7 @@
 layout: hub
 title: "خارطة طريق الأعداد والحساب"
 subtitle: "إتقان القسمة في مجموعة الأعداد الصحيحة Z"
-permalink: /arithmetic_hub/
+permalink: /divisibility_in_Z_hub/
 mathJax: true
 description: "مسار متكامل يبدأ من أساسيات القسمة الإقليدية وصولاً إلى مبرهنات غوص وبيزو وتطبيقاتها في التشفير والحلول العامة."
 
