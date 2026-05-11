@@ -25,6 +25,7 @@ elements:
   - graph:
       id: "seq_generation-graph-1"
       class: "graph-container"
+      fn: "0.5*x + 1"
       xDomain: [-1, 10]
       yDomain: [-1, 7]
       points:
