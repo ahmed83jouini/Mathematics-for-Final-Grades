@@ -62,8 +62,9 @@ elements:
   - parags:
       - rtl: "لتمثيل الحدود دون حسابها، نستخدم المنحنى $C_f$ والمستقيم $y=x$. الحركة تكون (رأسية نحو المنحنى) ثم (أفقية نحو المستقيم)."
 
-  - graph-container:
+  - graph:
       id: "recursive-visual"
+      class: "graph-container"
       data-graph-config: >
         {
           "fn": "sqrt(x + 2)",
