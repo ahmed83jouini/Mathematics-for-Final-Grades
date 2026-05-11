@@ -209,13 +209,13 @@ table tbody tr:hover {
 
 
 
-    /* حل مشكلة البياض التام عند الضغط أو العودة *//*
+    /* حل مشكلة البياض التام عند الضغط أو العودة */
 .list-group-item-action:focus, 
 .list-group-item-action:active,
 .list-group-item-action.active {
-    /* نغير الخلفية للون داكن صريح بدلاً من الشفافية *//*
+    /* نغير الخلفية للون داكن صريح بدلاً من الشفافية */
     background-color: #2c2c2c !important; 
-    /* نضمن أن لون النص يظل رمادي فاتح أو أزرق *//*
+    /* نضمن أن لون النص يظل رمادي فاتح أو أزرق */
     color: #75b5ff !important; 
     outline: none !important;
     box-shadow: none !important;
@@ -231,7 +231,6 @@ table tbody tr:hover {
 /* تأكيد إضافي لكل العناصر التي قد تحمل حالة التركيز */
 :focus {
     outline: none !important;
-    background-color: grey !important;
 }
 
 
