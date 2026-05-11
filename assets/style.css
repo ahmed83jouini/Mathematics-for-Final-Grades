@@ -1,16 +1,8 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --bs-body-bg: #121212;
-        --bs-body-color: #e0e0e0;
+        --bs-body-color: black /*#e0e0e0;*/
 }
-
-
-/*[data-bs-theme="dark"] {
-    --bs-body-bg: #000000;       /* خلفية سوداء تماماً */
-   /* --bs-body-color: #ffffff;    /* نص أبيض ناصع */
-   /* --bs-emphasis-color: #ffffff; /* تلوين العناصر المهمة بالأبيض */
-  /*  --bs-secondary-bg: #1a1a1a;  /* رمادي غامق جداً للبطاقات أو القوائم */
-/*}*/
 
 
 /* تنسيق عام للقائمة الجانبية لضمان التباين */
