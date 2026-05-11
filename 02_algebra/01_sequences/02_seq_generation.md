@@ -66,7 +66,7 @@ elements:
       id: "recursive-visual"
       class: "graph-container"
       fn: "sqrt(x + 2)"
-      xDomain: [-1, 5],
+      xDomain: [-1, 5]
       yDomain: [-1, 5]
       annotations:
         - x: 0
