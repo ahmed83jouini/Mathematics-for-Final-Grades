@@ -25,24 +25,46 @@ elements:
   - graph:
       id: "seq_generation-graph-1"
       class: "graph-container"
-      fn: "0.5*x + 1"
-      secondaryfn: "x"
-      xDomain: [-1, 10]
-      yDomain: [-1, 7]
+      xDomain: [-1, 6]
+      yDomain: [-1, 5]
+      # تحويل الدوال إلى القائمة الجديدة لضمان الرسم المزدوج
+      functions:
+        - fn: "0.5*x + 1"       # المنحنى Cf (الدالة المرفقة)
+          color: "#0d6efd"      # أزرق
+          label: "C_f"
+          labelX: 5
+          labelY: 3.7
+        - fn: "x"               # المنصف الأول (بطل الرسم)
+          color: "#dc3545"      # أحمر لتمييزه كمرجع
+          label: "y = x"
+          labelX: 4.5
+          labelY: 4.5
+      # النقاط التي تمثل حدود المتتالية
       points:
         - x: 0
           y: 1
+          color: "#198754"      # أخضر
         - x: 1
           y: 1.5
+          color: "#198754"
         - x: 2
           y: 2
+          color: "#198754"
         - x: 3
           y: 2.5
+          color: "#198754"
         - x: 4
           y: 3
+          color: "#198754"
         - x: 5
           y: 3.5
-      annotations:               # خطوط مساعدة
+          color: "#198754"
+      # التسميات الإضافية والمحاور
+      annotations:
+        - x: 0
+          y: 0
+          text: "المبدأ O"
+          color: "#888"
         - x: 0
           label: "x=0"
         - y: 0
