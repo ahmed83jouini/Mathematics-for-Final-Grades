@@ -59,11 +59,13 @@ elements:
         - x: 0
           y: 0
           text: "المبدأ O"
-          color: "#888"
+          color: "red"
         - x: 0
           label: "x=0"
+          color: "red"
         - y: 0
           label: "y=0"
+          color: "red"
     
   - parags:
       - rtl: "لاحظ في الرسم أعلاه: النقط منفصلة وتقع على استقامة واحدة لأن الدالة المرفقة خطية، لكننا لا نصل بينها بخط."
@@ -88,11 +90,21 @@ elements:
       - rtl: "2. <b>بناء الدرجة (عمودياً):</b> نصعد للمنحنى $C_f$ لإيجاد قيمة $u_1$ (التي تكون حالياً على محور التراتيب)."
       - rtl: "3. <b>نقل المعلومة (أفقياً):</b> نتجه أفقياً نحو المستقيم $y=x$. النقطة الناتجة تُسقط $u_1$ مباشرة على محور الفواصل."
       - rtl: "4. <b>التكرار:</b> نكرر العملية من الموقع الجديد لـ $u_1$ لنحصل على $u_2$، وهكذا يتشكل 'الدرج'."
+        
   - graph:
       id: "recursive-staircase-clear"
-      class: "graph-container"
-      fn: "0.5*x + 1"        # f(x) = 0.5x + 1
-      secondaryfn: "x"
+      class: "seq_generation-graph-2"
+      functions:
+        - fn: "0.5*x + 1"     # f(x) = 0.5x + 1
+          color: "#0d6efd"
+          label: "C_f"
+          labelX: 2
+          labelY: 2
+        - fn: "x"
+          color: "#198754"
+          label: "y=x"
+          labelX: 3
+          labelY: 3
       xDomain: [-0.5, 4]
       yDomain: [-0.5, 4]
       annotations:
