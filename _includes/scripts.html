@@ -5,8 +5,8 @@
 <script src="/Mathematics-for-Final-Grades/assets/verifyAndHydrate.js"></script>
 
 {% if page.graph %}
-  <script src="https://unpkg.com/d3@3/d3.min.js"></script>
-  <script src="https://unpkg.com/function-plot@1/dist/function-plot.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" />
+  <script type="text/javascript" charset="UTF-8" src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
   <script src="{{ '/assets/js/graph-engine.js' | relative_url }}"></script>
 {% endif %}
 
