@@ -92,8 +92,8 @@ elements:
       - rtl: "4. <b>التكرار:</b> نكرر العملية من الموقع الجديد لـ $u_1$ لنحصل على $u_2$، وهكذا يتشكل 'الدرج'."
         
   - graph:
-      id: "recursive-staircase-clear"
-      class: "seq_generation-graph-2"
+      id: "seq_generation-graph-2"
+      class: "graph-container"
       functions:
         - fn: "0.5*x + 1"     # f(x) = 0.5x + 1
           color: "#0d6efd"
