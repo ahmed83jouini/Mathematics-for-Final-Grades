@@ -27,38 +27,17 @@ elements:
       class: "graph-container"
       xDomain: [-1, 6]
       yDomain: [-1, 5]
-      # النقاط التي تمثل حدود المتتالية
-      points:
-        - x: 0
-          y: 1
-          color: "#198754"      # أخضر
-        - x: 1
-          y: 1.5
-          color: "#198754"
-        - x: 2
-          y: 2
-          color: "#198754"
-        - x: 3
-          y: 2.5
-          color: "#198754"
-        - x: 4
-          y: 3
-          color: "#198754"
-        - x: 5
-          y: 3.5
-          color: "#198754"
-      # التسميات الإضافية والمحاور
-      annotations:
-        - x: 0
-          y: 0
-          text: "المبدأ O"
-          color: "#198754"
-        - x: 0
-          label: "x=0"
-          color: "#198754"
-        - y: 0
-          label: "y=0"
-          color: "#198754"
+      elements:
+        # تحويل النقاط إلى البروتوكول الجديد
+        - { type: "point", x: 0, y: 1, color: "#198754" }
+        - { type: "point", x: 1, y: 1.5, color: "#198754" }
+        - { type: "point", x: 2, y: 2, color: "#198754" }
+        - { type: "point", x: 3, y: 2.5, color: "#198754" }
+        - { type: "point", x: 4, y: 3, color: "#198754" }
+        - { type: "point", x: 5, y: 3.5, color: "#198754" }
+        # تحويل الـ Annotations إلى نصوص
+        - { type: "text", content: "O", x: -0.3, y: -0.3, color: "#888" }
+
     
   - parags:
       - rtl: "لاحظ في الرسم أعلاه: النقط منفصلة وتقع على استقامة واحدة لأن الدالة المرفقة خطية، لكننا لا نصل بينها بخط."
