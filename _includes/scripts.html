@@ -5,7 +5,8 @@
 <script src="/Mathematics-for-Final-Grades/assets/verifyAndHydrate.js"></script>
 
 {% if page.graph %}
-  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" />
+  <script type="text/javascript" charset="UTF-8" src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
   <script src="{{ '/assets/js/graph-engine.js' | relative_url }}"></script>
 {% endif %}
 
