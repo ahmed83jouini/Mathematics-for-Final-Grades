@@ -1,3 +1,6 @@
+/* محرك "السيادة الرياضية" - الإصدار 2.5 (النسخة البصرية الفائقة)
+   الميزات: شبكة خافتة، نصوص بيضاء للمود الليلي، تدريج واضح، وتوسيع المساحة.
+*/
 
 const MathSovereign = {
     getTheme: () => document.documentElement.getAttribute('data-bs-theme') === 'dark',
@@ -10,17 +13,36 @@ const MathSovereign = {
 
         const board = JXG.JSXGraph.initBoard(containerId, {
             boundingbox: [config.xDomain[0], config.yDomain[1], config.xDomain[1], config.yDomain[0]],
-            axis: false, grid: true, showCopyright: false,
+            axis: false, 
+            grid: {
+                strokeColor: isDark ? '#333' : '#eee', // شبكة خافتة جداً
+                opacity: 0.5,
+                gridX: 1, // توسيع المربعات (مربع لكل وحدة)
+                gridY: 1
+            },
+            showCopyright: false,
             pan: { enabled: true, needShift: false },
             zoom: { wheel: true, factor: 1.2 }
         });
 
-        // 1. المحاور (ثابتة ومنسجمة مع المود)
-        const axisStyle = { strokeColor: isDark ? '#666' : '#333', strokeWidth: 1.2 };
-        board.create('axis', [[0, 0], [1, 0]], { ...axisStyle, ticks: { label: {offset: [-5, -15]} } });
-        board.create('axis', [[0, 0], [0, 1]], { ...axisStyle, ticks: { label: {offset: [-20, 5]} } });
+        // إعدادات المحاور والتدريج (أبيض في المود الليلي ليكون مرئياً)
+        const axisStyle = { 
+            strokeColor: isDark ? '#fff' : '#333', 
+            strokeWidth: 1.5,
+            ticks: {
+                label: { 
+                    strokeColor: isDark ? '#fff' : '#333', // لون الأرقام (0, 1, 2...)
+                    fontSize: 12 
+                },
+                drawLabels: true,
+                insertTicks: false,
+                minorTicks: 0 // إلغاء التدريجات الصغيرة لتخفيف الزحام
+            }
+        };
 
-        // 2. المفسر الشامل للعناصر
+        board.create('axis', [[0, 0], [1, 0]], axisStyle);
+        board.create('axis', [[0, 0], [0, 1]], axisStyle);
+
         const elements = config.elements || [];
         elements.forEach(el => {
             switch(el.type) {
@@ -31,23 +53,24 @@ const MathSovereign = {
                     });
                     break;
                 
-                case 'point': // دعم الرسم الأول (الحد العام)
+                case 'point':
                     board.create('point', [el.x, el.y], {
-                        size: 3, color: el.color, name: el.label || '', withLabel: !!el.label,
-                        fixed: true, strokeColor: 'white', strokeWidth: 1
+                        size: 4, color: el.color, name: el.label || '', withLabel: !!el.label,
+                        fixed: true, strokeColor: '#fff', strokeWidth: 1,
+                        label: { color: isDark ? '#fff' : el.color, offset: [10, 10] }
                     });
                     break;
 
-                case 'path': // دعم الرسم الثاني (الدرج)
+                case 'path':
                     board.create('polyline', el.points, {
-                        strokeColor: el.color, strokeWidth: 1.5, dash: el.style === 'dashed' ? 2 : 0
+                        strokeColor: el.color, strokeWidth: 2, dash: el.style === 'dashed' ? 2 : 0
                     });
                     break;
 
-                case 'text': // التسميات الرياضية
+                case 'text':
                     board.create('text', [el.x, el.y, el.content], {
                         color: el.color || (isDark ? '#fff' : '#000'),
-                        fontSize: 15, fontWeight: 'bold', cssClass: 'math-label'
+                        fontSize: 16, fontWeight: 'bold'
                     });
                     break;
             }
