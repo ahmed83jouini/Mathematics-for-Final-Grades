@@ -104,7 +104,7 @@ elements:
         - label: "y=x (المستقيم المنصف)"
           x: 4
           y: 4
-          color: "#FF000000"
+          color: "#FF0000"
         - x: 0
           label: "u0"           # u0 = 0
           color: "#198754"
