@@ -1,37 +1,43 @@
+/* محرك الرسم المبسط - نسخة "الإلمام والوضوح"
+   الهدف: رسم سهل، فهم عميق، وتعديل يسير.
+*/
+
 document.addEventListener("DOMContentLoaded", function() {
     const containers = document.querySelectorAll('.graph-container');
 
     containers.forEach(container => {
         try {
-            const rawData = container.getAttribute('data-graph-config');
-            if (!rawData) return;
-            const config = JSON.parse(rawData);
-
+            // 1. جلب البيانات (كما هي في YAML)
+            const config = JSON.parse(container.getAttribute('data-graph-config'));
             const isDark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
-            
-            // 1. تحضير المنحنيات (Traces)
-            const traces = (config.functions || []).map(f => {
-                let xValues = [], yValues = [];
-                const step = (config.xDomain[1] - config.xDomain[0]) / 200;
-                
-                for (let x = config.xDomain[0]; x <= config.xDomain[1]; x += step) {
-                    xValues.push(x);
-                    try {
-                        // معالجة الصيغة الرياضية بشكل آمن
-                        let expr = f.fn.replace(/x/g, `(${x})`).replace(/\^/g, '**').replace(/sqrt/g, 'Math.sqrt');
-                        yValues.push(eval(expr));
-                    } catch(e) { yValues.push(null); }
-                }
 
-                return {
-                    x: xValues, y: yValues,
-                    mode: 'lines',
-                    line: { color: f.color || '#0d6efd', width: 3 },
-                    name: f.label || ''
-                };
-            });
+            // 2. تجهيز الخطوط (المنحنيات)
+            const traces = [];
 
-            // 2. إضافة النقاط (Points) كطبقة مستقلة
+            if (config.functions) {
+                config.functions.forEach(f => {
+                    let xPoints = [];
+                    let yPoints = [];
+                    
+                    // توليد نقاط الدالة ببساطة من -10 إلى 10 (مدى واسع للوضوح)
+                    for (let i = -10; i <= 10; i += 0.1) {
+                        xPoints.push(i);
+                        // تحويل النص الرياضي إلى نتيجة حسابية
+                        let result = eval(f.fn.replaceAll('x', `(${i})`).replaceAll('^', '**'));
+                        yPoints.push(result);
+                    }
+
+                    traces.push({
+                        x: xPoints,
+                        y: yPoints,
+                        mode: 'lines',
+                        line: { color: f.color || 'blue', width: 3 },
+                        name: f.label || ''
+                    });
+                });
+            }
+
+            // 3. تجهيز النقاط المنفصلة (u0, u1...)
             if (config.points) {
                 traces.push({
                     x: config.points.map(p => p.x),
@@ -39,48 +45,38 @@ document.addEventListener("DOMContentLoaded", function() {
                     mode: 'markers+text',
                     text: config.points.map(p => p.label || ''),
                     textposition: 'top center',
-                    marker: { size: 10, color: isDark ? '#ffc107' : '#d9534f' },
+                    marker: { size: 10, color: 'orange' },
                     type: 'scatter'
                 });
             }
 
-            // 3. إعدادات المظهر (Layout) بمنطق "الكبار"
+            // 4. إعداد مظهر الرسم (بأقل قدر من التعقيد)
             const layout = {
                 paper_bgcolor: 'transparent',
                 plot_bgcolor: 'transparent',
                 showlegend: false,
-                margin: { t: 20, r: 20, b: 40, l: 40 },
-                xaxis: {
-                    range: config.xDomain,
-                    gridcolor: isDark ? '#333' : '#eee',
-                    zerolinecolor: isDark ? '#888' : '#333',
-                    tickfont: { color: isDark ? '#ccc' : '#444' }
+                dragmode: 'pan', // السحب هو الأساس لراحة اليد
+                xaxis: { 
+                    range: config.xDomain, 
+                    gridcolor: isDark ? '#444' : '#eee',
+                    zerolinecolor: isDark ? '#888' : '#333'
                 },
-                yaxis: {
-                    range: config.yDomain,
-                    gridcolor: isDark ? '#333' : '#eee',
-                    zerolinecolor: isDark ? '#888' : '#333',
-                    tickfont: { color: isDark ? '#ccc' : '#444' }
-                },
-                // التسميات (Annotations) - ثابتة وواضحة
-                annotations: (config.annotations || []).map(ann => ({
-                    x: ann.x, y: ann.y,
-                    text: ann.label || ann.text,
-                    showarrow: false,
-                    font: { color: isDark ? '#fff' : '#000', size: 13 },
-                    bgcolor: isDark ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.8)'
-                }))
+                yaxis: { 
+                    range: config.yDomain, 
+                    gridcolor: isDark ? '#444' : '#eee',
+                    zerolinecolor: isDark ? '#888' : '#333'
+                }
             };
 
-            // 4. التنفيذ مع تفعيل التفاعل الكامل
-            Plotly.newPlot(container.id, traces, layout, {
-                responsive: true,
-                displayModeBar: false,
-                scrollZoom: true
+            // 5. الرسم النهائي مع تفعيل الزوم باللمس
+            Plotly.newPlot(container.id, traces, layout, { 
+                responsive: true, 
+                scrollZoom: true, 
+                displayModeBar: false 
             });
 
         } catch (e) {
-            console.error("خطأ في المحرك العملاق: ", e);
+            console.error("عذراً، وقع خطأ بسيط في الرسم: ", e);
         }
     });
 });
