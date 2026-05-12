@@ -1,91 +1,86 @@
-/*
-  بروتوكول الرسم المطور - نسخة الإحكام النهائي
-  الوظيفة: رسم الدوال، المنصف الأول، النقاط u0, u1.. والتسميات بتباين عالٍ.
-*/
-
 document.addEventListener("DOMContentLoaded", function() {
     const containers = document.querySelectorAll('.graph-container');
 
     containers.forEach(container => {
         try {
-            // 1. استخراج البيانات من YAML
             const rawData = container.getAttribute('data-graph-config');
             if (!rawData) return;
             const config = JSON.parse(rawData);
 
-            // 2. إعدادات الألوان الديناميكية
             const isDark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
             
-            const themeColors = {
-                text: isDark ? '#ffffff' : '#000000',      // نص أبيض في المظلم
-                helper: isDark ? '#ffc107' : '#d9534f',    // ذهبي للمظلم، أحمر داكن للمضيء
-                line: isDark ? '#66b2ff' : '#0d6efd',      // أزرق متوافق مع المود
-                grid: isDark ? '#333333' : '#eeeeee'
-            };
+            // 1. تحضير المنحنيات (Traces)
+            const traces = (config.functions || []).map(f => {
+                let xValues = [], yValues = [];
+                const step = (config.xDomain[1] - config.xDomain[0]) / 200;
+                
+                for (let x = config.xDomain[0]; x <= config.xDomain[1]; x += step) {
+                    xValues.push(x);
+                    try {
+                        // معالجة الصيغة الرياضية بشكل آمن
+                        let expr = f.fn.replace(/x/g, `(${x})`).replace(/\^/g, '**').replace(/sqrt/g, 'Math.sqrt');
+                        yValues.push(eval(expr));
+                    } catch(e) { yValues.push(null); }
+                }
 
-            // 3. تحضير التسميات والخطوط المساعدة (Annotations)
-            // نستخدم مصفوفة واحدة ونوحد الخصائص لضمان قبول المكتبة لها
-            const allAnnotations = [
-                // أ- تسميات الدوال (مثل Cf و y=x)
-                ...((config.functions || [])
-                    .filter(f => f.label)
-                    .map(f => ({
-                        x: f.labelX !== undefined ? f.labelX : 0,
-                        y: f.labelY !== undefined ? f.labelY : 0,
-                        text: f.label,
-                        color: f.color || themeColors.text
-                    }))),
-                // ب- الخطوط المساعدة (x=0, y=0, u0...)
-                ...(config.annotations || []).map(ann => ({
-                    ...ann,
-                    label: ann.label || ann.text, // دعم المسميين لضمان التوافق
-                    color: ann.color || themeColors.helper
-                }))
-            ];
-
-            // 4. تحضير البيانات الرسمية (Data Array)
-            const graphData = [
-                // أولاً: رسم الدوال (polyline)
-                ...(config.functions || []).map(f => ({
-                    fn: f.fn,
-                    color: f.color || themeColors.line,
-                    strokeWidth: 3,
-                    sampler: 'builtIn',
-                    graphType: 'polyline'
-                })),
-                // ثانياً: رسم النقاط المنفصلة (u0, u1...)
-                ...(config.points || []).map((p, i) => ({
-                    points: [[p.x, p.y]],
-                    fnType: 'points',
-                    graphType: 'scatter',
-                    color: p.color || themeColors.helper,
-                    attr: { r: 5 } // تكبير النقطة للرؤية على الجوال
-                }))
-            ];
-
-            // 5. التنفيذ النهائي باستخدام functionPlot
-            functionPlot({
-                target: "#" + container.id,
-                width: container.offsetWidth || 400,
-                height: 400,
-                grid: true,
-                disableZoom: true, // لمنع التداخل مع التمرير في الجوال
-                xAxis: { 
-                    domain: config.xDomain || [-1, 10],
-                    label: 'x' 
-                },
-                yAxis: { 
-                    domain: config.yDomain || [-1, 10],
-                    label: 'y' 
-                },
-                data: graphData,
-                annotations: allAnnotations
+                return {
+                    x: xValues, y: yValues,
+                    mode: 'lines',
+                    line: { color: f.color || '#0d6efd', width: 3 },
+                    name: f.label || ''
+                };
             });
 
-            console.log(`%c تم إحكام الرسم: ${container.id}`, "color: green; font-weight: bold;");
+            // 2. إضافة النقاط (Points) كطبقة مستقلة
+            if (config.points) {
+                traces.push({
+                    x: config.points.map(p => p.x),
+                    y: config.points.map(p => p.y),
+                    mode: 'markers+text',
+                    text: config.points.map(p => p.label || ''),
+                    textposition: 'top center',
+                    marker: { size: 10, color: isDark ? '#ffc107' : '#d9534f' },
+                    type: 'scatter'
+                });
+            }
+
+            // 3. إعدادات المظهر (Layout) بمنطق "الكبار"
+            const layout = {
+                paper_bgcolor: 'transparent',
+                plot_bgcolor: 'transparent',
+                showlegend: false,
+                margin: { t: 20, r: 20, b: 40, l: 40 },
+                xaxis: {
+                    range: config.xDomain,
+                    gridcolor: isDark ? '#333' : '#eee',
+                    zerolinecolor: isDark ? '#888' : '#333',
+                    tickfont: { color: isDark ? '#ccc' : '#444' }
+                },
+                yaxis: {
+                    range: config.yDomain,
+                    gridcolor: isDark ? '#333' : '#eee',
+                    zerolinecolor: isDark ? '#888' : '#333',
+                    tickfont: { color: isDark ? '#ccc' : '#444' }
+                },
+                // التسميات (Annotations) - ثابتة وواضحة
+                annotations: (config.annotations || []).map(ann => ({
+                    x: ann.x, y: ann.y,
+                    text: ann.label || ann.text,
+                    showarrow: false,
+                    font: { color: isDark ? '#fff' : '#000', size: 13 },
+                    bgcolor: isDark ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.8)'
+                }))
+            };
+
+            // 4. التنفيذ مع تفعيل التفاعل الكامل
+            Plotly.newPlot(container.id, traces, layout, {
+                responsive: true,
+                displayModeBar: false,
+                scrollZoom: true
+            });
 
         } catch (e) {
-            console.error("خطأ في تنفيذ بروتوكول الرسم: ", e);
+            console.error("خطأ في المحرك العملاق: ", e);
         }
     });
 });
