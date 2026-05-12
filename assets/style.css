@@ -233,6 +233,26 @@ table tbody tr:hover {
     outline: none !important;
 }
 
+.graph-container {
+    width: 100%;
+    height: 450px;
+    background: var(--bs-body-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+/* نمط النصوص الرياضية ليظهر كسبورة احترافية */
+.math-label {
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.7); /* خلفية خفيفة للنص في اللايت مود */
+    padding: 2px;
+}
+
+[data-bs-theme='dark'] .math-label {
+    background: rgba(0, 0, 0, 0.5);
+}
 
 
 
