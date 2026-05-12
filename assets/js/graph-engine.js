@@ -32,11 +32,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // 2. إعدادات الألوان (دعم الوضع الليلي)
             const isDark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
-            const colors = {
-                axis: isDark ? '#888' : '#333',
-                line: isDark ? '#66b2ff' : '#0d6efd',
-                helper: '#dc3545',
-                bg: isDark ? '#1a1a1a' : '#ffffff'
+            // تعريف "باليت" ألوان قوية تفرض نفسها في المودين
+            const themeColors = {
+                text: isDark ? '#ffffff' : '#000000',      // نص أبيض في المظلم، أسود في المضيء
+                helper: isDark ? '#FFD700' : '#d9534f',    // ذهبي في المظلم، أحمر غامق في المضيء للوضوح
+                grid: isDark ? '#444' : '#eee'
             };
 
             // 3. تحضير نقاط التشتت (Scatter Data) للحدود u0, u1, u2...
@@ -53,18 +53,21 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             })) : [];
 
-            // 4. تحضير التسميات (Annotations) - دمج تسميات الدوال مع التسميات العامة
+            // تحضير التسميات مع إجبارية اللون
             const allAnnotations = [
                 ...((config.functions || [])
                     .filter(f => f.label)
                     .map(f => ({
-                        x: f.labelX !== undefined ? f.labelX : 0,
-                        y: f.labelY !== undefined ? f.labelY : 0,
+                        x: f.labelX || 0,
+                        y: f.labelY || 0,
                         text: f.label,
-                        color: f.color || colors.line
-                    }))),
-                ...(config.annotations || [])
-            ];
+                        color: f.color || themeColors.text // إذا لم يحدد لون، استخدم لون التباين
+                  }))),
+                ...(config.annotations || []).map(ann => ({
+                    ...ann,
+                        color: ann.color || themeColors.helper, // فرض لون مساعد قوي
+                  }))
+              ];
 
             // 5. التنفيذ النهائي للرسم
             functionPlot({
