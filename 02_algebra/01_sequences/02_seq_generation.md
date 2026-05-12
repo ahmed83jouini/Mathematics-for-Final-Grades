@@ -89,7 +89,7 @@ elements:
       class: "graph-container"
       functions:
         - fn: "0.5*x + 1"     # f(x) = 0.5x + 1
-          color: "#0d6efd"
+          color: "#0d6efd"     # أزرق صريح
           label: "C_f"
           labelX: 2
           labelY: 2
@@ -104,7 +104,7 @@ elements:
         - label: "y=x (المستقيم المنصف)"
           x: 4
           y: 4
-          color: "#FF0000"
+          color: "#ffc107"     # ذهبي ليظهر بوضوح في المودين
         - x: 0
           label: "u0"           # u0 = 0
           color: "#198754"
