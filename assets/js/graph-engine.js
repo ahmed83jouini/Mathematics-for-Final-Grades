@@ -35,7 +35,8 @@ document.addEventListener("DOMContentLoaded", function() {
             // تعريف "باليت" ألوان قوية تفرض نفسها في المودين
             const themeColors = {
                 text: isDark ? '#ffffff' : '#000000',      // نص أبيض في المظلم، أسود في المضيء
-                helper: isDark ? '#FFD700' : '#d9534f',    // ذهبي في المظلم، أحمر غامق في المضيء للوضوح
+                helper: isDark ? '#FFD700' : '#d9534f', // ذهبي في المظلم، أحمر غامق في المضيء للوضوح
+                line: 'blue',
                 grid: isDark ? '#444' : '#eee'
             };
 
@@ -47,8 +48,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 graphType: 'scatter',
                 attr: {
                     r: p.r || 3,
-                    fill: p.color || colors.helper,
-                    stroke: p.color || colors.helper,
+                    fill: p.color || themeColors.helper,
+                    stroke: p.color || themeColors.helper,
                     "stroke-width": 2
                 }
             })) : [];
@@ -81,12 +82,12 @@ document.addEventListener("DOMContentLoaded", function() {
                     // رسم قائمة الدوال الممرة (المنحنى، المنصف، إلخ)
                     ...(config.functions || []).map(f => ({
                         fn: f.fn,
-                        color: f.color || colors.line,
-                        strokeWidth: f.strokeWidth || 3,
+                        color: f.color || themeColors.line,
+                        strokeWidth: f.strokeWidth || 2,
                         sampler: 'builtIn',
                         graphType: 'polyline',
                         attr: {
-                            "stroke": f.color || colors.line,
+                            "stroke": f.color || themeColors.line,
                             "stroke-width": f.strokeWidth || 3
                         }
                     })),
