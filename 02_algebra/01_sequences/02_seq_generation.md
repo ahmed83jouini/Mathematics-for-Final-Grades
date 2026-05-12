@@ -27,13 +27,6 @@ elements:
       class: "graph-container"
       xDomain: [-1, 6]
       yDomain: [-1, 5]
-      # تحويل الدوال إلى القائمة الجديدة لضمان الرسم المزدوج
-      #functions:
-        #- fn: "0.5*x + 1"       # المنحنى Cf (الدالة المرفقة)
-          #color: "#0d6efd"      # أزرق
-          #label: "C_f"
-          #labelX: 5
-          #labelY: 3.7
       # النقاط التي تمثل حدود المتتالية
       points:
         - x: 0
@@ -59,13 +52,13 @@ elements:
         - x: 0
           y: 0
           text: "المبدأ O"
-          color: "red"
+          color: "#198754"
         - x: 0
           label: "x=0"
-          color: "red"
+          color: "#198754"
         - y: 0
           label: "y=0"
-          color: "red"
+          color: "#198754"
     
   - parags:
       - rtl: "لاحظ في الرسم أعلاه: النقط منفصلة وتقع على استقامة واحدة لأن الدالة المرفقة خطية، لكننا لا نصل بينها بخط."
@@ -114,16 +107,16 @@ elements:
           color: "#FF000000"
         - x: 0
           label: "u0"           # u0 = 0
-          color: "blue"
+          color: "#198754"
         - x: 1
           label: "u1"           # f(0) = 1، ينقل إلى y=x ليكون الفاصلة 1
-          color: "red"
+          color: "#198754"
         - x: 1.5
           label: "u2"           # f(1) = 1.5، ينقل إلى y=x ليكون الفاصلة 1.5
-          color: "green"
+          color: "#198754"
         - x: 0
           line: "v"
-          color: "#eee"         # صعود لـ Cf (هنا حصلنا على الترتيبة 1)
+          color: "#198754"         # صعود لـ Cf (هنا حصلنا على الترتيبة 1)
         - y: 1                  # الترتيبة المقابلة هي u1=1
           line: "h"             # حركة أفقية نحو y=x
           color: "#ddd"         # صب الـ u1 على المستقيم المنصف
