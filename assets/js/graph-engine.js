@@ -1,87 +1,68 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const containers = document.querySelectorAll('.graph-container');
+/* محرك "السيادة الرياضية" - الإصدار النهائي 1.1 
+   تحقيق دفتر الشروط: الألوان الآلية، المحاور الثابتة، وتناسق المسارات.
+*/
 
-    containers.forEach(container => {
-        try {
-            const config = JSON.parse(container.getAttribute('data-graph-config'));
-            const isDark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+const MathSovereign = {
+    // مصفوفة ألوان Minimalist متناغمة
+    palette: ['#0d6efd', '#198754', '#d63384', '#fd7e14', '#6610f2'],
+    
+    getTheme: () => document.documentElement.getAttribute('data-bs-theme') === 'dark',
 
-            // 1. تجهيز الدوال (تسيير الألوان)
-            const functionData = (config.functions || []).map(f => ({
-                fn: f.fn.replaceAll('^', '**'),
-                color: f.color || (isDark ? '#55aaff' : '#007bff'),
-                graphType: 'polyline',
-                // إضافة خاصية للابل ليتم التقاطها لاحقاً
-                attr: { "data-label": f.label || "" } 
-            }));
+    init: function(containerId) {
+        const container = document.getElementById(containerId);
+        const config = JSON.parse(container.getAttribute('data-graph-config'));
+        const isDark = this.getTheme();
 
-            // 2. تجهيز النقاط
-            const pointsData = (config.points || []).map(p => ({
-                points: [[p.x, p.y]],
-                fnType: 'points',
-                graphType: 'scatter',
-                color: 'orange'
-            }));
+        // 1. إعداد اللوحة (Board) بنمط السبورة
+        const board = JXG.JSXGraph.initBoard(containerId, {
+            boundingbox: [config.xDomain[0], config.yDomain[1], config.xDomain[1], config.yDomain[0]],
+            axis: false, grid: true, showCopyright: false,
+            pan: { enabled: true, needShift: false },
+            zoom: { wheel: true, factor: 1.1 }
+        });
 
-            // 3. بناء اللوحة
-            const instance = functionPlot({
-                target: '#' + container.id,
-                width: container.offsetWidth || 500,
-                height: 400,
-                grid: true,
-                disableZoom: false,
-                xAxis: { domain: config.xDomain || [-2, 10] },
-                yAxis: { domain: config.yDomain || [-2, 10] },
-                data: [...functionData, ...pointsData]
+        // 2. المحاور الثابتة (الشرط رقم 5)
+        const axisStyle = { strokeColor: isDark ? '#555' : '#333', strokeWidth: 1 };
+        board.create('axis', [[0, 0], [1, 0]], { ...axisStyle, ticks: { drawZero: true, label: {offset: [-5, -15]} } });
+        board.create('axis', [[0, 0], [0, 1]], { ...axisStyle, ticks: { drawZero: false, label: {offset: [-20, 5]} } });
+
+        // 3. تسيير المنحنيات والألوان آلياً (الشرط رقم 3)
+        if (config.functions) {
+            config.functions.forEach((f, i) => {
+                const color = f.color || this.palette[i % this.palette.length];
+                board.create('functiongraph', [x => {
+                    try {
+                        return eval(f.fn.replaceAll('^', '**').replaceAll('x', `(${x})`));
+                    } catch(e) { return null; }
+                }], {
+                    strokeColor: color, strokeWidth: 3, name: f.label || '', withLabel: true,
+                    label: { color: color, fontSize: 16, fontWeight: 'bold', cssClass: 'math-label' }
+                });
             });
-
-            // 4. "هندسة التسميات" - الرسم اليدوي فوق الـ SVG
-            instance.on('all:draw', function() {
-                const svg = d3.select(container).select('svg');
-                svg.selectAll('.custom-math-label').remove(); // مسح القديم
-
-                // رسم تسميات النقاط (u0, u1...)
-                if (config.points) {
-                    config.points.forEach(p => {
-                        const xPos = instance.meta.xScale(p.x);
-                        const yPos = instance.meta.yScale(p.y);
-
-                        svg.append('text')
-                            .attr('class', 'custom-math-label')
-                            .attr('x', xPos + 8)
-                            .attr('y', yPos - 8)
-                            .text(p.label || '')
-                            .attr('fill', isDark ? '#ffc107' : '#d32f2f')
-                            .style('font-size', '14px')
-                            .style('font-weight', 'bold')
-                            .style('font-family', 'serif');
-                    });
-                }
-
-                // رسم تسميات الدوال (Cf, y=x) عند أطراف المنحنيات
-                if (config.functions) {
-                    config.functions.forEach(f => {
-                        // نضع التسمية عند نهاية النطاق المرئي لإحداثي x
-                        const lastX = config.xDomain[1] * 0.9; 
-                        const xPos = instance.meta.xScale(lastX);
-                        // حساب قيمة y التقريبية للتسمية
-                        const yVal = eval(f.fn.replaceAll('^', '**').replaceAll('x', `(${lastX})`));
-                        const yPos = instance.meta.yScale(yVal);
-
-                        svg.append('text')
-                            .attr('class', 'custom-math-label')
-                            .attr('x', xPos)
-                            .attr('y', yPos - 10)
-                            .text(f.label || '')
-                            .attr('fill', f.color || (isDark ? '#fff' : '#000'))
-                            .style('font-style', 'italic')
-                            .style('font-weight', 'bold');
-                    });
-                }
-            });
-
-        } catch (e) {
-            console.error("خطأ في محاولة العودة: ", e);
         }
-    });
+
+        // 4. تسيير النقاط والمسارات (الشرط رقم 4)
+        if (config.points) {
+            config.points.forEach((p, i) => {
+                const color = isDark ? '#ffc107' : '#d32f2f';
+                board.create('point', [p.x, p.y], {
+                    name: p.label || '', size: 3, color: color, fixed: true,
+                    label: { color: isDark ? '#fff' : '#000', offset: [5, 12], fontSize: 14 }
+                });
+                
+                // إذا وجد مسار (Path) سيتم رسمه بخطوط متقطعة متناسقة
+                if (p.drawTo) {
+                   board.create('segment', [[p.x, p.y], [p.drawTo.x, p.drawTo.y]], {
+                       dash: 2, strokeColor: color, strokeWidth: 1
+                   });
+                }
+            });
+        }
+        
+        return board;
+    }
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('.graph-container').forEach(c => MathSovereign.init(c.id));
 });
