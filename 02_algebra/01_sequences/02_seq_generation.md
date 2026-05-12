@@ -28,17 +28,14 @@ elements:
       xDomain: [-1, 6]
       yDomain: [-1, 5]
       elements:
-        # تحويل النقاط إلى البروتوكول الجديد
         - { type: "point", x: 0, y: 1, color: "#198754" }
         - { type: "point", x: 1, y: 1.5, color: "#198754" }
         - { type: "point", x: 2, y: 2, color: "#198754" }
         - { type: "point", x: 3, y: 2.5, color: "#198754" }
         - { type: "point", x: 4, y: 3, color: "#198754" }
         - { type: "point", x: 5, y: 3.5, color: "#198754" }
-        # تحويل الـ Annotations إلى نصوص
         - { type: "text", content: "O", x: -0.3, y: -0.3, color: "#888" }
 
-    
   - parags:
       - rtl: "لاحظ في الرسم أعلاه: النقط منفصلة وتقع على استقامة واحدة لأن الدالة المرفقة خطية، لكننا لا نصل بينها بخط."
 
@@ -64,62 +61,52 @@ elements:
       - rtl: "4. <b>التكرار:</b> نكرر العملية من الموقع الجديد لـ $u_1$ لنحصل على $u_2$، وهكذا يتشكل 'الدرج'."
         
   - graph:
-    id: "seq_generation-graph-2"
-    class: "graph-container"
-    xDomain: [-0.5, 4.5]
-    yDomain: [-0.5, 4.5]
-    elements:
-      # 1. المنحنيات الأساسية (السيادة البصرية)
-      - type: "function"
-        fn: "0.5*x + 1"
-        color: "#0d6efd"
-        label: "C_f"
-      - type: "function"
-        fn: "x"
-        color: "#198754"
-        label: "y=x"
-
-      # 2. مسار الدرج (The Staircase Path) - "الخيط الرابط"
-      # تم تجميع كل حركات v و h في مسار واحد متصل لتحقيق "التناشق"
-      - type: "path"
-        points: [
-          [0, 0],   # u0 على محور الفواصل
-          [0, 1],   # صعود عمودي للمنحنى (u1)
-          [1, 1],   # حركة أفقية للمنصف
-          [1, 1.5], # صعود للمنحنى (u2)
-          [1.5, 1.5]# حركة أفقية للمنصف
-        ]
-        color: "#d32f2f" # أحمر هادئ للمسار لتمييزه عن الدوال
-        style: "dashed"
-
-      # 3. التسميات الرياضية (Labels) - "السبورة الثابتة"
-      - type: "text"
-        content: "u_0"
-        x: 0
-        y: -0.2
-        color: "#198754"
-      - type: "text"
-        content: "u_1"
-        x: 1
-        y: -0.2
-        color: "#198754"
-      - type: "text"
-        content: "u_2"
-        x: 1.5
-        y: -0.2
-        color: "#198754"
-      
-      # تعليق إضافي كما طلبت في شرط "السبورة"
-      - type: "text"
-        content: "y=x (المستقيم المنصف)"
-        x: 3.5
-        y: 3.8
-        color: "#ffc107"
-
-
+      id: "seq_generation-graph-2"
+      class: "graph-container"
+      xDomain: [-0.5, 4.5]
+      yDomain: [-0.5, 4.5]
+      elements:
+        - type: "function"
+          fn: "0.5*x + 1"
+          color: "#0d6efd"
+          label: "C_f"
+        - type: "function"
+          fn: "x"
+          color: "#198754"
+          label: "y=x"
+        - type: "path"
+          points: [
+          [0, 0],
+          [0, 1],
+          [1, 1],
+          [1, 1.5],
+          [1.5, 1.5]
+          ]
+          color: "#d32f2f" # أحمر هادئ للمسار لتمييزه عن الدوال
+          style: "dashed"
+        - type: "text"
+          content: "u_0"
+          x: 0
+          y: -0.2
+          color: "#198754"
+        - type: "text"
+          content: "u_1"
+          x: 1
+          y: -0.2
+          color: "#198754"
+        - type: "text"
+          content: "u_2"
+          x: 1.5
+          y: -0.2
+          color: "#198754"
+        - type: "text"
+          content: "y=x (المستقيم المنصف)"
+          x: 3.5
+          y: 3.8
+          color: "#ffc107"
+    
   - parags:
       - rtl: "لاحظ في الرسم: المستقيم $y=x$ هو الجسر الذي جعلنا نحصل على قيم الحدود $u_1, u_2$ على محور الفواصل، حيث تتبعناها خطوة بخطوة."
-
 
   - tableLines:
       dir: rtl
