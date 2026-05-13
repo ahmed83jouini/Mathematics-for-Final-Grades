@@ -28,7 +28,17 @@ const MathSovereign = {
                         withLabel: false // هذا سيحذف y=; فوراً
                     });
                 } else if (el.type === 'path') {
-                    try { b.create('polyline', el.points, { strokeColor: el.color, strokeWidth: 2, dash: el.style === 'dashed' ? 2 : 0 }); } catch(e) { console.log('path drawing error : ' + e ); };
+                    try {
+                        let px = el.points.map(p => p[0]);
+                        let py = el.points.map(p => p[1]);
+        
+                        b.create('curve', [px, py], {
+                            strokeColor: el.color || '#ff0000',
+                            strokeWidth: 2,
+                            dash: el.style === 'dashed' ? 2 : 0,
+                            fixed: true
+                        });
+                    } catch(e) { console.log('path drawing error : ' + e ); };
                 } else if (el.type === 'point') {
                     try { b.create('point', [el.x, el.y], { size: 4, color: el.color, strokeColor: '#fff', withLabel: false }); } catch(e) { console.log('point drawing error :' + e ); };
                 } else if (el.type === 'text') {
