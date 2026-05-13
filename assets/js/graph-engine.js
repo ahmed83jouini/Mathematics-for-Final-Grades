@@ -33,7 +33,7 @@ const MathSovereign = {
                     b.create('point', [el.x, el.y], { size: 4, color: el.color, strokeColor: '#fff', withLabel: false });
                 } else if (el.type === 'text') {
                     // نعتمد على النصوص اليدوية فقط للتحكم الكامل
-                    b.create('text', [el.x, el.y, el.content], { color: el.color || axisColor, fontSize: 16 });
+                    b.create('text', [el.x, el.y, el.content], { color: el.color || axisColor, fontSize: 13 });
                 }
             });
         }
