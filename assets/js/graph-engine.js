@@ -21,7 +21,6 @@ const MathSovereign = {
         if (config.elements) {
             config.elements.forEach(el => {
                 if (el.type === 'function') {
-                    alert('رسم الدوال');
                     // التعطيل الصريح للـ label التلقائي المشوه
                     b.create('functiongraph', [x => eval(el.fn.replace(/\^/g, '**').replace(/x/g, `(${x})`))], { 
                         strokeColor: el.color, 
@@ -29,13 +28,12 @@ const MathSovereign = {
                         withLabel: false // هذا سيحذف y=; فوراً
                     });
                 } else if (el.type === 'path') {
-                    alert('رسم الباث');
-                    b.create('polyline', el.points, { strokeColor: el.color, strokeWidth: 2, dash: el.style === 'dashed' ? 2 : 0 });
+                    try { b.create('polyline', el.points, { strokeColor: el.color, strokeWidth: 2, dash: el.style === 'dashed' ? 2 : 0 }); } catch(e) { console.log('path drawing error : ' + e ); };
                 } else if (el.type === 'point') {
-                    b.create('point', [el.x, el.y], { size: 4, color: el.color, strokeColor: '#fff', withLabel: false });
+                    try { b.create('point', [el.x, el.y], { size: 4, color: el.color, strokeColor: '#fff', withLabel: false }); } catch(e) { console.log('point drawing error :' + e ); };
                 } else if (el.type === 'text') {
                     // نعتمد على النصوص اليدوية فقط للتحكم الكامل
-                    b.create('text', [el.x, el.y, el.content], { color: el.color || axisColor, fontSize: 13 });
+                    try { b.create('text', [el.x, el.y, el.content], { color: el.color || axisColor, fontSize: 13 }); } catch(e) { console.log('text drawing error :' + e ); };
                 }
             });
         }
