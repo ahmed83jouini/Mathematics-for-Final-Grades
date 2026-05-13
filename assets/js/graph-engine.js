@@ -15,8 +15,8 @@ const MathSovereign = {
         });
 
         // رسم المحاور (مع إزاحة الأرقام لضمان الوضوح)
-        b.create('axis', [[0, 0], [1, 0]], { strokeColor: axisColor, ticks: { label: { offset: [-5, -15], strokeColor: axisColor } } });
-        b.create('axis', [[0, 0], [0, 1]], { strokeColor: axisColor, ticks: { label: { offset: [-25, 0], anchorX: 'right', strokeColor: axisColor } } });
+        b.create('axis', [[0, 0], [1, 0]], { strokeColor: axisColor, fixed: true, ticks: { label: { offset: [-5, -15], strokeColor: axisColor } } });
+        b.create('axis', [[0, 0], [0, 1]], { strokeColor: axisColor, fixed: true, ticks: { label: { offset: [-25, 0], anchorX: 'right', strokeColor: axisColor } } });
 
         if (config.elements) {
             config.elements.forEach(el => {
@@ -40,7 +40,7 @@ const MathSovereign = {
                         });
                     } catch(e) { console.log('path drawing error : ' + e ); };
                 } else if (el.type === 'point') {
-                    try { b.create('point', [el.x, el.y], { size: 4, color: el.color, strokeColor: '#fff', withLabel: false }); } catch(e) { console.log('point drawing error :' + e ); };
+                    try { b.create('point', [el.x, el.y], { size: 4, color: el.color, strokeColor: '#fff', withLabel: false, fixed: true }); } catch(e) { console.log('point drawing error :' + e ); };
                 } else if (el.type === 'text') {
                     // نعتمد على النصوص اليدوية فقط للتحكم الكامل
                     try { b.create('text', [el.x, el.y, el.content], { color: el.color || axisColor, fontSize: 13 }); } catch(e) { console.log('text drawing error :' + e ); };
