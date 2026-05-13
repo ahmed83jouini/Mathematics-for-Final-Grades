@@ -95,7 +95,7 @@ elements:
           color: "#198754"
         - type: "text"
           content: "y=x (المستقيم المنصف)"
-          x: 3.5
+          x: 3
           y: 3.8
           color: #198754""
     
