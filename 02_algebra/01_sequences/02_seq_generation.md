@@ -76,22 +76,22 @@ elements:
           label: "y=x"
         - type: "path"
           points: [[0, 0], [0, 1], [1, 1], [1, 1.5], [1.5, 1.5]]
-          color: "##198754" # أحمر هادئ للمسار لتمييزه عن الدوال
+          color: "#198754"
           style: "dashed"
         - type: "text"
           content: "u_0"
-          x: 0.3
+          x: 0
           y: -0.3
           color: "#198754"
         - type: "text"
           content: "u_1"
           x: 1
-          y: -0.2
+          y: -0.3
           color: "#198754"
         - type: "text"
           content: "u_2"
           x: 1.5
-          y: -0.2
+          y: -0.3
           color: "#198754"
         - type: "text"
           content: "y=x (المستقيم المنصف)"
