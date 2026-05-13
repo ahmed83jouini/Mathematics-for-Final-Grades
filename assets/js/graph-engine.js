@@ -40,10 +40,10 @@ const MathSovereign = {
                         });
                     } catch(e) { console.log('path drawing error : ' + e ); };
                 } else if (el.type === 'point') {
-                    try { b.create('point', [el.x, el.y], { size: 4, color: el.color, strokeColor: '#fff', withLabel: false, fixed: true }); } catch(e) { console.log('point drawing error :' + e ); };
+                    try { b.create('point', [el.x, el.y], { size: el.size || 4, color: el.color, strokeColor: '#fff', withLabel: false, fixed: true }); } catch(e) { console.log('point drawing error :' + e ); };
                 } else if (el.type === 'text') {
                     // نعتمد على النصوص اليدوية فقط للتحكم الكامل
-                    try { b.create('text', [el.x, el.y, el.content], { color: el.color || axisColor, fontSize: 16 }); } catch(e) { console.log('text drawing error :' + e ); };
+                    try { b.create('text', [el.x, el.y, el.content], { color: el.color || axisColor, fontSize: 16, fixed: true }); } catch(e) { console.log('text drawing error :' + e ); };
                 }
             });
         }
