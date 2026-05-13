@@ -48,7 +48,7 @@ elements:
 
   - parags:
       - rtl: "لتكن الدالة:"
-      - center: "$f(x) = \\begin{cases} \\frac{x^2 - 4}{x - 2} \\text{ امدنع: } x \\neq 2 \\\\ f(2) = 4 \\end{cases}$."
+      - center: "$f(x) = \\begin{cases} \\frac{x^2 - 4}{x - 2} , x \\neq 2 \\\\ f(2) = 4 \\end{cases}$."
       - rtl: "هل $f$ مستمرة عند $2$؟"
 
   - tableLines:
