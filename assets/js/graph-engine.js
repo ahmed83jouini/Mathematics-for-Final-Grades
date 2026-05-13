@@ -28,6 +28,7 @@ const MathSovereign = {
                         withLabel: false // هذا سيحذف y=; فوراً
                     });
                 } else if (el.type === 'path') {
+                    alert('رسم الباث');
                     b.create('polyline', el.points, { strokeColor: el.color, strokeWidth: 2, dash: el.style === 'dashed' ? 2 : 0 });
                 } else if (el.type === 'point') {
                     b.create('point', [el.x, el.y], { size: 4, color: el.color, strokeColor: '#fff', withLabel: false });
