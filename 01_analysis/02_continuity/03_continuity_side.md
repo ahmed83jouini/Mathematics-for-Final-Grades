@@ -40,7 +40,9 @@ elements:
     id: "split-example"
 
   - parags:
-      - rtl: "لتكن الدالة $f$ المعرفة بـ: $f(x) = x+1$ لما $x \\ge 1$، و $f(x) = x^2$ لما $x < 1$."
+      - rtl: "الدالة <b> الدستوري أو المنشطرة</> كترجمة مباشرة ل split-function، هي دالة بأكثر من عبارة جبرية على مجالات مختلفة."
+      - rtl: "لتكن الدالة $f$ المعرفة بـ:
+      - center: $f(x) = \\begin{cases} x+1$ \\text{    ,   } x \\ge 1. \\\\ f(x) = x^2 \\text{    ,   } x < 1. \\end{cases}$"
 
   - tableLines:
       dir: rtl
