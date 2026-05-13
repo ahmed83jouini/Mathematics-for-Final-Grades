@@ -41,8 +41,8 @@ elements:
 
   - parags:
       - rtl: "الدالة <b> الدستوري أو المنشطرة</> كترجمة مباشرة ل split-function، هي دالة بأكثر من عبارة جبرية على مجالات مختلفة."
-      - rtl: "لتكن الدالة $f$ المعرفة بـ:
-      - center: $f(x) = \\begin{cases} x+1 \\text{    ,   } x \\ge 1. \\\\ f(x) = x^2 \\text{    ,   } x < 1. \\end{cases}$"
+      - rtl: "لتكن الدالة $f$ المعرفة بـ:"
+      - center: "$f(x) = \\begin{cases} x+1 \\text{    ,   } x \\ge 1. \\\\ f(x) = x^2 \\text{    ,   } x < 1. \\end{cases}$"
 
   - tableLines:
       dir: rtl
