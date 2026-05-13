@@ -69,11 +69,9 @@ elements:
         - type: "function"
           fn: "0.5*x + 1"
           color: "#0d6efd"
-          label: "C_f"
         - type: "function"
           fn: "x"
           color: "#198754"
-          label: "y=x"
         - type: "path"
           points: [[0, 0], [0, 1], [1, 1], [1, 1.5], [1.5, 1.5]]
           color: "#198754"
@@ -98,6 +96,11 @@ elements:
           x: 3
           y: 3.8
           color: "#198754"
+        - type: "text"
+          content: "C_f"
+          x: 3.5
+          y: 3
+          color: "#0d6efd"
     
   - parags:
       - rtl: "لاحظ في الرسم: المستقيم $y=x$ هو الجسر الذي جعلنا نحصل على قيم الحدود $u_1, u_2$ على محور الفواصل، حيث تتبعناها خطوة بخطوة."
