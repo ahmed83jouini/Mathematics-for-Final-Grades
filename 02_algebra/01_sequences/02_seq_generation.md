@@ -74,23 +74,23 @@ elements:
           color: "#198754"
         - type: "path"
           points: [[0, 0], [0, 1], [1, 1], [1, 1.5], [1.5, 1.5]]
-          color: "#198754"
+          color: "red"
           style: "dashed"
         - type: "text"
           content: "u_0"
           x: 0
           y: -0.3
-          color: "#198754"
+          color: "red"
         - type: "text"
           content: "u_1"
           x: 1
           y: -0.3
-          color: "#198754"
+          color: "red"
         - type: "text"
           content: "u_2"
           x: 1.5
           y: -0.3
-          color: "#198754"
+          color: "red"
         - type: "text"
           content: "y=x (المستقيم المنصف)"
           x: 3
