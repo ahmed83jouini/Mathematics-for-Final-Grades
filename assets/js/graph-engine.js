@@ -21,6 +21,7 @@ const MathSovereign = {
         if (config.elements) {
             config.elements.forEach(el => {
                 if (el.type === 'function') {
+                    alert('رسم الدوال');
                     // التعطيل الصريح للـ label التلقائي المشوه
                     b.create('functiongraph', [x => eval(el.fn.replace(/\^/g, '**').replace(/x/g, `(${x})`))], { 
                         strokeColor: el.color, 
