@@ -66,44 +66,20 @@ elements:
       xDomain: [-0.5, 4.5]
       yDomain: [-0.5, 4.5]
       elements:
-        - type: "function"
-          fn: "0.5*x + 1"
-          color: "#0d6efd"
-        - type: "function"
-          fn: "x"
-          color: "#198754"
+        - { type: "function", fn: "0.5*x + 1", color: "#0d6efd" }
+        - { type: "function", fn: "x", color: "#198754" }
         - type: "path"
           points: [[0, 0], [0, 1], [1, 1], [1, 1.5], [1.5, 1.5]]
           color: "red"
           style: "dashed"
-        - type: "text"
-          content: "u_0"
-          x: 0
-          y: -0.3
-          color: "red"
-        - { type: "point", x: 0, y: 0, color: "red" }
-        - type: "text"
-          content: "u_1"
-          x: 1
-          y: -0.3
-          color: "red"
-        - { type: "point", x: 1, y: 0, color: "red" }
-        - type: "text"
-          content: "u_2"
-          x: 1.5
-          y: -0.3
-          color: "red"
-        - { type: "point", x: 1.5, y: 0, color: "red" }
-        - type: "text"
-          content: "y=x (المستقيم المنصف)"
-          x: 3
-          y: 3.8
-          color: "#198754"
-        - type: "text"
-          content: "C_f"
-          x: 3.5
-          y: 3
-          color: "#0d6efd"
+        - { type: "text", content: "u_0", x: 0, y: -0.3, color: "red" }
+        - { type: "point", x: 0, y: 0, color: "red", size: 2 }
+        - { type: "text", content: "u_1", x: 1, y: -0.3, color: "red" }
+        - { type: "point", x: 1, y: 0, color: "red", size: 2 }
+        - { type: "text", content: "u_2", x: 1.5, y: -0.3, color: "red" }
+        - { type: "point", x: 1.5, y: 0, color: "red", size: 2 }
+        - { type: "text", content: "y=x (المستقيم المنصف)", x: 3, y: 3.8, color: "#198754" }
+        - { type: "text", content: "C_f", x: 3.5, y: 3, color: "#0d6efd" }
     
   - parags:
       - rtl: "لاحظ في الرسم: المستقيم $y=x$ هو الجسر الذي جعلنا نحصل على قيم الحدود $u_1, u_2$ على محور الفواصل، حيث تتبعناها خطوة بخطوة."
