@@ -81,16 +81,19 @@ elements:
           x: 0
           y: -0.3
           color: "red"
+        - { type: "point", x: 0, y: 0, color: "red" }
         - type: "text"
           content: "u_1"
           x: 1
           y: -0.3
           color: "red"
+        - { type: "point", x: 1, y: 0, color: "red" }
         - type: "text"
           content: "u_2"
           x: 1.5
           y: -0.3
           color: "red"
+        - { type: "point", x: 1.5, y: 0, color: "red" }
         - type: "text"
           content: "y=x (المستقيم المنصف)"
           x: 3
