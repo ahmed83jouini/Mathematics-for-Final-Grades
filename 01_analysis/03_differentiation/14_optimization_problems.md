@@ -9,8 +9,8 @@ lessonID: "optimization-final"
 # هذا هو المبحث الأخير، لذا نوجه الطالب للعودة للهوب أو المراجعة الشاملة
 previous_title: "الاشتقاقية: تقعر المنحنى ونقاط الانعطاف"
 previous_url: /concavity_inflection/
-next_title: "العودة إلى خارطة الطريق"
-next_url: "/differentiation_hub/"
+next_title: "الدوال اللوغارتمية، خارطة الطريق"
+next_url: "/log_fn_hub/"
 
 elements:
   - h3: "1. ما هي المسألة الاستمثالية؟"
