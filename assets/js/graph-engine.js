@@ -21,7 +21,7 @@
         - { type: "point", x: 1.5, y: 0, color: "red", size: 2 }
         - { type: "text", content: "y=x (المستقيم المنصف)", x: 3, y: 3.8, color: "#198754" }
         - { type: "text", content: "C_f", x: 3.5, y: 3, color: "#0d6efd" }
-    
+        - { type: "line", points: [[x1, y1], [x2, y2]], color: "#28a745", dash: 0 }
 
 */
 const MathSovereign = {
@@ -70,6 +70,8 @@ const MathSovereign = {
                 } else if (el.type === 'text') {
                     // نعتمد على النصوص اليدوية فقط للتحكم الكامل
                     try { b.create('text', [el.x, el.y, el.content], { color: el.color || axisColor, fontSize: 16, fixed: true }); } catch(e) { console.log('text drawing error :' + e ); };
+                } else if (el.type === 'line') {
+                    try { b.create('line', el.points, { strokeColor: el.color || "blue", strokeWidth: el.width || 2, fixed: el.fixed || true, dash: el.dash || 0, name: el.name || '', withLabel: !!el.name, label: { offset: [10, 10], color: el.color || "blue"}})} catch (e) { console.log ("line drawing error :", e); };
                 }
             });
         }
@@ -77,3 +79,10 @@ const MathSovereign = {
 };
 
 window.onload = () => document.querySelectorAll('.graph-container').forEach(c => MathSovereign.init(c.id));
+
+
+
+
+
+
+//
