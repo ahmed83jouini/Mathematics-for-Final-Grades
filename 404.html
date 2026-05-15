@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>عذراً.. ضللنا الطريق</title>
+    <style>
+        body { 
+            background-color: #1a1a1a; 
+            color: #eee; 
+            font-family: sans-serif; 
+            text-align: center; 
+            padding-top: 100px; 
+        }
+        .error-code { font-size: 80px; color: #168574; margin-bottom: 20px; }
+        .msg { font-size: 20px; margin-bottom: 30px; }
+        .btn {
+            background-color: #168574;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn:hover { background-color: #1a9e8a; }
+    </style>
+</head>
+<body>
+    <div class="error-code">404</div>
+    <div class="msg">يبدو أن هذا التمرين أو الدرس "تحت الإنشاء" أو انتقل لمكان آخر.</div>
+    <p>لا تتعب نفسك.. سنعيدك إلى الصفحة الرئيسية خلال لحظات.</p>
+    <br><br>
+    <a href="/Mathematics-for-Final-Grades/" class="btn">العودة للفهرس فوراً</a>
+
+    <script>
+        // توجيه تلقائي بعد 5 ثوانٍ
+        setTimeout(function(){
+            window.location.href = "/Mathematics-for-Final-Grades/";
+        }, 5000);
+    </script>
+</body>
+</html>
