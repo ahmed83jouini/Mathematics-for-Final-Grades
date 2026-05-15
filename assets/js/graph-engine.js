@@ -57,8 +57,9 @@ const MathSovereign = {
                 if (el.type === 'function') {
                     // التعطيل الصريح للـ label التلقائي المشوه
                     b.create('functiongraph', [x => eval(el.fn.replace(/\^/g, '**').replace(/x/g, `(${x})`))], { 
-                        strokeColor: el.color, 
-                        strokeWidth: 3,
+                        strokeColor: el.strokeColor || "blue", 
+                        strokeWidth: el.strokeWidth || 3,
+                        dash: el.dash || 0,
                         withLabel: false // هذا سيحذف y=; فوراً
                     });
                 } else if (el.type === 'path') {
@@ -69,17 +70,34 @@ const MathSovereign = {
                         b.create('curve', [px, py], {
                             strokeColor: el.color || '#ff0000',
                             strokeWidth: 2,
-                            dash: el.style === 'dashed' ? 2 : 0,
-                            fixed: true
+                            dash: el.dash || 0,
+                            fixed: el.fixed || true
                         });
                     } catch(e) { console.log('path drawing error : ' + e ); };
                 } else if (el.type === 'point') {
-                    try { b.create('point', [el.x, el.y], { size: el.size || 4, color: el.color, strokeColor: '#fff', withLabel: false, fixed: true }); } catch(e) { console.log('point drawing error :' + e ); };
+                    try { b.create('point', [el.x, el.y], { size: el.size || 4, strokeColor: el.strokeColor || "red", fillColor: el.fillColor || '#fff', withLabel: false, fixed: true }); } catch(e) { console.log('point drawing error :' + e ); };
                 } else if (el.type === 'text') {
                     // نعتمد على النصوص اليدوية فقط للتحكم الكامل
-                    try { b.create('text', [el.x, el.y, el.content], { color: el.color || axisColor, fontSize: 16, fixed: true }); } catch(e) { console.log('text drawing error :' + e ); };
+                    try { b.create('text', 
+                        [el.x, el.y, el.content], {
+                              color: el.color || axisColor, 
+                              fontSize: 16, 
+                              fixed: el.fixed || true }); 
+                        } catch(e) { console.log('text drawing error :' + e ); };
                 } else if (el.type === 'line') {
-                    try { b.create('line', el.points, { strokeColor: el.color || "blue", strokeWidth: el.width || 2, fixed: el.fixed || true, dash: el.dash || 0, name: el.name || '', withLabel: !!el.name, label: { offset: [10, 10], color: el.color || "blue"}})} catch (e) { console.log ("line drawing error :", e); };
+                    try { b.create('line', el.points, {
+                          strokeColor: el.color || "blue", 
+                          strokeWidth: el.width || 2, 
+                          fixed: el.fixed || true, 
+                          dash: el.dash || 0, 
+                          name: el.name || '', 
+                          withLabel: !!el.name, 
+                          label: { 
+                                offset: [10, 10], 
+                                color: el.color || "blue"
+                          }})} catch (e) { 
+                             console.log ("line drawing error :", e); 
+                    };
                 }
             });
         }
