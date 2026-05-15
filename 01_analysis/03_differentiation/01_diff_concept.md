@@ -7,6 +7,8 @@ mathJax: true
 graph: true
 lessonID: "differentiation-intro"
 
+previous_title: "فهرس الإشتقاقية"
+previous_url: /differentiation_hub/
 next_title: "التفسير الهندسي: المماس"
 next_url: "/tangent_line/"
 
