@@ -122,27 +122,27 @@ layout: default
 
 <div class="d-flex gap-2 mt-4">
     {% if page.previous_url %}
-    <button id="{{ exerciseData.exID }}-btnPrev" 
+    <button id="{{ page.exID }}-btnPrev" 
         class="btn btn-outline-primary fw-bold flex-grow-1 shadow-sm" 
         onclick="window.location.href='{{ site.baseurl }}{{ page.previous_url }}'">
         <i class="bi bi-chevron-right me-1"></i> السابق
     </button>
     {% endif %}
         
-    <button id="{{ exerciseData.exID }}-btnRetry" 
+    <button id="{{ page.exID }}-btnRetry" 
         class="btn btn-outline-primary fw-bold flex-grow-1 d-none" 
-        onclick="resetExercise('{{ exerciseData.exID }}')">
+        onclick="resetExercise('{{ page.exID }}')">
         أعد المحاولة <i class="bi bi-arrow-counterclockwise"></i>
     </button>
         
-    <button id="{{ exerciseData.exID }}-btnVerify" 
+    <button id="{{ page.exID }}-btnVerify" 
         class="btn btn-outline-primary fw-bold flex-grow-1" 
-        onclick="verify('{{ exerciseData.exID }}')">
+        onclick="verify('{{ page.exID }}')">
         تحقق <i class="bi bi-check2-circle"></i>
     </button>
 
     {% if page.next_url %}
-    <button id="{{ exerciseData.exID }}-btnNext" 
+    <button id="{{ page.exID }}-btnNext" 
         class="btn btn-outline-primary fw-bold flex-grow-1" 
         onclick="window.location.href='{{ site.baseurl }}{{ page.next_url }}'">
         التالي <i class="bi bi-chevron-left"></i>
