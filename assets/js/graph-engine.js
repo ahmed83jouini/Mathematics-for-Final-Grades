@@ -36,9 +36,17 @@ const MathSovereign = {
 
         const b = JXG.JSXGraph.initBoard(id, {
             boundingbox: [config.xDomain[0], config.yDomain[1], config.xDomain[1], config.yDomain[0]],
-            axis: false, showCopyright: false,
-            grid: { strokeColor: isDark ? '#444' : '#eee', opacity: 0.2, gridX: 1, gridY: 1 }
+            axis: false, 
+            showCopyright: false,
+
+            grid: { 
+                strokeColor: isDark ? '#444' : '#eee', 
+                opacity: 0.2, 
+                majorStep: 1, // بدلاً من gridX
+                minorStep: 0.2 // (اختياري) للتحكم في الخطوط الثانوية
+            }
         });
+
 
         // رسم المحاور (مع إزاحة الأرقام لضمان الوضوح)
         b.create('axis', [[0, 0], [1, 0]], { strokeColor: axisColor, fixed: true, ticks: { label: { offset: [-5, -15], strokeColor: axisColor } } });
