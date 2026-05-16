@@ -49,9 +49,7 @@ elements:
         - { type: "text", content: "v_2", x: 4.8, y: 3.5, color: "red"}
         - {type: "point", x: 10, y: 3.1, strokeColor: "red", fillColor: "red", size: 1}
         - { type: "text", content: "v_3", x: 9.8, y: 3.3, color: "red"}
-        - { type: "text", content: "
-          "annotations": [{"label": "المتتاليتان تحصران النهاية بينهما"}]
-        }
+        - { type: "text", content: "المتتاليتان تحصران النهاية بينهما"}
 
   - NB:
       title: "تطبيق عملي:"
