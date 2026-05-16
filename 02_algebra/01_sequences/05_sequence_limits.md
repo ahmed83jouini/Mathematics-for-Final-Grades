@@ -43,7 +43,7 @@ elements:
       - rtl: "إذا كان $v_n \\leq u_n \\leq w_n$ وكانت $\\lim v_n = \\lim w_n = L$، فإن:"
       - center: "$\\lim u_n = L$"
 
-  - graph-container:
+  - graph:
       id: "limit-viz"
       class: "graph-container"
       xDomain: [-1, 15]
