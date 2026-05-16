@@ -56,8 +56,8 @@ elements:
         - { type: "point", x: 3, y: 2.3}
         - { type: "point", x: 4, y: 2.15}
         - { type: "point", x: 6, y: 2.05}
-        - { type: "point", x: 10, y: 2.01}             - { type: "text", content: "النقاط تقترب من المستقيم دون لمسه", x: -1, y: 1, fontSize: 16 }
-        }
+        - { type: "point", x: 10, y: 2.01}
+        - { type: "text", content: "النقاط تقترب من المستقيم دون لمسه", x: -1, y: 1, fontSize: 16 }
 
   - NB:
       title: "قاعدة ذهبية:"
