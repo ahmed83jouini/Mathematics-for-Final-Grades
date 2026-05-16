@@ -6,7 +6,9 @@ permalink: /sequence_variation/
 mathJax: true
 lessonID: "seq-05"
 
-previous_url: "/geometric_seq/"
+previous_title: "المتتاليات، النهاية والتقارب"
+previous_url: "/sequence_limits/"
+next_title: "البرهان بالتراجع"
 next_url: "/induction_proof/"
 
 elements:
@@ -34,13 +36,21 @@ elements:
       class: "graph-container"
       xDomain: [-1, 6]
       yDomain: [-1, 10]
-      points": [
-            {"x": 0, "y": 8, "color": "red"},
-            {"x": 1, "y": 6, "color": "red"},
-            {"x": 2, "y": 4.5, "color": "red"},
-            {"x": 3, "y": 3.5, "color": "red"},
-            {"x": 4, "y": 3, "color": "red"}
-          ],
-          "annotations": [{"label": "مثال لمتتالية متناقصة"}]
-        }
+      elements:
+        - { type: "point", x: 0, y: 8, size: 1}
+        - { type: "point", x: 1, y: 6, size: 1}
+        - { type: "point", x: 2, y: 4.5, size: 1}
+        - { type: "point", x: 3, y: 3.5, size: 1}
+        - { type: "point", x: 4, y: 3, size: 1}
+        - { type: "text", content: "مثال لمتتالية متناقصة", x: 2, y: 2}
 ---
+
+
+
+
+
+
+
+
+
+
