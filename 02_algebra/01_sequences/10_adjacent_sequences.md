@@ -5,9 +5,10 @@ subtitle: "متتاليتان تتقاربان نحو نفس الهدف"
 permalink: /adjacent_sequences/
 mathJax: true
 lessonID: "seq-10"
-
+previous_title: "حساب مجموع حدود متتابعة"
 previous_url: "/sequences_sum/"
-next_url: "/sequences_review/" # المراجعة النهائية لكل المتتاليات
+next_title: "نظرة شمولية على المتتاليات"
+next_url: "/sequences_review/"
 
 elements:
   - h3: "1. التعريف"
@@ -24,25 +25,31 @@ elements:
       - center: "$u_n \\leq L \\leq v_n$"
       - rtl: "(بفرض أن $u_n$ هي المتزايدة)."
 
-  - graph-container:
+  - graph:
       id: "adjacent-viz"
-      data-graph-config: >
-        {
-          "xDomain": [-1, 15],
-          "yDomain": [-1, 6],
-          "lines": [
-            {"y": 3, "style": "dashed", "color": "green", "label": "النهاية المشتركة L"}
-          ],
-          "points": [
-            {"x": 0, "y": 1, "color": "blue", "label": "u0"},
-            {"x": 2, "y": 2, "color": "blue"},
-            {"x": 5, "y": 2.7, "color": "blue"},
-            {"x": 10, "y": 2.9, "color": "blue"},
-            {"x": 0, "y": 5, "color": "red", "label": "v0"},
-            {"x": 2, "y": 4, "color": "red"},
-            {"x": 5, "y": 3.3, "color": "red"},
-            {"x": 10, "y": 3.1, "color": "red"}
-          ],
+      class: "graph-container"
+      xDomain: [-1, 15]
+      yDomain: [-1, 6]
+      elements:
+        - { type: "function", fn: "3", dash: 2, color: "green"}
+        - { type: "text", content: "النهاية المشتركة L", x: , y: , color: "green"}
+        - {type: "point", x: 0, y: 1, strokeColor: "blue", fillColor: "blue", size: 1}
+        - { type: "text", content: "u_0", x: -0.2, y: 1.2, color: "blue"}
+        - {type: "point", x: 2, y: 2, strokeColor: "blue", fillColor: "blue", size: 1}
+        - { type: "text", content: "u_1", x: 1.8, y: 2.2, color: "blue"}
+        - {type: "point", x: 5, y: 2.7, strokeColor: "blue", fillColor: "blue", size: 1}
+        - { type: "text", content: "u_2", x: 4.8, y: 2.9, color: "blue"}
+        - {type: "point", x: 10, y: 2.9, strokeColor: "blue", fillColor: "blue", size: 1}
+        - { type: "text", content: "u_3", x: 9.8, y: 3.1, color: "blue"}
+        - {type: "point", x: 0, y: 5, strokeColor: "red", fillColor: "red", size: 1}
+        - { type: "text", content: "v_0", x: -0.2, y: 5.2, color: "red"}
+        - {type: "point", x: 2, y: 4, strokeColor: "red", fillColor: "red", size: 1}
+        - { type: "text", content: "v_1", x: 1.8, y: 4.2, color: "red"}
+        - {type: "point", x: 5, y: 3.3, strokeColor: "red", fillColor: "red", size: 1}
+        - { type: "text", content: "v_2", x: 4.8, y: 3.5, color: "red"}
+        - {type: "point", x: 10, y: 3.1, strokeColor: "red", fillColor: "red", size: 1}
+        - { type: "text", content: "v_3", x: 9.8, y: 3.3, color: "red"}
+        - { type: "text", content: "
           "annotations": [{"label": "المتتاليتان تحصران النهاية بينهما"}]
         }
 
