@@ -1,6 +1,6 @@
 ---
 layout: lesson
-title: "نهاية متتالية والتقارب"
+title: "المتتاليات، النهاية والتقارب"
 subtitle: "تحديد المستقر النهائي للمتتالية"
 permalink: /sequence_limits/
 mathJax: true
@@ -10,16 +10,16 @@ previous_url: "/bounded_sequences/"
 next_url: "/sequences_summary/" # ملخص شامل أو تمارين
 
 elements:
-  - h3: "1. مفهوم التقارب (Convergence)"
+  - h3: "1. مفهوم التقارب"
   - parags:
       - rtl: "نقول عن متتالية $(u_n)$ أنها <b>متقاربة</b> إذا كانت نهايتها عند $+\\infty$ هي عدد حقيقي $L$."
-      - center: "$\\lim_{n \\to +\\infty} u_n = L$"
-      - rtl: "إذا كانت النهاية غير موجودة أو تساوي $\\pm\\infty$، نقول أن المتتالية <b>متباعدة</b> (Divergente)."
+      - center: "$\\lim\\limits_{n \\to +\\infty} u_n = L$"
+      - rtl: "إذا كانت النهاية غير موجودة أو تساوي $\\pm\\infty$، نقول أن المتتالية <b>متباعدة</b>."
 
   - h4: "نهايات شهيرة:"
   - parags:
-      - center: "$\\lim_{n \\to +\\infty} \\frac{1}{n} = 0$"
-      - center: "$\\lim_{n \\to +\\infty} n^2 = +\\infty$"
+      - center: "$\\lim\\limits_{n \\to +\\infty} \\frac{1}{n} = 0$"
+      - center: "$\\lim\\limits_{n \\to +\\infty} n^2 = +\\infty$"
 
   - h3: "2. نهاية المتتالية الهندسية"
   - parags:
@@ -28,7 +28,7 @@ elements:
       dir: rtl
       lines:
         - - th: "قيمة الأساس $q$"
-          - th: "النهاية $\\lim_{n \\to +\\infty} q^n$"
+          - th: "النهاية $\\lim\\limits_{n \\to +\\infty} q^n$"
         - - td: "$q > 1$"
           - td: "$+\\infty$ (متباعدة)"
         - - td: "$-1 < q < 1$"
@@ -44,23 +44,19 @@ elements:
 
   - graph-container:
       id: "limit-viz"
-      data-graph-config: >
-        {
-          "xDomain": [-1, 15],
-          "yDomain": [-1, 5],
-          "lines": [
-            {"y": 2, "style": "dashed", "color": "green", "label": "L = 2 (المستقر)"}
-          ],
-          "points": [
-            {"x": 0, "y": 4.5},
-            {"x": 1, "y": 3.2},
-            {"x": 2, "y": 2.6},
-            {"x": 3, "y": 2.3},
-            {"x": 4, "y": 2.15},
-            {"x": 6, "y": 2.05},
-            {"x": 10, "y": 2.01}
-          ],
-          "annotations": [{"label": "النقاط تقترب من الخط الأخضر دون لمسه"}]
+      class: "graph-container"
+      xDomain: [-1, 15]
+      yDomain: [-1, 5]
+      elements:
+        - { type: "function", fn: "2", dash: 2}
+        - { type: "text", content: "L = 2, النهاية", x: -0.5, y: 2.1, color: "blue"}
+        - { type: "point", x: 0, y: 4.5}
+        - { type: "point", x: 1, y: 3.2}
+        - { type: "point", x: 2, y: 2.6}
+        - { type: "point", x: 3, y: 2.3}
+        - { type: "point", x: 4, y: 2.15}
+        - { type: "point", x: 6, y: 2.05}
+        - { type: "point", x: 10, y: 2.01}             - { type: "text", content: "النقاط تقترب من المستقيم دون لمسه", x: -1, y: 1, fontSize: 16 }
         }
 
   - NB:
@@ -69,3 +65,8 @@ elements:
       NBs:
         - rtl: "المتتالية المحدودة والرتيبة (متزايدة أو متناقصة) هي حتماً <b>متقاربة</b>."
 ---
+
+
+
+
+
