@@ -6,8 +6,10 @@ permalink: /sequences_sum/
 mathJax: true
 lessonID: "seq-09"
 
-previous_url: "/sequence_limits/"
-next_url: "/sequences_review/" # المراجعة الشاملة
+previous_title: "المتتاليات المحدودة، الأعلى والأسفل"
+previous_url: "/bounded_sequences/"
+next_title: "المتتاليات المتجاورة"
+next_url: "/adjacent_sequences/"
 
 elements:
   - h3: "1. المجموع في المتتالية الحسابية"
@@ -25,22 +27,25 @@ elements:
   - parags:
       - rtl: "إذا كانت المتتالية هندسية أساسها $q = 2$ وحدها الأول $u_0 = 1$، فإن مجموع أول 5 حدود هو:"
       - center: "$S = 1 \\times \\frac{1 - 2^5}{1 - 2} = 1 \\times \\frac{-31}{-1} = 31$"
+  - graph:
+    id: "sum-viz"
+    class: "graph-container"
+    xDomain: [-1, 6]
+    yDomain: [-1, 20]
+  
+    elements:
+      - type: "bar"
+        color: "#168574"
+        opacity: 0.5
+        barWidth: 0.8 
+        labelColor: "#ffffff"
+        data:
+          - { x: 0, y: 1, label: "u0" }
+          - { x: 1, y: 2, label: "u1" }
+          - { x: 2, y: 4, label: "u2" }
+          - { x: 3, y: 8, label: "u3" }
+      - { type: "text", content: "المجموع هو تراكم مساحات هذه الأعمدة", x: 1.5, y: 12, color: "#eee"}
 
-  - graph-container:
-      id: "sum-viz"
-      data-graph-config: >
-        {
-          "xDomain": [-1, 6],
-          "yDomain": [-1, 20],
-          "type": "bar",
-          "points": [
-            {"x": 0, "y": 1, "label": "u0"},
-            {"x": 1, "y": 2, "label": "u1"},
-            {"x": 2, "y": 4, "label": "u2"},
-            {"x": 3, "y": 8, "label": "u3"}
-          ],
-          "annotations": [{"label": "المجموع هو تراكم مساحات هذه الأعمدة"}]
-        }
 
   - NB:
       title: "حالة خاصة:"
