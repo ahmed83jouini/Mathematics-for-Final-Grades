@@ -4,6 +4,7 @@ title: "المتتاليات المحدودة"
 subtitle: "الأسوار الرياضية: القيد العلوي والقيد السفلي"
 permalink: /bounded_sequences/
 mathJax: true
+graph: true
 lessonID: "seq-08"
 
 previous_title: "البرهان بالتراجع"
