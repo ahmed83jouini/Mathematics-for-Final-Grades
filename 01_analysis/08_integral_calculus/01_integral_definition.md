@@ -11,7 +11,7 @@ previous_title: "محور الحساب التكاملي"
 previous_url: "/integral_hub/"
 
 next_title: "المبحث 2: المبرهنة الأساسية (الربط بالأصلية)"
-next_url: "/fundamental_theorem/"
+next_url: "/integral_fundamental_theorem/"
 
 elements:
   - h3: "1. المفهوم الهندسي: معضلة المساحة"
