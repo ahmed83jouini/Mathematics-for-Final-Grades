@@ -2,7 +2,7 @@
 layout: lesson
 title: "المبرهنة الأساسية في الحساب التكاملي"
 subtitle: "الجسر الرابط: كيف تحول التكامل إلى طرح بسيط؟"
-permalink: /fundamental_theorem/
+permalink: /integral_fundamental_theorem/
 mathJax: true
 lessonID: "int-02"
 
