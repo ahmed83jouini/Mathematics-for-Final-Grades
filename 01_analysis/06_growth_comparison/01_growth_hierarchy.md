@@ -10,7 +10,7 @@ lessonID: "growth-01"
 previous_title: "فهرس محور التزايد المقارن"
 previous_url: "/growth_comparison_hub/"
 
-next_title: "المبحث 2: التفسير الهندسي للصراع"
+next_title: "التفسير الهندسي للصراع"
 next_url: "/growth_geometry/"
 
 elements:
