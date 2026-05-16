@@ -4,7 +4,9 @@ title: "المتتاليات المتجاورة"
 subtitle: "متتاليتان تتقاربان نحو نفس الهدف"
 permalink: /adjacent_sequences/
 mathJax: true
+graph: true
 lessonID: "seq-10"
+
 previous_title: "حساب مجموع حدود متتابعة"
 previous_url: "/sequences_sum/"
 next_title: "نظرة شمولية على المتتاليات"
