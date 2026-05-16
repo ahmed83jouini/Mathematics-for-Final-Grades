@@ -107,6 +107,48 @@ const MathSovereign = {
                           }})} catch (e) { 
                              console.log ("line drawing error :", e); 
                     };
+                } else if (el.type === 'bar') {
+                    try {
+                        // نمرر عبر مصفوفة البيانات لرسم كل عمود على حدة
+                        el.data.forEach(item => {
+                          // حساب إحداثيات الرؤوس الأربعة للعمود (بافتراض عرض العمود = 1)
+                          // يمكنك جعل العرض متغيرًا في اليامل إذا أردت (مثال: el.width)
+                          const width = el.barWidth || 1;
+                          const xLeft = item.x - width / 2;
+                          const xRight = item.x + width / 2;
+                          const yBottom = 0; // يبدأ من محور الفواصل
+                          const yTop = item.y;
+
+                         // إنشاء نقاط المضلع الأربعة
+                         const p1 = b.create('point', [xLeft, yBottom], { visible: false });
+                         const p2 = b.create('point', [xLeft, yTop], { visible: false });
+                         const p3 = b.create('point', [xRight, yTop], { visible: false });
+                         const p4 = b.create('point', [xRight, yBottom], { visible: false });
+
+                         // رسم العمود كمضلع (Polygon)
+                         b.create('polygon', [p1, p2, p3, p4], {
+                               fillColor: el.color || '#168574',
+                               fillOpacity: el.opacity || 0.6,
+                               strokeColor: el.strokeColor || el.color || '#168574',
+                               strokeWidth: el.strokeWidth || 1,
+                               highlight: false, // لمنع تفاعل العمود مع السحب
+                               fixed: el.fixed || true
+                         });
+
+                         // إضافة التسمية (u0, u1...) فوق العمود إذا وجدت
+                         if (item.label) {
+                             b.create('text', [item.x, yTop + (el.yDomain[1] * 0.02), item.label], {
+                                   anchorX: 'middle',
+                                   anchorY: 'bottom',
+                                   strokeColor: el.labelColor || '#eee',
+                                   fontSize: 14,
+                                   fixed: true
+                              });
+                          }
+                        });
+                  } catch (e) {
+                       console.error("خطأ في رسم الأعمدة (bar): ", e, el);
+                  } 
                 }
             });
         }
