@@ -1,24 +1,25 @@
 ---
 layout: lesson
 title: "البرهان بالتراجع"
-subtitle: "مبدأ أحجار الدومينو في الرياضيات"
 permalink: /induction_proof/
 mathJax: true
 lessonID: "seq-06"
 
+previous_title: "المتتاليات، إتجاه التغير"
 previous_url: "/sequence_variation/"
-next_url: "/final_exam_seq/" # الرابط الختامي للمراجعة
+next_title: " محدودية المتتاليات، الأعلى والأسفل"
+next_url: "/bounded_sequences/"
 
 elements:
   - h3: "مراحل البرهان بالتراجع"
     parags:
       - rtl: "لإثبات صحة خاصية $P(n)$ من أجل كل $n \\geq n_0$، نتبع الخطوات الثلاث:"
 
-  - h4: "1. مرحلة التحقق (Initialisation)"
+  - h4: "1. مرحلة التحقق"
     parags:
       - rtl: "نتحقق من صحة الخاصية من أجل الحد الأول $n_0$ (غالباً 0 أو 1)."
 
-  - h4: "2. مرحلة الفرضية (Hérédité)"
+  - h4: "2. مرحلة الفرضية"
     parags:
       - rtl: "نفترض أن الخاصية $P(n)$ صحيحة من أجل عدد طبيعي $n$ كيفي، ونبرهن صحتها من أجل $n+1$."
 
