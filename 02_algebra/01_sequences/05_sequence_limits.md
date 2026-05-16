@@ -7,8 +7,10 @@ mathJax: true
 graph: true
 lessonID: "seq-08"
 
-previous_url: "/bounded_sequences/"
-next_url: "/sequences_summary/" # ملخص شامل أو تمارين
+previous_title: "المتتالية الهندسية."
+previous_url: "/geometric_seq/"
+next_title: "المتتاليات: إتجاه التغير"
+next_url: "/sequence_variation/" # ملخص شامل أو تمارين
 
 elements:
   - h3: "1. مفهوم التقارب"
