@@ -4,6 +4,7 @@ title: "المتتاليات، النهاية والتقارب"
 subtitle: "تحديد المستقر النهائي للمتتالية"
 permalink: /sequence_limits/
 mathJax: true
+graph: true
 lessonID: "seq-08"
 
 previous_url: "/bounded_sequences/"
