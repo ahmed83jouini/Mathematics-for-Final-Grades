@@ -10,8 +10,8 @@ lessonID: "exp-master-problems"
 previous_title: "الدوال الأصلية التي تشمل exp"
 previous_url: "/exp_primitives/"
 
-next_title: "انتقال إلى المحور القادم: الدوال الأصلية والتكامل"
-next_url: "/primitives_hub/"
+next_title: " المحور القادم: التزايد المقارن"
+next_url: "/growth_comparison_hub/"
 
 elements:
   - h3: "1. هيكلية المسألة الشاملة"
