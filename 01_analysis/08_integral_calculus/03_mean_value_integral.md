@@ -8,7 +8,7 @@ lessonID: "int-03"
 
 # روابط الاتصال
 previous_title: "المبحث 2: المبرهنة الأساسية"
-previous_url: "/fundamental_theorem/"
+previous_url: "/integral_fundamental_theorem/"
 
 next_title: "المبحث 4: الخطيّة وعلاقة شال"
 next_url: "/integral_properties/"
