@@ -74,8 +74,16 @@ const MathSovereign = {
                             fixed: el.fixed || true
                         });
                     } catch(e) { console.log('path drawing error : ' + e ); };
+                      
                 } else if (el.type === 'point') {
-                    try { b.create('point', [el.x, el.y], { size: el.size || 4, strokeColor: el.strokeColor || "red", fillColor: el.fillColor || '#fff', withLabel: false, fixed: true }); } catch(e) { console.log('point drawing error :' + e ); };
+                    try { b.create('point', [el.x, el.y], { 
+                          size: el.size || 4, 
+                          strokeColor: el.strokeColor || "red", 
+                          fillColor: el.fillColor || 'red', 
+                          withLabel: false, 
+                          fixed: el.fixed || true 
+                    }); } catch(e) { console.log('point drawing error :' + e ); };
+                      
                 } else if (el.type === 'text') {
                     // نعتمد على النصوص اليدوية فقط للتحكم الكامل
                     try { b.create('text', 
@@ -84,6 +92,7 @@ const MathSovereign = {
                               fontSize: 16, 
                               fixed: el.fixed || true }); 
                         } catch(e) { console.log('text drawing error :' + e ); };
+                      
                 } else if (el.type === 'line') {
                     try { b.create('line', el.points, {
                           strokeColor: el.color || "blue", 
