@@ -6,7 +6,9 @@ permalink: /arithmetic_seq/
 mathJax: true
 lessonID: "seq-03"
 
+previous_title: "تعريف المتتاليات بين الصراحة والتراجع"
 previous_url: "/seq_generation/"
+next_title: "المتتالية الهندسية"
 next_url: "/geometric_seq/"
 
 elements:
