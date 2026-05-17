@@ -1,12 +1,15 @@
 ---
 layout: lesson
-title: "مبرهنة بيزو (Bézout)"
+title: "المبحث 7: مبرهنة بيزو (Bézout) والمعادلات"
 subtitle: "المعادلات الخطية والقواسم المشتركة"
 permalink: /bezout_theorem/
 mathJax: true
+graph: true
 lessonID: "arith-07"
 
+previous_title: "المبحث 6: الأعداد الأولية فيما بينها"
 previous_url: "/coprime_numbers/"
+next_title: "المبحث 8: مبرهنة غوص (Gauss) وتطبيقاتها"
 next_url: "/gauss_theorem/"
 
 elements:
@@ -32,18 +35,27 @@ elements:
   - parags:
       - rtl: "تقبل المعادلة $au + bv = c$ حلولاً في $\\mathbb{Z}^2$ إذا وفقط إذا كان $PGCD(a, b)$ <b>يقسم</b> العدد $c$."
 
-  - graph-container:
+  - graph:
       id: "bezout-line"
-      data-graph-config: >
-        {
-          "type": "linear-combination",
-          "a": 5,
-          "b": 3,
-          "target": 1,
-          "u": 2,
-          "v": -3,
-          "annotations": [{"label": "5(2) + 3(-3) = 10 - 9 = 1"}]
-        }
+      class: "graph-container"
+      xDomain: [-2, 12]
+      yDomain: [-2, 4]
+      elements:
+        # تمثيل التشكيلة الخطية هندسياً على المحور للمثال 5(2) + 3(-3) = 1
+        - { type: "line", points: [[-2, 0], [12, 0]], color: "gray" }
+        # القفزة الأولى للأمام: 5 × 2 = 10
+        - { type: "point", x: 10, y: 0, strokeColor: "blue", fillColor: "blue", size: 2 }
+        - { type: "text", content: "5 × (2) = 10", x: 8.5, y: 0.8, color: "blue" }
+        - { type: "line", points: [[0, 0.4], [10, 0.4]], color: "blue", arrowStart: false, arrowEnd: true }
+        
+        # القفزة الثانية للخلف: 3 × (-3) = -9 لتستقر عند النقطة 1
+        - { type: "point", x: 1, y: 0, strokeColor: "#168574", fillColor: "#168574", size: 3 }
+        - { type: "text", content: "الهدف دقيق: 1", x: 0.8, y: -0.8, color: "#168574" }
+        - { type: "line", points: [[10, 1.2], [1, 1.2]], color: "orange", arrowStart: false, arrowEnd: true }
+        - { type: "text", content: "3 × (-3) = -9", x: 4, y: 1.6, color: "orange" }
+        
+        # نص بيداغوجي توضيحي
+        - { type: "text", content: "المعاملات u و v هي خطوات توجيهية للوصول إلى الـ PGCD على المحور العددي", x: -1, y: -1.8, color: "#eee" }
 
   - NB:
       title: "تنبيه الأرتيزان:"
