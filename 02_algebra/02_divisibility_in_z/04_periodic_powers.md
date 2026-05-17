@@ -1,12 +1,15 @@
 ---
 layout: lesson
-title: "دوريات قوى عدد طبيعي"
+title: "المبحث 4: دوريات قوى عدد طبيعي وبواقي القسمة"
 subtitle: "اكتشاف التكرار المنتظم للبواقي"
 permalink: /periodic_powers/
 mathJax: true
+graph: true
 lessonID: "arith-04"
 
+previous_title: "المبحث 3: الموافقات في Z (التعريف والخواص)"
 previous_url: "/congruences_basics/"
+next_title: "المبحث 5: خوارزمية إقليدس والـ PGCD"
 next_url: "/pgcd_algorithm/"
 
 elements:
@@ -24,19 +27,11 @@ elements:
   - h3: "2. جدول البواقي"
   - parags:
       - rtl: "لتلخيص الدراسة، نستخدم جدولاً يربط قيم $n$ بالبواقي الموافقة لها:"
-  - tableLines:
-      dir: rtl
-      lines:
-        - - th: "قيمة $n$"
-          - td: "$4k$"
-          - td: "$4k+1$"
-          - td: "$4k+2$"
-          - td: "$4k+3$"
-        - - th: "باقي قسمة $3^n$ على $10$"
-          - td: "$1$"
-          - td: "$3$"
-          - td: "$9$"
-          - td: "$7$"
+
+  - table:
+      headers: ["قيمة $n$", "$4k$", "$4k+1$", "$4k+2$", "$4k+3$"]
+      rows:
+          - ["باقي قسمة $3^n$ على $10$", "$1$", "$3$", "$9$", "$7$"]
 
   - h3: "3. التعامل مع الأسس الضخمة"
   - parags:
@@ -45,15 +40,32 @@ elements:
       - rtl: "بما أن الباقي هو 2، فإننا ننظر إلى الخانة $4k+2$ في الجدول:"
       - center: "$3^{2026} \\equiv 3^2 \\equiv 9 \\pmod{10}$"
 
-  - graph-container:
+  - graph:
       id: "power-cycle-viz"
-      data-graph-config: >
-        {
-          "type": "cycle-diagram",
-          "modulo": 10,
-          "sequence": [1, 3, 9, 7],
-          "annotations": [{"label": "الدورة تتكرر كل 4 خطوات"}]
-        }
+      class: "graph-container"
+      xDomain: [-3, 3]
+      yDomain: [-3, 3]
+      elements:
+        # رسم الحلقة الدورية الرباعية للبواقي (1 -> 3 -> 9 -> 7)
+        - { type: "circle", center: [0, 0], radius: 1.8, color: "gray", dash: 2 }
+        # الباقي 1
+        - { type: "point", x: 1.8, y: 0, strokeColor: "#168574", fillColor: "#168574", size: 3 }
+        - { type: "text", content: "1 (n=4k)", x: 2.0, y: 0.2, color: "#168574" }
+        # الباقي 3
+        - { type: "point", x: 0, y: 1.8, strokeColor: "blue", fillColor: "blue", size: 3 }
+        - { type: "text", content: "3 (n=4k+1)", x: -0.5, y: 2.1, color: "blue" }
+        # الباقي 9
+        - { type: "point", x: -1.8, y: 0, strokeColor: "orange", fillColor: "orange", size: 3 }
+        - { type: "text", content: "9 (n=4k+2)", x: -2.8, y: -0.3, color: "orange" }
+        # الباقي 7
+        - { type: "point", x: 0, y: -1.8, strokeColor: "purple", fillColor: "purple", size: 3 }
+        - { type: "text", content: "7 (n=4k+3)", x: -0.5, y: -2.2, color: "purple" }
+        # أسهم التوجيه لتوضيح مسار الحركة الدورية
+        - { type: "line", points: [[1.3, 1.3], [0.2, 1.7]], color: "green", arrowStart: false, arrowEnd: true }
+        - { type: "line", points: [[-1.3, 1.3], [-1.7, 0.2]], color: "green", arrowStart: false, arrowEnd: true }
+        - { type: "line", points: [[-1.3, -1.3], [-0.2, -1.7]], color: "green", arrowStart: false, arrowEnd: true }
+        - { type: "line", points: [[1.3, -1.3], [1.7, -0.2]], color: "green", arrowStart: false, arrowEnd: true }
+        - { type: "text", content: "مسار التكرار الدوري للبواقي (الدور k = 4)", x: -2.5, y: -2.8, color: "#eee" }
 
   - NB:
       title: "قاعدة ذهبية:"
