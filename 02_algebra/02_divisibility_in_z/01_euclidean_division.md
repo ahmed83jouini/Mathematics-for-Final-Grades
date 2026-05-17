@@ -4,9 +4,12 @@ title: "القسمة الإقليدية في Z"
 subtitle: "البنية الأساسية للأعداد الصحيحة"
 permalink: /euclidean_division/
 mathJax: true
+graph: true
 lessonID: "arith-01"
 
-previous_url: "/arithmetic_hub/"
+previous_title: "خارطة طريق الأعداد والحساب"
+previous_url: "/divisibility_in_Z_hub/"
+next_title: "القواسم والمضاعفات وخواصها"
 next_url: "/divisors_multiples/"
 
 elements:
@@ -31,20 +34,24 @@ elements:
       - center: "$-17 = 5 \\times (-4) + 3$"
       - rtl: "نلاحظ أننا اخترنا $-4$ وليس $-3$ ليكون الباقي $3$ (موجب)."
 
-  - graph-container:
+  - graph:
       id: "div-viz"
-      data-graph-config: >
-        {
-          "xDomain": [-20, 20],
-          "yDomain": [-2, 2],
-          "type": "number-line",
-          "markers": [
-            {"x": -17, "label": "a = -17", "color": "red"},
-            {"x": -20, "label": "5 * (-4)", "color": "blue"},
-            {"x": -15, "label": "5 * (-3)", "color": "gray"}
-          ],
-          "annotations": [{"label": "الباقي هو المسافة الموجبة من المضاعف الأقل"}]
-        }
+      class: "graph-container"
+      xDomain: [-25, 5]
+      yDomain: [-2, 4]
+      elements:
+        # المحور الأفقي العددي
+        - { type: "line", points: [[-25, 0], [5, 0]], color: "gray" }
+        # تمثيل المضاعف الأدنى ومضاعف التجاوز والمقسوم
+        - { type: "point", x: -20, y: 0, strokeColor: "blue", fillColor: "blue", size: 2 }
+        - { type: "text", content: "5 × (-4) = -20", x: -20, y: -0.8, color: "blue" }
+        - { type: "point", x: -17, y: 0, strokeColor: "red", fillColor: "red", size: 2 }
+        - { type: "text", content: "a = -17", x: -17, y: 0.8, color: "red" }
+        - { type: "point", x: -15, y: 0, strokeColor: "gray", fillColor: "none", size: 2 }
+        - { type: "text", content: "5 × (-3) = -15", x: -15, y: -0.8, color: "gray" }
+        # سهم يوضح المسافة الموجبة للباقي (من -20 إلى -17 طولها 3)
+        - { type: "line", points: [[-20, 1.5], [-17, 1.5]], color: "green", arrowStart: false, arrowEnd: true }
+        - { type: "text", content: "الباقي r = 3 (المسافة الموجبة)", x: -18.5, y: 2, color: "green" }
 
   - NB:
       title: "تنبيه تقني:"
