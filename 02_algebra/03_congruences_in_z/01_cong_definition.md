@@ -1,12 +1,15 @@
 ---
 layout: lesson
-title: "تعريف الموافقة بترديد n"
+title: "المبحث 1: تعريف الموافقة بترديد n"
 subtitle: "الأساس الرياضي للحساب النمطي"
 permalink: /cong_definition/
 mathJax: true
+graph: true
 lessonID: "cong-01"
 
+previous_title: "خارطة طريق حساب الموافقات"
 previous_url: "/congruences_hub/"
+next_title: "المبحث 2: الخواص الأساسية (الجمع والضرب)"
 next_url: "/cong_properties/"
 
 elements:
@@ -29,15 +32,33 @@ elements:
       - rtl: "• إذا كان $a$ مضاعفاً لـ $n$، فإن:"
       - center: "$a \\equiv 0 \\pmod{n}$"
 
-  - graph-container:
+  - graph:
       id: "congruence-mod"
-      data-graph-config: >
-        {
-          "type": "modulo-visualization",
-          "modulo": 5,
-          "values": [2, 7, 12],
-          "annotations": [{"label": "الأعداد 2، 7، 12 كلها متوافقة بترديد 5"}]
-        }
+      class: "graph-container"
+      xDomain: [-2, 15]
+      yDomain: [-2, 3]
+      elements:
+        # رسم المحور العددي المستقيم لتوضيح القفزات المنتظمة للترديد 5 (Modulo Visualization)
+        - { type: "line", points: [[-2, 0], [15, 0]], color: "gray" }
+        
+        # النقطة المرجعية الأولى 2
+        - { type: "point", x: 2, y: 0, strokeColor: "#168574", fillColor: "#168574", size: 3 }
+        - { type: "text", content: "2", x: 2, y: -0.6, color: "#168574" }
+        
+        # قفزة بطول 5 للوصول إلى 7
+        - { type: "line", points: [[2, 0.5], [7, 0.5]], color: "blue", arrowStart: false, arrowEnd: true }
+        - { type: "text", content: "+5", x: 4.2, y: 0.8, color: "blue" }
+        - { type: "point", x: 7, y: 0, strokeColor: "#168574", fillColor: "#168574", size: 3 }
+        - { type: "text", content: "7", x: 7, y: -0.6, color: "#168574" }
+        
+        # قفزة ثانية بطول 5 للوصول إلى 12
+        - { type: "line", points: [[7, 0.5], [12, 0.5]], color: "blue", arrowStart: false, arrowEnd: true }
+        - { type: "text", content: "+5", x: 9.2, y: 0.8, color: "blue" }
+        - { type: "point", x: 12, y: 0, strokeColor: "#168574", fillColor: "#168574", size: 3 }
+        - { type: "text", content: "12", x: 12, y: -0.6, color: "#168574" }
+        
+        # نصوص بيداغوجية توضح أن المسافة بين النماذج ثابتة وهي مضاعفات الترديد
+        - { type: "text", content: "2 ≡ 7 ≡ 12 [5] لأن الفروق بينها من مضاعفات 5 تماماً", x: 0, y: 1.8, color: "#eee" }
 
   - NB:
       title: "تذكير الأرتيزان:"
