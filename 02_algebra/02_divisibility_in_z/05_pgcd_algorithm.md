@@ -1,12 +1,15 @@
 ---
 layout: lesson
-title: "خوارزمية إقليدس والـ PGCD"
+title: "المبحث 5: خوارزمية إقليدس والـ PGCD"
 subtitle: "البحث عن القاسم المشترك الأكبر بنجاعة"
 permalink: /pgcd_algorithm/
 mathJax: true
+graph: true
 lessonID: "arith-05"
 
+previous_title: "المبحث 4: دوريات قوى عدد طبيعي وبواقي القسمة"
 previous_url: "/periodic_powers/"
+next_title: "المبحث 6: الأعداد الأولية فيما بينها"
 next_url: "/coprime_numbers/"
 
 elements:
@@ -34,16 +37,33 @@ elements:
       - rtl: "• إذا كان $d = PGCD(a, b)$، فإنه يوجد عددان $a'$ و $b'$ أوليان فيما بينهما بحيث:"
       - center: "$a = da' \\quad \\text{و} \\quad b = db'$"
 
-  - graph-container:
+  - graph:
       id: "euclidean-algorithm-viz"
-      data-graph-config: >
-        {
-          "type": "rect-filling",
-          "width": 252,
-          "height": 105,
-          "step_labels": ["42", "21"],
-          "annotations": [{"label": "الـ PGCD هو طول ضلع أكبر مربع يمكنه ملء المستطيل تماماً"}]
-        }
+      class: "graph-container"
+      xDomain: [-10, 270]
+      yDomain: [-10, 120]
+      elements:
+        # رسم المستطيل الكبير (252 × 105) لتمثيل خوارزمية ملء المستطيل بالمربعات هندسياً
+        - { type: "line", points: [[0, 0], [252, 0]], color: "gray" }
+        - { type: "line", points: [[252, 0], [252, 105]], color: "gray" }
+        - { type: "line", points: [[252, 105], [0, 105]], color: "gray" }
+        - { type: "line", points: [[0, 105], [0, 0]], color: "gray" }
+        # المربع الأول (105 × 105)
+        - { type: "line", points: [[105, 0], [105, 105]], color: "blue", dash: 1 }
+        - { type: "text", content: "مربع 105", x: 30, y: 50, color: "blue" }
+        # المربع الثاني (105 × 105) ابتداءً من 105 إلى 210
+        - { type: "line", points: [[210, 0], [210, 105]], color: "blue", dash: 1 }
+        - { type: "text", content: "مربع 105", x: 135, y: 50, color: "blue" }
+        # المستطيل المتبقي (42 × 105) من 210 إلى 252، نملأه بمربعين (42 × 42)
+        # المربع الأول في الباقي (42 × 42) في الأسفل
+        - { type: "line", points: [[210, 42], [252, 42]], color: "orange", dash: 1 }
+        - { type: "text", content: "42", x: 225, y: 20, color: "orange" }
+        # المربع الثاني في الباقي (42 × 42) في الأعلى
+        - { type: "line", points: [[210, 84], [252, 84]], color: "orange", dash: 1 }
+        - { type: "text", content: "42", x: 225, y: 60, color: "orange" }
+        # الجزء الأخير المتبقي (42 × 21) يملأه تماماً مربعان طول ضلعهما 21 وهو الـ PGCD
+        - { type: "text", content: "21", x: 225, y: 92, color: "#168574" }
+        - { type: "text", content: "الـ PGCD هو ضلع أصغر مربع يملأ المساحة تماماً: 21", x: 10, y: -8, color: "#eee" }
 
   - NB:
       title: "نصيحة الأرتيزان:"
